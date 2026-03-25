@@ -114,7 +114,19 @@
     .bridge { padding: 60px 6vw; }
     .footer { padding: 60px 6vw; }
   }
-</style>
+
+  /* COUNTDOWN TREATMENT */
+  .deadline-countdown {
+    font-family: 'Trebuchet MS', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #AC9379;
+    margin-top: 6px;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  </style>
 </head>
 <body>
 
@@ -279,6 +291,23 @@ document.querySelector('form').addEventListener('submit', function(e) {
   alert('Thank you, ' + name + '! Check your inbox at ' + email + ' for the Governance Kit.');
   this.reset();
 });
+
+// Countdown timers
+(function() {
+  document.querySelectorAll('.deadline-countdown').forEach(function(el) {
+    var deadline = new Date(el.dataset.deadline + 'T00:00:00');
+    var now = new Date();
+    var diff = deadline - now;
+    var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    if (days > 0) {
+      el.textContent = days + ' days away';
+    } else if (days === 0) {
+      el.textContent = 'Today';
+    } else {
+      el.textContent = 'In effect';
+    }
+  });
+})();
 </script>
 </body>
 </html>
