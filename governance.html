@@ -157,6 +157,96 @@
     100% { transform: translateY(-100vh) scale(1); opacity: 0; }
   }
 
+
+  /* STAGGERED CARD REVEAL */
+  .grid-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .grid-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .grid-item:nth-child(1) { transition-delay: 0s; }
+  .grid-item:nth-child(2) { transition-delay: 0.15s; }
+  .grid-item:nth-child(3) { transition-delay: 0.3s; }
+  .grid-item:nth-child(4) { transition-delay: 0.45s; }
+  .grid-item:nth-child(5) { transition-delay: 0.6s; }
+  .grid-item:nth-child(6) { transition-delay: 0.75s; }
+
+  /* GRADIENT PULSE on editorial opening */
+  @keyframes gradientPulse {
+    0%, 100% { background-color: #F2EDE9; }
+    50% { background-color: #EDE6DF; }
+  }
+  .editorial-open {
+    animation: gradientPulse 6s ease-in-out infinite;
+  }
+
+  /* FOUNDATION BLOCKS */
+  .foundation-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 6px;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1;
+    margin-left: auto;
+    align-self: center;
+  }
+  .f-block {
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: blockDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes blockDrop {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  /* Bottom row - fills first (foundation) */
+  .f-block:nth-child(13) { animation-delay: 0.3s; background: #AC9379; }
+  .f-block:nth-child(14) { animation-delay: 0.45s; background: #AC9379; }
+  .f-block:nth-child(15) { animation-delay: 0.6s; background: #967F67; }
+  .f-block:nth-child(16) { animation-delay: 0.75s; background: #AC9379; }
+  /* Third row */
+  .f-block:nth-child(9) { animation-delay: 1.0s; background: #7A8B6F; }
+  .f-block:nth-child(10) { animation-delay: 1.15s; background: #AC9379; opacity: 0.7; }
+  .f-block:nth-child(11) { animation-delay: 1.3s; background: #7A8B6F; }
+  .f-block:nth-child(12) { animation-delay: 1.45s; background: transparent; }
+  /* Second row */
+  .f-block:nth-child(5) { animation-delay: 1.7s; background: #DDD7D0; }
+  .f-block:nth-child(6) { animation-delay: 1.85s; background: #AC9379; opacity: 0.5; }
+  .f-block:nth-child(7) { animation-delay: 2.0s; background: transparent; }
+  .f-block:nth-child(8) { animation-delay: 2.15s; background: transparent; }
+  /* Top row - sparse (still building) */
+  .f-block:nth-child(1) { animation-delay: 2.4s; background: #DDD7D0; opacity: 0.4; }
+  .f-block:nth-child(2) { animation-delay: 2.55s; background: transparent; }
+  .f-block:nth-child(3) { animation-delay: 2.7s; background: transparent; }
+  .f-block:nth-child(4) { animation-delay: 2.85s; background: transparent; }
+
+  /* After all blocks land, pulse the foundation row */
+  @keyframes blockPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+  .f-block:nth-child(13), .f-block:nth-child(14), 
+  .f-block:nth-child(15), .f-block:nth-child(16) {
+    animation: blockDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+               blockPulse 3s ease-in-out 3.5s infinite;
+  }
+
+  @media (max-width: 768px) {
+    .foundation-blocks {
+      max-width: 200px;
+      margin: 24px auto 0;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -369,6 +459,21 @@ document.querySelector('form').addEventListener('submit', function(e) {
       var offset = (prog - 0.5) * -20;
       dlContent.style.transform = 'translateY(' + offset + 'px)';
     }
+  });
+})();
+
+
+// Staggered card reveal
+(function() {
+  var cardObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.grid-item').forEach(function(el) {
+    cardObserver.observe(el);
   });
 })();
 
