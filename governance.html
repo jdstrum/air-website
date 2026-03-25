@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Governance Gap — AI Resulting</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
+  body { color: #2F2F2F; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #FDFBF9; }
+
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
+  .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+  .nav-logo .mark { background: #2F2F2F; color: #AC9379; font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
+  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; }
+  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
+  .nav-links a:hover { color: #AC9379; }
+  .nav-links a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-links .nav-cta { background: #AC9379; color: #FDFBF9; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
+  .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
+  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+  .editorial-open { background: #F2EDE9; padding: 130px 8vw 72px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; }
+  .editorial-left {}
+  .editorial-open .page-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 28px; display: block; }
+  .editorial-open h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(26px, 3.2vw, 38px); font-weight: 700; line-height: 1.25; color: #2F2F2F; letter-spacing: -0.02em; }
+  .editorial-abstract { font-size: 16px; color: #7a7468; line-height: 1.75; font-style: italic; border-left: 2px solid #AC9379; padding-left: 24px; }
+  @media (max-width: 768px) { .editorial-open { grid-template-columns: 1fr; gap: 32px; padding: 110px 6vw 56px; } .editorial-abstract { border-left: none; padding-left: 0; border-top: 2px solid #AC9379; padding-top: 20px; } }
+
+  .governance-grid { padding: 64px 8vw 80px; }
+  .governance-grid h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 40px; letter-spacing: -0.02em; }
+  .grid-items { max-width: 960px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px 56px; }
+  .grid-item { display: flex; flex-direction: column; }
+  .grid-item h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 8px; letter-spacing: 0.03em; }
+  .grid-item p { font-size: 15px; color: #2F2F2F; line-height: 1.65; }
+  @media (max-width: 768px) { .grid-items { grid-template-columns: 1fr; gap: 28px; } }
+
+  .gateway-section { background: #2F2F2F; padding: 80px 8vw; color: #FDFBF9; }
+  .gateway-inner { max-width: 760px; }
+  .gateway-section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; }
+  .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
+  .gateway-section .gateway-lede { font-size: 17px; color: #DDD7D0; line-height: 1.75; margin-bottom: 40px; }
+  .gateway-points { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; }
+  .gateway-point h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 6px; }
+  .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
+  @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
+
+  .regulatory { padding: 80px 8vw; max-width: 100%; }
+  .regulatory-inner { max-width: 760px; }
+  .regulatory h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 28px; letter-spacing: -0.02em; line-height: 1.2; }
+  .regulatory-intro { font-size: 16px; color: #4a4a4a; line-height: 1.75; margin-bottom: 40px; }
+  .deadlines { display: flex; gap: 48px; margin-bottom: 48px; }
+  .deadline { display: flex; flex-direction: column; gap: 4px; }
+  .deadline-date { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #AC9379; }
+  .deadline-what { font-size: 14px; color: #9A9488; font-weight: 500; }
+  .requirements-list { list-style: none; }
+  .requirements-list li { font-size: 15px; color: #2F2F2F; line-height: 1.7; margin-bottom: 16px; padding-left: 20px; border-left: 2px solid #DDD7D0; }
+  .requirements-list li strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  @media (max-width: 768px) { .deadlines { flex-direction: column; gap: 20px; } }
+
+  .download-section { background: #F2EDE9; padding: 80px 8vw; }
+  .download-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; }
+  .download-content h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .download-content .dl-intro { font-size: 16px; color: #4a4a4a; line-height: 1.7; margin-bottom: 32px; }
+  .kit-list { list-style: none; }
+  .kit-list li { font-size: 15px; color: #2F2F2F; line-height: 1.8; margin-bottom: 10px; padding-left: 18px; position: relative; }
+  .kit-list li::before { content: '\2192'; position: absolute; left: 0; color: #AC9379; font-weight: 600; }
+  .gated-form { display: flex; flex-direction: column; justify-content: center; }
+  .gated-form form { display: flex; flex-direction: column; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 13px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-group input { background: #FDFBF9; border: 1px solid #DDD7D0; border-radius: 5px; padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #2F2F2F; transition: all 0.3s; }
+  .form-group input::placeholder { color: #bbb5ad; }
+  .form-group input:focus { outline: none; border-color: #AC9379; background: #fff; }
+  .btn-download { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: none; cursor: pointer; width: 100%; text-align: center; margin-top: 4px; }
+  .btn-download:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.2); }
+  .form-note { font-size: 13px; color: #9A9488; margin-top: 6px; }
+  @media (max-width: 768px) { .download-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+  .bridge { padding: 80px 8vw; text-align: center; }
+  .bridge h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; }
+  .bridge p { font-size: 16px; color: #4a4a4a; line-height: 1.7; max-width: 480px; margin: 0 auto 36px; }
+  .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+
+  .footer { background: #2F2F2F; padding: 60px 8vw; text-align: center; border-top: 1px solid rgba(221,215,208,0.1); }
+  .footer-brand { display: inline-flex; align-items: center; margin-bottom: 16px; }
+  .footer-brand .mark { background: #FDFBF9; color: #AC9379; font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
+  .footer-brand .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; }
+  .footer-brand .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #FDFBF9; }
+  .tagline { font-size: 13px; color: #AC9379; font-style: italic; margin-bottom: 24px; }
+  .footer-links { font-size: 13px; color: #9A9488; }
+  .footer-links a { color: #9A9488; text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: #AC9379; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  .section-divider { width: 60px; height: 2px; background: #DDD7D0; margin: 0 8vw; }
+
+  @media (max-width: 768px) {
+    .site-nav { padding: 16px 6vw; }
+    .governance-grid { padding: 48px 6vw 60px; }
+    .section-divider { margin: 0 6vw; }
+    .regulatory { padding: 60px 6vw; }
+    .download-section { padding: 60px 6vw; }
+    .bridge { padding: 60px 6vw; }
+    .footer { padding: 60px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
+  </a>
+  <div class="nav-links">
+    <a href="/governance" class="active">The Governance Gap</a>
+    <a href="#">Field Notes</a>
+    <a href="/#assessment" class="nav-cta">See Where You Stand</a>
+  </div>
+</nav>
+
+<section class="editorial-open">
+  <div class="editorial-left">
+    <span class="page-label reveal">The Governance Gap</span>
+    <h1 class="reveal reveal-delay-1">Governance is how you secure your AI environment. It's also how you pull ahead of everyone who hasn't.</h1>
+  </div>
+  <p class="editorial-abstract reveal reveal-delay-2">What governance looks like in practice. The secure AI gateway opportunity. The regulatory deadlines approaching. And a free governance kit to get you started.</p>
+</section>
+
+<section class="governance-grid">
+  <h2 class="reveal">What governance actually looks like.</h2>
+  <div class="grid-items">
+    <div class="grid-item reveal reveal-delay-1">
+      <h3>AI tool visibility</h3>
+      <p>A complete picture of which AI tools are in your environment, which are sanctioned, and which showed up on their own.</p>
+    </div>
+    <div class="grid-item reveal reveal-delay-2">
+      <h3>Data classification</h3>
+      <p>Clear rules for what data can go where. What's safe for public AI tools, what stays internal, and what never leaves the building.</p>
+    </div>
+    <div class="grid-item reveal reveal-delay-1">
+      <h3>Acceptable use policies</h3>
+      <p>Operational guidelines employees actually follow because they're clear, specific, and built around how people already work.</p>
+    </div>
+    <div class="grid-item reveal reveal-delay-2">
+      <h3>Shadow AI detection</h3>
+      <p>The tools you didn't approve are already in your environment. Governance finds them so you can decide what to do about them.</p>
+    </div>
+    <div class="grid-item reveal reveal-delay-1">
+      <h3>Output verification</h3>
+      <p>AI generates confident output whether the information is accurate or not. Governance defines what gets human review before it goes out the door.</p>
+    </div>
+    <div class="grid-item reveal reveal-delay-2">
+      <h3>Enablement, not restriction</h3>
+      <p>Approved tool paths, clear escalation, fast tracks for governed innovation. The goal is policies that say yes more than they say no.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gateway-section">
+  <div class="gateway-inner">
+    <span class="section-label reveal">The Opportunity</span>
+    <h2 class="reveal reveal-delay-1">Every time your team uses a public AI tool, intelligence leaves the building.</h2>
+    <p class="gateway-lede reveal reveal-delay-2">Your employees are using ChatGPT, Gemini, Copilot, and Claude to draft strategies, analyze data, write proposals, and solve problems every day. That thinking is your company's intellectual capital. Without a secure AI gateway, it disappears into public models and you never see it again.</p>
+    <div class="gateway-points">
+      <div class="gateway-point reveal reveal-delay-1">
+        <h3>Capture institutional knowledge</h3>
+        <p>A governed gateway routes AI usage through your environment. The intelligence your team creates stays yours and compounds over time.</p>
+      </div>
+      <div class="gateway-point reveal reveal-delay-2">
+        <h3>Visibility into how AI is being used</h3>
+        <p>See what's being asked, what's being generated, and where the value is coming from. You can't optimize what you can't see.</p>
+      </div>
+      <div class="gateway-point reveal reveal-delay-1">
+        <h3>Data stays inside the perimeter</h3>
+        <p>Sensitive information, customer data, financials, IP. A gateway ensures none of it reaches public models.</p>
+      </div>
+      <div class="gateway-point reveal reveal-delay-2">
+        <h3>AI becomes a business asset</h3>
+        <p>The difference between AI as a cost center and AI as an asset is whether you're capturing the value it creates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="regulatory">
+  <div class="regulatory-inner">
+    <h2 class="reveal">The regulatory landscape is moving fast.</h2>
+    <p class="regulatory-intro reveal reveal-delay-1">In 2025, all 50 states introduced AI-related legislation for the first time. As of early 2026, 45 states have already introduced over 1,500 new bills this session. Two major compliance deadlines are approaching.</p>
+    <div class="deadlines reveal reveal-delay-2">
+      <div class="deadline">
+        <span class="deadline-date">June 30, 2026</span>
+        <span class="deadline-what">Colorado AI Act (SB 24-205)</span>
+      </div>
+      <div class="deadline">
+        <span class="deadline-date">August 2, 2026</span>
+        <span class="deadline-what">EU AI Act high-risk compliance</span>
+      </div>
+    </div>
+    <ul class="requirements-list">
+      <li class="reveal reveal-delay-2"><strong>AI governance policies</strong>Documented frameworks for how AI is used, approved, and monitored across the organization.</li>
+      <li class="reveal reveal-delay-2"><strong>Shadow AI inventory</strong>A complete picture of what AI tools employees are actually using, sanctioned or not.</li>
+      <li class="reveal reveal-delay-2"><strong>Impact assessments</strong>Formal review for any AI that touches hiring, lending, insurance, or customer-facing decisions.</li>
+      <li class="reveal reveal-delay-2"><strong>Human oversight protocols</strong>Defined processes ensuring a person reviews AI-generated outputs before they reach customers.</li>
+      <li class="reveal reveal-delay-2"><strong>Data governance</strong>Clear documentation of where data goes, how AI systems use it, and who has access.</li>
+      <li class="reveal reveal-delay-2"><strong>Consumer transparency</strong>Disclosure requirements so people know when AI is involved in decisions that affect them.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-inner">
+    <div class="download-content">
+      <h2 class="reveal">The AI Governance Kit</h2>
+      <p class="dl-intro reveal reveal-delay-1">A customizable governance starter kit built for mid-market companies. Covers the policies most organizations are missing.</p>
+      <ul class="kit-list">
+        <li class="reveal reveal-delay-2">AI Acceptable Use Policy template</li>
+        <li class="reveal reveal-delay-2">Data Classification Matrix</li>
+        <li class="reveal reveal-delay-2">AI Tool Authorization Framework</li>
+        <li class="reveal reveal-delay-2">Shadow AI detection guidance</li>
+        <li class="reveal reveal-delay-2">Incident response playbook</li>
+        <li class="reveal reveal-delay-2">Team rollout communication templates</li>
+      </ul>
+    </div>
+    <div class="gated-form">
+      <form>
+        <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
+        <div class="form-group"><label for="email">Work Email</label><input type="email" id="email" name="email" placeholder="your@company.com" required></div>
+        <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Company name"></div>
+        <div class="form-group"><label for="title">Title</label><input type="text" id="title" name="title" placeholder="Your role"></div>
+        <button type="submit" class="btn-download reveal reveal-delay-2">Download the Governance Kit</button>
+        <p class="form-note reveal reveal-delay-2">No sales pitch. Just the documents your leadership team is going to ask for.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bridge">
+  <h2 class="reveal">Governance is one of six dimensions of AI readiness.</h2>
+  <p class="reveal reveal-delay-1">See where your organization stands across all of them.</p>
+  <a href="/#assessment" class="btn-primary reveal reveal-delay-2">Take the Assessment</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
+  <p class="tagline reveal reveal-delay-1">Assess. Identify. Result.</p>
+  <div class="footer-links reveal reveal-delay-2"><a href="#">Privacy</a> &nbsp;&middot;&nbsp; <a href="#">Field Notes</a></div>
+</footer>
+
+<script>
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+(function() {
+  const nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+})();
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  alert('Thank you, ' + name + '! Check your inbox at ' + email + ' for the Governance Kit.');
+  this.reset();
+});
+</script>
+</body>
+</html>
