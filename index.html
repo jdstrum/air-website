@@ -21,9 +21,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ═══════════════════════════════════════
-     NAVIGATION
-     ═══════════════════════════════════════ */
   .site-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -110,9 +107,6 @@
     .nav-links a:not(.nav-cta) { display: none; }
   }
 
-  /* ═══════════════════════════════════════
-     SECTION 1: HERO
-     ═══════════════════════════════════════ */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -286,9 +280,6 @@
     50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
   }
 
-  /* ════════════════════════════════════════════════════════════════════════════════
-     SECTION 2: THE REALITY (STATS)
-     ════════════════════════════════════════════════════════════════════════════════ */
   .reality {
     background: #FDFBF9;
     padding: 120px 8vw;
@@ -350,9 +341,6 @@
     margin-top: 32px;
   }
 
-  /* ════════════════════════════════════════════════════════════════════════════════
-     SECTION 3: THE FOUNDATION (THESIS)
-     ════════════════════════════════════════════════════════════════════════════════ */
   .thesis {
     background: #2F2F2F;
     padding: 120px 8vw;
@@ -368,17 +356,28 @@
 
   .thesis-graphic {
     position: absolute;
-    right: 4vw;
+    right: 6vw;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    width: 340px;
-    height: 400px;
-  }
-
-  .thesis-graphic canvas {
-    width: 100%;
-    height: 100%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(172,147,121,0.3);
+    animation: ringPulse 8s ease-in-out infinite;
+    box-shadow:
+      0 0 0 35px transparent,
+      0 0 0 36px rgba(172,147,121,0.25),
+      0 0 0 75px transparent,
+      0 0 0 76px rgba(172,147,121,0.2),
+      0 0 0 120px transparent,
+      0 0 0 121px rgba(172,147,121,0.17),
+      0 0 0 168px transparent,
+      0 0 0 169px rgba(172,147,121,0.14),
+      0 0 0 218px transparent,
+      0 0 0 219px rgba(172,147,121,0.11),
+      0 0 0 270px transparent,
+      0 0 0 271px rgba(172,147,121,0.08);
   }
 
   .thesis h2 {
@@ -449,9 +448,6 @@
     font-weight: 400;
   }
 
-  /* ════════════════════════════════════════════════════════════════════════════════
-     SECTION 4: SIX DIMENSIONS
-     ════════════════════════════════════════════════════════════════════════════════ */
   .dimensions {
     background: #2F2F2F;
     padding: 120px 8vw;
@@ -537,9 +533,6 @@
     .dim-grid { grid-template-columns: 1fr; }
   }
 
-  /* ════════════════════════════════════════════════════════════════════════════════
-     SECTION 5: SEVEN LAYERS
-     ════════════════════════════════════════════════════════════════════════════════ */
   .layers {
     background: #2F2F2F;
     padding: 60px 8vw 120px;
@@ -627,7 +620,6 @@
     .layer-name-pill { font-size: 14px; padding: 6px 14px; }
   }
 
-  /* After-layers CTA */
   .layers-cta {
     margin-top: 64px;
     text-align: center;
@@ -640,12 +632,6 @@
     font-weight: 500;
   }
 
-  /* ════════════════════════════════════════════════════════════════════════════════
-     SECTION 6: ASSESSMENT (Single Path)
-     ════════════════════════════════════════════════════════════════════════════════ */
-  /* ════════════════════════════════════════════════════════════════════════════════
-     AI YOU'RE ALREADY PAYING FOR
-     ════════════════════════════════════════════════════════════════════════════════ */
   .already-paying {
     background: #F2EDE9;
     padding: 120px 8vw;
@@ -816,9 +802,6 @@
     border-radius: 6px;
   }
 
-  /* ═══════════════════════════════════════
-     SECTION 7: BRIDGE TO RESULTANT
-     ═══════════════════════════════════════ */
   .bridge-section {
     background: #F2EDE9;
     padding: 100px 8vw;
@@ -878,9 +861,6 @@
     box-shadow: 0 8px 32px rgba(47, 47, 47, 0.25);
   }
 
-  /* ═══════════════════════════════════════
-     SECTION 8: PATH TO CLARITY
-     ═══════════════════════════════════════ */
   .expect {
     background: #F2EDE9;
     padding: 100px 8vw;
@@ -934,9 +914,6 @@
     font-weight: 500;
   }
 
-  /* ═══════════════════════════════════════
-     FOOTER CTA
-     ═══════════════════════════════════════ */
   .footer-cta {
     background: #2F2F2F;
     padding: 120px 8vw;
@@ -993,9 +970,6 @@
 
   .footer-bottom a:hover { color: #AC9379; }
 
-  /* ═══════════════════════════════════════
-     SCROLL ANIMATIONS
-     ═══════════════════════════════════════ */
   .reveal {
     opacity: 0;
     transform: translateY(32px);
@@ -1012,32 +986,10 @@
     50% { transform: translateY(-50%) scale(1.06); opacity: 1; }
   }
 
-  @media (max-width: 1100px) {
-    .thesis-graphic {
-      position: relative;
-      right: auto;
-      top: auto;
-      transform: none;
-      width: 280px;
-      height: 320px;
-      margin: 40px auto 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .thesis-graphic {
-      width: 220px;
-      height: 260px;
-    }
-  }
-
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* ═══════════════════════════════════════
-     RESPONSIVE
-     ═══════════════════════════════════════ */
   @media (max-width: 768px) {
     .stat-row {
       flex-direction: column;
@@ -1052,9 +1004,6 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
-     NAVIGATION
-     ═══════════════════════════════════════ -->
 <nav class="site-nav">
   <a href="/" class="nav-logo">
     <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
@@ -1066,9 +1015,6 @@
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════
-     SECTION 1: HERO
-     ═══════════════════════════════════════ -->
 <section class="hero">
   <canvas id="heroCanvas"></canvas>
   <div class="hero-content">
@@ -1084,9 +1030,6 @@
   <div class="scroll-indicator"><span></span></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SECTION 2: THE REALITY
-     ═══════════════════════════════════════ -->
 <section class="reality">
   <h2 class="reveal">Your employees already use AI. Your company should be benefitting from it.</h2>
   <div class="stat-block reveal">
@@ -1106,11 +1049,8 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SECTION 3: THE FOUNDATION
-     ═══════════════════════════════════════ -->
 <section class="thesis">
-  <div class="thesis-graphic"><canvas id="tetris-canvas"></canvas></div>
+  <div class="thesis-graphic"></div>
   <div class="thesis-inner reveal">
     <h2>You can't build a house without a foundation.
       <span class="accent">AI is no different.</span>
@@ -1127,9 +1067,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SECTION 4: SIX DIMENSIONS
-     ═══════════════════════════════════════ -->
 <section class="dimensions" id="dimensions">
   <h2 class="reveal">Six dimensions of AI readiness.</h2>
   <p class="intro reveal">AI readiness can be measured across six different silos.</p>
@@ -1151,7 +1088,7 @@
     </div>
     <div class="dim-card reveal reveal-delay-2">
       <span class="dim-icon">04</span>
-      <h3>Governance &amp; Security</h3>
+      <h3>Governance & Security</h3>
       <p>Are policies in place for responsible AI deployment?</p>
     </div>
     <div class="dim-card reveal reveal-delay-2">
@@ -1161,15 +1098,12 @@
     </div>
     <div class="dim-card reveal reveal-delay-3">
       <span class="dim-icon">06</span>
-      <h3>Workforce &amp; Culture Readiness</h3>
+      <h3>Workforce & Culture Readiness</h3>
       <p>Is your team prepared to adopt and champion AI?</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SECTION 5: SEVEN LAYERS
-     ═══════════════════════════════════════ -->
 <section class="layers" id="layers">
   <h2 class="reveal">Seven layers. The full architecture.</h2>
   <p class="intro reveal">These are the capabilities your organization needs in place. Together, they form the foundation that every AI initiative will stand on.</p>
@@ -1197,391 +1131,232 @@
     <div class="layer-row reveal reveal-delay-2">
       <div class="layer-num">05</div>
       <div><span class="layer-name-pill">Connectivity</span></div>
-      <div class="layer-outcome">Network, cloud, compute. The plumbing.</div>
+      <div class="layer-outcome">Network, cloud, compute. The infrastructure that everything else runs on.</div>
     </div>
-    <div class="layer-row reveal reveal-delay-2">
+    <div class="layer-row reveal reveal-delay-3">
       <div class="layer-num">06</div>
-      <div><span class="layer-name-pill">Security &amp; Compliance</span></div>
-      <div class="layer-outcome">Risk controls, audit trails, responsibility frameworks.</div>
+      <div><span class="layer-name-pill">Scale</span></div>
+      <div class="layer-outcome">CX platforms, production AI, cross-functional deployment. Where readiness becomes results.</div>
     </div>
     <div class="layer-row reveal reveal-delay-3">
       <div class="layer-num">07</div>
-      <div><span class="layer-name-pill">Scaling</span></div>
-      <div class="layer-outcome">Consolidation and scale. This is where AI becomes a business capability, not a department project.</div>
+      <div><span class="layer-name-pill">Continuous</span></div>
+      <div class="layer-outcome">Security, monitoring, endpoint governance. The layer that never sleeps.</div>
     </div>
   </div>
-  <div class="layers-cta">
-    <p>This is the foundation AI actually needs. Call it The 7-Layer AI Stack.</p>
-    <a href="#assessment" class="btn-primary">Find Your Gaps</a>
+  <div class="layers-cta reveal">
+    <p>Seven layers. How many has your organization built?</p>
+    <a href="#assessment" class="btn-primary">How Does Yours Stack Up</a>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SECTION 6: ALREADY PAYING
-     ═══════════════════════════════════════ -->
 <section class="already-paying">
-  <div class="reveal">
-    <h2>You're already paying for AI.  <br>Most of it is being wasted.</h2>
-    <p class="section-sub">Your employees are using AI. Your salesforce has it. Your ERP has it. Your marketing platform uses it. That's millions a year in subscriptions already in your budget. The only question is: are you capturing any value from it?</p>
-  </div>
+  <h2 class="reveal">You're paying for AI<br>you're not using.</h2>
+  <p class="section-sub reveal">Most mid-market companies have AI capabilities embedded in platforms they already own. Productivity suites, CRMs, cloud infrastructure, security tools — the vendors built it in. But without a readiness framework to activate it, those capabilities sit dormant while the invoices keep coming.</p>
   <div class="vendor-categories reveal">
-    <div class="vendor-pill"><span class="pill-icon"></span>CRM Tools</div>
-    <div class="vendor-pill"><span class="pill-icon"></span>ERP Systems</div>
-    <div class="vendor-pill"><span class="pill-icon"></span>Marketing Platforms</div>
-    <div class="vendor-pill"><span class="pill-icon"></span>Office Suites</div>
-    <div class="vendor-pill"><span class="pill-icon"></span>Analytics Platforms</div>
-    <div class="vendor-pill"><span class="pill-icon"></span>Collaboration Tools</div>
-    <div class="vendor-pill"><span class="pill-icon"></span>Code Environments</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Productivity & Collaboration</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>CRM & Revenue</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Cloud & Infrastructure</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Security & Compliance</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Contact Center & CX</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Data & Analytics</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Network & Connectivity</div>
   </div>
-  <p class="pressure-line reveal">Without governance, these tools become shadow IT. Without integration, their intelligence never reaches your business. Without the layers below them, they can't perform.</p>
+  <p class="pressure-line reveal">The question isn't whether you need more AI tools. It's whether you're getting anything from the ones you already have.</p>
   <div class="cta-row reveal">
-    <a href="#assessment" class="btn-primary-sand">Take the Assessment</a>
-    <a href="governance.html" class="btn-ghost">Learn About Governance</a>
+    <a href="ai-stack.html" class="btn-primary-sand">See What You're Missing</a>
   </div>
 </section>
 
 <section class="assessment-section" id="assessment">
-  <h2 class="reveal">Where do you actually stand?</h2>
-  <p class="assessment-intro reveal">This assessment measures your organization across the Six Dimensions of AI Readiness. You'll see where you're strong, where you have gaps, and exactly what moving the needle will require.</p>
+  <h2 class="reveal">Measure your AI readiness.</h2>
+  <p class="assessment-intro reveal">A focused assessment that maps your organization across all six dimensions of readiness — and shows you exactly what's working, what's missing, and what to do about it.</p>
   <div class="assessment-card reveal">
-    <h3>Strategic Vision &amp; Leadership</h3>
-    <p>Does your organization have a clear, documented AI vision that connects to business outcomes? Are your executive team and board aligned on how AI will create value?</p>
-    <div class="assessment-note" style="line-height: 1.6;">
-      <strong>What moves the needle:</strong> Executive alignment on AI strategy, connected to quarterly business metrics. A governance model that enables speed.
-    </div>
+    <h3>AI Readiness Assessment</h3>
+    <p>Targeted questions tailored to your role — whether you set the strategy or build the infrastructure. We'll ask for your title upfront and serve you the right assessment automatically. You'll walk away with a personalized readiness profile scored across all six dimensions.</p>
+    <a href="#" class="btn-primary">Start the Assessment</a>
   </div>
-  <div class="assessment-card reveal">
-    <h3>Data Readiness</h3>
-    <p>Can your organization actually use its data? Is it clean, classified, and accessible to the models and workflows that need it? Or is your data siloed and duplicated across systems?</p>
-    <div class="assessment-note" style="line-height: 1.6;">
-      <strong>What moves the needle:</strong> A data strategy that starts with business questions, not technology. Clear ownership and quality standards.
-    </div>
-  </div>
-  <div class="assessment-card reveal">
-    <h3>Technology Infrastructure</h3>
-    <p>Can your current infrastructure handle AI workloads? Do you have the compute, the APIs, the integrations? Or does every AI tool require manual workarounds and duct-tape solutions?</p>
-    <div class="assessment-note" style="line-height: 1.6;">
-      <strong>What moves the needle:</strong> Consolidated cloud strategy and API-first architecture. Simplified integrations that don't require custom code.
-    </div>
-  </div>
-  <div class="assessment-card reveal">
-    <h3>Governance &amp; Security</h3>
-    <p>Do you have policies in place for how AI can be used? Do you know what data is being exposed to public models? Does your legal and compliance team understand your AI posture?</p>
-    <div class="assessment-note" style="line-height: 1.6;">
-      <strong>What moves the needle:</strong> Documented AI policies, an audit framework, clear data classification. A governance model that enables innovation, not just gates it.
-    </div>
-  </div>
-  <div class="assessment-card reveal">
-    <h3>Customer Experience Readiness</h3>
-    <p>Have you identified where AI creates measurable customer value? Do your product and service teams have a roadmap for AI-enabled customer experiences? Can you operationalize them?</p>
-    <div class="assessment-note" style="line-height: 1.6;">
-      <strong>What moves the needle:</strong> Customer research linked to AI capabilities. Product roadmaps with clear success metrics. The ability to learn and iterate.
-    </div>
-  </div>
-  <div class="assessment-card reveal">
-    <h3>Workforce &amp; Culture Readiness</h3>
-    <p>Do your teams understand what AI can do in their roles? Are they equipped to use it? Or are they worried about being replaced, resisting adoption, or simply unaware?</p>
-    <div class="assessment-note" style="line-height: 1.6;">
-      <strong>What moves the needle:</strong> Clear communication about what AI is and isn't. Role-based training. Recognition and reward for teams that embrace and scale AI wins.
-    </div>
-  </div>
-  <div style="margin-top: 64px; text-align: center;">
-    <a href="https://resultingai.typeform.com/to/AxDlGzrw" class="btn-primary" target="_blank">Start Your Assessment</a>
+  <div class="assessment-note reveal">
+    <strong>What you'll get:</strong> A dimensional readiness score, a visual breakdown of strengths and weaknesses, comparison context against similar organizations, and specific next steps. No generic report — this maps to your actual situation.
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     BRIDGE SECTION
-     ═══════════════════════════════════════ -->
-<section class="bridge-section reveal">
-  <h2>Most of what's broken isn't the AI. <span class="accent-word">It's the foundation.</span></h2>
-  <p>The companies that get this right don't just deploy AI tools. They build the 7 layers. They start with what they've already bought. They govern it. They own their intelligence. Then they scale it.</p>
-  <div class="cta-row">
-    <a href="https://resultingai.typeform.com/to/AxDlGzrw" class="btn-primary-dark" target="_blank">Start Your Assessment</a>
-    <a href="#" class="btn-ghost">Talk to Someone on Our Team</a>
+<section class="bridge-section">
+  <h2 class="reveal">The assessment tells you where you stand.<br>Your <span class="accent-word">Resultant</span> shows you what to do about it.</h2>
+  <p class="reveal">There is a human on the other side of this. Not a chatbot. Not a generated report. Someone who has already reviewed your readiness data before your first conversation — who knows which solutions map to your situation, and who moves at the speed the moment demands.</p>
+  <p class="reveal" style="margin-top: 16px; font-size: 17px; color: #2F2F2F; max-width: 620px; margin-left: auto; margin-right: auto;">Assessment to action. Diagnosis to solution. Readiness to results.</p>
+  <div class="cta-row reveal">
+    <a href="#" class="btn-primary-dark">Book a Conversation</a>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     EXPECT SECTION
-     ═══════════════════════════════════════ -->
 <section class="expect">
-  <h2 class="reveal">Here's what you can expect.</h2>
+  <h2 class="reveal">The path to clarity.</h2>
   <div class="timeline">
     <div class="timeline-step reveal">
-      <div class="timeline-label">Phase 1 (Month 1)</div>
-      <div class="timeline-text">Assessment complete. Gaps identified. Roadmap drafted.</div>
+      <div class="timeline-label">Today</div>
+      <div class="timeline-text">Take the assessment. About five minutes.</div>
     </div>
     <div class="timeline-step reveal reveal-delay-1">
-      <div class="timeline-label">Phase 2 (Months 2-3)</div>
-      <div class="timeline-text">Governance framework. Platform selected. Early wins identified.</div>
+      <div class="timeline-label">Immediately</div>
+      <div class="timeline-text">See where you stand across six dimensions of AI readiness.</div>
     </div>
     <div class="timeline-step reveal reveal-delay-2">
-      <div class="timeline-label">Phase 3 (Months 4-6)</div>
-      <div class="timeline-text">Foundation layers 1-4. Data strategy. First integrated workflows.</div>
+      <div class="timeline-label">Next Steps</div>
+      <div class="timeline-text">Connect with a Resultant. Every gap maps to a solution.</div>
     </div>
     <div class="timeline-step reveal reveal-delay-3">
-      <div class="timeline-label">Phase 4 (Months 7+)</div>
-      <div class="timeline-text">Scaling. Compounding value. Intelligence advantage.</div>
+      <div class="timeline-label">Ongoing</div>
+      <div class="timeline-text">Evolving the architecture. Scaling what works.</div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     FOOTER CTA
-     ═══════════════════════════════════════ -->
 <section class="footer-cta">
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
-    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 16px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 16px; font-weight: 600; color: #FDFBF9;">esulting</span>
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
   </div>
-  <h2 class="reveal">Close the gap.</h2>
-  <p class="reveal">The companies that close the readiness gap first will outcompete everyone else. They'll get exponential returns from their AI investments. Everyone else will keep wondering why nothing sticks.</p>
+  <p class="tagline reveal">Assess · Identify · Result</p>
+  <h2 class="reveal">The readiness gap closes here.<br>Let's find yours.</h2>
   <div class="cta-row reveal">
-    <a href="https://resultingai.typeform.com/to/AxDlGzrw" class="btn-primary" target="_blank">Start Your Assessment Now</a>
-    <a href="governance.html" class="btn-ghost">Or Read: The Governance Gap</a>
+    <a href="#assessment" class="btn-primary">Get Started</a>
   </div>
+  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="mailto:hello@airesulting.com" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">hello@airesulting.com</a></p>
   <div class="footer-bottom reveal">
-    <p>AIResulting Inc. © 2025. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
   </div>
 </section>
 
 <script>
-  // ========== HERO CANVAS: ANIMATED BACKGROUND ==========
-  const heroCanvas = document.getElementById('heroCanvas');
-  if (heroCanvas) {
-    const ctx = heroCanvas.getContext('2d');
-    const container = heroCanvas.parentElement;
+(function() {
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles, time = 0;
 
-    // Set canvas size to match container
-    function resizeCanvas() {
-      heroCanvas.width = container.offsetWidth;
-      heroCanvas.height = container.offsetHeight;
-      drawHeroBackground();
-    }
+  const colors = [
+    { r: 172, g: 147, b: 121 },
+    { r: 122, g: 139, b: 111 },
+    { r: 166, g: 123, b: 91 },
+    { r: 154, g: 148, b: 136 },
+    { r: 221, g: 215, b: 208 },
+  ];
 
-    const colors = ['#AC9379', '#2F2F2F', '#F2EDE9', '#DDD7D0'];
-    let particles = [];
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * heroCanvas.width;
-        this.y = Math.random() * heroCanvas.height;
-        this.size = Math.random() * 20 + 5;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.3 + 0.1;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > heroCanvas.width) this.x = -this.size;
-        if (this.y > heroCanvas.height) this.y = -this.size;
-      }
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.opacity;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
-    }
-
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < 30; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function drawHeroBackground() {
-      ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
-      for (let particle of particles) {
-        particle.update();
-        particle.draw();
-      }
-      requestAnimationFrame(drawHeroBackground);
-    }
-
-    resizeCanvas();
+  function resize() {
+    w = canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    h = canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     initParticles();
-    window.addEventListener('resize', resizeCanvas);
   }
 
-  // ========== SCROLL REVEAL ANIMATIONS ==========
+  function initParticles() {
+    particles = [];
+    const count = Math.min(Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 5000), 180);
+    for (let i = 0; i < count; i++) {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particles.push({
+        x: Math.random() * canvas.offsetWidth,
+        y: Math.random() * canvas.offsetHeight,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        radius: Math.random() * 3.5 + 1.2,
+        color,
+        alpha: Math.random() * 0.5 + 0.15,
+        phase: Math.random() * Math.PI * 2,
+        drift: Math.random() * 0.004 + 0.002,
+      });
+    }
+  }
+
+  function draw() {
+    const cw = canvas.offsetWidth;
+    const ch = canvas.offsetHeight;
+    ctx.clearRect(0, 0, cw, ch);
+    time += 0.012;
+
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 180) {
+          const alpha = (1 - dist / 180) * 0.12;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(172, 147, 121, ${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (const p of particles) {
+      p.x += p.vx + Math.sin(time + p.phase) * 0.35;
+      p.y += p.vy + Math.cos(time * 0.7 + p.phase) * 0.28;
+
+      const breathe = Math.sin(time * 0.6 + p.phase) * 0.15;
+      const currentAlpha = Math.max(0.08, p.alpha + breathe);
+
+      if (p.x < -20) p.x = cw + 20;
+      if (p.x > cw + 20) p.x = -20;
+      if (p.y < -20) p.y = ch + 20;
+      if (p.y > ch + 20) p.y = -20;
+
+      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 6);
+      gradient.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${currentAlpha * 1.2})`);
+      gradient.addColorStop(0.4, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${currentAlpha * 0.4})`);
+      gradient.addColorStop(1, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, 0)`);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius * 6, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${Math.min(1, currentAlpha * 2)})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
+(function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
 
-  // ========== NAV SCROLL EFFECT ==========
+(function() {
   const nav = document.querySelector('.site-nav');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 60) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
   });
+})();
 
-  // ========== TETRIS CANVAS FOR THESIS SECTION ==========nvas.getContext('2d');
-  const container = canvas.parentElement;
-
-  // Brand colors with opacity
-  const colors = [
-    { r: 172, g: 147, b: 121 }, // Camel #AC9379
-    { r: 122, g: 139, b: 111 }, // Sage #7A8B6F
-    { r: 154, g: 148, b: 136 }, // Stone #9A9488
-    { r: 166, g: 123, b: 91 }   // Rust #A67B5B
-  ];
-
-  // Tetris-like falling blocks
-  const cellSize = 20;
-  const gap = 2;
-  const radius = 3;
-
-  let pieces = [];
-  let blockId = 0;
-
-  function drawRoundedRect(x, y, width, height, radius) {
-    ctx.beginPath();
-    ctx.moveTo(x + radius, y);
-    ctx.lineTo(x + width - radius, y);
-    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-    ctx.lineTo(x + width, y + height - radius);
-    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-    ctx.lineTo(x + radius, y + height);
-    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-    ctx.lineTo(x, y + radius);
-    ctx.quadraticCurveTo(x, y, x + radius, y);
-    ctx.closePath();
-  }
-
-  function createPiece() {
-    const cols = Math.floor(canvas.width / (cellSize + gap));
-    const row = Math.floor(canvas.height / (cellSize + gap));
-    const pieceType = Math.floor(Math.random() * 4);
-    const color = colors[pieceType % colors.length];
-    const gridX = Math.floor(Math.random() * (cols - 2));
-    const gridY = Math.floor(Math.random() * (row - 2));
-
-    return {
-      id: blockId++,
-      x: gridX * (cellSize + gap),
-      y: gridY * (cellSize + gap),
-      color: color,
-      opacity: 1,
-      age: 0,
-      type: pieceType
-    };
-  }
-
-  function addPiece() {
-    pieces.push(createPiece());
-    if (pieces.length > 25) {
-      pieces.shift();
-    }
-  }
-
-  let frameCount = 0;
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    frameCount++;
-
-    // Add new pieces occasionally
-    if (frameCount % 8 === 0) {
-      addPiece();
-    }
-
-    // Update and draw pieces
-    pieces.forEach((piece, index) => {
-      piece.age++;
-      piece.y += 0.3;
-      piece.opacity = Math.max(0, 1 - piece.age / 180);
-
-      if (piece.opacity <= 0) {
-        pieces.splice(index, 1);
-        return;
-      }
-
-      const { r, g, b } = piece.color;
-      const cr = r, cg = g, cb = b;
-
-      // Shadow
-      if (piece.opacity > 0.2) {
-        ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${piece.opacity * 0.15})`;
-        ctx.shadowColor = `rgba(0, 0, 0, ${piece.opacity * 0.3})`;
-        ctx.shadowBlur = 12;
-      }
-
-      // Block fill
-      drawRoundedRect(piece.x + gap, piece.y + gap, cellSize - gap * 2, cellSize - gap * 2, radius);
-      ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${piece.opacity * 0.85})`;
-      ctx.fill();
-
-      // Subtle highlight on top
-      if (piece.opacity > 0.3) {
-        ctx.fillStyle = `rgba(255, 255, 255, ${piece.opacity * 0.2})`;
-        drawRoundedRect(piece.x + gap + 1, piece.y + gap + 1, cellSize - gap * 2 - 2, 4, 1);
-        ctx.fill();
-      }
-
-      ctx.shadowBlur = 0;
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  function resizeCanvas() {
-    canvas.width = container.offsetWidth;
-    canvas.height = container.offsetHeight;
-  }
-
-  resizeCanvas();
-  animate();
-  window.addEventListener('resize', resizeCanvas);
-
-</script>
-
-</body>
-</html>})`;
-          ctx.shadowBlur = 12;
-        }
-
-        // Block fill
-        drawRoundedRect(x + gap, y + gap, cellSize - gap * 2, cellSize - gap * 2, radius);
-        ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${piece.opacity * 0.85})`;
-        ctx.fill();
-
-        // Subtle highlight on top
-        if (piece.opacity > 0.3) {
-          ctx.fillStyle = `rgba(255, 255, 255, ${piece.opacity * 0.2})`;
-          drawRoundedRect(x + gap + 1, y + gap + 1, cellSize - gap * 2 - 2, 4, 1);
-          ctx.fill();
-        }
-
-        ctx.shadowBlur = 0;
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    function resizeCanvas() {
-      canvas.width = container.offsetWidth;
-      canvas.height = container.offsetHeight;
-    }
-
-    resizeCanvas();
-    animate();
-    window.addEventListener('resize', resizeCanvas);
-  }
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
 </script>
 
 </body>
 </html>
+
