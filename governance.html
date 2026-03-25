@@ -34,7 +34,8 @@
   .governance-grid { padding: 64px 8vw 80px; }
   .governance-grid h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 40px; letter-spacing: -0.02em; }
   .grid-items { max-width: 960px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px 56px; }
-  .grid-item { display: flex; flex-direction: column; }
+  .grid-item { display: flex; flex-direction: column; padding: 24px; border-left: 2px solid transparent; border-radius: 4px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .grid-item:hover { background: #F2EDE9; border-left-color: #AC9379; transform: translateY(-2px); }
   .grid-item h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 8px; letter-spacing: 0.03em; }
   .grid-item p { font-size: 15px; color: #2F2F2F; line-height: 1.65; }
   @media (max-width: 768px) { .grid-items { grid-template-columns: 1fr; gap: 28px; } }
@@ -114,9 +115,19 @@
     .bridge { padding: 60px 6vw; }
     .footer { padding: 60px 6vw; }
   }
+
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #AC9379; z-index: 200; width: 0%; transition: width 0.1s linear; }
+  .gateway-section { position: relative; overflow: hidden; }
+  .gateway-particles { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+  .gateway-particle { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: rgba(172, 147, 121, 0.3); animation: floatUp linear infinite; }
+  @keyframes floatUp { 0% { transform: translateY(100%) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
+  .deadline-countdown { font-family: 'Trebuchet MS', Georgia, serif; font-size: 14px; font-weight: 600; color: #AC9379; margin-top: 6px; opacity: 0.85; }
+  .download-content { transition: transform 0.1s ease-out; }
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <nav class="site-nav">
   <a href="/" class="nav-logo">
@@ -168,6 +179,7 @@
 </section>
 
 <section class="gateway-section">
+  <div class="gateway-particles" id="gatewayParticles"></div>
   <div class="gateway-inner">
     <span class="section-label reveal">The Opportunity</span>
     <h2 class="reveal reveal-delay-1">Every time your team uses a public AI tool, intelligence leaves the building.</h2>
@@ -260,16 +272,72 @@
 </footer>
 
 <script>
+// Reveal on scroll
 (function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
+
+// Nav scroll + progress bar
 (function() {
   const nav = document.querySelector('.site-nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  const progress = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (scrollTop / docHeight) * 100 + '%';
+  });
 })();
+
+// Countdown timers
+(function() {
+  document.querySelectorAll('.deadline-countdown').forEach(el => {
+    const deadline = new Date(el.dataset.deadline + 'T00:00:00');
+    const now = new Date();
+    const days = Math.ceil((deadline - now) / (1000 * 60 * 60 * 24));
+    if (days > 0) el.textContent = days + ' days away';
+    else if (days === 0) el.textContent = 'Today';
+    else el.textContent = 'In effect';
+  });
+})();
+
+// Gateway ambient particles
+(function() {
+  const c = document.getElementById('gatewayParticles');
+  if (!c) return;
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'gateway-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    const size = (2 + Math.random() * 3) + 'px';
+    p.style.width = size; p.style.height = size;
+    p.style.background = Math.random() > 0.5
+      ? 'rgba(172, 147, 121, ' + (0.15 + Math.random() * 0.2) + ')'
+      : 'rgba(122, 139, 111, ' + (0.12 + Math.random() * 0.15) + ')';
+    c.appendChild(p);
+  }
+})();
+
+// Parallax on download section
+(function() {
+  const dl = document.querySelector('.download-content');
+  if (!dl) return;
+  window.addEventListener('scroll', () => {
+    const rect = dl.getBoundingClientRect();
+    const wh = window.innerHeight;
+    if (rect.top < wh && rect.bottom > 0) {
+      const p = (wh - rect.top) / (wh + rect.height);
+      dl.style.transform = 'translateY(' + ((p - 0.5) * -20) + 'px)';
+    }
+  });
+})();
+
+// Form submit
 document.querySelector('form').addEventListener('submit', function(e) {
   e.preventDefault();
   const name = document.getElementById('name').value;
