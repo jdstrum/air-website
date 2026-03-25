@@ -632,6 +632,119 @@
     font-weight: 500;
   }
 
+  .already-paying {
+    background: #F2EDE9;
+    padding: 120px 8vw;
+  }
+
+  .already-paying h2 {
+    font-family: 'Trebuchet MS', Georgia, serif;
+    font-size: clamp(30px, 4.2vw, 52px);
+    font-weight: 700;
+    color: #2F2F2F;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .already-paying .section-sub {
+    font-size: 17px;
+    color: #2F2F2F;
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 48px;
+  }
+
+  .vendor-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 800px;
+    margin-bottom: 40px;
+  }
+
+  .vendor-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: #FDFBF9;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2F2F2F;
+    border: 1px solid rgba(172, 147, 121, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .vendor-pill:hover {
+    border-color: #AC9379;
+    box-shadow: 0 4px 16px rgba(172, 147, 121, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .vendor-pill .pill-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .vendor-pill:nth-child(1) .pill-icon { background: #AC9379; }
+  .vendor-pill:nth-child(2) .pill-icon { background: #7A8B6F; }
+  .vendor-pill:nth-child(3) .pill-icon { background: #A67B5B; }
+  .vendor-pill:nth-child(4) .pill-icon { background: #AC9379; }
+  .vendor-pill:nth-child(5) .pill-icon { background: #7A8B6F; }
+  .vendor-pill:nth-child(6) .pill-icon { background: #A67B5B; }
+  .vendor-pill:nth-child(7) .pill-icon { background: #9A9488; }
+
+  .already-paying .pressure-line {
+    font-size: 17px;
+    color: #2F2F2F;
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 36px;
+    font-weight: 500;
+  }
+
+  .already-paying .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .btn-primary-sand {
+    display: inline-block;
+    background: #2F2F2F;
+    color: #FDFBF9;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary-sand:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(47, 47, 47, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .vendor-categories {
+      gap: 8px;
+    }
+    .vendor-pill {
+      padding: 10px 18px;
+      font-size: 13px;
+    }
+  }
 
   .assessment-section {
     background: #FDFBF9;
@@ -913,7 +1026,7 @@
       <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
     </div>
     <h1>AI spending is at an all-time high.<br>AI readiness is not.</h1>
-    <p class="subtitle">Most mid-market companies are buying AI tools on top of foundations that can't support them. The ones that close the readiness gap first will get more from every dollar they've already spent.</p>
+    <p class="subtitle">Most mid-market companies are buying AI tools on top of foundations that can't support them. The ones that close the readiness gap first will get more from every AI dollar they spend.</p>
     <div class="cta-row">
       <a href="#assessment" class="btn-primary">See Where You Stand</a>
     </div>
@@ -1037,6 +1150,24 @@
   <div class="layers-cta reveal">
     <p>Seven layers. How many has your organization built?</p>
     <a href="#assessment" class="btn-primary">How Does Yours Stack Up</a>
+  </div>
+</section>
+
+<section class="already-paying">
+  <h2 class="reveal">You're paying for AI<br>you're not using.</h2>
+  <p class="section-sub reveal">Most mid-market companies have AI capabilities embedded in platforms they already own. Productivity suites, CRMs, cloud infrastructure, security tools — the vendors built it in. But without a readiness framework to activate it, those capabilities sit dormant while the invoices keep coming.</p>
+  <div class="vendor-categories reveal">
+    <div class="vendor-pill"><span class="pill-icon"></span>Productivity & Collaboration</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>CRM & Revenue</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Cloud & Infrastructure</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Security & Compliance</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Contact Center & CX</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Data & Analytics</div>
+    <div class="vendor-pill"><span class="pill-icon"></span>Network & Connectivity</div>
+  </div>
+  <p class="pressure-line reveal">The question isn't whether you need more AI tools. It's whether you're getting anything from the ones you already have.</p>
+  <div class="cta-row reveal">
+    <a href="ai-stack.html" class="btn-primary-sand">See What You're Missing</a>
   </div>
 </section>
 
