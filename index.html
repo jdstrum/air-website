@@ -890,6 +890,8 @@
     .timeline { grid-template-columns: 1fr 1fr; }
     .footer-cta .cta-row { flex-direction: column; align-items: center; }
   }
+
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
 </style>
 </head>
 <body>
@@ -898,10 +900,11 @@
   <a href="/" class="nav-logo">
     <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
   </a>
+  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
   <div class="nav-links">
-    <a href="governance.html">The Governance Gap</a>
-    <a href="field-notes.html">Field Notes</a>
-    <a href="#assessment" class="nav-cta">See Where You Stand</a>
+    <a href="/governance.html">The Governance Gap</a>
+    <a href="/the-stealth-spend.html">The Stealth Spend</a>
+    <a href="https://tally.so/r/mBGaNY" class="nav-cta">Take the Assessment</a>
   </div>
 </nav>
 
@@ -914,7 +917,7 @@
     <h1>AI doesn't fail because of the technology.<br>It fails because of everything underneath it.</h1>
     <p class="subtitle">That's the readiness gap. The companies that close it first will get more from every AI dollar they spend.</p>
     <div class="cta-row">
-      <a href="#assessment" class="btn-primary">See Where You Stand</a>
+      <a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a>
     </div>
   </div>
   <div class="scroll-indicator"><span></span></div>
@@ -951,7 +954,7 @@
       <p>Your teams are already generating organizational intelligence — every workflow, every solution, every process they build with AI. Without a structural framework to capture it, that knowledge disappears into public tools the moment it's created.</p>
     </div>
     <div class="cta-row">
-      <a href="#assessment" class="btn-primary">Take the Assessment</a>
+      <a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a>
     </div>
   </div>
 </section>
@@ -1035,7 +1038,7 @@
   </div>
   <div class="layers-cta reveal">
     <p>Seven layers. How many has your organization built?</p>
-    <a href="#assessment" class="btn-primary">How Does Yours Stack Up</a>
+    <a href="https://tally.so/r/mBGaNY" class="btn-primary">How Does Yours Stack Up</a>
   </div>
 </section>
 
@@ -1047,7 +1050,7 @@
   <div class="assessment-card reveal">
     <h3>AI Readiness Assessment</h3>
     <p>Targeted questions tailored to your role — whether you set the strategy or build the infrastructure. We'll ask for your title upfront and serve you the right assessment automatically. You'll walk away with a personalized readiness profile scored across all six dimensions.</p>
-    <a href="#" class="btn-primary">Start the Assessment</a>
+    <a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a>
   </div>
   <div class="assessment-note reveal">
     <strong>What you'll get:</strong> A dimensional readiness score, a visual breakdown of strengths and weaknesses, comparison context against similar organizations, and specific next steps. No generic report — this maps to your actual situation.
@@ -1059,7 +1062,7 @@
   <p class="reveal">There is a human on the other side of this. Not a chatbot. Not a generated report. Someone who has already reviewed your readiness data before your first conversation — who knows which solutions map to your situation, and who moves at the speed the moment demands.</p>
   <p class="reveal" style="margin-top: 16px; font-size: 17px; color: #2F2F2F; max-width: 620px; margin-left: auto; margin-right: auto;">Assessment to action. Diagnosis to solution. Readiness to results.</p>
   <div class="cta-row reveal">
-    <a href="#" class="btn-primary-dark">Book a Conversation</a>
+    <a href="mailto:hello@airesulting.com" class="btn-primary-dark">Book a Conversation</a>
   </div>
 </section>
 
@@ -1092,11 +1095,11 @@
   <p class="tagline reveal">Assess · Identify · Result</p>
   <h2 class="reveal">The readiness gap closes here.<br>Let's find yours.</h2>
   <div class="cta-row reveal">
-    <a href="#assessment" class="btn-primary">Get Started</a>
+    <a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a>
   </div>
   <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="mailto:hello@airesulting.com" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">hello@airesulting.com</a></p>
   <div class="footer-bottom reveal">
-    <p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
+    <p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
   </div>
 </section>
 
