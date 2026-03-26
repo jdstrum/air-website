@@ -234,6 +234,14 @@
   .grid-item:hover h3 {
     color: #967F67;
   }
+
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
+
+  .editorial-graphic{display:flex;align-items:center;justify-content:center;}.editorial-graphic svg{filter:drop-shadow(0 4px 12px rgba(172,147,121,0.15));}
+
+  .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}.gateway-point.gw-reveal:nth-child(4){transition-delay:0.45s;}
+
+  .footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}.footer-cta .mark{background:#444;color:#FDFBF9;font-family:"DM Sans",sans-serif;font-weight:700;font-size:13px;padding:3px 6px;border-radius:4px;margin-right:2px;}.footer-cta .r{font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;color:#FDFBF9;}.footer-cta .name{font-family:"DM Sans",sans-serif;font-weight:400;font-size:22px;color:#FDFBF9;}.footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}.footer-cta h2{font-family:"DM Sans",sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}.footer-cta .btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;padding:14px 36px;border-radius:5px;text-decoration:none;font-family:"DM Sans",sans-serif;font-weight:600;font-size:15px;transition:background 0.3s;}.footer-cta .btn-primary:hover{background:#967F67;}.footer-cta .footer-contact{font-size:14px;color:#999;margin-top:24px;}.footer-cta .footer-contact a{color:#AC9379;text-decoration:none;}.footer-cta .footer-contact a:hover{color:#DDD7D0;}.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}.footer-bottom p{font-size:13px;color:#777;}.footer-bottom a{color:#777;text-decoration:none;}.footer-bottom a:hover{color:#AC9379;}
 </style>
 </head>
 <body>
@@ -245,7 +253,8 @@
   <a href="/" class="nav-logo">
     <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
   </a>
-  <div class="nav-links">
+  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <div class="nav-links">
     <a href="/governance" class="active">The Governance Gap</a>
     <a href="#">Field Notes</a>
     <a href="/#assessment" class="nav-cta">See Where You Stand</a>
@@ -257,7 +266,7 @@
     <span class="page-label reveal">The Governance Gap</span>
     <h1 class="reveal reveal-delay-1">Governance is how you secure your AI environment. It's also how you pull ahead of everyone who hasn't.</h1>
   </div>
-  <p class="editorial-abstract reveal reveal-delay-2">What governance looks like in practice. The secure AI gateway opportunity. The regulatory deadlines approaching. And a free governance kit to get you started.</p>
+  <div class="editorial-graphic reveal reveal-delay-2"><svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" width="180"><defs><linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#AC9379" stop-opacity="0.9"/><stop offset="100%" stop-color="#7A8B6F" stop-opacity="0.7"/></linearGradient></defs><path d="M100 10 L185 50 L185 120 C185 170 145 200 100 215 C55 200 15 170 15 120 L15 50 Z" fill="none" stroke="url(#shieldGrad)" stroke-width="2.5"/><path d="M100 30 L170 62 L170 118 C170 158 138 185 100 198 C62 185 30 158 30 118 L30 62 Z" fill="url(#shieldGrad)" opacity="0.08"/><g stroke="#AC9379" stroke-width="1.5" fill="none" opacity="0.6"><line x1="60" y1="95" x2="140" y2="95"/><line x1="60" y1="115" x2="130" y2="115"/><line x1="60" y1="135" x2="120" y2="135"/></g><circle cx="100" cy="68" r="16" fill="none" stroke="#AC9379" stroke-width="2" opacity="0.7"/><path d="M94 68 L99 73 L107 63" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   
 </section>
 
@@ -298,19 +307,19 @@
     <h2 class="reveal reveal-delay-1">Every time your team uses a public AI tool, intelligence leaves the building.</h2>
     <p class="gateway-lede reveal reveal-delay-2">Your employees are using ChatGPT, Gemini, Copilot, and Claude to draft strategies, analyze data, write proposals, and solve problems every day. That thinking is your company's intellectual capital. Without a secure AI gateway, it disappears into public models and you never see it again.</p>
     <div class="gateway-points">
-      <div class="gateway-point reveal reveal-delay-1">
+      <div class="gateway-point gw-reveal">
         <h3>Capture institutional knowledge</h3>
         <p>A governed gateway routes AI usage through your environment. The intelligence your team creates stays yours and compounds over time.</p>
       </div>
-      <div class="gateway-point reveal reveal-delay-2">
+      <div class="gateway-point gw-reveal">
         <h3>Visibility into how AI is being used</h3>
         <p>See what's being asked, what's being generated, and where the value is coming from. You can't optimize what you can't see.</p>
       </div>
-      <div class="gateway-point reveal reveal-delay-1">
+      <div class="gateway-point gw-reveal">
         <h3>Data stays inside the perimeter</h3>
         <p>Sensitive information, customer data, financials, IP. A gateway ensures none of it reaches public models.</p>
       </div>
-      <div class="gateway-point reveal reveal-delay-2">
+      <div class="gateway-point gw-reveal">
         <h3>AI becomes a business asset</h3>
         <p>The difference between AI as a cost center and AI as an asset is whether you're capturing the value it creates.</p>
       </div>
@@ -378,11 +387,7 @@
   <a href="/#assessment" class="btn-primary reveal reveal-delay-2">Take the Assessment</a>
 </section>
 
-<footer class="footer">
-  <div class="footer-brand reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
-  <p class="tagline reveal reveal-delay-1">Assess. Identify. Result.</p>
-  <div class="footer-links reveal reveal-delay-2"><a href="#">Privacy</a> &nbsp;&middot;&nbsp; <a href="#">Field Notes</a></div>
-</footer>
+<section class="footer-cta"><div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div><p class="tagline reveal reveal-delay-1"><em>Assess &middot; Identify &middot; Result</em></p><h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let&rsquo;s find yours.</h2><div class="cta-row reveal reveal-delay-3"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div><p class="footer-contact reveal">Rather talk first? <a href="mailto:hello&#64;airesulting.com">hello&#64;airesulting.com</a></p><div class="footer-bottom reveal"><p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p></div></section>
 
 <script>
 (function() {
@@ -465,6 +470,8 @@ document.querySelector('form').addEventListener('submit', function(e) {
   });
 })();
 
+
+  (function(){var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible");});},{threshold:0.15});document.querySelectorAll(".gateway-point.gw-reveal").forEach(function(el){o.observe(el);});})();
 </script>
 </body>
 </html>
