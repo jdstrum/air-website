@@ -25,7 +25,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .nav-hamburger.active span:nth-child(2){opacity:0;}
 .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-@media(max-width:768px){
+@media(max-width:768px){.tool-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px!important;}.callout-number{font-size:56px!important;}
   .nav-hamburger{display:block;}
   .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}
   .nav-links.open{display:flex!important;}
@@ -59,7 +59,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .source-note{font-size:11px;color:#999;margin-top:6px;}
 .source-note a{color:#AC9379;text-decoration:none;}
 .tools-section{background:#F2EDE9;}
-.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;}
+.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:960px;}
 .tool-card{background:#FDFBF9;border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);opacity:0;transform:translateY(40px);}
 .tool-card.visible{opacity:1;transform:translateY(0);}
 .tool-card:nth-child(1){transition-delay:0s;}.tool-card:nth-child(2){transition-delay:0.08s;}.tool-card:nth-child(3){transition-delay:0.16s;}.tool-card:nth-child(4){transition-delay:0.24s;}.tool-card:nth-child(5){transition-delay:0.32s;}.tool-card:nth-child(6){transition-delay:0.4s;}
@@ -167,7 +167,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-delay-1{transition-delay:0.15s;}.reveal-delay-2{transition-delay:0.3s;}
 @media(max-width:768px){.section{padding:60px 6vw;}.hero{padding:72px 6vw 60px;}.gap-math{flex-direction:column;gap:16px;align-items:flex-start;}.gap-math-arrow{display:none;}.bridge-points{grid-template-columns:1fr;gap:16px;}.funnel-bar.f2{width:55%;}.funnel-bar.f3{width:25%;}.funnel-text{font-size:11px;}}
-</style>
+.footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}</style>
 </head>
 <body>
 <nav class="site-nav">
@@ -209,7 +209,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
     <div class="tool-card"><div class="tool-icon sn">SN</div><div class="tool-name">ServiceNow Now Assist</div><div class="tool-feature">ITSM, CSM, HRSD generative AI</div><div class="tool-price"><span class="amt">$50–100</span><span class="per">/user/month</span><span class="note">add-on</span></div></div>
     <div class="tool-card"><div class="tool-icon zm">Z</div><div class="tool-name">Zoom AI Companion</div><div class="tool-feature">Meeting summaries, coaching, workflows</div><div class="tool-price"><span class="amt">Included</span><span class="per">in paid plans</span></div></div>
     <div class="tool-card"><div class="tool-icon gg">G</div><div class="tool-name">Google Gemini</div><div class="tool-feature">Docs, Sheets, Gmail, Meet AI assist</div><div class="tool-price"><span class="amt">Included</span><span class="per">in Workspace plans</span></div></div>
-    <div class="tool-card"><div class="tool-icon ad">A</div><div class="tool-name">Adobe Firefly</div><div class="tool-feature">Generative AI in Creative Cloud</div><div class="tool-price"><span class="amt">~$90</span><span class="per">/user/month</span><span class="note">teams</span></div></div>
+    <div class="tool-card"><div class="tool-icon ad">A</div><div class="tool-name">Adobe Firefly</div><div class="tool-feature">Generative AI in Creative Cloud</div><div class="tool-price"><span class="amt">~$90</span><span class="per">/user/month</span><span class="note">teams</span></div></div><div class="tool-card"><div class="tool-icon hs">H</div><div class="tool-name">HubSpot AI</div><div class="tool-feature">AI Assistants in CRM &amp; Marketing</div><div class="tool-price"><span class="amt">~$50</span><span class="per">/user/month</span><span class="note">pro</span></div></div><div class="tool-card"><div class="tool-icon it">I</div><div class="tool-name">Intuit Assist</div><div class="tool-feature">AI in QuickBooks &amp; TurboTax</div><div class="tool-price"><span class="amt">~$35</span><span class="per">/user/month</span><span class="note">plus</span></div></div>
   </div>
   <p class="source-note" style="margin-top:24px;">Prices reflect publicly available list pricing as of early 2026. Enterprise pricing varies by volume and contract. <a href="https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise" target="_blank" rel="noopener">Microsoft</a> · <a href="https://www.salesforce.com/news/stories/pricing-update-2025/" target="_blank" rel="noopener">Salesforce</a> · <a href="https://www.eesel.ai/blog/how-much-does-servicenow-ai-platform-cost" target="_blank" rel="noopener">ServiceNow</a></p>
 </section>
@@ -230,11 +230,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
     <div class="gap-math-source"><a href="https://larridin.com/blog/enterprise-ai-usage-data-complete-guide-to-measuring-adoption-roi-larridin" target="_blank" rel="noopener">Usage pattern data: Larridin State of Enterprise AI, 2025. Math based on $30/seat/month × 713 unused × 12 months.</a></div>
   </div>
 </section>
-<div class="mid-cta">
-  <h3>How much of your AI investment is sitting idle?</h3>
-  <p>A 15-minute assessment tells you where you stand across all six dimensions of AI readiness.</p>
-  <a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a>
-</div>
+
 <section class="section funnel-section">
   <div class="section-label reveal">THE FUNNEL</div>
   <h2 class="reveal reveal-delay-1">Most AI initiatives never scale.</h2>
@@ -243,7 +239,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
     <div class="funnel-stage"><div class="funnel-bar f1"><span class="funnel-pct">88%</span><span class="funnel-text">of organizations use AI in at least one business function</span></div></div>
     <div class="funnel-stage"><div class="funnel-bar f2"><span class="funnel-pct">&lt;40%</span><span class="funnel-text">have scaled beyond pilot</span></div></div>
     <div class="funnel-stage"><div class="funnel-bar f3"><span class="funnel-pct">5%</span></div></div>
-    <div class="funnel-label"><strong>Only 5% of generative AI pilots</strong> successfully move past the experimental phase.<br><span class="source-note"><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener">Deloitte State of AI 2026</a> · <a href="https://sloanreview.mit.edu/" target="_blank" rel="noopener">MIT Sloan Management Review</a></span></div>
+    <div class="funnel-label callout-stat"><span class="callout-number">5%</span><span class="callout-text">of generative AI pilots successfully move past the experimental phase</span><span class="source-note"><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener">Deloitte State of AI in the Enterprise, 2024</a></span></div>
   </div>
 </section>
 <section class="section shadow-section">
@@ -286,36 +282,24 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 </section>
 <section class="bridge-section">
   <div class="section-label reveal" style="color:#AC9379;">THE WAY FORWARD</div>
-  <h2 class="reveal reveal-delay-1">This isn't a technology problem.<br>It's a <em>governance</em> problem.</h2>
-  <p class="bridge-sub reveal reveal-delay-2">The tools work. The budgets are allocated. What's missing is the framework that connects investment to adoption to value.</p>
+  <h2 class="reveal reveal-delay-1">The tools work. The budgets are there.<br>What's missing is the <em>readiness</em> to connect them.</h2>
+  <p class="bridge-sub reveal reveal-delay-2">After the assessment, you'll see exactly where readiness gaps are stalling your AI investment — and what to do about them.</p>
   <div class="bridge-points">
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>See which AI tools are actually being used — and which are shelfware</p></div>
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Find the shadow AI your teams adopted without approval</p></div>
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Turn paid licenses into actual productivity gains</p></div>
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Build the policies that make AI safe to scale</p></div>
+    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Which AI tools are actually being used — and which are shelfware</p></div>
+    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Where shadow AI has taken root without oversight</p></div>
+    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>How to turn paid licenses into real productivity gains</p></div>
+    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>What governance gaps to close before scaling</p></div>
   </div>
-  <a href="https://tally.so/r/mBGaNY" class="btn-primary reveal">Take the Assessment</a>
+  
 </section>
-<section class="sources-section">
-  <h3>Sources</h3>
-  <ul class="source-list">
-    <li><a href="https://www.pwc.com/gx/en/issues/c-suite-insights/ceo-survey.html" target="_blank" rel="noopener">PwC 29th Annual Global CEO Survey, 2026</a></li>
-    <li><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener">Deloitte State of AI in the Enterprise, 2026</a></li>
-    <li><a href="https://larridin.com/blog/enterprise-ai-usage-data-complete-guide-to-measuring-adoption-roi-larridin" target="_blank" rel="noopener">Larridin State of Enterprise AI Usage Data, 2025</a></li>
-    <li><a href="https://www.stackmatix.com/blog/copilot-market-adoption-trends" target="_blank" rel="noopener">Stackmatix: Microsoft Copilot Adoption Statistics, 2026</a></li>
-    <li><a href="https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise" target="_blank" rel="noopener">Microsoft 365 Copilot Enterprise Pricing</a></li>
-    <li><a href="https://www.salesforce.com/news/stories/pricing-update-2025/" target="_blank" rel="noopener">Salesforce Updated Pricing & Packaging, 2025</a></li>
-    <li><a href="https://www.eesel.ai/blog/how-much-does-servicenow-ai-platform-cost" target="_blank" rel="noopener">ServiceNow AI Platform Cost Breakdown, 2025</a></li>
-    <li><a href="https://sloanreview.mit.edu/" target="_blank" rel="noopener">MIT Sloan Management Review: The GenAI Divide</a></li>
-  </ul>
-</section>
+
 <section class="footer-cta">
   <div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
   <p class="tagline reveal reveal-delay-1"><em>Assess · Identify · Result</em></p>
   <h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let’s find yours.</h2>
   <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div>
   <p class="footer-contact reveal">Rather talk first? <a href="mailto:hello@airesulting.com">hello@airesulting.com</a></p>
-  <div class="footer-bottom reveal"><p>© 2026 AI Resulting LLC. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p></div>
+  <div class="footer-bottom reveal"><p>© 2026 <span class="footer-logo-text">AI Resulting</span> LLC. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p></div>
 </section>
 <script>
 (function(){
