@@ -237,7 +237,8 @@
 
   .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
 
-  .editorial-graphic{display:flex;align-items:center;justify-content:center;}.editorial-graphic svg{filter:drop-shadow(0 4px 12px rgba(172,147,121,0.15));}
+  .editorial-graphic{display:flex;align-items:center;justify-content:center;}
+  .hero-graphic-wrap{position:relative;width:220px;height:220px;}@media(max-width:768px){.hero-graphic-wrap{width:180px;height:180px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
 
   .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}.gateway-point.gw-reveal:nth-child(4){transition-delay:0.45s;}
 
@@ -255,9 +256,9 @@
   </a>
   <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
     <div class="nav-links">
-    <a href="/governance" class="active">The Governance Gap</a>
-    <a href="#">Field Notes</a>
-    <a href="/#assessment" class="nav-cta">See Where You Stand</a>
+    <a href="/governance.html" class="active">The Governance Gap</a>
+    <a href="/the-stealth-spend.html">The Stealth Spend</a>
+    <a href="https://tally.so/r/mBGaNY" class="nav-cta">See Where You Stand</a>
   </div>
 </nav>
 
@@ -266,8 +267,29 @@
     <span class="page-label reveal">The Governance Gap</span>
     <h1 class="reveal reveal-delay-1">Governance is how you secure your AI environment. It's also how you pull ahead of everyone who hasn't.</h1>
   </div>
-  <div class="editorial-graphic reveal reveal-delay-2"><svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" width="180"><defs><linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#AC9379" stop-opacity="0.9"/><stop offset="100%" stop-color="#7A8B6F" stop-opacity="0.7"/></linearGradient></defs><path d="M100 10 L185 50 L185 120 C185 170 145 200 100 215 C55 200 15 170 15 120 L15 50 Z" fill="none" stroke="url(#shieldGrad)" stroke-width="2.5"/><path d="M100 30 L170 62 L170 118 C170 158 138 185 100 198 C62 185 30 158 30 118 L30 62 Z" fill="url(#shieldGrad)" opacity="0.08"/><g stroke="#AC9379" stroke-width="1.5" fill="none" opacity="0.6"><line x1="60" y1="95" x2="140" y2="95"/><line x1="60" y1="115" x2="130" y2="115"/><line x1="60" y1="135" x2="120" y2="135"/></g><circle cx="100" cy="68" r="16" fill="none" stroke="#AC9379" stroke-width="2" opacity="0.7"/><path d="M94 68 L99 73 L107 63" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="editorial-graphic reveal reveal-delay-2">
+    <div class="hero-graphic-wrap">
+      <svg class="hero-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" width="220">
+        <defs>
+          <linearGradient id="camelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#AC9379"/><stop offset="100%" stop-color="#967F67"/></linearGradient>
+          <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#AC9379" stop-opacity="0.25"/><stop offset="100%" stop-color="#AC9379" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="110" cy="110" r="90" fill="url(#centerGlow)"/>
+        <g class="orbit-1"><circle cx="110" cy="110" r="95" fill="none" stroke="#AC9379" stroke-width="0.5" stroke-opacity="0.2"/><circle cx="110" cy="15" r="4" fill="#AC9379" opacity="0.7" class="pulse-node"/><circle cx="205" cy="110" r="4" fill="#7A8B6F" opacity="0.7" class="pulse-node pulse-node-d1"/><circle cx="110" cy="205" r="3.5" fill="#AC9379" opacity="0.5" class="pulse-node pulse-node-d2"/><circle cx="15" cy="110" r="3.5" fill="#7A8B6F" opacity="0.5" class="pulse-node pulse-node-d3"/></g>
+        <g class="orbit-2"><circle cx="110" cy="110" r="65" fill="none" stroke="#7A8B6F" stroke-width="0.5" stroke-opacity="0.25"/><circle cx="110" cy="45" r="4" fill="#7A8B6F" opacity="0.8" class="pulse-node pulse-node-d4"/><circle cx="175" cy="110" r="3.5" fill="#AC9379" opacity="0.6" class="pulse-node pulse-node-d5"/><circle cx="45" cy="110" r="4" fill="#AC9379" opacity="0.7" class="pulse-node pulse-node-d1"/></g>
+        <g class="orbit-3"><circle cx="110" cy="110" r="38" fill="none" stroke="#AC9379" stroke-width="0.5" stroke-opacity="0.3"/><circle cx="110" cy="72" r="3" fill="#AC9379" opacity="0.8" class="pulse-node pulse-node-d3"/><circle cx="148" cy="110" r="3" fill="#7A8B6F" opacity="0.8" class="pulse-node pulse-node-d5"/></g>
+        <line x1="110" y1="96" x2="110" y2="45" stroke="#AC9379" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <line x1="124" y1="110" x2="175" y2="110" stroke="#7A8B6F" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <line x1="96" y1="110" x2="45" y2="110" stroke="#AC9379" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <line x1="110" y1="124" x2="110" y2="175" stroke="#7A8B6F" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <circle cx="110" cy="110" r="14" fill="url(#camelGrad)" opacity="0.9" class="center-pulse"/>
+        <circle cx="110" cy="110" r="20" fill="none" stroke="#AC9379" stroke-width="1" stroke-opacity="0.2"/>
+        <g fill="#FDFBF9" opacity="0.95"><circle cx="110" cy="105" r="2"/><circle cx="105" cy="113" r="2"/><circle cx="115" cy="113" r="2"/><line x1="110" y1="105" x2="105" y2="113" stroke="#FDFBF9" stroke-width="1.2"/><line x1="110" y1="105" x2="115" y2="113" stroke="#FDFBF9" stroke-width="1.2"/><line x1="105" y1="113" x2="115" y2="113" stroke="#FDFBF9" stroke-width="1.2"/></g>
+      </svg>
+    </div>
+  </div>
   
+
 </section>
 
 <section class="governance-grid">
@@ -384,7 +406,7 @@
 <section class="bridge">
   <h2 class="reveal">Governance is one of six dimensions of AI readiness.</h2>
   <p class="reveal reveal-delay-1">See where your organization stands across all of them.</p>
-  <a href="/#assessment" class="btn-primary reveal reveal-delay-2">Take the Assessment</a>
+  <a href="https://tally.so/r/mBGaNY" class="btn-primary reveal reveal-delay-2">Take the Assessment</a>
 </section>
 
 <section class="footer-cta"><div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div><p class="tagline reveal reveal-delay-1"><em>Assess &middot; Identify &middot; Result</em></p><h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let&rsquo;s find yours.</h2><div class="cta-row reveal reveal-delay-3"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div><p class="footer-contact reveal">Rather talk first? <a href="mailto:hello&#64;airesulting.com">hello&#64;airesulting.com</a></p><div class="footer-bottom reveal"><p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p></div></section>
