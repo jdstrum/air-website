@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What AI Actually Does â AI Resulting</title>
+<meta name="description" content="Real AI use cases by industry. See what's possible when the foundation is in place â and what you're leaving on the table without it.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+@font-face{font-family:'Trebuchet MS';src:local('Trebuchet MS');}
+body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 8vw;transition:all 0.4s ease;background:rgba(253,251,249,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.site-nav.scrolled{box-shadow:0 1px 0 rgba(221,215,208,0.4);padding:14px 8vw;}
+.nav-logo{display:inline-flex;align-items:center;text-decoration:none;}
+.nav-logo .mark{background:#2F2F2F;color:#AC9379;font-size:10px;font-weight:700;padding:5px 7px;border-radius:5px;letter-spacing:0.08em;margin-right:4px;}
+.nav-logo .r{font-family:'Trebuchet MS',sans-serif;font-size:18px;font-weight:700;color:#AC9379;}
+.nav-logo .name{font-family:'Trebuchet MS',sans-serif;font-size:18px;font-weight:600;color:#2F2F2F;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#9A9488;text-decoration:none;letter-spacing:0.01em;transition:color 0.3s;}
+.nav-links a:hover{color:#AC9379;}
+.nav-links a.active{color:#2F2F2F;font-weight:600;}
+.nav-links .nav-cta{background:#AC9379;color:#FDFBF9;padding:10px 22px;border-radius:5px;font-weight:600;transition:all 0.3s;}
+.nav-links .nav-cta:hover{background:#967F67;color:#FDFBF9;}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#2F2F2F;margin:5px 0;transition:all 0.3s;border-radius:1px;}
+.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.nav-hamburger.active span:nth-child(2){opacity:0;}
+.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+@media(max-width:768px){
+  .nav-hamburger{display:block;}
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}
+  .nav-links.open{display:flex!important;}
+  .nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}
+  .nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}
+}
+
+/* HERO */
+.uc-hero{background:#2F2F2F;padding:130px 8vw 80px;color:#FDFBF9;position:relative;overflow:hidden;}
+.uc-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(172,147,121,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(122,139,111,0.06) 0%,transparent 50%);pointer-events:none;}
+.uc-hero .page-label{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#AC9379;margin-bottom:24px;display:block;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
+.uc-hero h1{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4.5vw,56px);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.4s forwards;}
+.uc-hero h1 em{font-style:normal;color:#AC9379;}
+.uc-hero .hero-sub{font-size:clamp(16px,1.8vw,19px);color:#DDD7D0;line-height:1.7;max-width:640px;opacity:0;animation:fadeUp 0.8s 0.6s forwards;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+/* INDUSTRY SELECTOR */
+.industry-section{padding:80px 8vw 0;}
+.industry-section h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:#2F2F2F;margin-bottom:12px;letter-spacing:-0.02em;}
+.industry-section .section-sub{font-size:16px;color:#7A7468;margin-bottom:40px;line-height:1.6;}
+.industry-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:56px;}
+.industry-tab{background:#F2EDE9;border:none;padding:14px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#7A7468;cursor:pointer;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
+.industry-tab:hover{background:#E4DAD0;color:#2F2F2F;}
+.industry-tab.active{background:#2F2F2F;color:#FDFBF9;}
+.industry-tab.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:#AC9379;}
+@media(max-width:768px){.industry-tabs{gap:8px;}.industry-tab{padding:12px 20px;font-size:13px;}}
+
+/* USE CASE PANEL */
+.uc-panel{display:none;padding-bottom:80px;}
+.uc-panel.active{display:block;animation:panelIn 0.5s cubic-bezier(0.16,1,0.3,1);}
+@keyframes panelIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.uc-panel-header{margin-bottom:40px;}
+.uc-panel-header h3{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;color:#2F2F2F;margin-bottom:8px;}
+.uc-panel-header p{font-size:15px;color:#9A9488;line-height:1.6;}
+.uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:768px){.uc-grid{grid-template-columns:1fr;}}
+
+.uc-card{background:#FDFBF9;border:1px solid #E4DAD0;border-radius:8px;padding:28px 28px 24px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;}
+.uc-card:hover{border-color:#AC9379;transform:translateY(-3px);box-shadow:0 8px 32px rgba(172,147,121,0.1);}
+.uc-card .dim-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:14px;}
+.dim-tag.strategy{background:rgba(172,147,121,0.12);color:#AC9379;}
+.dim-tag.data{background:rgba(122,139,111,0.12);color:#7A8B6F;}
+.dim-tag.tech{background:rgba(166,123,91,0.12);color:#A67B5B;}
+.dim-tag.governance{background:rgba(47,47,47,0.08);color:#5A5A5A;}
+.dim-tag.cx{background:rgba(172,147,121,0.12);color:#967F67;}
+.dim-tag.workforce{background:rgba(122,139,111,0.12);color:#6B7D60;}
+.uc-card h4{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;color:#2F2F2F;margin-bottom:10px;line-height:1.35;}
+.uc-card p{font-size:14px;color:#7A7468;line-height:1.6;}
+.uc-card .uc-impact{margin-top:14px;padding-top:12px;border-top:1px solid #F2EDE9;font-size:13px;font-weight:600;color:#AC9379;}
+
+/* IMAGINATION BRIDGE */
+.imagination-bridge{background:#2F2F2F;padding:80px 8vw;text-align:center;color:#FDFBF9;}
+.imagination-bridge h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3.5vw,42px);font-weight:700;margin-bottom:20px;letter-spacing:-0.02em;line-height:1.2;}
+.imagination-bridge h2 em{font-style:normal;color:#AC9379;}
+.imagination-bridge p{font-size:17px;color:#DDD7D0;line-height:1.7;max-width:600px;margin:0 auto 40px;}
+.btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);}
+.btn-primary:hover{background:#967F67;transform:translateY(-2px);box-shadow:0 8px 32px rgba(172,147,121,0.25);}
+
+/* COUNT STRIP */
+.count-strip{background:#F2EDE9;padding:48px 8vw;display:flex;justify-content:center;gap:64px;flex-wrap:wrap;}
+.count-item{text-align:center;}
+.count-num{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:#AC9379;line-height:1;}
+.count-label{font-size:13px;color:#9A9488;margin-top:6px;font-weight:500;}
+@media(max-width:768px){.count-strip{gap:32px;}}
+
+/* FOOTER */
+.footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}
+.footer-cta .mark{background:rgba(253,251,249,0.1);color:#AC9379;font-family:"DM Sans",sans-serif;font-weight:700;font-size:13px;padding:3px 6px;border-radius:4px;margin-right:2px;}
+.footer-cta .r{font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;color:#AC9379;}
+.footer-cta .name{font-family:"DM Sans",sans-serif;font-weight:400;font-size:22px;color:#FDFBF9;}
+.footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}
+.footer-cta h2{font-family:"DM Sans",sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}
+.footer-cta .btn-primary{display:inline-block;}
+.footer-contact{font-size:14px;color:#999;margin-top:24px;}
+.footer-contact a{color:#AC9379;text-decoration:none;}
+.footer-contact a:hover{color:#DDD7D0;}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}
+.footer-bottom p{font-size:13px;color:#777;}
+.footer-bottom a{color:#777;text-decoration:none;}
+.footer-bottom a:hover{color:#AC9379;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+
+/* SCROLL PROGRESS */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:#AC9379;z-index:200;width:0%;transition:width 0.1s linear;}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
+  </a>
+  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/governance.html">The Governance Gap</a>
+    <a href="/the-stealth-spend.html">The Stealth Spend</a>
+    <a href="/use-cases.html" class="active">Use Cases</a>
+    <a href="https://tally.so/r/mBGaNY" class="nav-cta">Take the Assessment</a>
+  </div>
+</nav>
+
+<section class="uc-hero">
+  <span class="page-label">What AI Actually Does</span>
+  <h1>Your competitors aren't waiting for <em>permission.</em><br>Here's what they're building.</h1>
+  <p class="hero-sub">These aren't hypotheticals. They're use cases happening right now in companies like yours â when the readiness foundation is in place.</p>
+</section>
+
+<div class="count-strip">
+  <div class="count-item"><div class="count-num">6</div><div class="count-label">Industries</div></div>
+  <div class="count-item"><div class="count-num">42</div><div class="count-label">Use Cases</div></div>
+  <div class="count-item"><div class="count-num">6</div><div class="count-label">Readiness Dimensions</div></div>
+</div>
+
+<section class="industry-section">
+  <h2 class="reveal">Find your industry. See what's possible.</h2>
+  <p class="section-sub reveal reveal-delay-1">Click your industry to see the AI use cases most relevant to your business. Every one maps to a readiness dimension â the foundation that makes it work.</p>
+
+  <div class="industry-tabs" id="industryTabs">
+    <button class="industry-tab active" data-industry="healthcare">Healthcare</button>
+    <button class="industry-tab" data-industry="financial">Financial Services</button>
+    <button class="industry-tab" data-industry="manufacturing">Manufacturing</button>
+    <button class="industry-tab" data-industry="education">Education</button>
+    <button class="industry-tab" data-industry="professional">Professional Services</button>
+    <button class="industry-tab" data-industry="retail">Retail</button>
+  </div>
+
+  <!-- HEALTHCARE -->
+  <div class="uc-panel active" id="panel-healthcare">
+    <div class="uc-panel-header">
+      <h3>Healthcare</h3>
+      <p>AI in healthcare goes far beyond clinical decision support. The biggest opportunities are in the operational layers most systems haven't touched.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>AI triage that routes patients before they hit the waiting room</h4>
+        <p>Symptom-aware intake systems assess urgency, pre-populate charts, and route patients to the right department â cutting average wait-to-treatment time significantly.</p>
+        <div class="uc-impact">30â45% reduction in ER wait-to-treatment time</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>Automated prior authorization that resolves in minutes, not days</h4>
+        <p>AI cross-references patient records, payer requirements, and clinical guidelines to auto-generate auth requests â and auto-approves the ones that clearly qualify.</p>
+        <div class="uc-impact">85% of authorizations resolved same-day</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag workforce">Workforce</span>
+        <h4>Ambient clinical documentation that gives physicians back 2 hours a day</h4>
+        <p>AI listens to patient-provider conversations and generates structured clinical notes in real time. Physicians review and sign instead of typing from memory at midnight.</p>
+        <div class="uc-impact">2+ hours returned to patient care per clinician per day</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag governance">Governance</span>
+        <h4>Real-time compliance monitoring across every AI-generated document</h4>
+        <p>Every AI output â discharge summaries, referral letters, insurance communications â is automatically scanned for HIPAA violations, coding errors, and regulatory gaps before it leaves the system.</p>
+        <div class="uc-impact">92% reduction in compliance-related rework</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Predictive readmission scoring that triggers intervention before discharge</h4>
+        <p>AI identifies high-risk patients 48 hours before discharge and auto-generates care coordination plans â social work referrals, follow-up scheduling, medication reconciliation â while they're still in-house.</p>
+        <div class="uc-impact">23% reduction in 30-day readmissions</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Cross-system patient data unification without ripping out your EHR</h4>
+        <p>AI middleware creates a unified patient view across Epic, Cerner, billing, pharmacy, and lab systems â surfacing conflicts and gaps that no single system can see.</p>
+        <div class="uc-impact">Single patient view across 5+ systems in weeks, not years</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Post-discharge follow-up that actually happens</h4>
+        <p>AI-powered outreach contacts every discharged patient with personalized check-ins, medication reminders, and escalation triggers â no staff time required for the 80% who are recovering normally.</p>
+        <div class="uc-impact">3x increase in post-discharge engagement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCIAL SERVICES -->
+  <div class="uc-panel" id="panel-financial">
+    <div class="uc-panel-header">
+      <h3>Financial Services</h3>
+      <p>Financial services firms are sitting on more data than almost any other industry. The ones pulling ahead are using AI to make that data work across silos.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>Real-time fraud detection that learns your customers' patterns</h4>
+        <p>AI models trained on your specific transaction data catch anomalies that generic rule-based systems miss â and reduce false positives that frustrate legitimate customers.</p>
+        <div class="uc-impact">60% fewer false positives, 40% more true fraud caught</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag workforce">Workforce</span>
+        <h4>Relationship managers who walk in knowing everything</h4>
+        <p>AI assembles a real-time client brief before every meeting â recent transactions, life events, product gaps, competitor moves, and next-best-action recommendations.</p>
+        <div class="uc-impact">28% increase in cross-sell conversion</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag governance">Governance</span>
+        <h4>Automated regulatory reporting that writes itself</h4>
+        <p>AI pulls data from trading systems, compliance logs, and risk databases to auto-generate SEC, FINRA, and Basel III reports â with audit trails that regulators actually trust.</p>
+        <div class="uc-impact">70% reduction in report preparation time</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Claims processing that closes in hours, not weeks</h4>
+        <p>AI reads claim documents, cross-references policy terms, pulls comparable historical claims, and generates a recommended payout â routing only the edge cases to human adjusters.</p>
+        <div class="uc-impact">80% of straightforward claims auto-resolved</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Portfolio risk modeling that sees around corners</h4>
+        <p>AI continuously scans market data, geopolitical signals, supply chain disruptions, and client concentration risk to surface vulnerabilities before they become losses.</p>
+        <div class="uc-impact">Early warning signals 2â3 weeks ahead of traditional models</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Legacy system modernization without the five-year rewrite</h4>
+        <p>AI translates COBOL and mainframe logic into modern APIs, creating a bridge layer that lets new AI applications talk to 30-year-old core banking systems.</p>
+        <div class="uc-impact">80% faster integration vs. full system replacement</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>KYC and AML screening that actually scales</h4>
+        <p>AI processes new client onboarding documents, screens against sanctions lists, and flags discrepancies â turning a 3-week process into a 3-day one without cutting corners on compliance.</p>
+        <div class="uc-impact">5x faster client onboarding</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANUFACTURING -->
+  <div class="uc-panel" id="panel-manufacturing">
+    <div class="uc-panel-header">
+      <h3>Manufacturing</h3>
+      <p>Manufacturing has more sensor data than it knows what to do with. AI turns that data from noise into operational advantage.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Predictive maintenance that schedules itself</h4>
+        <p>AI analyzes vibration, temperature, and performance data from equipment sensors to predict failures 2â4 weeks out â and auto-schedules maintenance during planned downtime windows.</p>
+        <div class="uc-impact">45% reduction in unplanned downtime</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>Quality control that catches defects humans can't see</h4>
+        <p>Computer vision systems inspect products at line speed, catching micro-defects, dimensional drift, and surface anomalies that escape manual inspection â and learning from every miss.</p>
+        <div class="uc-impact">90%+ defect detection rate at full line speed</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Demand forecasting that accounts for signals your ERP ignores</h4>
+        <p>AI combines sales data with weather patterns, social media trends, competitor pricing, and supply chain signals to predict demand with far more accuracy than historical averages.</p>
+        <div class="uc-impact">35% improvement in forecast accuracy</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag workforce">Workforce</span>
+        <h4>Digital work instructions that adapt to the operator</h4>
+        <p>AI-powered AR overlays guide operators through complex assembly with step-by-step visual instructions â adjusting complexity based on experience level and error history.</p>
+        <div class="uc-impact">60% faster new-hire proficiency</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag governance">Governance</span>
+        <h4>Supply chain provenance tracking from raw material to finished good</h4>
+        <p>AI creates an auditable chain of custody for every component â flagging conflict minerals, tracking carbon footprint, and generating ESG compliance reports automatically.</p>
+        <div class="uc-impact">Full supply chain traceability for compliance and ESG reporting</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Custom configuration quoting in minutes instead of days</h4>
+        <p>AI translates customer specs into manufacturing BOMs, checks feasibility against current capacity, and generates accurate quotes â including lead times â while the sales call is still happening.</p>
+        <div class="uc-impact">Quote turnaround from 5 days to 15 minutes</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Energy optimization that cuts utility costs without cutting output</h4>
+        <p>AI dynamically adjusts HVAC, compressed air, lighting, and equipment scheduling based on production schedules, energy prices, and weather forecasts.</p>
+        <div class="uc-impact">15â25% reduction in energy costs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="uc-panel" id="panel-education">
+    <div class="uc-panel-header">
+      <h3>Education</h3>
+      <p>Education is under more pressure to do more with less than almost any sector. AI won't replace educators â but it will give them leverage they've never had.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Early warning systems that identify at-risk students weeks earlier</h4>
+        <p>AI monitors engagement signals â LMS logins, assignment submissions, grade trends, advisor interactions â and flags students heading toward failure before midterms, not after.</p>
+        <div class="uc-impact">25% improvement in retention for flagged students</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag workforce">Workforce</span>
+        <h4>Automated course material updates that keep pace with the field</h4>
+        <p>AI scans new research, industry standards, and regulatory changes â then flags specific slides, readings, and assignments that need updating, with suggested replacements.</p>
+        <div class="uc-impact">80% reduction in curriculum review time</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>Financial aid optimization that maximizes yield without guesswork</h4>
+        <p>AI models predict enrollment probability at different aid levels for each admitted student â letting financial aid offices allocate limited dollars where they'll have the most impact.</p>
+        <div class="uc-impact">12% improvement in enrollment yield at same aid budget</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Program portfolio analysis that shows which degrees to invest in</h4>
+        <p>AI combines enrollment trends, job market data, employer demand signals, and regional demographics to identify which programs to grow, sunset, or create.</p>
+        <div class="uc-impact">Data-driven program decisions instead of committee politics</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag governance">Governance</span>
+        <h4>Accreditation evidence compilation that runs continuously</h4>
+        <p>AI automatically collects, tags, and organizes the evidence needed for SACSCOC, HLC, or programmatic accreditation â so the report writes itself by the time the visit arrives.</p>
+        <div class="uc-impact">Accreditation prep from 18 months to 3 months</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Intelligent scheduling that eliminates room and faculty conflicts</h4>
+        <p>AI optimizes course scheduling across room capacity, faculty preferences, student demand patterns, and prerequisite chains â producing conflict-free schedules that maximize utilization.</p>
+        <div class="uc-impact">95% conflict-free schedules, 20% better room utilization</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Personalized learning pathways that adapt in real time</h4>
+        <p>AI adjusts content difficulty, format, and pacing based on how each student is performing â surfacing additional practice where they struggle and accelerating where they don't.</p>
+        <div class="uc-impact">Measurable improvement in course completion rates</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SERVICES -->
+  <div class="uc-panel" id="panel-professional">
+    <div class="uc-panel-header">
+      <h3>Professional Services</h3>
+      <p>Professional services firms sell expertise and time. AI multiplies the first and reclaims the second.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag workforce">Workforce</span>
+        <h4>Proposal generation that pulls from every past engagement</h4>
+        <p>AI searches your entire proposal history, case studies, and engagement records to auto-generate first drafts â with relevant past work, team bios, and pricing frameworks pre-populated.</p>
+        <div class="uc-impact">70% reduction in proposal writing time</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>Knowledge management that actually works</h4>
+        <p>AI indexes every deliverable, email thread, Slack conversation, and meeting recording to create a searchable institutional memory â so the answer to "have we done this before?" is always one query away.</p>
+        <div class="uc-impact">Institutional knowledge accessible in seconds, not days of asking around</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Client health scoring that predicts churn before renewal conversations</h4>
+        <p>AI monitors engagement frequency, response times, scope change patterns, and satisfaction signals to flag at-risk clients â with recommended save actions â months before renewal.</p>
+        <div class="uc-impact">35% improvement in at-risk client retention</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Automated time tracking from calendar and work product</h4>
+        <p>AI reconstructs billable time from calendar events, document edits, email threads, and system access logs â generating time entries that professionals review rather than create from scratch.</p>
+        <div class="uc-impact">15â20% increase in captured billable time</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag governance">Governance</span>
+        <h4>Conflict-of-interest screening across the entire client book</h4>
+        <p>AI continuously monitors new engagements, client relationships, and team assignments against conflict rules â flagging issues before they become ethics violations.</p>
+        <div class="uc-impact">Real-time conflict detection vs. quarterly manual review</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Client deliverables that personalize automatically</h4>
+        <p>AI adapts report formatting, language complexity, executive summary depth, and visualization style based on the recipient's role, past feedback, and communication preferences.</p>
+        <div class="uc-impact">Higher client satisfaction without additional production time</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Resource allocation that matches people to projects by actual capability</h4>
+        <p>AI builds capability profiles from past project performance, skills assessments, and peer feedback â then recommends staffing that optimizes for client fit, utilization, and development goals.</p>
+        <div class="uc-impact">Better project outcomes and higher consultant satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RETAIL -->
+  <div class="uc-panel" id="panel-retail">
+    <div class="uc-panel-header">
+      <h3>Retail</h3>
+      <p>Retail operates on razor-thin margins where small improvements in efficiency, personalization, and inventory accuracy compound into significant competitive advantage.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Hyper-personalized recommendations that know your customer better than their sales associate</h4>
+        <p>AI combines purchase history, browsing behavior, return patterns, and seasonal preferences to surface recommendations that feel curated, not algorithmic â across every channel.</p>
+        <div class="uc-impact">15â25% increase in average order value</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag data">Data Readiness</span>
+        <h4>Inventory optimization that eliminates overstock and stockouts simultaneously</h4>
+        <p>AI predicts demand at the SKU-location level by combining POS data, weather, local events, social trends, and competitor actions â auto-adjusting reorder points in real time.</p>
+        <div class="uc-impact">30% reduction in excess inventory, 40% fewer stockouts</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">Strategy</span>
+        <h4>Dynamic pricing that maximizes margin without losing customers</h4>
+        <p>AI adjusts pricing in real time based on demand elasticity, competitor pricing, inventory levels, and margin targets â different by channel, location, and customer segment.</p>
+        <div class="uc-impact">5â12% margin improvement on optimized categories</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag workforce">Workforce</span>
+        <h4>Store staffing that matches labor to traffic, not guesswork</h4>
+        <p>AI forecasts foot traffic by hour using historical patterns, weather, local events, and marketing calendar â then auto-generates optimal shift schedules that balance coverage and labor cost.</p>
+        <div class="uc-impact">20% reduction in labor cost per transaction</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag tech">Technology</span>
+        <h4>Unified commerce that actually unifies</h4>
+        <p>AI creates a single real-time view of inventory, orders, and customer interactions across e-commerce, stores, marketplaces, and fulfillment centers â enabling true buy-anywhere-fulfill-anywhere.</p>
+        <div class="uc-impact">Seamless omnichannel experience from one data layer</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag governance">Governance</span>
+        <h4>Shrink detection that catches patterns humans miss</h4>
+        <p>AI correlates POS exceptions, inventory discrepancies, return patterns, and video analytics to identify organized retail crime, internal theft, and process failures â with evidence packages ready for action.</p>
+        <div class="uc-impact">25â40% reduction in shrink losses</div>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Customer Experience</span>
+        <h4>Returns processing that turns a cost center into a loyalty driver</h4>
+        <p>AI predicts return likelihood at point of purchase, auto-routes returns to the most cost-effective channel, and uses return reasons to improve sizing recommendations â turning a pain point into a data advantage.</p>
+        <div class="uc-impact">20% reduction in return rate through better pre-purchase guidance</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="imagination-bridge">
+  <h2 class="reveal">Every one of these use cases requires <em>readiness.</em></h2>
+  <p class="reveal reveal-delay-1">The technology exists. The question is whether your data, governance, infrastructure, and people are ready to support it. That's what we measure.</p>
+  <a href="https://tally.so/r/mBGaNY" class="btn-primary reveal reveal-delay-2">Take the Assessment</a>
+</section>
+
+<section class="footer-cta">
+  <div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
+  <p class="tagline reveal reveal-delay-1"><em>Assess &middot; Identify &middot; Result</em></p>
+  <h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let&rsquo;s find yours.</h2>
+  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div>
+  <p class="footer-contact reveal">Rather talk first? <a href="mailto:hello&#64;airesulting.com">hello&#64;airesulting.com</a></p>
+  <div class="footer-bottom reveal"><p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p></div>
+</section>
+
+<script>
+// Industry tab switching
+(function() {
+  var tabs = document.querySelectorAll('.industry-tab');
+  var panels = document.querySelectorAll('.uc-panel');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var industry = this.getAttribute('data-industry');
+
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+
+      this.classList.add('active');
+      document.getElementById('panel-' + industry).classList.add('active');
+    });
+  });
+})();
+
+// Scroll reveal
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+})();
+
+// Nav scroll
+(function() {
+  var nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+})();
+
+// Scroll progress
+(function() {
+  var progress = document.getElementById('scrollProgress');
+  if (!progress) return;
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (scrollTop / docHeight) * 100 + '%';
+  });
+})();
+</script>
+</body>
+</html>
