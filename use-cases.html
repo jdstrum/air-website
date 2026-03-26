@@ -88,12 +88,6 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);}
 .btn-primary:hover{background:#967F67;transform:translateY(-2px);box-shadow:0 8px 32px rgba(172,147,121,0.25);}
 
-/* COUNT STRIP */
-.count-strip{background:#F2EDE9;padding:48px 8vw;display:flex;justify-content:center;gap:64px;flex-wrap:wrap;}
-.count-item{text-align:center;}
-.count-num{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:#AC9379;line-height:1;}
-.count-label{font-size:13px;color:#9A9488;margin-top:6px;font-weight:500;}
-@media(max-width:768px){.count-strip{gap:32px;}}
 
 /* FOOTER */
 .footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}
@@ -101,7 +95,8 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .footer-cta .r{font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;color:#AC9379;}
 .footer-cta .name{font-family:"DM Sans",sans-serif;font-weight:400;font-size:22px;color:#FDFBF9;}
 .footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}
-.footer-cta h2{font-family:"DM Sans",sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}
+.footer-cta h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.25;margin-bottom:32px;}
+.footer-cta h2 em{font-style:normal;color:#AC9379;}
 .footer-cta .btn-primary{display:inline-block;}
 .footer-contact{font-size:14px;color:#999;margin-top:24px;}
 .footer-contact a{color:#AC9379;text-decoration:none;}
@@ -132,26 +127,21 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
   <div class="nav-links">
     <a href="/governance.html">The Governance Gap</a>
     <a href="/the-stealth-spend.html">The Stealth Spend</a>
-    <a href="/use-cases.html" class="active">Use Cases</a>
+    <a href="/use-cases.html" class="active">The Resulting</a>
     <a href="https://tally.so/r/mBGaNY" class="nav-cta">Take the Assessment</a>
   </div>
 </nav>
 
 <section class="uc-hero">
   <span class="page-label">The Resulting</span>
-  <h1>This is what happens when the <em>foundation is ready.</em></h1>
-  <p class="hero-sub">Real AI use cases. Real industries. Real impact. Every one of these is happening right now — in companies that built the readiness to support it. This is the resulting.</p>
+  <h1>This is what happens when the <em>foundation is built.</em></h1>
+  <p class="hero-sub">Forty-two AI use cases across six industries — every one happening right now, in companies that built the readiness to support it. This is AI resulting.</p>
 </section>
 
-<div class="count-strip">
-  <div class="count-item"><div class="count-num">6</div><div class="count-label">Industries</div></div>
-  <div class="count-item"><div class="count-num">42</div><div class="count-label">Use Cases</div></div>
-  <div class="count-item"><div class="count-num">6</div><div class="count-label">Readiness Dimensions</div></div>
-</div>
 
 <section class="industry-section">
-  <h2 class="reveal">Find your industry. See the resulting.</h2>
-  <p class="section-sub reveal reveal-delay-1">Click your industry to see the AI use cases most relevant to your business. Every one maps to a readiness dimension — and every one represents a result that's already happening for organizations that did the work.</p>
+  <h2 class="reveal">Find your industry. Explore the possibilities.</h2>
+  <p class="section-sub reveal reveal-delay-1">Click your industry to see the AI use cases most relevant to your business. Every one maps to a readiness dimension and represents a result that's already happening for organizations that laid the groundwork.</p>
 
   <div class="industry-tabs" id="industryTabs">
     <button class="industry-tab active" data-industry="healthcare">Healthcare</button>
@@ -476,18 +466,14 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 
 </section>
 
-<section class="imagination-bridge">
-  <h2 class="reveal">Every result starts with <em>readiness.</em></h2>
-  <p class="reveal reveal-delay-1">The use cases are real. The technology exists. The only question is whether your data, governance, infrastructure, and people are ready to deliver these results. That's exactly what we measure.</p>
-  <a href="https://tally.so/r/mBGaNY" class="btn-primary reveal reveal-delay-2">Take the Assessment</a>
-</section>
-
 <section class="footer-cta">
   <div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
   <p class="tagline reveal reveal-delay-1"><em>Assess &middot; Identify &middot; Result</em></p>
-  <h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let&rsquo;s find yours.</h2>
-  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div>
+  <h2 class="reveal reveal-delay-2">Every result starts with <em>readiness.</em></h2>
+  <p class="reveal reveal-delay-1" style="font-size:17px;color:#DDD7D0;line-height:1.7;max-width:560px;margin:0 auto 40px;"><strong>Your data. Your governance. Your infrastructure. Your people.<br>We measure what matters — so you can move with confidence.</strong></p>
+  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a></div>
   <p class="footer-contact reveal">Rather talk first? <a href="mailto:hello&#64;airesulting.com">hello&#64;airesulting.com</a></p>
+  <p class="reveal" style="font-size:12px;color:#9A9488;margin-top:32px;font-style:italic;">Impact metrics represent published industry benchmarks and early adopter results.</p>
   <div class="footer-bottom reveal"><p>&copy; 2026 AI Resulting LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p></div>
 </section>
 
