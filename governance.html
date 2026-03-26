@@ -24,7 +24,7 @@
   .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
   @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } }
 
-  .editorial-open { background: #F2EDE9; padding: 130px 8vw 72px; display: grid; grid-template-columns: 1.2fr 0.6fr 0.5fr; gap: 64px; align-items: end; }
+  .editorial-open { background: #F2EDE9; padding: 130px 8vw 72px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; }
   .editorial-left {}
   .editorial-open .page-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 28px; display: block; }
   .editorial-open h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(26px, 3.2vw, 38px); font-weight: 700; line-height: 1.25; color: #2F2F2F; letter-spacing: -0.02em; }
@@ -39,7 +39,7 @@
   .grid-item p { font-size: 15px; color: #2F2F2F; line-height: 1.65; }
   @media (max-width: 768px) { .grid-items { grid-template-columns: 1fr; gap: 28px; } }
 
-  .gateway-section { background: #2F2F2F; padding: 80px 8vw; color: #FDFBF9; }
+  .gateway-section { background: linear-gradient(rgba(47,47,47,0.92), rgba(47,47,47,0.88)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80") center/cover no-repeat fixed; padding: 80px 8vw; color: #FDFBF9; }
   .gateway-inner { max-width: 760px; }
   .gateway-section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; }
   .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
@@ -178,75 +178,60 @@
   /* GRADIENT PULSE on editorial opening */
   @keyframes gradientPulse {
     0%, 100% { background-color: #F2EDE9; }
-    50% { background-color: #EDE6DF; }
+    50% { background-color: #E4DAD0; }
   }
   .editorial-open {
     animation: gradientPulse 6s ease-in-out infinite;
   }
 
   /* FOUNDATION BLOCKS */
-  .foundation-blocks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 6px;
-    width: 100%;
-    max-width: 280px;
-    aspect-ratio: 1;
-    margin-left: auto;
-    align-self: center;
-  }
-  .f-block {
-    border-radius: 4px;
-    opacity: 0;
-    transform: translateY(30px) scale(0.8);
-    animation: blockDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes blockDrop {
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+  
+  
+  
   }
   /* Bottom row - fills first (foundation) */
-  .f-block:nth-child(13) { animation-delay: 0.3s; background: #AC9379; }
-  .f-block:nth-child(14) { animation-delay: 0.45s; background: #AC9379; }
-  .f-block:nth-child(15) { animation-delay: 0.6s; background: #967F67; }
-  .f-block:nth-child(16) { animation-delay: 0.75s; background: #AC9379; }
+  
+  
+  
+  
   /* Third row */
-  .f-block:nth-child(9) { animation-delay: 1.0s; background: #7A8B6F; }
-  .f-block:nth-child(10) { animation-delay: 1.15s; background: #AC9379; opacity: 0.7; }
-  .f-block:nth-child(11) { animation-delay: 1.3s; background: #7A8B6F; }
-  .f-block:nth-child(12) { animation-delay: 1.45s; background: transparent; }
+  
+  
+  
+  
   /* Second row */
-  .f-block:nth-child(5) { animation-delay: 1.7s; background: #DDD7D0; }
-  .f-block:nth-child(6) { animation-delay: 1.85s; background: #AC9379; opacity: 0.5; }
-  .f-block:nth-child(7) { animation-delay: 2.0s; background: transparent; }
-  .f-block:nth-child(8) { animation-delay: 2.15s; background: transparent; }
+  
+  
+  
+  
   /* Top row - sparse (still building) */
-  .f-block:nth-child(1) { animation-delay: 2.4s; background: #DDD7D0; opacity: 0.4; }
-  .f-block:nth-child(2) { animation-delay: 2.55s; background: transparent; }
-  .f-block:nth-child(3) { animation-delay: 2.7s; background: transparent; }
-  .f-block:nth-child(4) { animation-delay: 2.85s; background: transparent; }
+  
+  
+  
+  
 
   /* After all blocks land, pulse the foundation row */
-  @keyframes blockPulse {
-    0%, 100% { transform: scale(1); }
+  
     50% { transform: scale(1.04); }
   }
   .f-block:nth-child(13), .f-block:nth-child(14), 
-  .f-block:nth-child(15), .f-block:nth-child(16) {
-    animation: blockDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-               blockPulse 3s ease-in-out 3.5s infinite;
-  }
+  .f-block:nth-child(15), 
 
   @media (max-width: 768px) {
-    .foundation-blocks {
-      max-width: 200px;
-      margin: 24px auto 0;
-    }
+    
   }
 
+
+  .grid-item {
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+  }
+  .grid-item:hover {
+    transform: translateY(-4px);
+  }
+  .grid-item:hover h3 {
+    color: #967F67;
+  }
 </style>
 </head>
 <body>
@@ -271,33 +256,33 @@
     <h1 class="reveal reveal-delay-1">Governance is how you secure your AI environment. It's also how you pull ahead of everyone who hasn't.</h1>
   </div>
   <p class="editorial-abstract reveal reveal-delay-2">What governance looks like in practice. The secure AI gateway opportunity. The regulatory deadlines approaching. And a free governance kit to get you started.</p>
-  <div class="foundation-blocks"><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div><div class="f-block"></div></div>
+  
 </section>
 
 <section class="governance-grid">
   <h2 class="reveal">What governance actually looks like.</h2>
   <div class="grid-items">
-    <div class="grid-item reveal reveal-delay-1">
+    <div class="grid-item">
       <h3>AI tool visibility</h3>
       <p>A complete picture of which AI tools are in your environment, which are sanctioned, and which showed up on their own.</p>
     </div>
-    <div class="grid-item reveal reveal-delay-2">
+    <div class="grid-item">
       <h3>Data classification</h3>
       <p>Clear rules for what data can go where. What's safe for public AI tools, what stays internal, and what never leaves the building.</p>
     </div>
-    <div class="grid-item reveal reveal-delay-1">
+    <div class="grid-item">
       <h3>Acceptable use policies</h3>
       <p>Operational guidelines employees actually follow because they're clear, specific, and built around how people already work.</p>
     </div>
-    <div class="grid-item reveal reveal-delay-2">
+    <div class="grid-item">
       <h3>Shadow AI detection</h3>
       <p>The tools you didn't approve are already in your environment. Governance finds them so you can decide what to do about them.</p>
     </div>
-    <div class="grid-item reveal reveal-delay-1">
+    <div class="grid-item">
       <h3>Output verification</h3>
       <p>AI generates confident output whether the information is accurate or not. Governance defines what gets human review before it goes out the door.</p>
     </div>
-    <div class="grid-item reveal reveal-delay-2">
+    <div class="grid-item">
       <h3>Enablement, not restriction</h3>
       <p>Approved tool paths, clear escalation, fast tracks for governed innovation. The goal is policies that say yes more than they say no.</p>
     </div>
