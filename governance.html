@@ -31,21 +31,21 @@
   .editorial-abstract { font-size: 16px; color: #7a7468; line-height: 1.75; font-style: italic; border-left: 2px solid #AC9379; padding-left: 24px; }
   @media (max-width: 768px) { .editorial-open { grid-template-columns: 1fr; gap: 32px; padding: 110px 6vw 56px; } .editorial-abstract { border-left: none; padding-left: 0; border-top: 2px solid #AC9379; padding-top: 20px; } }
 
-  .governance-grid { padding: 64px 8vw 80px; }
+  .governance-grid { padding: 64px 8vw 72px; }
   .governance-grid h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 40px; letter-spacing: -0.02em; }
-  .grid-items { max-width: 1080px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
-  .grid-item { display: flex; flex-direction: column; background: #F2EDE9; border-left: 3px solid #AC9379; border-radius: 0 6px 6px 0; padding: 28px 28px 32px; }
-  .grid-item h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 8px; letter-spacing: 0.03em; }
-  .grid-item p { font-size: 15px; color: #2F2F2F; line-height: 1.65; }
-  @media (max-width: 768px) { .grid-items { grid-template-columns: 1fr; gap: 28px; } }
+  .gov-checklist { max-width: 680px; display: flex; flex-direction: column; gap: 0; }
+  .gov-check-item { display: flex; align-items: baseline; gap: 20px; padding: 20px 0; border-bottom: 1px solid #E4DAD0; }.gov-check-item:last-child { border-bottom: none; }.gov-num { font-family: "Trebuchet MS", Georgia, serif; font-size: 28px; font-weight: 700; color: #AC9379; line-height: 1; min-width: 36px; }.gov-title { font-family: "DM Sans", sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; letter-spacing: -0.01em; }
+  
+  
+  @media (max-width: 768px) { .gov-num { font-size: 24px; } .gov-title { font-size: 16px; } }
 
   .gateway-section { background: linear-gradient(rgba(47,47,47,0.92), rgba(47,47,47,0.88)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80") center/cover no-repeat fixed; padding: 80px 8vw; color: #FDFBF9; }
   .gateway-inner { max-width: 760px; }
   .gateway-section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; }
   .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
   .gateway-section .gateway-lede { font-size: 17px; color: #DDD7D0; line-height: 1.75; margin-bottom: 40px; }
-  .gateway-points { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; }
-  .gateway-point h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 6px; }
+  .gateway-points { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #AC9379; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); border-left-color: #DDD7D0; }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 8px; letter-spacing: 0.03em; }
   .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
 
@@ -158,23 +158,7 @@
   }
 
 
-  /* STAGGERED CARD REVEAL */
-  .grid-item {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .grid-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .grid-item:nth-child(1) { transition-delay: 0s; }
-  .grid-item:nth-child(2) { transition-delay: 0.12s; }
-  .grid-item:nth-child(3) { transition-delay: 0.24s; }
-  .grid-item:nth-child(4) { transition-delay: 0.4s; }
-  .grid-item:nth-child(5) { transition-delay: 0.52s; }
-  .grid-item:nth-child(6) { transition-delay: 0.64s; }
-
+  
   /* GRADIENT PULSE on editorial opening */
   @keyframes gradientPulse {
     0%, 100% { background-color: #F2EDE9; }
@@ -184,65 +168,17 @@
     animation: gradientPulse 6s ease-in-out infinite;
   }
 
-  /* FOUNDATION BLOCKS */
-  
-  
-  
-  }
-  /* Bottom row - fills first (foundation) */
-  
-  
-  
-  
-  /* Third row */
-  
-  
-  
-  
-  /* Second row */
-  
-  
-  
-  
-  /* Top row - sparse (still building) */
-  
-  
-  
   
 
-  /* After all blocks land, pulse the foundation row */
-  
-    50% { transform: scale(1.04); }
-  }
-  .f-block:nth-child(13), .f-block:nth-child(14), 
-  .f-block:nth-child(15), 
-
-  @media (max-width: 768px) {
-    
-  }
-
-
-  .grid-item {
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: default;
-  }
-  .grid-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(47,47,47,0.08);
-    border-left-color: #967F67;
-  }
-  .grid-item:hover h3 {
-    color: #967F67;
-  }
 
   .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
 
   .editorial-graphic{display:flex;align-items:center;justify-content:center;}
-  .hero-graphic-wrap{position:relative;width:220px;height:220px;}@media(max-width:768px){.hero-graphic-wrap{width:180px;height:180px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
+  .hero-graphic-wrap{position:relative;width:280px;height:280px;}@media(max-width:768px){.hero-graphic-wrap{width:200px;height:200px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
 
   .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}.gateway-point.gw-reveal:nth-child(4){transition-delay:0.45s;}
 
-  .footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}.footer-cta .mark{background:#444;color:#FDFBF9;font-family:"DM Sans",sans-serif;font-weight:700;font-size:13px;padding:3px 6px;border-radius:4px;margin-right:2px;}.footer-cta .r{font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;color:#FDFBF9;}.footer-cta .name{font-family:"DM Sans",sans-serif;font-weight:400;font-size:22px;color:#FDFBF9;}.footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}.footer-cta h2{font-family:"DM Sans",sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}.footer-cta .btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;padding:14px 36px;border-radius:5px;text-decoration:none;font-family:"DM Sans",sans-serif;font-weight:600;font-size:15px;transition:background 0.3s;}.footer-cta .btn-primary:hover{background:#967F67;}.footer-cta .footer-contact{font-size:14px;color:#999;margin-top:24px;}.footer-cta .footer-contact a{color:#AC9379;text-decoration:none;}.footer-cta .footer-contact a:hover{color:#DDD7D0;}.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}.footer-bottom p{font-size:13px;color:#777;}.footer-bottom a{color:#777;text-decoration:none;}.footer-bottom a:hover{color:#AC9379;}
+  .footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}.footer-cta .mark{background:rgba(253,251,249,0.1);color:#AC9379;font-family:"DM Sans",sans-serif;font-weight:700;font-size:13px;padding:3px 6px;border-radius:4px;margin-right:2px;}.footer-cta .r{font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;color:#AC9379;}.footer-cta .name{font-family:"DM Sans",sans-serif;font-weight:400;font-size:22px;color:#FDFBF9;}.footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}.footer-cta h2{font-family:"DM Sans",sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}.footer-cta .btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;padding:14px 36px;border-radius:5px;text-decoration:none;font-family:"DM Sans",sans-serif;font-weight:600;font-size:15px;transition:background 0.3s;}.footer-cta .btn-primary:hover{background:#967F67;}.footer-cta .footer-contact{font-size:14px;color:#999;margin-top:24px;}.footer-cta .footer-contact a{color:#AC9379;text-decoration:none;}.footer-cta .footer-contact a:hover{color:#DDD7D0;}.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}.footer-bottom p{font-size:13px;color:#777;}.footer-bottom a{color:#777;text-decoration:none;}.footer-bottom a:hover{color:#AC9379;}
 </style>
 </head>
 <body>
@@ -269,7 +205,7 @@
   </div>
   <div class="editorial-graphic reveal reveal-delay-2">
     <div class="hero-graphic-wrap">
-      <svg class="hero-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" width="220">
+      <svg class="hero-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" width="280">
         <defs>
           <linearGradient id="camelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#AC9379"/><stop offset="100%" stop-color="#967F67"/></linearGradient>
           <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#AC9379" stop-opacity="0.25"/><stop offset="100%" stop-color="#AC9379" stop-opacity="0"/></radialGradient>
@@ -294,32 +230,13 @@
 
 <section class="governance-grid">
   <h2 class="reveal">What governance actually looks like.</h2>
-  <div class="grid-items">
-    <div class="grid-item">
-      <h3>AI tool visibility</h3>
-      <p>A complete picture of which AI tools are in your environment, which are sanctioned, and which showed up on their own.</p>
+  <div class="gov-checklist">
+      <div class="gov-check-item reveal"><span class="gov-num">01</span><span class="gov-title">Data classification</span></div>
+      <div class="gov-check-item reveal reveal-delay-1"><span class="gov-num">02</span><span class="gov-title">Acceptable use policies</span></div>
+      <div class="gov-check-item reveal reveal-delay-2"><span class="gov-num">03</span><span class="gov-title">Shadow AI detection</span></div>
+      <div class="gov-check-item reveal reveal-delay-3"><span class="gov-num">04</span><span class="gov-title">Output verification</span></div>
+      <div class="gov-check-item reveal"><span class="gov-num">05</span><span class="gov-title">Enablement paths</span></div>
     </div>
-    <div class="grid-item">
-      <h3>Data classification</h3>
-      <p>Clear rules for what data can go where. What's safe for public AI tools, what stays internal, and what never leaves the building.</p>
-    </div>
-    <div class="grid-item">
-      <h3>Acceptable use policies</h3>
-      <p>Operational guidelines employees actually follow because they're clear, specific, and built around how people already work.</p>
-    </div>
-    <div class="grid-item">
-      <h3>Shadow AI detection</h3>
-      <p>The tools you didn't approve are already in your environment. Governance finds them so you can decide what to do about them.</p>
-    </div>
-    <div class="grid-item">
-      <h3>Output verification</h3>
-      <p>AI generates confident output whether the information is accurate or not. Governance defines what gets human review before it goes out the door.</p>
-    </div>
-    <div class="grid-item">
-      <h3>Enablement, not restriction</h3>
-      <p>Approved tool paths, clear escalation, fast tracks for governed innovation. The goal is policies that say yes more than they say no.</p>
-    </div>
-  </div>
 </section>
 
 <section class="gateway-section">
@@ -380,14 +297,11 @@
   <div class="download-inner">
     <div class="download-content">
       <h2 class="reveal">The AI Governance Kit</h2>
-      <p class="dl-intro reveal reveal-delay-1">A customizable governance starter kit built for mid-market companies. Covers the policies most organizations are missing.</p>
+      <p class="dl-intro reveal reveal-delay-1">Three ready-to-use governance documents built for mid-market companies. The artifacts your leadership team will ask for before your next board meeting.</p>
       <ul class="kit-list">
-        <li class="reveal reveal-delay-2">AI Acceptable Use Policy template</li>
-        <li class="reveal reveal-delay-2">Data Classification Matrix</li>
-        <li class="reveal reveal-delay-2">AI Tool Authorization Framework</li>
-        <li class="reveal reveal-delay-2">Shadow AI detection guidance</li>
-        <li class="reveal reveal-delay-2">Incident response playbook</li>
-        <li class="reveal reveal-delay-2">Team rollout communication templates</li>
+        <li class="reveal reveal-delay-2">AI Governance Framework (PDF)</li>
+        <li class="reveal reveal-delay-2">Acceptable Use Policy template (Word)</li>
+        <li class="reveal reveal-delay-2">Data Classification Matrix (Excel)</li>
       </ul>
     </div>
     <div class="gated-form">
@@ -478,19 +392,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
 })();
 
 
-// Staggered card reveal
-(function() {
-  var cardObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.grid-item').forEach(function(el) {
-    cardObserver.observe(el);
-  });
-})();
+
 
 
   (function(){var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible");});},{threshold:0.15});document.querySelectorAll(".gateway-point.gw-reveal").forEach(function(el){o.observe(el);});})();
