@@ -13,8 +13,8 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .site-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 8vw;background:#FDFBF9;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(47,47,47,0.06);}
 .nav-logo{display:flex;align-items:center;gap:2px;text-decoration:none;}
 .nav-logo .mark{background:#FDFBF9;color:#AC9379;font-weight:700;font-size:12px;padding:3px 5px;border-radius:4px;border:1px solid rgba(172,147,121,0.3);}
-.nav-logo .r{font-weight:700;font-size:20px;color:#AC9379;}
-.nav-logo .name{font-weight:400;font-size:20px;color:#2F2F2F;}
+.nav-logo .r{font-family:'Trebuchet MS',sans-serif;font-weight:700;font-size:20px;color:#AC9379;}
+.nav-logo .name{font-family:'Trebuchet MS',sans-serif;font-weight:600;font-size:20px;color:#2F2F2F;}
 .nav-links{display:flex;align-items:center;gap:32px;}
 .nav-links a{text-decoration:none;color:#2F2F2F;font-size:14px;font-weight:500;opacity:0.7;transition:opacity 0.3s;}
 .nav-links a:hover{opacity:1;}
@@ -40,7 +40,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .hero{padding:100px 8vw 80px;text-align:center;background:#2F2F2F;color:#FDFBF9;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%, rgba(172,147,121,0.08) 0%, transparent 60%),radial-gradient(ellipse at 70% 80%, rgba(122,139,111,0.06) 0%, transparent 50%);pointer-events:none;}
 .hero-label{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#AC9379;margin-bottom:24px;font-weight:600;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
-.hero h1{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.1;margin-bottom:32px;opacity:0;animation:fadeUp 0.8s 0.4s forwards;}
+.hero h1{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(42px,6vw,72px);font-weight:700;line-height:1.1;margin-bottom:32px;opacity:0;animation:fadeUp 0.8s 0.4s forwards;}
 .hero h1 em{font-style:normal;color:#AC9379;}
 .hero-sub{font-size:clamp(16px,2vw,20px);color:rgba(253,251,249,0.7);max-width:640px;margin:0 auto 48px;line-height:1.6;opacity:0;animation:fadeUp 0.8s 0.6s forwards;}
 .hero-stat{display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.8s 0.8s forwards;}
@@ -54,7 +54,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 .section{padding:80px 8vw;}
 .section-label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#AC9379;font-weight:600;margin-bottom:16px;}
-.section h2{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.2;margin-bottom:16px;}
+.section h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.2;margin-bottom:16px;}
 .section-intro{font-size:17px;color:#666;line-height:1.6;max-width:640px;margin-bottom:48px;}
 .source-note{font-size:11px;color:#999;margin-top:6px;}
 .source-note a{color:#AC9379;text-decoration:none;}
@@ -123,7 +123,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .shadow-stat .num{font-size:clamp(48px,8vw,72px);font-weight:800;color:#AC9379;}
 .shadow-stat .text{font-size:16px;color:rgba(253,251,249,0.6);line-height:1.4;max-width:320px;}
 .bridge-section{background:linear-gradient(rgba(47,47,47,0.93),rgba(47,47,47,0.88)),url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80") center/cover no-repeat fixed;color:#FDFBF9;text-align:center;padding:100px 8vw;}
-.bridge-section h2{font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.2;margin-bottom:20px;}
+.bridge-section h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.2;margin-bottom:20px;}
 .bridge-section h2 em{font-style:normal;color:#AC9379;}
 .bridge-sub{font-size:18px;color:rgba(253,251,249,0.6);max-width:560px;margin:0 auto 40px;line-height:1.6;}
 .bridge-points{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:640px;margin:0 auto 48px;text-align:left;}
@@ -135,7 +135,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;padding:16px 40px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px;transition:all 0.3s;}
 .btn-primary:hover{background:#967F67;transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.2);}
 .mid-cta{background:#FDFBF9;text-align:center;padding:60px 8vw;border-top:1px solid #F2EDE9;border-bottom:1px solid #F2EDE9;}
-.mid-cta h3{font-size:clamp(22px,3vw,32px);font-weight:800;margin-bottom:12px;}
+.mid-cta h3{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin-bottom:12px;}
 .mid-cta p{font-size:15px;color:#888;margin-bottom:28px;}
 .sources-section{background:#F2EDE9;padding:48px 8vw;}
 .sources-section h3{font-size:16px;font-weight:700;margin-bottom:16px;color:#2F2F2F;}
@@ -221,15 +221,15 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
   </div>
 </section>
 
-<section class="section funnel-section">
-  <div class="section-label reveal">THE FUNNEL</div>
-  <h2 class="reveal reveal-delay-1">Most AI initiatives never scale.</h2>
-  <p class="section-intro reveal reveal-delay-2">The gap between experimentation and company-wide deployment is where the stealth spend compounds.</p>
-  <div class="funnel-wrap">
-    <div class="funnel-stage"><div class="funnel-bar f1"><span class="funnel-pct">88%</span><span class="funnel-text">of organizations use AI in at least one business function</span></div></div>
-    <div class="funnel-stage"><div class="funnel-bar f2"><span class="funnel-pct">&lt;40%</span><span class="funnel-text">have scaled beyond pilot</span></div></div>
-    <div class="funnel-stage"><div class="funnel-bar f3"><span class="funnel-pct">5%</span><span class="funnel-text">of generative AI pilots move past experimental phase</span></div></div>
-    <p class="source-note" style="text-align:center;margin-top:12px;"><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener">Deloitte State of AI in the Enterprise, 2024</a></p>
+<section class="section funnel-section" style="text-align:center;">
+  <div class="section-label reveal">THE SIGNAL</div>
+  <h2 class="reveal reveal-delay-1" style="max-width:720px;margin-left:auto;margin-right:auto;">Your people didn't reject AI. They rejected the rollout.</h2>
+  <p class="section-intro reveal reveal-delay-2" style="max-width:600px;margin-left:auto;margin-right:auto;">The demand is real. When organizations audit actual AI activity, they find more of it than expected — not less. The tools you bought aren't being used, but AI is.</p>
+  <div class="callout-stat reveal">
+    <div class="callout-number">84%</div>
+    <div class="callout-text">of organizations discover <strong>more AI usage</strong> than they knew about when they run their first audit.</div>
+    <p class="source-note" style="margin-top:8px;"><a href="https://larridin.com/blog/state-of-enterprise-ai-in-2025" target="_blank" rel="noopener">Larridin State of Enterprise AI, 2025</a></p>
+  </div>
 </section>
 <section class="section shadow-section">
   <div class="section-label reveal">WHAT YOU CAN'T SEE</div>
@@ -253,22 +253,15 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
         <div class="ice-row"><div class="ice-dot shadow"></div><div class="ice-label">Grammarly AI — emails, external comms</div></div>
       </div>
     </div>
-    <div class="shadow-stat reveal"><span class="num">84%</span><span class="text">of organizations discover <strong>more AI activity</strong> than expected when they audit. That's not a risk. It's proof your people are ready.</span></div>
-    <p class="source-note" style="margin-top:12px;"><a href="https://larridin.com/blog/enterprise-ai-usage-data-complete-guide-to-measuring-adoption-roi-larridin" target="_blank" rel="noopener">Larridin State of Enterprise AI, 2025</a></p>
-    <p class="reveal" style="margin-top:24px;font-size:16px;color:rgba(253,251,249,0.6);max-width:560px;line-height:1.6;">What if you gave them one secure place to use the models they already prefer—with your data, your governance, and a way to capture every insight?</p>
+    <div class="shadow-stat reveal"><span class="num">68%</span><span class="text">of employees use <strong>unauthorized AI tools</strong> at work. That's not a failure of discipline. It's proof of demand your organization hasn't met yet.</span></div>
+    <p class="source-note" style="margin-top:12px;"><a href="https://www.cybersecuritydive.com/news/shadow-ai-employee-trust-upguard/805280/" target="_blank" rel="noopener">Gartner, 2025 — survey of 500 enterprises</a></p>
   </div>
 </section>
-<section class="bridge-section">
-  <div class="section-label reveal" style="color:#AC9379;">THE WAY FORWARD</div>
-  <h2 class="reveal reveal-delay-1">The tools work. The budgets are there.<br>What's missing is the <em>readiness</em> to connect them.</h2>
-  <p class="bridge-sub reveal reveal-delay-2">After the assessment, you'll see exactly where readiness gaps are stalling your AI investment — and what to do about them.</p>
-  <div class="bridge-points">
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Which AI tools are actually being used — and which are shelfware</p></div>
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Where shadow AI has taken root without oversight</p></div>
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>How to turn paid licenses into real productivity gains</p></div>
-    <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>What governance gaps to close before scaling</p></div>
-  </div>
-  <a href="assessment.html" class="btn-primary reveal" style="margin-top:8px;">Take the Assessment</a>
+
+<section style="background:#F2EDE9;padding:100px 8vw;text-align:center;">
+  <h2 class="reveal" style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3.5vw,42px);font-weight:700;color:#2F2F2F;line-height:1.25;max-width:720px;margin:0 auto 24px;letter-spacing:-0.02em;">What if you gave them one secure place to use the models they already prefer—with your data, your governance, and a way to capture every insight?</h2>
+  <p class="reveal" style="font-size:17px;color:#2F2F2F;line-height:1.7;max-width:560px;margin:0 auto 40px;opacity:0.7;">Your people are already proving the demand. The question is whether your organization is ready to meet it.</p>
+  <a href="assessment.html" class="btn-primary reveal" style="background:#2F2F2F;color:#FDFBF9;">Find Out Where You Stand</a>
 </section>
 
 <section class="footer-cta">
