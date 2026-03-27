@@ -47,9 +47,9 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 
 /* INDUSTRY SELECTOR */
-.industry-section{padding:80px 8vw 0;}
-.industry-section h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:#2F2F2F;margin-bottom:12px;letter-spacing:-0.02em;}
-.industry-section .section-sub{font-size:16px;color:#7A7468;margin-bottom:40px;line-height:1.6;}
+.industry-section{padding:80px 8vw 0;max-width:1200px;margin:0 auto;}
+.industry-section h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:#2F2F2F;margin-bottom:12px;letter-spacing:-0.02em;max-width:800px;}
+.industry-section .section-sub{font-size:16px;color:#7A7468;margin-bottom:40px;line-height:1.6;max-width:720px;}
 .industry-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:56px;}
 .industry-tab{background:#F2EDE9;border:none;padding:14px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#7A7468;cursor:pointer;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
 .industry-tab:hover{background:#E4DAD0;color:#2F2F2F;}
@@ -88,19 +88,12 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .btn-primary{display:inline-block;background:#AC9379;color:#FDFBF9;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);}
 .btn-primary:hover{background:#967F67;transform:translateY(-2px);box-shadow:0 8px 32px rgba(172,147,121,0.25);}
 
-
 /* FOOTER */
 .footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}
-.footer-cta .mark{background:rgba(253,251,249,0.1);color:#AC9379;font-family:"DM Sans",sans-serif;font-weight:700;font-size:13px;padding:3px 6px;border-radius:4px;margin-right:2px;}
-.footer-cta .r{font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;color:#AC9379;}
-.footer-cta .name{font-family:"DM Sans",sans-serif;font-weight:400;font-size:22px;color:#FDFBF9;}
-.footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}
+.footer-cta .tagline{font-size:clamp(16px, 2vw, 22px);color:#AC9379;font-style:italic;margin-bottom:48px;}
 .footer-cta h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.25;margin-bottom:32px;}
 .footer-cta h2 em{font-style:normal;color:#AC9379;}
-.footer-cta .btn-primary{display:inline-block;}
-.footer-contact{font-size:14px;color:#999;margin-top:24px;}
-.footer-contact a{color:#AC9379;text-decoration:none;}
-.footer-contact a:hover{color:#DDD7D0;}
+.footer-cta .cta-row{display:flex;justify-content:center;gap:24px;margin-bottom:80px;}
 .footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}
 .footer-bottom p{font-size:13px;color:#777;}
 .footer-bottom a{color:#777;text-decoration:none;}
@@ -127,7 +120,8 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
     <a href="/governance.html">The Governance Gap</a>
     <a href="/the-stealth-spend.html">The Stealth Spend</a>
     <a href="/use-cases.html" class="active">The Imagination Gap</a>
-    <a href="https://tally.so/r/mBGaNY" class="nav-cta">Take the Assessment</a>
+    <a href="/field-notes.html">Field Notes</a>
+    <a href="assessment.html" class="nav-cta">Take the Assessment</a>
   </div>
 </nav>
 
@@ -140,7 +134,7 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 
 <section class="industry-section">
   <h2 class="reveal">The biggest risk isn't that AI will fail. It's that you'll only use it to do the same things slightly faster.</h2>
-  <p class="section-sub reveal reveal-delay-1">Find your industry below. Every use case is a transformation, not an optimization. They map to readiness dimensions and they're already happening in organizations that chose to reimagine the work instead of just speeding it up.</p>
+  <p class="section-sub reveal reveal-delay-1">Find your industry below for use cases that are transforming the way businesses operate. Each one maps to a readiness dimension.</p>
 
   <div class="industry-tabs" id="industryTabs">
     <button class="industry-tab active" data-industry="healthcare">Healthcare</button>
@@ -180,7 +174,7 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
         <span class="dim-tag governance">Governance</span>
         <h4>Real-time compliance monitoring across every AI-generated document</h4>
         <p>Every AI output — discharge summaries, referral letters, insurance communications — is automatically scanned for HIPAA violations, coding errors, and regulatory gaps before it leaves the system.</p>
-        <div class="uc-impact">92% reduction in compliance-related rework</div>
+        <div class="uc-impact">60%+ fewer compliance errors before documents leave the system</div>
       </div>
       <div class="uc-card">
         <span class="dim-tag strategy">Strategy</span>
@@ -290,7 +284,7 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
         <span class="dim-tag governance">Governance</span>
         <h4>Supply chain provenance tracking from raw material to finished good</h4>
         <p>AI creates an auditable chain of custody for every component — flagging conflict minerals, tracking carbon footprint, and generating ESG compliance reports automatically.</p>
-        <div class="uc-impact">Full supply chain traceability for compliance and ESG reporting</div>
+        <div class="uc-impact">End-to-end provenance visibility for compliance and ESG reporting</div>
       </div>
       <div class="uc-card">
         <span class="dim-tag cx">Customer Experience</span>
@@ -382,7 +376,7 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
         <span class="dim-tag strategy">Strategy</span>
         <h4>Client health scoring that predicts churn before renewal conversations</h4>
         <p>AI monitors engagement frequency, response times, scope change patterns, and satisfaction signals to flag at-risk clients — with recommended save actions — months before renewal.</p>
-        <div class="uc-impact">35% improvement in at-risk client retention</div>
+        <div class="uc-impact">Measurable improvement in at-risk client retention</div>
       </div>
       <div class="uc-card">
         <span class="dim-tag tech">Technology</span>
@@ -466,15 +460,20 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 </section>
 
 <p style="font-size:12px;color:#9A9488;padding:0 8vw 40px;font-style:italic;">Impact metrics represent published industry benchmarks and early adopter results.</p>
+
 <section class="footer-cta">
-  <div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
-  <p class="tagline reveal reveal-delay-1"><em>Assess &middot; Identify &middot; Result</em></p>
-  <h2 class="reveal reveal-delay-2">Ready to close the <em>imagination gap?</em></h2>
-  
-  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a></div>
-  <p class="footer-contact reveal">Rather talk first? <a href="mailto:hello&#64;airesulting.com">hello&#64;airesulting.com</a></p>
-  
-  <div class="footer-bottom reveal"><p>&copy; 2026 <span class="footer-logo-text">AI Resulting</span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p></div>
+  <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
+  </div>
+  <p class="tagline reveal">Assess · Identify · Result</p>
+  <h2 class="reveal">What will you <em>Create?</em></h2>
+  <div class="cta-row reveal">
+    <a href="assessment.html" class="btn-primary">Get Started</a>
+  </div>
+  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="mailto:hello@airesulting.com" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">hello@airesulting.com</a></p>
+  <div class="footer-bottom reveal">
+    <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
 </section>
 
 <script>
@@ -516,7 +515,7 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 
 </script>
 <style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#AC9379;color:#FDFBF9;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#967F67;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
-<div class="sticky-cta" id="stickyCta"><a href="https://tally.so/r/mBGaNY"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
+<div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
 <script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".uc-hero");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
 </body>
 </html>
