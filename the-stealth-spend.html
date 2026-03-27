@@ -12,8 +12,8 @@
 body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-x:hidden;}
 .site-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 8vw;background:#FDFBF9;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(47,47,47,0.06);}
 .nav-logo{display:flex;align-items:center;gap:2px;text-decoration:none;}
-.nav-logo .mark{background:#2F2F2F;color:#FDFBF9;font-weight:700;font-size:12px;padding:3px 5px;border-radius:4px;}
-.nav-logo .r{font-weight:700;font-size:20px;color:#2F2F2F;}
+.nav-logo .mark{background:#FDFBF9;color:#AC9379;font-weight:700;font-size:12px;padding:3px 5px;border-radius:4px;border:1px solid rgba(172,147,121,0.3);}
+.nav-logo .r{font-weight:700;font-size:20px;color:#AC9379;}
 .nav-logo .name{font-weight:400;font-size:20px;color:#2F2F2F;}
 .nav-links{display:flex;align-items:center;gap:32px;}
 .nav-links a{text-decoration:none;color:#2F2F2F;font-size:14px;font-weight:500;opacity:0.7;transition:opacity 0.3s;}
@@ -102,6 +102,10 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .funnel-bar.f3 .funnel-text{display:none;}.funnel-bar.f3{justify-content:center;}
 .funnel-label{text-align:center;margin-top:16px;font-size:14px;color:#666;line-height:1.5;}
 .funnel-label strong{color:#2F2F2F;}
+.callout-stat{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:24px;}
+.callout-number{font-size:clamp(56px,10vw,80px);font-weight:800;color:#2F2F2F;line-height:1;}
+.callout-text{font-size:16px;color:#666;max-width:440px;line-height:1.5;}
+.callout-stat .source-note{margin-top:4px;}
 .shadow-section{background:#2F2F2F;color:#FDFBF9;position:relative;overflow:hidden;}
 .shadow-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 40%, rgba(172,147,121,0.06) 0%, transparent 60%);pointer-events:none;}
 .shadow-visual{max-width:600px;position:relative;}
