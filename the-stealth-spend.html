@@ -62,7 +62,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:960px;}
 .tool-card{background:#FDFBF9;border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);opacity:0;transform:translateY(40px);}
 .tool-card.visible{opacity:1;transform:translateY(0);}
-.tool-card:nth-child(1){transition-delay:0s;}.tool-card:nth-child(2){transition-delay:0.08s;}.tool-card:nth-child(3){transition-delay:0.16s;}.tool-card:nth-child(4){transition-delay:0.24s;}.tool-card:nth-child(5){transition-delay:0.32s;}.tool-card:nth-child(6){transition-delay:0.4s;}
+.tool-card:nth-child(1){transition-delay:0s;}.tool-card:nth-child(2){transition-delay:0.08s;}.tool-card:nth-child(3){transition-delay:0.16s;}.tool-card:nth-child(4){transition-delay:0.24s;}.tool-card:nth-child(5){transition-delay:0s;}.tool-card:nth-child(6){transition-delay:0.08s;}.tool-card:nth-child(7){transition-delay:0.16s;}.tool-card:nth-child(8){transition-delay:0.24s;}
 .tool-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#FDFBF9;}
 .tool-icon.ms{background:#0078D4;}.tool-icon.sf{background:#00A1E0;}.tool-icon.sn{background:#81B5A1;}.tool-icon.zm{background:#2D8CFF;}.tool-icon.gg{background:#4285F4;}.tool-icon.ad{background:#FF0000;}.tool-icon.hs{background:#FF7A59;}.tool-icon.it{background:#365EBF;}
 .tool-name{font-weight:700;font-size:15px;color:#2F2F2F;}
@@ -144,21 +144,18 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .source-list a{color:#AC9379;text-decoration:none;}
 .source-list a:hover{text-decoration:underline;}
 @media(max-width:640px){.source-list{columns:1;}}
-.footer-cta{background:#2F2F2F;padding:80px 8vw 40px;text-align:center;color:#FDFBF9;}
-.footer-cta .mark{background:rgba(253,251,249,0.1);color:#AC9379;font-weight:700;font-size:13px;padding:3px 6px;border-radius:4px;margin-right:2px;}
-.footer-cta .r{font-weight:700;font-size:22px;color:#AC9379;}.footer-cta .name{font-weight:400;font-size:22px;color:#FDFBF9;}
-.footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}
-.footer-cta h2{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}
-.footer-cta .btn-primary{display:inline-block;}
-.footer-contact{font-size:14px;color:#999;margin-top:24px;}
-.footer-contact a{color:#AC9379;text-decoration:none;}.footer-contact a:hover{color:#DDD7D0;}
+.footer-cta{background:#2F2F2F;padding:120px 8vw;text-align:center;color:#FDFBF9;}
+.footer-cta .tagline{font-size:clamp(16px, 2vw, 22px);color:#AC9379;font-style:italic;margin-bottom:48px;}
+.footer-cta h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4vw,50px);font-weight:700;color:#FDFBF9;line-height:1.2;margin-bottom:40px;letter-spacing:-0.02em;}
+.footer-cta .cta-row{display:flex;justify-content:center;gap:24px;margin-bottom:80px;}
 .footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}
 .footer-bottom p{font-size:13px;color:#777;}.footer-bottom a{color:#777;text-decoration:none;}.footer-bottom a:hover{color:#AC9379;}
 .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-delay-1{transition-delay:0.15s;}.reveal-delay-2{transition-delay:0.3s;}
 @media(max-width:768px){.section{padding:60px 6vw;}.hero{padding:72px 6vw 60px;}.gap-math{flex-direction:column;gap:16px;align-items:flex-start;}.gap-math-arrow{display:none;}.bridge-points{grid-template-columns:1fr;gap:16px;}.funnel-bar.f2{width:55%;}.funnel-bar.f3{width:70%;}.funnel-text{font-size:11px;}}
-.footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}</style>
+.footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}
+</style>
 </head>
 <body>
 <nav class="site-nav">
@@ -169,11 +166,12 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
     <a href="/governance.html">The Governance Gap</a>
     <a href="/the-stealth-spend.html">The Stealth Spend</a>
     <a href="/use-cases.html">The Imagination Gap</a>
-    <a href="https://tally.so/r/mBGaNY" class="nav-cta">Get Started</a>
+    <a href="/field-notes.html">Field Notes</a>
+    <a href="assessment.html" class="nav-cta">Get Started</a>
   </div>
 </nav>
 <div class="sticky-cta" id="stickyCta">
-  <a href="https://tally.so/r/mBGaNY">
+  <a href="assessment.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     Take the Assessment
   </a>
@@ -235,8 +233,8 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 </section>
 <section class="section shadow-section">
   <div class="section-label reveal">WHAT YOU CAN'T SEE</div>
-  <h2 class="reveal reveal-delay-1" style="color:#FDFBF9;">Your teams are already using AI. The intelligence isn’t being captured.</h2>
-  <p class="section-intro reveal reveal-delay-2" style="color:rgba(253,251,249,0.5);">While approved tools sit underused, your people are generating insights, strategies, and solutions with models that aren’t connected to your data, your governance, or each other.</p>
+  <h2 class="reveal reveal-delay-1" style="color:#FDFBF9;">Your teams are already using AI. The intelligence isn't being captured.</h2>
+  <p class="section-intro reveal reveal-delay-2" style="color:rgba(253,251,249,0.5);">While approved tools sit underused, your people are generating insights, strategies, and solutions with models that aren't connected to your data, your governance, or each other.</p>
   <div class="shadow-visual">
     <div class="iceberg">
       <div class="ice-above">
@@ -255,7 +253,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
         <div class="ice-row"><div class="ice-dot shadow"></div><div class="ice-label">Grammarly AI — emails, external comms</div></div>
       </div>
     </div>
-    <div class="shadow-stat reveal"><span class="num">84%</span><span class="text">of organizations discover <strong>more AI activity</strong> than expected when they audit. That’s not a risk. It’s proof your people are ready.</span></div>
+    <div class="shadow-stat reveal"><span class="num">84%</span><span class="text">of organizations discover <strong>more AI activity</strong> than expected when they audit. That's not a risk. It's proof your people are ready.</span></div>
     <p class="source-note" style="margin-top:12px;"><a href="https://larridin.com/blog/enterprise-ai-usage-data-complete-guide-to-measuring-adoption-roi-larridin" target="_blank" rel="noopener">Larridin State of Enterprise AI, 2025</a></p>
     <p class="reveal" style="margin-top:24px;font-size:16px;color:rgba(253,251,249,0.6);max-width:560px;line-height:1.6;">What if you gave them one secure place to use the models they already prefer—with your data, your governance, and a way to capture every insight?</p>
   </div>
@@ -270,16 +268,22 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
     <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>How to turn paid licenses into real productivity gains</p></div>
     <div class="bridge-point"><svg class="bridge-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>What governance gaps to close before scaling</p></div>
   </div>
-  
+  <a href="assessment.html" class="btn-primary reveal" style="margin-top:8px;">Take the Assessment</a>
 </section>
 
 <section class="footer-cta">
-  <div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
-  <p class="tagline reveal reveal-delay-1"><em>Assess · Identify · Result</em></p>
-  <h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let&rsquo;s find yours.</h2>
-  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div>
-  <p class="footer-contact reveal">Rather talk first? <a href="mailto:hello@airesulting.com">hello@airesulting.com</a></p>
-  <div class="footer-bottom reveal"><p>© 2026 <span class="footer-logo-text">AI Resulting</span> LLC. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p></div>
+  <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
+  </div>
+  <p class="tagline reveal">Assess · Identify · Result</p>
+  <h2 class="reveal">What will you <strong style="color:#AC9379;">Capture?</strong></h2>
+  <div class="cta-row reveal">
+    <a href="assessment.html" class="btn-primary">Get Started</a>
+  </div>
+  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="mailto:hello@airesulting.com" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">hello@airesulting.com</a></p>
+  <div class="footer-bottom reveal">
+    <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
 </section>
 <script>
 (function(){
