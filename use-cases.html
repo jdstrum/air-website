@@ -112,12 +112,10 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .reveal-delay-2{transition-delay:0.2s;}
 
 /* SCROLL PROGRESS */
-.scroll-progress{position:fixed;top:0;left:0;height:3px;background:#AC9379;z-index:200;width:0%;transition:width 0.1s linear;}
 .footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}</style>
 </head>
 <body>
 
-<div class="scroll-progress" id="scrollProgress"></div>
 
 <nav class="site-nav">
   <a href="/" class="nav-logo">
@@ -518,8 +516,7 @@ body{font-family:'DM Sans',sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 
 // Scroll progress
 (function() {
-  var progress = document.getElementById('scrollProgress');
-  if (!progress) return;
+  var progress =   if (!progress) return;
   window.addEventListener('scroll', function() {
     var scrollTop = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
