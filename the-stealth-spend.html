@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Stealth Spend — AI Resulting</title>
-<meta name="description" content="Your enterprise is already paying for AI it isn't using. See the data on adoption gaps, license waste, and shadow AI — then find out where you stand.">
+<meta name="description" content="Your business is already paying for AI it isn't using. See the data on adoption gaps, license waste, and shadow AI — then find out where you stand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -96,10 +96,10 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .funnel-stage.visible{opacity:1;transform:translateY(0);}
 .funnel-stage:nth-child(1){transition-delay:0s;}.funnel-stage:nth-child(2){transition-delay:0.2s;}.funnel-stage:nth-child(3){transition-delay:0.4s;}
 .funnel-bar{height:80px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#FDFBF9;position:relative;}
-.funnel-bar.f1{background:#2F2F2F;width:100%;}.funnel-bar.f2{background:#5A5A5A;width:45%;margin:0 auto;}.funnel-bar.f3{background:#AC9379;width:18%;margin:0 auto;}
+.funnel-bar.f1{background:#2F2F2F;width:100%;}.funnel-bar.f2{background:#5A5A5A;width:45%;margin:0 auto;}.funnel-bar.f3{background:#AC9379;width:55%;margin:0 auto;}
 .funnel-pct{font-size:clamp(24px,4vw,32px);font-weight:800;}
 .funnel-text{font-size:13px;font-weight:500;text-align:right;max-width:55%;line-height:1.4;}
-.funnel-bar.f3 .funnel-text{display:none;}.funnel-bar.f3{justify-content:center;}
+.funnel-bar.f3 .funnel-text{display:block;font-size:12px;max-width:65%;}.funnel-bar.f3{justify-content:center;}
 .funnel-label{text-align:center;margin-top:16px;font-size:14px;color:#666;line-height:1.5;}
 .funnel-label strong{color:#2F2F2F;}
 .callout-stat{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:24px;}
@@ -162,6 +162,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .footer-cta .r{font-weight:700;font-size:22px;color:#AC9379;}.footer-cta .name{font-weight:400;font-size:22px;color:#FDFBF9;}
 .footer-cta .tagline{font-size:15px;color:#AC9379;margin:16px 0 32px;}
 .footer-cta h2{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.25;margin-bottom:32px;}
+.footer-cta h2 em{font-style:normal;color:#AC9379;}
 .footer-cta .btn-primary{display:inline-block;}
 .footer-contact{font-size:14px;color:#999;margin-top:24px;}
 .footer-contact a{color:#AC9379;text-decoration:none;}.footer-contact a:hover{color:#DDD7D0;}
@@ -170,7 +171,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-delay-1{transition-delay:0.15s;}.reveal-delay-2{transition-delay:0.3s;}
-@media(max-width:768px){.section{padding:60px 6vw;}.hero{padding:72px 6vw 60px;}.gap-math{flex-direction:column;gap:16px;align-items:flex-start;}.gap-math-arrow{display:none;}.bridge-points{grid-template-columns:1fr;gap:16px;}.funnel-bar.f2{width:55%;}.funnel-bar.f3{width:25%;}.funnel-text{font-size:11px;}}
+@media(max-width:768px){.section{padding:60px 6vw;}.hero{padding:72px 6vw 60px;}.gap-math{flex-direction:column;gap:16px;align-items:flex-start;}.gap-math-arrow{display:none;}.bridge-points{grid-template-columns:1fr;gap:16px;}.funnel-bar.f2{width:55%;}.funnel-bar.f3{width:70%;}.funnel-text{font-size:11px;}}
 .footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}</style>
 </head>
 <body>
@@ -193,7 +194,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 </div>
 <section class="hero">
   <div class="hero-label">THE STEALTH SPEND</div>
-  <h1>Your enterprise is paying<br>for AI it <em>isn't using.</em></h1>
+  <h1>Your business is paying<br>for AI it <em>isn't using.</em></h1>
   <p class="hero-sub">The licenses are active. The invoices are paid. The adoption isn't happening. Here's what the data says.</p>
   <div class="hero-stat">
     <div class="counter-wrap">
@@ -221,7 +222,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 <section class="section gap-section">
   <div class="section-label reveal">THE GAP</div>
   <h2 class="reveal reveal-delay-1">Paid seats vs. active users.</h2>
-  <p class="section-intro reveal reveal-delay-2">Provisioning is not adoption. When enterprises audit actual usage, the numbers tell a different story.</p>
+  <p class="section-intro reveal reveal-delay-2">Provisioning is not adoption. When organizations audit actual usage, the numbers tell a different story.</p>
   <div class="gap-visual">
     <div class="gap-bar-group"><div class="gap-bar-label"><span>Copilot licenses purchased</span><span>1,000 seats</span></div><div class="gap-bar-track"><div class="gap-bar-fill paid" style="--target-width:100%">1,000</div></div></div>
     <div class="gap-bar-group"><div class="gap-bar-label"><span>Monthly active users</span><span>287 users</span></div><div class="gap-bar-track"><div class="gap-bar-fill active" style="--target-width:28.7%">287</div></div></div>
@@ -239,18 +240,17 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 <section class="section funnel-section">
   <div class="section-label reveal">THE FUNNEL</div>
   <h2 class="reveal reveal-delay-1">Most AI initiatives never scale.</h2>
-  <p class="section-intro reveal reveal-delay-2">The gap between experimentation and enterprise-wide deployment is where the stealth spend compounds.</p>
+  <p class="section-intro reveal reveal-delay-2">The gap between experimentation and company-wide deployment is where the stealth spend compounds.</p>
   <div class="funnel-wrap">
     <div class="funnel-stage"><div class="funnel-bar f1"><span class="funnel-pct">88%</span><span class="funnel-text">of organizations use AI in at least one business function</span></div></div>
     <div class="funnel-stage"><div class="funnel-bar f2"><span class="funnel-pct">&lt;40%</span><span class="funnel-text">have scaled beyond pilot</span></div></div>
-    <div class="funnel-stage"><div class="funnel-bar f3"><span class="funnel-pct">5%</span></div></div>
-    <div class="funnel-label callout-stat"><span class="callout-number">5%</span><span class="callout-text">of generative AI pilots successfully move past the experimental phase</span><span class="source-note"><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener">Deloitte State of AI in the Enterprise, 2024</a></span></div>
-  </div>
+    <div class="funnel-stage"><div class="funnel-bar f3"><span class="funnel-pct">5%</span><span class="funnel-text">of generative AI pilots move past experimental phase</span></div></div>
+    <p class="source-note" style="text-align:center;margin-top:12px;"><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener">Deloitte State of AI in the Enterprise, 2024</a></p>
 </section>
 <section class="section shadow-section">
   <div class="section-label reveal">WHAT YOU CAN'T SEE</div>
-  <h2 class="reveal reveal-delay-1" style="color:#FDFBF9;">Shadow AI is already in your environment.</h2>
-  <p class="section-intro reveal reveal-delay-2" style="color:rgba(253,251,249,0.5);">While you're underusing what you've approved, your teams are adopting tools you haven't vetted.</p>
+  <h2 class="reveal reveal-delay-1" style="color:#FDFBF9;">Your teams are already using AI. The intelligence isn’t being captured.</h2>
+  <p class="section-intro reveal reveal-delay-2" style="color:rgba(253,251,249,0.5);">While approved tools sit underused, your people are generating insights, strategies, and solutions with models that aren’t connected to your data, your governance, or each other.</p>
   <div class="shadow-visual">
     <div class="iceberg">
       <div class="ice-above">
@@ -269,8 +269,9 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
         <div class="ice-row"><div class="ice-dot shadow"></div><div class="ice-label">Grammarly AI — emails, external comms</div></div>
       </div>
     </div>
-    <div class="shadow-stat reveal"><span class="num">84%</span><span class="text">of organizations discover <strong>more AI tools</strong> than expected when they finally audit.</span></div>
+    <div class="shadow-stat reveal"><span class="num">84%</span><span class="text">of organizations discover <strong>more AI activity</strong> than expected when they audit. That’s not a risk. It’s proof your people are ready.</span></div>
     <p class="source-note" style="margin-top:12px;"><a href="https://larridin.com/blog/enterprise-ai-usage-data-complete-guide-to-measuring-adoption-roi-larridin" target="_blank" rel="noopener">Larridin State of Enterprise AI, 2025</a></p>
+    <p class="reveal" style="margin-top:24px;font-size:16px;color:rgba(253,251,249,0.6);max-width:560px;line-height:1.6;">What if you gave them one secure place to use the models they already prefer—with your data, your governance, and a way to capture every insight?</p>
   </div>
 </section>
 <section class="section pref-section">
@@ -301,8 +302,8 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 <section class="footer-cta">
   <div class="reveal"><span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span></div>
   <p class="tagline reveal reveal-delay-1"><em>Assess · Identify · Result</em></p>
-  <h2 class="reveal reveal-delay-2">The readiness gap closes here.<br>Let’s find yours.</h2>
-  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Get Started</a></div>
+  <h2 class="reveal reveal-delay-2">Ready to see where<br>the <em>spend</em> is hiding?</h2>
+  <div class="reveal reveal-delay-2"><a href="https://tally.so/r/mBGaNY" class="btn-primary">Take the Assessment</a></div>
   <p class="footer-contact reveal">Rather talk first? <a href="mailto:hello@airesulting.com">hello@airesulting.com</a></p>
   <div class="footer-bottom reveal"><p>© 2026 <span class="footer-logo-text">AI Resulting</span> LLC. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p></div>
 </section>
