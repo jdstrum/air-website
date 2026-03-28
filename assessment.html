@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Readiness Assessment | AI Resulting</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root {
   --bg: #FDFBF9; --ink: #2F2F2F; --gold: #AC9379; --teal: #5B8A72;
@@ -17,13 +16,21 @@ body { background:var(--bg); color:var(--ink); font-family:'DM Sans',sans-serif;
 h1,h2,h3 { font-family:'Trebuchet MS',sans-serif; }
 
 /* Progress Bar */
-#progressBar { position:fixed; top:0; left:0; right:0; height:3px; background:var(--mist); z-index:1000; display:none; }
-#progressFill { height:100%; background:var(--gold); transition:width 0.4s ease; width:0%; }
+#progressBar { position:fixed; top:0; left:0; right:0; height:5px; background:var(--mist); z-index:1000; display:none; }
+#progressFill { height:100%; background:var(--gold); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); width:0%; }
 
-/* Layout */
-.screen { display:none; min-height:100vh; padding:60px 24px 80px; }
-.screen.active { display:block; }
+/* Layout & Transitions */
+#screenWrap { position:relative; overflow:hidden; }
+.screen { min-height:100vh; padding:60px 24px 80px; }
 .screen-inner { max-width:700px; margin:0 auto; }
+#app.slide-in-right { animation: slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+#app.slide-in-left { animation: slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+#app.slide-out-left { animation: slideOutLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+#app.slide-out-right { animation: slideOutRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+@keyframes slideInRight { from { transform:translateX(60px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+@keyframes slideOutLeft { from { transform:translateX(0); opacity:1; } to { transform:translateX(-60px); opacity:0; } }
+@keyframes slideInLeft { from { transform:translateX(-60px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+@keyframes slideOutRight { from { transform:translateX(0); opacity:1; } to { transform:translateX(60px); opacity:0; } }
 
 /* Logo */
 .logo { display:inline-flex; align-items:center; margin-bottom:32px; }
@@ -36,7 +43,7 @@ h1,h2,h3 { font-family:'Trebuchet MS',sans-serif; }
 .screen-sub { font-size:15px; color:var(--gray); line-height:1.7; margin-bottom:32px; }
 .q-number { font-size:12px; font-weight:600; color:var(--gray-light); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
 .q-text { font-size:18px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:28px; }
-.q-statement { font-size:17px; font-style:italic; color:var(--ink); line-height:1.6; margin-bottom:28px; padding:20px 24px; background:rgba(172,147,121,0.06); border-radius:8px; border-left:3px solid var(--gold); }
+.q-statement { font-size:18px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:28px; }
 
 /* Options */
 .option-btn { display:block; width:100%; text-align:left; background:var(--white); border:1.5px solid var(--mist); border-radius:8px; padding:16px 20px; margin-bottom:10px; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.5; color:var(--ink); cursor:pointer; transition:all 0.2s; }
@@ -75,6 +82,16 @@ h1,h2,h3 { font-family:'Trebuchet MS',sans-serif; }
 .form-input:focus { outline:none; border-color:var(--gold); }
 textarea.form-input { min-height:100px; resize:vertical; }
 .char-count { font-size:11px; color:var(--gray-light); text-align:right; margin-top:4px; }
+.form-error { font-size:12px; color:var(--clay); margin-top:4px; display:none; }
+.form-input.invalid { border-color:var(--clay); }
+
+/* Horizontal bar chart (results) */
+.dim-bar-wrap { margin-bottom:20px; }
+.dim-bar-label { font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px; }
+.dim-bar-track { height:28px; background:var(--mist); border-radius:6px; overflow:hidden; position:relative; }
+.dim-bar-fill { height:100%; border-radius:6px; transition:width 1s cubic-bezier(0.4,0,0.2,1); display:flex; align-items:center; justify-content:flex-end; padding-right:10px; min-width:40px; }
+.dim-bar-fill span { font-size:12px; font-weight:700; color:#fff; }
+.dim-bar-tier { font-size:11px; font-weight:600; color:var(--gray); margin-top:3px; }
 
 /* Section intro (IT track) */
 .section-intro { text-align:center; padding:40px 0; }
@@ -95,8 +112,6 @@ textarea.form-input { min-height:100px; resize:vertical; }
 .results-header h1 { color:var(--bg); font-size:clamp(24px,3.5vw,36px); margin:24px 0 8px; }
 .results-header .respondent { font-size:15px; color:var(--gray-light); }
 .results-body { max-width:800px; margin:0 auto; padding:0 24px 80px; }
-.chart-wrap { padding:48px 0 32px; display:flex; justify-content:center; }
-.chart-wrap canvas { max-width:480px; width:100%; }
 .tier-display { text-align:center; padding:0 0 40px; border-bottom:1px solid var(--mist); }
 .tier-label { display:inline-block; padding:8px 24px; border-radius:6px; font-family:'Trebuchet MS',sans-serif; font-size:14px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:8px; }
 .tier-score { font-size:48px; font-weight:700; font-family:'Trebuchet MS',sans-serif; margin-bottom:4px; }
@@ -130,9 +145,13 @@ textarea.form-input { min-height:100px; resize:vertical; }
 
 /* Print */
 @media print {
-  #progressBar,.btn-primary,.btn-secondary,.back-link,.skip-link,.action-row,.cross-track,.btn-row { display:none!important; }
+  #progressBar,.btn-primary,.btn-secondary,.back-link,.skip-link,.action-row,.cross-track,.btn-row,.cta-section { display:none!important; }
   .screen { padding:20px; }
   .results-header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .dim-bar-fill { -webkit-print-color-adjust:exact; print-color-adjust:exact; transition:none!important; }
+  .dim-bar-track { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .tier-label,.dim-tier-badge { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .results-body { padding:0 20px 40px; }
 }
 </style>
 </head>
@@ -141,7 +160,7 @@ textarea.form-input { min-height:100px; resize:vertical; }
 <div id="progressBar"><div id="progressFill"></div></div>
 
 <!-- All screens rendered dynamically into this container -->
-<div id="app"></div>
+<div id="screenWrap"><div id="app"></div></div>
 
 <script>
 // ============================================================
@@ -650,14 +669,19 @@ function updateProgress() {
 // RENDER ENGINE
 // ============================================================
 const app = document.getElementById('app');
+let navDirection = 'forward'; // track direction for animation
+let isTransitioning = false;
 
-function showScreen(index) {
+function showScreen(index, direction) {
+  if (isTransitioning) return;
+  const prevIndex = state.screenIndex;
+  if (direction) navDirection = direction;
+  else navDirection = index >= prevIndex ? 'forward' : 'back';
+
   state.screenIndex = index;
   updateProgress();
-  window.scrollTo(0, 0);
 
   if (index < 0) {
-    // Pre-assessment screens handled separately
     return;
   }
 
@@ -666,17 +690,36 @@ function showScreen(index) {
 
   // Skip CX conditional questions if CX was skipped
   if (screen.type === 'question' && screen.q.cxConditional && state.cxSkipped) {
-    showScreen(index + 1);
+    showScreen(index + (navDirection === 'forward' ? 1 : -1), navDirection);
     return;
   }
   // Skip CX tag if CX skipped
   if (screen.type === 'tag' && screen.tag.cxConditional && state.cxSkipped) {
-    showScreen(index + 1);
+    showScreen(index + (navDirection === 'forward' ? 1 : -1), navDirection);
     return;
   }
-  // Skip D5 feedback if CX skipped (show briefly with skipped message)
-  // Actually, still show it with "skipped" message
 
+  // Animate transition
+  const slideOut = navDirection === 'forward' ? 'slide-out-left' : 'slide-out-right';
+  const slideIn = navDirection === 'forward' ? 'slide-in-right' : 'slide-in-left';
+
+  if (prevIndex !== index && app.innerHTML.trim()) {
+    isTransitioning = true;
+    app.classList.add(slideOut);
+    setTimeout(() => {
+      app.classList.remove(slideOut);
+      renderScreen(screen);
+      app.classList.add(slideIn);
+      window.scrollTo(0, 0);
+      setTimeout(() => { app.classList.remove(slideIn); isTransitioning = false; }, 350);
+    }, 200);
+  } else {
+    renderScreen(screen);
+    window.scrollTo(0, 0);
+  }
+}
+
+function renderScreen(screen) {
   switch(screen.type) {
     case 'profile-radio': renderProfileRadio(screen); break;
     case 'profile-platforms': renderProfilePlatforms(); break;
@@ -708,7 +751,7 @@ function selectProfileRadio(id, val, el) {
   document.querySelectorAll('#options .option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('nextBtn').disabled = false;
-  setTimeout(() => goNext(), 400);
+  setTimeout(() => goNext(), 600);
 }
 
 function renderProfilePlatforms() {
@@ -777,7 +820,7 @@ function renderQuestion(screen) {
     app.innerHTML = `
       <div class="screen active"><div class="screen-inner">
         <div class="q-number">Question ${screen.num} of ${screen.total}</div>
-        <div class="q-statement">\u201C${q.text}\u201D</div>
+        <div class="q-text">${q.text}</div>
         <div class="likert-row">
           ${likertOpts.map(o => `<button class="likert-btn ${existing===o.score?'selected':''}" onclick="selectAnswer('${q.id}',${o.score},this,'likert')">${o.text}</button>`).join('')}
         </div>
@@ -813,7 +856,7 @@ function selectAnswer(id, score, el, type, isSkip, gateType) {
   container.querySelectorAll(type === 'likert' ? '.likert-btn' : '.option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('nextBtn').disabled = false;
-  setTimeout(() => goNext(), 400);
+  setTimeout(() => goNext(), 600);
 }
 
 function renderTag(screen) {
@@ -837,7 +880,7 @@ function selectTag(id, tag, el) {
   document.querySelectorAll('#options .option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('nextBtn').disabled = false;
-  setTimeout(() => goNext(), 400);
+  setTimeout(() => goNext(), 600);
 }
 
 function renderSectionIntro(screen) {
@@ -965,6 +1008,18 @@ function renderResults() {
     ? 'Want the full picture? Share the Technical Assessment with your CIO or technology leader. When both perspectives are in, your Resultant has the complete view.'
     : 'Want the full picture? Share the Strategic Assessment with your CEO or business leader. When both perspectives are in, your Resultant has the complete view.';
 
+  // Build horizontal bar chart HTML
+  let barHTML = '';
+  dimScores.forEach(d => {
+    if (d.score === null) {
+      barHTML += `<div class="dim-bar-wrap"><div class="dim-bar-label">${d.name}</div><div class="dim-bar-track"><div class="dim-bar-fill" style="width:0;background:var(--gray-light);"></div></div><div class="dim-bar-tier">Not assessed</div></div>`;
+      return;
+    }
+    const t = getTier(d.score);
+    const tc = getTierColor(t);
+    barHTML += `<div class="dim-bar-wrap"><div class="dim-bar-label">${d.name}</div><div class="dim-bar-track"><div class="dim-bar-fill" data-width="${d.score}%" style="width:0;background:${tc};"><span>${d.score}%</span></div></div><div class="dim-bar-tier" style="color:${tc}">${t}</div></div>`;
+  });
+
   app.innerHTML = `
     <div class="results-header">
       <div class="logo" style="justify-content:center;">
@@ -976,7 +1031,7 @@ function renderResults() {
       <div class="respondent">${state.contact.name}, ${state.contact.company}</div>
     </div>
     <div class="results-body">
-      <div class="chart-wrap"><canvas id="radarCanvas"></canvas></div>
+      <div style="padding:40px 0 32px;">${barHTML}</div>
       <div class="tier-display">
         <div class="tier-score" style="color:${tierColor}">${overall}%</div>
         <div class="tier-label" style="background:${tierColor}15;color:${tierColor}">${tier}</div>
@@ -1005,41 +1060,12 @@ function renderResults() {
       </div>
     </div>`;
 
-  // Render Chart
+  // Animate horizontal bars
   setTimeout(() => {
-    const ctx = document.getElementById('radarCanvas').getContext('2d');
-    const labels = dims.map(d => DIM_NAMES[d]);
-    const data = dimScores.map(d => d.score === null ? 0 : d.score);
-    new Chart(ctx, {
-      type:'radar',
-      data:{
-        labels:labels,
-        datasets:[{
-          data:data,
-          backgroundColor:'rgba(172,147,121,0.25)',
-          borderColor:'#AC9379',
-          borderWidth:2,
-          pointBackgroundColor:'#AC9379',
-          pointBorderColor:'#AC9379',
-          pointRadius:4
-        }]
-      },
-      options:{
-        scales:{
-          r:{
-            beginAtZero:true, max:100,
-            ticks:{stepSize:25,display:false},
-            grid:{color:'rgba(47,47,47,0.08)'},
-            angleLines:{color:'rgba(47,47,47,0.08)'},
-            pointLabels:{font:{family:'DM Sans',size:12,weight:'600'},color:'#2F2F2F'}
-          }
-        },
-        plugins:{legend:{display:false}},
-        responsive:true,
-        maintainAspectRatio:true
-      }
+    document.querySelectorAll('.dim-bar-fill[data-width]').forEach(bar => {
+      bar.style.width = bar.getAttribute('data-width');
     });
-  }, 100);
+  }, 200);
 }
 
 function shareAssessment() {
@@ -1061,7 +1087,7 @@ function emailResults() {
 // NAVIGATION
 // ============================================================
 function goNext() {
-  showScreen(state.screenIndex + 1);
+  showScreen(state.screenIndex + 1, 'forward');
 }
 
 function goBack() {
@@ -1074,7 +1100,7 @@ function goBack() {
       if (s.type === 'tag' && s.tag && s.tag.cxConditional && state.cxSkipped) { prev--; continue; }
       break;
     }
-    showScreen(Math.max(0, prev));
+    showScreen(Math.max(0, prev), 'back');
   } else {
     showIntro();
   }
@@ -1154,7 +1180,8 @@ function showContact() {
       </div>
       <div class="form-group">
         <label>Work Email</label>
-        <input class="form-input" type="email" id="contactEmail" value="${state.contact.email}" placeholder="you@company.com" oninput="state.contact.email=this.value;validateContact()">
+        <input class="form-input" type="email" id="contactEmail" value="${state.contact.email}" placeholder="you@company.com" oninput="state.contact.email=this.value;validateContact()" onblur="validateContact()">
+        <div class="form-error" id="emailError">Please use your work email address.</div>
       </div>
       <div class="form-group">
         <label>Company Name</label>
@@ -1168,10 +1195,30 @@ function showContact() {
   validateContact();
 }
 
+const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','hotmail.co.uk','outlook.com','live.com','msn.com','aol.com','icloud.com','me.com','mac.com','protonmail.com','proton.me','mail.com','zoho.com','yandex.com','gmx.com','gmx.net','inbox.com','fastmail.com','hushmail.com','tutanota.com','guerrillamail.com','mailinator.com','comcast.net','verizon.net','att.net','sbcglobal.net','cox.net','charter.net','earthlink.net','optonline.net','frontier.com','windstream.net'];
+
 function validateContact() {
   const btn = document.getElementById('contactNext');
+  const errEl = document.getElementById('emailError');
+  const emailInput = document.getElementById('contactEmail');
   if (!btn) return;
-  const valid = state.contact.name.trim() && state.contact.email.trim() && state.contact.email.includes('@') && state.contact.company.trim();
+
+  const email = state.contact.email.trim().toLowerCase();
+  const domain = email.split('@')[1] || '';
+  const isPersonal = PERSONAL_DOMAINS.includes(domain);
+  const hasValidFormat = email.includes('@') && domain.includes('.');
+
+  if (errEl) {
+    if (email && hasValidFormat && isPersonal) {
+      errEl.style.display = 'block';
+      if (emailInput) emailInput.classList.add('invalid');
+    } else {
+      errEl.style.display = 'none';
+      if (emailInput) emailInput.classList.remove('invalid');
+    }
+  }
+
+  const valid = state.contact.name.trim() && email && hasValidFormat && !isPersonal && state.contact.company.trim();
   btn.disabled = !valid;
 }
 
