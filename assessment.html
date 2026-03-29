@@ -167,10 +167,11 @@ textarea.form-input { min-height:100px; resize:vertical; }
 // STATE
 // ============================================================
 const state = {
+  pathway: null,
   track: null,
   role: null,
   contact: { name:'', email:'', company:'' },
-  profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[] },
+  profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[], urgency:[] },
   answers: {},
   tags: {},
   openText: { ot1:'', ot2:'' },
@@ -638,9 +639,34 @@ function buildScreens() {
     s.push({type:'tag', tag:IT_TAGS[1]}); // Barrier tag
   }
 
+  // Urgency context (multi-select - pathway specific)
+  if (state.track === 'csuite') {
+    s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s weighing on you most right now?', hint:'Select all that apply', options:[
+      'Board or investor pressure to show AI ROI',
+      'Competitors moving faster on AI',
+      'AI spending without measurable returns',
+      'Employees using AI tools without oversight',
+      'Don\u2019t know where to start or what to prioritize',
+      'Worried we\u2019re falling behind on AI talent'
+    ]});
+  } else {
+    s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s weighing on you most right now?', hint:'Select all that apply', options:[
+      'Shadow AI spreading without visibility or controls',
+      'Data scattered across too many systems',
+      'Infrastructure not ready for AI workloads',
+      'Security or compliance risk from unmanaged AI',
+      'Integration bottlenecks slowing everything down',
+      'Skills gaps on the technical team'
+    ]});
+  }
+
   // Open text
   s.push({type:'open-text', id:'ot1', text:'What specific AI use case or business problem are you most interested in exploring?'});
   s.push({type:'open-text', id:'ot2', text:'What has prevented your organization from moving faster on AI?'});
+
+  // Contact gate (before results)
+  s.push({type:'contact-gate'});
+
   // Results
   s.push({type:'results'});
 
@@ -654,7 +680,7 @@ function updateProgress() {
   const bar = document.getElementById('progressBar');
   const fill = document.getElementById('progressFill');
   const current = state.screens[state.screenIndex];
-  if (!current || current.type === 'results') {
+  if (!current || current.type === 'results' || current.type === 'contact-gate') {
     bar.style.display = 'none';
     return;
   }
@@ -729,6 +755,7 @@ function renderScreen(screen) {
     case 'section-intro': renderSectionIntro(screen); break;
     case 'section-feedback': renderSectionFeedback(screen); break;
     case 'open-text': renderOpenText(screen); break;
+    case 'contact-gate': renderContactGate(); break;
     case 'results': renderResults(); break;
   }
 }
@@ -1102,7 +1129,7 @@ function goBack() {
     }
     showScreen(Math.max(0, prev), 'back');
   } else {
-    showIntro();
+    showRoles();
   }
 }
 
@@ -1116,45 +1143,45 @@ function showWelcome() {
         <span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>
       </div>
       <h1 class="screen-title">Know Where You Stand.</h1>
-      <p class="screen-sub">Select the role that best describes you to get started.</p>
-      <div style="text-align:left;max-width:480px;margin:0 auto;">
-        ${ROLES.map((r,i) => `<button class="option-btn" onclick="selectRole(${i},this)">${r.text}</button>`).join('')}
-      </div>
-      <div style="margin-top:32px;">
-        <button class="btn-primary" id="welcomeNext" disabled onclick="afterRoleSelect()">Continue</button>
+      <p class="screen-sub" style="max-width:560px;margin:0 auto 32px;">Two assessments. One built for the boardroom, one built for the server room. Choose the lens that fits how you think about AI.</p>
+      <div style="display:flex;gap:16px;max-width:600px;margin:0 auto;flex-wrap:wrap;">
+        <button class="option-btn" style="flex:1;min-width:260px;padding:28px 24px;text-align:center;" onclick="selectPathway('strategic',this)">
+          <strong style="display:block;margin-bottom:10px;font-size:18px;font-family:'Trebuchet MS',sans-serif;">Strategic Assessment</strong>
+          <span style="font-size:14px;color:var(--gray);line-height:1.6;">How AI connects to business outcomes, investment priorities, and organizational readiness.</span>
+          <span style="display:block;margin-top:12px;font-size:12px;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">~10 minutes</span>
+        </button>
+        <button class="option-btn" style="flex:1;min-width:260px;padding:28px 24px;text-align:center;" onclick="selectPathway('technical',this)">
+          <strong style="display:block;margin-bottom:10px;font-size:18px;font-family:'Trebuchet MS',sans-serif;">Technical Assessment</strong>
+          <span style="font-size:14px;color:var(--gray);line-height:1.6;">How your infrastructure, data environment, and security posture support AI workloads.</span>
+          <span style="display:block;margin-top:12px;font-size:12px;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">~12 minutes</span>
+        </button>
       </div>
     </div></div>`;
 }
 
-function selectRole(idx, el) {
-  state.role = ROLES[idx];
+function selectPathway(pathway, el) {
+  state.pathway = pathway;
+  state.track = pathway === 'strategic' ? 'csuite' : 'it';
   document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
-  document.getElementById('welcomeNext').disabled = false;
+  setTimeout(() => showRoles(), 400);
 }
 
-function afterRoleSelect() {
-  if (state.role.track === 'followup') {
-    showFollowup();
-  } else {
-    state.track = state.role.track;
-    showContact();
-  }
-}
-
-function showFollowup() {
+function showRoles() {
+  // Filter roles based on pathway choice
+  const filteredRoles = ROLES.filter(r => {
+    if (state.pathway === 'strategic') return r.track === 'csuite' || r.track === 'followup';
+    return r.track === 'it' || r.track === 'followup';
+  });
   app.innerHTML = `
     <div class="screen active"><div class="screen-inner" style="text-align:center;">
-      <p class="screen-sub" style="max-width:560px;margin:40px auto 32px;">As a CIO/CTO, you sit across both the strategic and technical sides of AI readiness. Which lens would be most useful for you right now?</p>
-      <div style="display:flex;gap:16px;max-width:560px;margin:0 auto;flex-wrap:wrap;">
-        <button class="option-btn" style="flex:1;min-width:240px;padding:24px;text-align:center;" onclick="selectTrack('csuite',this)">
-          <strong style="display:block;margin-bottom:8px;font-size:16px;">Strategic</strong>
-          <span style="font-size:13px;color:var(--gray);">How AI connects to business outcomes, investment priorities, and organizational readiness</span>
-        </button>
-        <button class="option-btn" style="flex:1;min-width:240px;padding:24px;text-align:center;" onclick="selectTrack('it',this)">
-          <strong style="display:block;margin-bottom:8px;font-size:16px;">Technical</strong>
-          <span style="font-size:13px;color:var(--gray);">How your infrastructure, data environment, and security posture support AI workloads</span>
-        </button>
+      <div class="logo" style="justify-content:center;margin-bottom:40px;">
+        <span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>
+      </div>
+      <h1 class="screen-title" style="font-size:clamp(20px,3.5vw,28px);">Which role best describes you?</h1>
+      <p class="screen-sub">This helps us tailor the questions and your results.</p>
+      <div style="text-align:left;max-width:480px;margin:0 auto;">
+        ${filteredRoles.map(r => `<button class="option-btn" onclick="selectRole('${r.text.replace(/'/g,"\\'")}',this)">${r.text}</button>`).join('')}
       </div>
       <div style="margin-top:32px;">
         <a class="back-link" onclick="showWelcome()">Back</a>
@@ -1162,18 +1189,18 @@ function showFollowup() {
     </div></div>`;
 }
 
-function selectTrack(track, el) {
-  state.track = track;
+function selectRole(roleText, el) {
+  state.role = ROLES.find(r => r.text === roleText);
   document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
-  setTimeout(() => showContact(), 300);
+  setTimeout(() => showIntro(), 400);
 }
 
-function showContact() {
+function renderContactGate() {
   app.innerHTML = `
     <div class="screen active"><div class="screen-inner">
-      <h2 class="screen-title">Before we begin, tell us a bit about you.</h2>
-      <p class="screen-sub">Three fields. Then we get to work.</p>
+      <h2 class="screen-title">Your results are ready.</h2>
+      <p class="screen-sub">Enter your details to see your full AI Readiness Report.</p>
       <div class="form-group">
         <label>Full Name</label>
         <input class="form-input" type="text" id="contactName" value="${state.contact.name}" placeholder="Your name" oninput="state.contact.name=this.value;validateContact()">
@@ -1188,8 +1215,8 @@ function showContact() {
         <input class="form-input" type="text" id="contactCompany" value="${state.contact.company}" placeholder="Your company" oninput="state.contact.company=this.value;validateContact()">
       </div>
       <div class="btn-row">
-        <a class="back-link" onclick="showWelcome()">Back</a>
-        <button class="btn-primary" id="contactNext" disabled onclick="showIntro()">Start the Assessment</button>
+        <a class="back-link" onclick="goBack()">Back</a>
+        <button class="btn-primary" id="contactNext" disabled onclick="goNext()">See My Results</button>
       </div>
     </div></div>`;
   validateContact();
@@ -1233,7 +1260,10 @@ function showIntro() {
         <span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>
       </div>
       <p style="font-size:16px;color:var(--gray);line-height:1.8;max-width:560px;margin:0 auto 32px;">${introText}</p>
-      <button class="btn-primary" onclick="showScreen(0)">Let\u2019s Go</button>
+      <div style="margin-top:16px;">
+        <a class="back-link" onclick="showRoles()" style="margin-right:24px;">Back</a>
+        <button class="btn-primary" onclick="showScreen(0)">Let\u2019s Go</button>
+      </div>
     </div></div>`;
 }
 
