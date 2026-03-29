@@ -521,6 +521,13 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+// Force-reveal hero elements already in viewport on load
+requestAnimationFrame(() => {
+  document.querySelectorAll('.hero .reveal').forEach(el => {
+    el.classList.add('visible');
+  });
+});
+
 // COUNT-UP ANIMATION
 const countObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
