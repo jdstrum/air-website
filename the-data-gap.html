@@ -123,14 +123,18 @@
   .btn-conversation { display: inline-block; background: transparent; color: #AC9379; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 6px; border: 2px solid #AC9379; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
   .btn-conversation:hover { background: #AC9379; color: #FDFBF9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.2); }
 
-  /* CONTACT FORM */
-  .contact-section { background: #2F2F2F; padding: 100px 8vw; }
-  .contact-inner { max-width: 520px; margin: 0 auto; text-align: center; }
-  .contact-inner h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 12px; letter-spacing: -0.02em; }
-  .contact-inner .contact-sub { font-size: 16px; color: #9A9488; margin-bottom: 40px; line-height: 1.6; }
-  .contact-form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
-  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 480px) { .contact-row { grid-template-columns: 1fr; } }
+  /* CONTACT MODAL */
+  .contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
+  .contact-overlay.open { opacity: 1; visibility: visible; }
+  .contact-modal { background: #2F2F2F; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
+  .contact-overlay.open .contact-modal { transform: translateY(0); }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+  .contact-close:hover { color: #FDFBF9; }
+  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+  .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
   .contact-field { display: flex; flex-direction: column; }
   .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
   .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FDFBF9; transition: all 0.3s; resize: none; }
@@ -138,7 +142,7 @@
   .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; background: rgba(255,255,255,0.1); }
   .contact-submit { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
   .contact-submit:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
-  .contact-note { font-size: 13px; color: #7a7468; margin-top: 12px; text-align: center; }
+  .contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
   .contact-success { display: none; text-align: center; padding: 40px 0; }
   .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #AC9379; margin-bottom: 12px; }
   .contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
@@ -208,7 +212,7 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <div class="nav-dropdown">
-      <span class="nav-dropdown-label active">The Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="nav-dropdown-label active">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="nav-dropdown-menu">
         <a href="/governance.html">The Governance Gap</a>
         <a href="/the-stealth-spend.html">The Spending Gap</a>
@@ -465,13 +469,14 @@
   <div class="resultant-bridge-inner reveal">
     <h3>You don't need to figure this out alone.</h3>
     <p>The assessment shows you where the gaps are. A Resultant brings the right solutions to close them.</p>
-    <a href="#conversation" class="btn-conversation" onclick="document.getElementById('conversation').scrollIntoView({behavior:'smooth'});return false;">Book a Conversation</a>
+    <a href="#" class="btn-conversation" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
   </div>
 </section>
 
-<!-- CONTACT FORM -->
-<section class="contact-section" id="conversation">
-  <div class="contact-inner reveal">
+<!-- CONTACT MODAL -->
+<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
     <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
     <p class="contact-sub">A conversation about where you are and what's possible.</p>
     <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
@@ -501,7 +506,7 @@
       <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER CTA -->
 <section class="footer-cta">
@@ -581,7 +586,12 @@ function handleSubmit(e) {
   // Show success state
   form.style.display = 'none';
   success.style.display = 'block';
+  // Auto-close modal after 3 seconds
+  setTimeout(() => { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
 }
+
+// Close modal on Escape
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
 </script>
 </body>
 </html>
