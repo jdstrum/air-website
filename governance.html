@@ -27,15 +27,27 @@
 
   .editorial-open { background: #F2EDE9; padding: 130px 8vw 72px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; }
   .editorial-left {}
-  .editorial-open .page-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 28px; display: block; }
-  .editorial-open h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(26px, 3.2vw, 38px); font-weight: 700; line-height: 1.25; color: #2F2F2F; letter-spacing: -0.02em; }
+  .editorial-open .page-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 700; letter-spacing: -0.02em; text-transform: none; color: #AC9379; margin-bottom: 16px; display: block; line-height: 1.1; }
+  .editorial-open h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; line-height: 1.4; color: #2F2F2F; letter-spacing: -0.01em; }
   .editorial-abstract { font-size: 16px; color: #7a7468; line-height: 1.75; font-style: italic; border-left: 2px solid #AC9379; padding-left: 24px; }
   @media (max-width: 768px) { .editorial-open { grid-template-columns: 1fr; gap: 32px; padding: 110px 6vw 56px; } .editorial-abstract { border-left: none; padding-left: 0; border-top: 2px solid #AC9379; padding-top: 20px; } }
 
   .governance-grid { padding: 64px 8vw 72px; }
   .governance-grid h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 40px; letter-spacing: -0.02em; }
-  .gov-checklist { max-width: 680px; display: flex; flex-direction: column; gap: 0; }
-  .gov-check-item { display: flex; align-items: baseline; gap: 20px; padding: 20px 0; border-bottom: 1px solid #E4DAD0; }.gov-check-item:last-child { border-bottom: none; }.gov-num { font-family: "Trebuchet MS", Georgia, serif; font-size: 28px; font-weight: 700; color: #AC9379; line-height: 1; min-width: 36px; }.gov-title { font-family: "DM Sans", sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; letter-spacing: -0.01em; }
+  .gov-checklist { max-width: 720px; display: flex; flex-direction: column; gap: 0; }
+  .gov-check-item { border-bottom: 1px solid #E4DAD0; }
+  .gov-check-item:last-child { border-bottom: none; }
+  .gov-header { display: flex; align-items: center; gap: 20px; padding: 22px 0; cursor: pointer; user-select: none; transition: opacity 0.2s; }
+  .gov-header:hover { opacity: 0.7; }
+  .gov-num { font-family: "Trebuchet MS", Georgia, serif; font-size: 28px; font-weight: 700; color: #AC9379; line-height: 1; min-width: 36px; }
+  .gov-title { font-family: "DM Sans", sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; letter-spacing: -0.01em; flex: 1; }
+  .gov-toggle { font-size: 20px; color: #AC9379; transition: transform 0.3s; font-weight: 300; }
+  .gov-check-item.open .gov-toggle { transform: rotate(45deg); }
+  .gov-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; opacity: 0; }
+  .gov-check-item.open .gov-detail { max-height: 200px; opacity: 1; }
+  .gov-detail-inner { padding: 0 0 24px 56px; }
+  .gov-detail-inner p { font-size: 15px; color: #6a6358; line-height: 1.7; margin-bottom: 8px; }
+  .gov-detail-inner .gov-air { font-size: 14px; color: #AC9379; font-weight: 600; }
 
 
   @media (max-width: 768px) { .gov-num { font-size: 24px; } .gov-title { font-size: 16px; } }
@@ -50,18 +62,15 @@
   .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
 
-  .regulatory { padding: 80px 8vw; max-width: 100%; }
-  .regulatory-inner { max-width: 760px; }
-  .regulatory h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 28px; letter-spacing: -0.02em; line-height: 1.2; }
-  .regulatory-intro { font-size: 16px; color: #4a4a4a; line-height: 1.75; margin-bottom: 40px; }
-  .deadlines { display: flex; gap: 48px; margin-bottom: 48px; }
-  .deadline { display: flex; flex-direction: column; gap: 4px; }
-  .deadline-date { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #AC9379; }
-  .deadline-what { font-size: 14px; color: #9A9488; font-weight: 500; }
-  .requirements-list { list-style: none; }
-  .requirements-list li { font-size: 15px; color: #2F2F2F; line-height: 1.7; margin-bottom: 16px; padding-left: 20px; border-left: 2px solid #DDD7D0; }
-  .requirements-list li strong { display: block; font-weight: 600; margin-bottom: 2px; }
-  @media (max-width: 768px) { .deadlines { flex-direction: column; gap: 20px; } }
+  .reg-callout { padding: 48px 8vw; background: #FDFBF9; }
+  .reg-callout-inner { max-width: 760px; background: linear-gradient(135deg, rgba(172,147,121,0.06), rgba(172,147,121,0.02)); border: 1px solid #E4DAD0; border-radius: 12px; padding: 40px; display: flex; gap: 40px; align-items: center; }
+  .reg-dates { display: flex; flex-direction: column; gap: 16px; min-width: 160px; }
+  .reg-date { text-align: center; }
+  .reg-date-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #AC9379; }
+  .reg-date-what { font-size: 12px; color: #9A9488; font-weight: 500; }
+  .reg-text h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #2F2F2F; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .reg-text p { font-size: 15px; color: #6a6358; line-height: 1.7; }
+  @media (max-width: 768px) { .reg-callout-inner { flex-direction: column; gap: 24px; } .reg-dates { flex-direction: row; gap: 24px; } }
 
   .download-section { background: #F2EDE9; padding: 80px 8vw; }
   .download-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; }
@@ -209,7 +218,7 @@
     <div class="nav-links">
     <a href="/">Home</a>
     <a href="/governance.html" class="active">The Governance Gap</a>
-    <a href="/the-stealth-spend.html">The Stealth Spend</a>
+    <a href="/the-stealth-spend.html">The Spending Gap</a>
     <a href="/use-cases.html">The Imagination Gap</a>
     <a href="/field-notes.html">Field Notes</a>
     <a href="assessment.html" class="nav-cta">Take the Assessment</a>
@@ -250,11 +259,26 @@
 <section class="governance-grid">
   <h2 class="reveal">The five capabilities that separate AI adoption from AI exposure.</h2>
   <div class="gov-checklist">
-      <div class="gov-check-item reveal"><span class="gov-num">01</span><span class="gov-title">Data classification</span></div>
-      <div class="gov-check-item reveal reveal-delay-1"><span class="gov-num">02</span><span class="gov-title">Acceptable use policies</span></div>
-      <div class="gov-check-item reveal reveal-delay-2"><span class="gov-num">03</span><span class="gov-title">Shadow AI detection</span></div>
-      <div class="gov-check-item reveal reveal-delay-3"><span class="gov-num">04</span><span class="gov-title">Output verification</span></div>
-      <div class="gov-check-item reveal"><span class="gov-num">05</span><span class="gov-title">Enablement paths</span></div>
+      <div class="gov-check-item reveal" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">01</span><span class="gov-title">Data classification</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>Which data can AI tools touch and which can't? Without clear classification, proprietary information flows into public models every time someone writes a prompt.</p><span class="gov-air">Your Resultant maps your data landscape and builds the classification framework.</span></div></div>
+      </div>
+      <div class="gov-check-item reveal reveal-delay-1" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">02</span><span class="gov-title">Acceptable use policies</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>What are your people allowed to do with AI, and what's off limits? Most companies have no documented answer. That means every employee is making their own rules.</p><span class="gov-air">Your Resultant delivers a ready-to-deploy policy tailored to your industry and risk profile.</span></div></div>
+      </div>
+      <div class="gov-check-item reveal reveal-delay-2" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">03</span><span class="gov-title">Shadow AI detection</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>Your employees are already using AI tools you haven't sanctioned. The question is whether you know which ones, what data is going in, and what's coming out.</p><span class="gov-air">Your Resultant identifies what's running in the shadows and builds a path to visibility.</span></div></div>
+      </div>
+      <div class="gov-check-item reveal reveal-delay-3" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">04</span><span class="gov-title">Output verification</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>AI generates answers fast. But are they accurate? Without verification processes, AI-generated content enters your operations unchecked.</p><span class="gov-air">Your Resultant designs the quality controls that keep AI outputs trustworthy.</span></div></div>
+      </div>
+      <div class="gov-check-item reveal" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">05</span><span class="gov-title">Enablement paths</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>Governance isn't just about saying no. It's about giving people a clear way to say yes — approved tools, sanctioned workflows, and training that turns AI users into AI champions.</p><span class="gov-air">Your Resultant builds the enablement framework that turns governance into acceleration.</span></div></div>
+      </div>
     </div>
 </section>
 
@@ -285,30 +309,16 @@
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<section class="regulatory">
-  <div class="regulatory-inner">
-    <h2 class="reveal">The companies already governing AI won't have to scramble when regulation arrives.</h2>
-    <p class="regulatory-intro reveal reveal-delay-1">In 2025, all 50 states introduced AI-related legislation for the first time. As of early 2026, 45 states have introduced over 1,500 new bills this session. Two major compliance deadlines are approaching.</p>
-    <div class="deadlines reveal reveal-delay-2">
-      <div class="deadline">
-        <span class="deadline-date">June 30, 2026</span>
-        <span class="deadline-what">Colorado AI Act (SB 24-205)</span>
-              </div>
-      <div class="deadline">
-        <span class="deadline-date">August 2, 2026</span>
-        <span class="deadline-what">EU AI Act high-risk compliance</span>
-              </div>
+<section class="reg-callout">
+  <div class="reg-callout-inner reveal">
+    <div class="reg-dates">
+      <div class="reg-date"><div class="reg-date-num">June 2026</div><div class="reg-date-what">Colorado AI Act</div></div>
+      <div class="reg-date"><div class="reg-date-num">August 2026</div><div class="reg-date-what">EU AI Act</div></div>
     </div>
-    <ul class="requirements-list">
-      <li class="reveal reveal-delay-2"><strong>AI governance policies</strong>Documented frameworks for how AI is used, approved, and monitored across the organization.</li>
-      <li class="reveal reveal-delay-2"><strong>Shadow AI inventory</strong>A complete picture of what AI tools employees are actually using, sanctioned or not.</li>
-      <li class="reveal reveal-delay-2"><strong>Impact assessments</strong>Formal review for any AI that touches hiring, lending, insurance, or customer-facing decisions.</li>
-      <li class="reveal reveal-delay-2"><strong>Human oversight protocols</strong>Defined processes ensuring a person reviews AI-generated outputs before they reach customers.</li>
-      <li class="reveal reveal-delay-2"><strong>Data governance</strong>Clear documentation of where data goes, how AI systems use it, and who has access.</li>
-      <li class="reveal reveal-delay-2"><strong>Consumer transparency</strong>Disclosure requirements so people know when AI is involved in decisions that affect them.</li>
-    </ul>
+    <div class="reg-text">
+      <h3>The companies already governing AI won't have to scramble when regulation arrives.</h3>
+      <p>All 50 states have introduced AI legislation. Two major compliance deadlines hit this year. The governance capabilities above aren't just good practice — they're what regulators are about to require.</p>
+    </div>
   </div>
 </section>
 
@@ -351,6 +361,12 @@
 </section>
 
 <script>
+function toggleGov(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.gov-check-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
 (function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
