@@ -90,6 +90,17 @@
 
   .nav-links a:hover { color: #AC9379; }
 
+  /* DROPDOWN */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #DDD7D0; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #AC9379; }
+  .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
+  .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(47, 47, 47, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(0,0,0,0.25); margin-top: 12px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #DDD7D0; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.08); }
+
   .nav-links .nav-cta {
     background: #AC9379;
     color: #FDFBF9;
@@ -273,6 +284,15 @@
     animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
     opacity: 0;
     cursor: pointer;
+  }
+
+  .scroll-indicator .scroll-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FDFBF9;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
   }
 
   .scroll-indicator .scroll-text {
@@ -933,7 +953,7 @@
     .footer-cta .cta-row { flex-direction: column; align-items: center; }
   }
 
-  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}.nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#FDFBF9;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#FDFBF9;}}
 .footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}</style>
 </head>
 <body>
@@ -945,9 +965,15 @@
   <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/governance.html">The Governance Gap</a>
-    <a href="/the-stealth-spend.html">The Spending Gap</a>
-    <a href="/use-cases.html">The Imagination Gap</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-label">The Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dropdown-menu">
+        <a href="/governance.html">The Governance Gap</a>
+        <a href="/the-stealth-spend.html">The Spending Gap</a>
+        <a href="/the-data-gap.html">The Data Gap</a>
+        <a href="/use-cases.html">The Imagination Gap</a>
+      </div>
+    </div>
     <a href="/field-notes.html">Field Notes</a>
     <a href="assessment.html" class="nav-cta">Take the Assessment</a>
   </div>
@@ -958,13 +984,10 @@
   <div class="hero-content">
     <h1>AI doesn't fail because of the technology.<br>It fails because of everything underneath it.</h1>
     <p class="subtitle"><strong style="color:#AC9379;font-size:clamp(20px, 2.4vw, 28px);line-height:1.3;display:inline-block;margin-bottom:8px;">That's the readiness gap.</strong><br>The companies that close it first will get more from every AI dollar they spend.</p>
-    <div class="cta-row">
-      <a href="assessment.html" class="btn-primary">Take the Assessment</a>
-      <a href="#reality" class="btn-ghost" onclick="document.getElementById('reality').scrollIntoView({behavior:'smooth'});return false;">See what we're solving &darr;</a>
-    </div>
   </div>
   <div class="hero-bottom-fade"></div>
   <div class="scroll-indicator" onclick="document.getElementById('reality').scrollIntoView({behavior:'smooth'})">
+    <span class="scroll-cta">See what we're solving</span>
     <span class="scroll-text">Scroll to explore</span>
     <div class="scroll-arrow"><span></span><span></span></div>
   </div>

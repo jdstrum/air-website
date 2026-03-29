@@ -22,9 +22,20 @@
   .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
   .nav-links a:hover { color: #AC9379; }
   .nav-links a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #AC9379; }
+  .nav-dropdown-label.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
+  .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.06); }
+  .nav-dropdown-menu a.active { color: #2F2F2F; font-weight: 600; }
   .nav-links .nav-cta { background: #AC9379; color: #FDFBF9; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
   .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
-  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } }
+  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#FDFBF9;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#FDFBF9;} }
 
   /* HERO — centered, statement-first, distinct from governance */
   .hero { background: #F2EDE9; padding: 160px 8vw 80px; text-align: center; position: relative; overflow: hidden; }
@@ -196,10 +207,15 @@
   <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/governance.html">The Governance Gap</a>
-    <a href="/the-stealth-spend.html">The Spending Gap</a>
-    <a href="/the-data-gap.html" class="active">The Data Gap</a>
-    <a href="/use-cases.html">The Imagination Gap</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-label active">The Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dropdown-menu">
+        <a href="/governance.html">The Governance Gap</a>
+        <a href="/the-stealth-spend.html">The Spending Gap</a>
+        <a href="/the-data-gap.html" class="active">The Data Gap</a>
+        <a href="/use-cases.html">The Imagination Gap</a>
+      </div>
+    </div>
     <a href="/field-notes.html">Field Notes</a>
     <a href="assessment.html" class="nav-cta">Take the Assessment</a>
   </div>
