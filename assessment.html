@@ -18,6 +18,7 @@ h1,h2,h3 { font-family:'Trebuchet MS',sans-serif; }
 /* Progress Bar */
 #progressBar { position:fixed; top:0; left:0; right:0; height:5px; background:var(--mist); z-index:1000; display:none; }
 #progressFill { height:100%; background:var(--gold); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); width:0%; }
+#progressPct { position:absolute; right:12px; top:10px; font-size:11px; font-weight:600; color:var(--gray); letter-spacing:0.03em; }
 
 /* Layout & Transitions */
 #screenWrap { position:relative; overflow:hidden; }
@@ -157,7 +158,7 @@ textarea.form-input { min-height:100px; resize:vertical; }
 </head>
 <body>
 
-<div id="progressBar"><div id="progressFill"></div></div>
+<div id="progressBar"><div id="progressFill"></div><span id="progressPct"></span></div>
 
 <!-- All screens rendered dynamically into this container -->
 <div id="screenWrap"><div id="app"></div></div>
@@ -171,7 +172,7 @@ const state = {
   track: null,
   role: null,
   contact: { name:'', email:'', company:'' },
-  profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[], urgency:[] },
+  profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[], urgency:[], barriers:[] },
   answers: {},
   tags: {},
   openText: { ot1:'', ot2:'' },
@@ -204,8 +205,8 @@ const CS_QUESTIONS = [
   { id:'cs3', dim:'D1', type:'scenario', text:'Has your organization made commitments about AI \u2014 to your board, your customers, or your own leadership team \u2014 that you haven\u2019t yet delivered on?', options:[
     {text:'No \u2014 we\u2019ve delivered on what we\u2019ve committed to and have a clear roadmap ahead',score:4},
     {text:'Minor gaps \u2014 we\u2019re mostly on track but a few things have taken longer than expected',score:3},
-    {text:'Yes \u2014 we\u2019ve made commitments that are stalled or significantly behind schedule',score:2},
-    {text:'Yes \u2014 we\u2019ve talked about AI but haven\u2019t made meaningful progress',score:1},
+    {text:'Yes \u2014 we made specific commitments and they\u2019ve stalled or fallen behind',score:2},
+    {text:'We\u2019ve talked about AI internally but never formalized a plan or commitment',score:1},
     {text:'We haven\u2019t made specific commitments about AI yet',score:0}
   ]},
   { id:'cs4', dim:'D6', type:'scenario', text:'When your organization rolls out a new technology or AI-powered tool, what typically happens?', options:[
@@ -215,13 +216,18 @@ const CS_QUESTIONS = [
     {text:'A few early adopters try it, but most people stick with what they know',score:1},
     {text:'It mostly sits unused',score:0}
   ]},
-  { id:'cs5', dim:'D3', type:'likert', text:'Our core business systems are modern, well-integrated, and ready for the demands AI workloads will place on them.' },
+  { id:'cs5', dim:'D3', type:'scenario', text:'When your teams need your core business systems to work together \u2014 pulling data across platforms, rolling out a new tool, or scaling an operation \u2014 what typically happens?', options:[
+    {text:'Everything connects \u2014 new tools integrate smoothly and data flows where it needs to go',score:4},
+    {text:'Mostly works \u2014 occasional friction, but teams get what they need without major delays',score:3},
+    {text:'It\u2019s a bottleneck \u2014 getting systems to work together requires IT involvement and weeks of lead time',score:2},
+    {text:'It\u2019s a known pain point \u2014 we have systems that don\u2019t integrate and manual processes filling the gaps',score:1},
+    {text:'I don\u2019t have visibility into how well our systems work together',score:0}
+  ]},
   { id:'cs6', dim:'D5', type:'scenario', cxGate:true, text:'When a customer interacts with your company \u2014 whether by phone, email, chat, or in person \u2014 does that experience feel consistent regardless of which channel or person they reach?', options:[
-    {text:'Yes \u2014 fully integrated experience with shared context across every touchpoint',score:4},
-    {text:'Mostly \u2014 our main channels are connected but there are gaps',score:3},
-    {text:'Inconsistent \u2014 it depends on which team or channel the customer hits',score:2},
-    {text:'We know it\u2019s a problem but haven\u2019t been able to solve it yet',score:1},
-    {text:'We don\u2019t have a structured approach to customer experience across channels',score:0},
+    {text:'Yes \u2014 consistent experience with shared context across every touchpoint',score:4},
+    {text:'Mostly \u2014 our primary channels are connected but customers still hit gaps between them',score:3},
+    {text:'Inconsistent \u2014 it depends on the channel or person, and we know it\u2019s a problem',score:2},
+    {text:'We haven\u2019t formalized how customer experience works across channels',score:1},
     {text:'Not applicable \u2014 we don\u2019t operate customer-facing support operations',score:-1,skip:true}
   ]},
   { id:'cs7', dim:'D4', type:'scenario', text:'Every time someone at your company uses an AI tool, they\u2019re generating intelligence \u2014 prompts, workflows, problem-solving approaches, institutional knowledge. What\u2019s happening with that intelligence?', options:[
@@ -231,14 +237,13 @@ const CS_QUESTIONS = [
     {text:'It stays with the individual \u2014 we\u2019re not capturing any of it',score:1},
     {text:'I hadn\u2019t thought about it that way until right now',score:0}
   ]},
-  { id:'cs8', dim:'D1', type:'scenario', text:'If your board asked you today to quantify the return on your AI investments so far, could you?', options:[
-    {text:'Yes \u2014 defined KPIs showing measurable business impact from AI initiatives',score:4},
-    {text:'Partially \u2014 we can point to improvements but haven\u2019t formalized measurement',score:3},
-    {text:'Not really \u2014 we\u2019ve spent money on AI tools but can\u2019t attribute specific returns',score:2},
-    {text:'No \u2014 we can\u2019t separate AI impact from general technology spending',score:1},
-    {text:'We haven\u2019t invested enough in AI yet to measure anything',score:0}
+  { id:'cs8', dim:'D1', type:'likert', text:'If asked today, I could quantify the return on our AI investments so far.' },
+  { id:'cs9', dim:'D3', type:'scenario', text:'If your leadership team decided tomorrow to deploy AI across a core business function, what would happen?', options:[
+    {text:'We\u2019d move fast \u2014 the infrastructure and team are ready to support it',score:4},
+    {text:'It would take some work, but we could get there within a reasonable timeframe',score:3},
+    {text:'It would be a significant effort \u2014 we\u2019d hit bottlenecks and need outside help',score:2},
+    {text:'I don\u2019t have enough visibility into our infrastructure to answer confidently',score:0}
   ]},
-  { id:'cs9', dim:'D3', type:'likert', text:'If our organization needed to significantly scale its digital operations in the next 90 days \u2014 more users, bigger workloads, new AI tools \u2014 our infrastructure could handle it.' },
   { id:'cs10', dim:'D6', type:'likert', text:'Our leadership team is actively driving AI adoption \u2014 not just endorsing it, but personally championing and modeling its use.' },
   { id:'cs11', dim:'D2', type:'scenario', text:'If you needed to answer a strategic question using data from across your organization \u2014 sales, operations, finance, customer \u2014 how long would it take to pull that together?', options:[
     {text:'Hours \u2014 our data is accessible and integrated across the business',score:4},
@@ -252,14 +257,14 @@ const CS_QUESTIONS = [
     {text:'Yes \u2014 we\u2019re using AI in one or two areas of the customer experience',score:3},
     {text:'Basic automation only \u2014 IVR, simple chatbot, or auto-responses',score:2},
     {text:'No \u2014 all customer interactions are handled manually',score:1},
-    {text:'We haven\u2019t explored AI for customer-facing operations',score:0}
+    {text:'No \u2014 AI hasn\u2019t been part of the CX conversation yet',score:0}
   ]},
   { id:'cs13', dim:'D4', type:'scenario', text:'Does your organization have a written policy governing how employees can and cannot use AI tools?', options:[
     {text:'Yes \u2014 comprehensive framework covering usage, data handling, tool authorization, and compliance',score:4},
     {text:'Yes \u2014 documented acceptable use policy communicated to employees',score:3},
-    {text:'Informally \u2014 guidelines exist but nothing documented or enforced',score:2},
-    {text:'No \u2014 but we know we need one',score:1},
-    {text:'No \u2014 and it hasn\u2019t been a priority',score:0}
+    {text:'Informally \u2014 some guidelines exist but nothing documented or enforced',score:2},
+    {text:'No \u2014 we don\u2019t have AI-specific policies in place',score:1},
+    {text:'I don\u2019t know whether we have one',score:0}
   ]},
   { id:'cs14', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes \u2014 not AI exploration, but measurable results?', options:[
     {text:'A dedicated AI leader or team with cross-functional authority and reporting structure',score:4},
@@ -268,13 +273,19 @@ const CS_QUESTIONS = [
     {text:'Someone has been informally tasked with "figuring out AI"',score:1},
     {text:'Nobody \u2014 it hasn\u2019t been formally assigned',score:0}
   ]},
-  { id:'cs15', dim:'D2', type:'likert', text:'I know what data our AI tools have access to inside the organization \u2014 and what data is leaving through AI tools our employees are using on their own.' },
-  { id:'cs16', dim:'D3', type:'scenario', text:'If a critical business system went down tomorrow \u2014 your CRM, your ERP, your communication platform \u2014 how long before operations are fully restored?', options:[
-    {text:'Minutes \u2014 automated failover and tested recovery for all critical systems',score:4},
-    {text:'Hours \u2014 documented recovery procedures with regular testing',score:3},
-    {text:'Within a day \u2014 we could recover but it would require significant manual effort',score:2},
-    {text:'Days \u2014 recovery would be reactive and unpredictable',score:1},
-    {text:'I don\u2019t know \u2014 and that concerns me',score:0}
+  { id:'cs15', dim:'D2', type:'scenario', text:'When different teams in your organization report on the same metric \u2014 revenue, customer count, pipeline, headcount \u2014 do they get the same number?', options:[
+    {text:'Yes \u2014 we have a single source of truth that everyone works from',score:4},
+    {text:'Usually \u2014 core metrics are consistent but some teams maintain their own versions',score:3},
+    {text:'It depends \u2014 different departments often work from different numbers',score:2},
+    {text:'I\u2019m not confident they would \u2014 our data lives in too many places',score:1},
+    {text:'I don\u2019t have visibility into how consistent our data is across teams',score:0}
+  ]},
+  { id:'cs16', dim:'D3', type:'scenario', text:'How many strategic initiatives in the last two years have been slowed down or killed by technology limitations you didn\u2019t anticipate?', options:[
+    {text:'None \u2014 our technology has kept pace with what the business needs',score:4},
+    {text:'One or two \u2014 minor delays but nothing that derailed a major initiative',score:3},
+    {text:'Several \u2014 technology constraints have been a recurring bottleneck',score:2},
+    {text:'It\u2019s a pattern \u2014 we regularly hit walls we didn\u2019t see coming',score:1},
+    {text:'I don\u2019t have visibility into whether technology has been the constraint',score:0}
   ]},
   { id:'cs17', dim:'D5', type:'scenario', cxConditional:true, text:'Do you have real visibility into what\u2019s actually happening in your customer interactions \u2014 not just satisfaction scores, but the substance and quality of the conversations?', options:[
     {text:'Yes \u2014 AI-powered analytics give us insight into 100% of interactions',score:4},
@@ -285,10 +296,9 @@ const CS_QUESTIONS = [
   ]},
   { id:'cs18', dim:'D6', type:'scenario', text:'Do you know which people in your organization are already using AI in creative, high-impact ways to solve business problems?', options:[
     {text:'Yes \u2014 we\u2019ve identified them and are building on their knowledge across the organization',score:4},
-    {text:'We know who some of them are and are starting to leverage their expertise',score:3},
-    {text:'A few have self-identified, but there\u2019s no systematic way to find them',score:2},
-    {text:'I suspect they exist but I couldn\u2019t name them',score:1},
-    {text:'No \u2014 we have no visibility into who\u2019s innovating with AI',score:0}
+    {text:'We know who some of them are but haven\u2019t done anything structured with it yet',score:3},
+    {text:'I suspect they exist but couldn\u2019t name them',score:1},
+    {text:'No \u2014 we have no visibility into who\u2019s using AI or how',score:0}
   ]}
 ];
 
@@ -619,7 +629,14 @@ function buildScreens() {
     CS_QUESTIONS.forEach((q, i) => {
       s.push({type:'question', q:q, num:i+1, total:18});
     });
-    s.push({type:'tag', tag:CS_TAG});
+    s.push({type:'profile-checkbox', id:'barriers', text:'What\u2019s standing between your organization and effective AI adoption?', hint:'Select all that apply', options:[
+      'No clear roadmap \u2014 too many options, don\u2019t know where to start',
+      'Budget and ROI uncertainty',
+      'Data isn\u2019t ready \u2014 too scattered, too messy, or too siloed',
+      'Security and compliance concerns',
+      'Cultural resistance or skills gaps',
+      'We\u2019ve started but can\u2019t tell if it\u2019s working'
+    ]});
   } else {
     // IT: grouped by dimension
     const dimOrder = ['D1','D2','D3','D4','D5','D6'];
@@ -662,7 +679,6 @@ function buildScreens() {
 
   // Open text
   s.push({type:'open-text', id:'ot1', text:'What specific AI use case or business problem are you most interested in exploring?'});
-  s.push({type:'open-text', id:'ot2', text:'What has prevented your organization from moving faster on AI?'});
 
   // Contact gate (before results)
   s.push({type:'contact-gate'});
@@ -685,10 +701,11 @@ function updateProgress() {
     return;
   }
   bar.style.display = 'block';
-  // Count total progressable screens (not results)
-  const total = state.screens.length - 1; // minus results
+  // Count total progressable screens (not results or contact-gate)
+  const total = state.screens.filter(s => s.type !== 'results' && s.type !== 'contact-gate').length;
   const pct = Math.min(100, Math.round((state.screenIndex / total) * 100));
   fill.style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
 }
 
 // ============================================================
@@ -783,16 +800,16 @@ function selectProfileRadio(id, val, el) {
 
 function renderProfilePlatforms() {
   const cats = [
-    {name:'Collaboration / Video', opts:['Zoom','Microsoft Teams','Webex','GoTo','Other']},
-    {name:'Business Phone', opts:['Zoom Phone','RingCentral','Dialpad','8x8','Vonage','Teams Phone','Other']},
-    {name:'CRM', opts:['Salesforce','HubSpot','Dynamics 365','Zoho','None','Other']},
-    {name:'Contact Center', opts:['NICE CXone','Genesys','Five9','Talkdesk','Zoom Contact Center','None','Other']},
-    {name:'HR / Payroll', opts:['ADP','Workday','BambooHR','Paychex','Other']},
-    {name:'ERP / Finance', opts:['SAP','Oracle','NetSuite','Sage','Other']},
-    {name:'Cloud Platform', opts:['Microsoft Azure','AWS','Google Cloud','Other']}
+    {name:'Collaboration / Video', opts:['Zoom','Microsoft Teams','Webex','GoTo','Don\u2019t know','Other']},
+    {name:'Business Phone', opts:['Zoom Phone','RingCentral','Dialpad','8x8','Vonage','Teams Phone','Don\u2019t know','Other']},
+    {name:'CRM', opts:['Salesforce','HubSpot','Dynamics 365','Zoho','None','Don\u2019t know','Other']},
+    {name:'Contact Center', opts:['NICE CXone','Genesys','Five9','Talkdesk','Zoom Contact Center','None','Don\u2019t know','Other']},
+    {name:'HR / Payroll', opts:['ADP','Workday','BambooHR','Paychex','Don\u2019t know','Other']},
+    {name:'ERP / Finance', opts:['SAP','Oracle','NetSuite','Sage','Don\u2019t know','Other']},
+    {name:'Cloud Platform', opts:['Microsoft Azure','AWS','Google Cloud','Don\u2019t know','Other']}
   ];
   if (state.track === 'it') {
-    cats.push({name:'IT Service Management', opts:['ServiceNow','Jira Service Management','Freshservice','None','Other']});
+    cats.push({name:'IT Service Management', opts:['ServiceNow','Jira Service Management','Freshservice','None','Don\u2019t know','Other']});
   }
   const selected = state.profile.platforms || [];
   app.innerHTML = `
@@ -1183,8 +1200,9 @@ function showRoles() {
       <div style="text-align:left;max-width:480px;margin:0 auto;">
         ${filteredRoles.map(r => `<button class="option-btn" onclick="selectRole('${r.text.replace(/'/g,"\\'")}',this)">${r.text}</button>`).join('')}
       </div>
-      <div style="margin-top:32px;">
+      <div class="btn-row" style="max-width:480px;margin:32px auto 0;">
         <a class="back-link" onclick="showWelcome()">Back</a>
+        <button class="btn-primary" id="roleNext" disabled onclick="confirmRole()">Continue</button>
       </div>
     </div></div>`;
 }
@@ -1193,7 +1211,12 @@ function selectRole(roleText, el) {
   state.role = ROLES.find(r => r.text === roleText);
   document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
-  setTimeout(() => showIntro(), 400);
+  document.getElementById('roleNext').disabled = false;
+}
+
+function confirmRole() {
+  buildScreens();
+  showScreen(0);
 }
 
 function renderContactGate() {
