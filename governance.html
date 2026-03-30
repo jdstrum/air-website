@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO / OG / AEO -->
+<meta name="description" content="Your teams are already using AI. Without governance, every interaction leaks proprietary data. Learn the five capabilities that separate AI adoption from AI exposure.">
+<link rel="canonical" href="https://airesulting.vercel.app/governance.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://airesulting.vercel.app/governance.html">
+<meta property="og:title" content="The Governance Gap — AI Resulting">
+<meta property="og:description" content="Your employees are using AI right now. The question is whether your organization knows what's happening, what data is leaving, and what intelligence you're losing.">
+<meta property="og:site_name" content="AI Resulting">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Governance Gap — AI Resulting">
+<meta name="twitter:description" content="Your employees are using AI right now. The question is whether your organization knows what's happening, what data is leaving, and what intelligence you're losing.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://airesulting.vercel.app/governance.html",
+  "headline": "The AI Governance Gap: Why Mid-Market Companies Are Losing Intelligence",
+  "description": "Your teams are already using AI. Without governance, every interaction leaks proprietary data and institutional knowledge walks out the door.",
+  "author": {"@id": "https://airesulting.vercel.app/#organization"},
+  "publisher": {"@id": "https://airesulting.vercel.app/#organization"},
+  "mainEntityOfPage": "https://airesulting.vercel.app/governance.html",
+  "about": [
+    {"@type": "Thing", "name": "AI Governance"},
+    {"@type": "Thing", "name": "Shadow AI"},
+    {"@type": "Thing", "name": "AI Policy"}
+  ],
+  "keywords": "AI governance, shadow AI, AI policy, enterprise AI security, AI acceptable use, mid-market AI governance"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is shadow AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shadow AI refers to employees using AI tools like ChatGPT, Copilot, Gemini, and others without organizational oversight or governance. These tools are being used with company data, customer information, and proprietary processes with no visibility into what's being shared or what intelligence is being generated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do mid-market companies need AI governance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Without AI governance, every employee interaction with AI tools potentially leaks proprietary data and institutional knowledge. The governance gap isn't about restricting AI use, it's about five capabilities: an acceptable use policy, tool authorization, intelligence capture, a governance committee, and vendor and model evaluation frameworks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an AI acceptable use policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI acceptable use policy is a documented framework that defines how employees can and cannot use AI tools in the workplace. It covers which tools are authorized, what data can and cannot be shared with AI systems, how AI-generated outputs should be reviewed, and what compliance and security requirements must be met."
+      }
+    }
+  ]
+}
+</script>
+<title>The AI Governance Gap: Why Mid-Market Companies Are Losing Intelligence — AI Resulting</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
+  body { color: #2F2F2F; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #FDFBF9; }
+
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
+  .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+  .nav-logo .mark { background: #FDFBF9; color: #AC9379; border: 1px solid rgba(172,147,121,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
+  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; }
+  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
+  .nav-links a:hover { color: #AC9379; }
+  .nav-links a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #AC9379; }
+  .nav-dropdown-label.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
+  .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.06); }
+  .nav-dropdown-menu a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-links .nav-cta { background: #AC9379; color: #FDFBF9; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
+  .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
+  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+  .editorial-open { background: #F2EDE9; padding: 130px 8vw 72px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; }
+  .editorial-left {}
+  .editorial-open .page-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 700; letter-spacing: -0.02em; text-transform: none; color: #AC9379; margin-bottom: 16px; display: block; line-height: 1.1; }
+  .editorial-open h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; line-height: 1.4; color: #2F2F2F; letter-spacing: -0.01em; }
+  .editorial-abstract { font-size: 16px; color: #7a7468; line-height: 1.75; font-style: italic; border-left: 2px solid #AC9379; padding-left: 24px; }
+  @media (max-width: 768px) { .editorial-open { grid-template-columns: 1fr; gap: 32px; padding: 110px 6vw 56px; } .editorial-abstract { border-left: none; padding-left: 0; border-top: 2px solid #AC9379; padding-top: 20px; } }
+
+  .governance-grid { padding: 64px 8vw 72px; }
+  .governance-grid h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 40px; letter-spacing: -0.02em; }
+  .gov-checklist { max-width: 720px; display: flex; flex-direction: column; gap: 0; }
+  .gov-check-item { border-bottom: 1px solid #E4DAD0; }
+  .gov-check-item:last-child { border-bottom: none; }
+  .gov-header { display: flex; align-items: center; gap: 20px; padding: 22px 0; cursor: pointer; user-select: none; transition: opacity 0.2s; }
+  .gov-header:hover { opacity: 0.7; }
+  .gov-num { font-family: "Trebuchet MS", Georgia, serif; font-size: 28px; font-weight: 700; color: #AC9379; line-height: 1; min-width: 36px; }
+  .gov-title { font-family: "DM Sans", sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; letter-spacing: -0.01em; flex: 1; }
+  .gov-toggle { font-size: 20px; color: #AC9379; transition: transform 0.3s; font-weight: 300; }
+  .gov-check-item.open .gov-toggle { transform: rotate(45deg); }
+  .gov-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; opacity: 0; }
+  .gov-check-item.open .gov-detail { max-height: 200px; opacity: 1; }
+  .gov-detail-inner { padding: 0 0 24px 56px; }
+  .gov-detail-inner p { font-size: 15px; color: #6a6358; line-height: 1.7; margin-bottom: 8px; }
+  .gov-detail-inner .gov-air { font-size: 14px; color: #AC9379; font-weight: 600; }
+
+
+  @media (max-width: 768px) { .gov-num { font-size: 24px; } .gov-title { font-size: 16px; } }
+
+  .gateway-section { background: linear-gradient(rgba(47,47,47,0.92), rgba(47,47,47,0.88)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80") center/cover no-repeat fixed; padding: 80px 8vw; color: #FDFBF9; }
+  .gateway-inner { max-width: 760px; }
+  .gateway-section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; }
+  .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
+  .gateway-section .gateway-lede { font-size: 17px; color: #DDD7D0; line-height: 1.75; margin-bottom: 40px; }
+  .gateway-points { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #AC9379; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); border-left-color: #DDD7D0; }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #AC9379; margin-bottom: 8px; letter-spacing: 0.03em; }
+  .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
+  @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
+
+  .reg-callout { padding: 48px 8vw; background: #FDFBF9; }
+  .reg-callout-inner { max-width: 760px; background: linear-gradient(135deg, rgba(172,147,121,0.06), rgba(172,147,121,0.02)); border: 1px solid #E4DAD0; border-radius: 12px; padding: 40px; display: flex; gap: 40px; align-items: center; }
+  .reg-dates { display: flex; flex-direction: column; gap: 16px; min-width: 160px; }
+  .reg-date { text-align: center; }
+  .reg-date-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #AC9379; }
+  .reg-date-what { font-size: 12px; color: #9A9488; font-weight: 500; }
+  .reg-text h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #2F2F2F; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .reg-text p { font-size: 15px; color: #6a6358; line-height: 1.7; }
+  @media (max-width: 768px) { .reg-callout-inner { flex-direction: column; gap: 24px; } .reg-dates { flex-direction: row; gap: 24px; } }
+
+  .download-section { background: #F2EDE9; padding: 80px 8vw; }
+  .download-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; }
+  .download-content h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .download-content .dl-intro { font-size: 16px; color: #4a4a4a; line-height: 1.7; margin-bottom: 32px; }
+  .kit-list { list-style: none; }
+  .kit-list li { font-size: 15px; color: #2F2F2F; line-height: 1.8; margin-bottom: 10px; padding-left: 18px; position: relative; }
+  .kit-list li::before { content: '→'; position: absolute; left: 0; color: #AC9379; font-weight: 600; }
+  .gated-form { display: flex; flex-direction: column; justify-content: center; }
+  .gated-form form { display: flex; flex-direction: column; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 13px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-group input { background: #FDFBF9; border: 1px solid #DDD7D0; border-radius: 5px; padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #2F2F2F; transition: all 0.3s; }
+  .form-group input::placeholder { color: #bbb5ad; }
+  .form-group input:focus { outline: none; border-color: #AC9379; background: #fff; }
+  .btn-download { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: none; cursor: pointer; width: 100%; text-align: center; margin-top: 4px; }
+  .btn-download:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.2); }
+  .form-note { font-size: 13px; color: #9A9488; margin-top: 6px; }
+  @media (max-width: 768px) { .download-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+  .bridge { padding: 80px 8vw; text-align: center; }
+  .bridge h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; }
+  .bridge p { font-size: 16px; color: #4a4a4a; line-height: 1.7; max-width: 480px; margin: 0 auto 36px; }
+  .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+
+  .footer { background: #2F2F2F; padding: 60px 8vw; text-align: center; border-top: 1px solid rgba(221,215,208,0.1); }
+  .footer-brand { display: inline-flex; align-items: center; margin-bottom: 16px; }
+  .footer-brand .mark { background: #FDFBF9; color: #AC9379; font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
+  .footer-brand .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; }
+  .footer-brand .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #FDFBF9; }
+  .tagline { font-size: 13px; color: #AC9379; font-style: italic; margin-bottom: 24px; }
+  .footer-links { font-size: 13px; color: #9A9488; }
+  .footer-links a { color: #9A9488; text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: #AC9379; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  .section-divider { width: 60px; height: 2px; background: #DDD7D0; margin: 0 8vw; }
+
+  @media (max-width: 768px) {
+    .site-nav { padding: 16px 6vw; }
+    .governance-grid { padding: 48px 6vw 60px; }
+    .section-divider { margin: 0 6vw; }
+    .regulatory { padding: 60px 6vw; }
+    .download-section { padding: 60px 6vw; }
+    .bridge { padding: 60px 6vw; }
+    .footer { padding: 60px 6vw; }
+  }
+
+
+
+  /* SCROLL PROGRESS BAR */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #AC9379;
+    z-index: 200;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  /* GATEWAY AMBIENT PARTICLES */
+  .gateway-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gateway-particles {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+
+  .gateway-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(172, 147, 121, 0.3);
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100%) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+  }
+
+
+
+  /* GRADIENT PULSE on editorial opening */
+  @keyframes gradientPulse {
+    0%, 100% { background-color: #F2EDE9; }
+    50% { background-color: #E4DAD0; }
+  }
+  .editorial-open {
+    animation: gradientPulse 6s ease-in-out infinite;
+  }
+
+
+
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}.nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#FDFBF9;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#FDFBF9;}}
+
+  .editorial-graphic{display:flex;align-items:center;justify-content:center;}
+  .hero-graphic-wrap{position:relative;width:280px;height:280px;}@media(max-width:768px){.hero-graphic-wrap{width:200px;height:200px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
+
+  .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}.gateway-point.gw-reveal:nth-child(4){transition-delay:0.45s;}
+
+  .footer-cta { background: #2F2F2F; padding: 120px 8vw; text-align: center; color: #FDFBF9; }
+  .footer-cta .mark { background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
+  .footer-cta .r { font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379; }
+  .footer-cta .name { font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9; }
+  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #AC9379; font-style: italic; margin-bottom: 48px; }
+  .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #FDFBF9; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
+  .footer-cta .cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 80px; }
+  .footer-cta .cta-row .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
+  .footer-cta .cta-row .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .footer-cta > p { font-size: 13px; color: #9A9488; margin-top: 20px; }
+  .footer-cta > p a { color: #AC9379; text-decoration: underline; text-underline-offset: 3px; }
+  .footer-bottom { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .footer-bottom p { font-size: 13px; color: #9A9488; }
+  .footer-bottom a { color: #9A9488; text-decoration: none; }
+  .footer-bottom a:hover { color: #AC9379; }
+  .footer-logo-text { font-family: 'Trebuchet MS', sans-serif; font-weight: 600; }
+  /* CONTACT MODAL */
+  .contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
+  .contact-overlay.open { opacity: 1; visibility: visible; }
+  .contact-modal { background: #2F2F2F; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
+  .contact-overlay.open .contact-modal { transform: translateY(0); }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+  .contact-close:hover { color: #FDFBF9; }
+  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+  .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
+  .contact-field { display: flex; flex-direction: column; }
+  .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FDFBF9; transition: all 0.3s; resize: none; }
+  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(221,215,208,0.35); }
+  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; background: rgba(255,255,255,0.1); }
+  .contact-submit { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
+  .contact-submit:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
+  .contact-success { display: none; text-align: center; padding: 40px 0; }
+  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #AC9379; margin-bottom: 12px; }
+  .contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
+  </a>
+  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+    <a href="/">Home</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-label active">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dropdown-menu">
+        <a href="/the-data-gap.html">The Data Gap</a>
+        <a href="/governance.html" class="active">The Governance Gap</a>
+        <a href="/the-spending-gap.html">The Spending Gap</a>
+        <a href="/the-imagination-gap.html">The Imagination Gap</a>
+      </div>
+    </div>
+    <a href="/our-approach.html">Our Approach</a>
+    <a href="/field-notes.html">Field Notes</a>
+    <a href="assessment.html" class="nav-cta">Take the Assessment</a>
+  </div>
+</nav>
+
+<section class="editorial-open">
+  <div class="editorial-left">
+    <h1 class="reveal" style="font-size:clamp(28px, 3.5vw, 42px); line-height:1.15; margin-bottom:20px;">Every time your team uses a public AI tool, intelligence leaves the building.</h1>
+    <p class="reveal reveal-delay-1" style="font-family:'Trebuchet MS',Georgia,serif; font-size:clamp(18px, 2.2vw, 26px); font-weight:600; color:#AC9379; line-height:1.3;">Governance is how you get it back.</p>
+  </div>
+  <div class="editorial-graphic reveal reveal-delay-2">
+    <div class="hero-graphic-wrap">
+      <svg class="hero-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" width="280">
+        <defs>
+          <linearGradient id="camelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#AC9379"/><stop offset="100%" stop-color="#967F67"/></linearGradient>
+          <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#AC9379" stop-opacity="0.25"/><stop offset="100%" stop-color="#AC9379" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="110" cy="110" r="90" fill="url(#centerGlow)"/>
+        <g class="orbit-1"><circle cx="110" cy="110" r="95" fill="none" stroke="#AC9379" stroke-width="0.5" stroke-opacity="0.2"/><circle cx="110" cy="15" r="4" fill="#AC9379" opacity="0.7" class="pulse-node"/><circle cx="205" cy="110" r="4" fill="#7A8B6F" opacity="0.7" class="pulse-node pulse-node-d1"/><circle cx="110" cy="205" r="3.5" fill="#AC9379" opacity="0.5" class="pulse-node pulse-node-d2"/><circle cx="15" cy="110" r="3.5" fill="#7A8B6F" opacity="0.5" class="pulse-node pulse-node-d3"/></g>
+        <g class="orbit-2"><circle cx="110" cy="110" r="65" fill="none" stroke="#7A8B6F" stroke-width="0.5" stroke-opacity="0.25"/><circle cx="110" cy="45" r="4" fill="#7A8B6F" opacity="0.8" class="pulse-node pulse-node-d4"/><circle cx="175" cy="110" r="3.5" fill="#AC9379" opacity="0.6" class="pulse-node pulse-node-d5"/><circle cx="45" cy="110" r="4" fill="#AC9379" opacity="0.7" class="pulse-node pulse-node-d1"/></g>
+        <g class="orbit-3"><circle cx="110" cy="110" r="38" fill="none" stroke="#AC9379" stroke-width="0.5" stroke-opacity="0.3"/><circle cx="110" cy="72" r="3" fill="#AC9379" opacity="0.8" class="pulse-node pulse-node-d3"/><circle cx="148" cy="110" r="3" fill="#7A8B6F" opacity="0.8" class="pulse-node pulse-node-d5"/></g>
+        <line x1="110" y1="96" x2="110" y2="45" stroke="#AC9379" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <line x1="124" y1="110" x2="175" y2="110" stroke="#7A8B6F" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <line x1="96" y1="110" x2="45" y2="110" stroke="#AC9379" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <line x1="110" y1="124" x2="110" y2="175" stroke="#7A8B6F" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="4 4" class="data-flow"/>
+        <circle cx="110" cy="110" r="14" fill="url(#camelGrad)" opacity="0.9" class="center-pulse"/>
+        <circle cx="110" cy="110" r="20" fill="none" stroke="#AC9379" stroke-width="1" stroke-opacity="0.2"/>
+        <g fill="#FDFBF9" opacity="0.95"><circle cx="110" cy="105" r="2"/><circle cx="105" cy="113" r="2"/><circle cx="115" cy="113" r="2"/><line x1="110" y1="105" x2="105" y2="113" stroke="#FDFBF9" stroke-width="1.2"/><line x1="110" y1="105" x2="115" y2="113" stroke="#FDFBF9" stroke-width="1.2"/><line x1="105" y1="113" x2="115" y2="113" stroke="#FDFBF9" stroke-width="1.2"/></g>
+      </svg>
+    </div>
+  </div>
+
+
+  <div class="reveal reveal-delay-2"><a href="assessment.html" class="btn-primary">Get Started</a></div>
+</section>
+
+<section class="governance-grid">
+  <h2 class="reveal">The five capabilities that separate AI adoption from AI exposure.</h2>
+  <div class="gov-checklist">
+      <div class="gov-check-item reveal" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">01</span><span class="gov-title">Data classification</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>Which data can AI tools touch and which can't? Without clear classification, proprietary information flows into public models every time someone writes a prompt.</p></div></div>
+      </div>
+      <div class="gov-check-item reveal reveal-delay-1" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">02</span><span class="gov-title">Acceptable use policies</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>What are your people allowed to do with AI, and what's off limits? Most companies have no documented answer. That means every employee is making their own rules.</p></div></div>
+      </div>
+      <div class="gov-check-item reveal reveal-delay-2" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">03</span><span class="gov-title">Shadow AI detection</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>Your employees are already using AI tools you haven't sanctioned. The question is whether you know which ones, what data is going in, and what's coming out.</p></div></div>
+      </div>
+      <div class="gov-check-item reveal reveal-delay-3" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">04</span><span class="gov-title">Output verification</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>AI hallucination is real — confident, polished, and wrong. Without verification processes, hallucinated content enters your operations unchecked.</p></div></div>
+      </div>
+      <div class="gov-check-item reveal" onclick="toggleGov(this)">
+        <div class="gov-header"><span class="gov-num">05</span><span class="gov-title">Enablement paths</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>Governance isn't just about saying no. It's about giving people a clear way to say yes — approved tools, sanctioned workflows, and training that turns cautious adopters into confident ones.</p></div></div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:40px;font-size:clamp(18px, 2vw, 22px);color:#2F2F2F;line-height:1.5;font-weight:500;max-width:600px;">Your assessment shows you where these gaps are.<br><span style="color:#AC9379;font-weight:600;">A Resultant brings the right solutions to close them.</span></p>
+</section>
+
+<section class="gateway-section">
+  <div class="gateway-particles" id="gatewayParticles"></div>
+  <div class="gateway-inner">
+    <span class="section-label reveal">The Opportunity</span>
+    <h2 class="reveal reveal-delay-1">Governance is how you secure your AI environment — and compound every advantage it creates.</h2>
+    <p class="gateway-lede reveal reveal-delay-2">Most mid-market companies have AI usage without AI governance — proprietary data flowing into public models, insights that never come back, zero visibility. The organizations closing that gap aren't just reducing risk. They're building a compounding advantage.</p>
+    <div class="gateway-points">
+      <div class="gateway-point gw-reveal">
+        <h3>Intelligence compounds</h3>
+        <p>A governed environment captures every AI interaction — turning daily work into a strategic asset that gets smarter over time.</p>
+      </div>
+      <div class="gateway-point gw-reveal">
+        <h3>Guessing becomes steering</h3>
+        <p>Know exactly where AI is being used, by whom, and with what data — then direct it.</p>
+      </div>
+      <div class="gateway-point gw-reveal">
+        <h3>Data becomes your moat</h3>
+        <p>Proprietary data that stays in your environment becomes a competitive advantage no one can replicate.</p>
+      </div>
+      <div class="gateway-point gw-reveal">
+        <h3>Confidence to say yes</h3>
+        <p>Clear guardrails mean leadership stops blocking AI initiatives and starts enabling them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reg-callout">
+  <div class="reg-callout-inner reveal">
+    <div class="reg-dates">
+      <div class="reg-date"><div class="reg-date-num">June 2026</div><div class="reg-date-what">Colorado AI Act</div></div>
+      <div class="reg-date"><div class="reg-date-num">August 2026</div><div class="reg-date-what">EU AI Act</div></div>
+    </div>
+    <div class="reg-text">
+      <h3>The companies already governing AI won't have to scramble when regulation arrives.</h3>
+      <p>More than 1,500 AI-related bills have been introduced across all 50 states. Two major compliance deadlines hit this year. The governance capabilities above aren't just good practice — they're what regulators are about to require.</p>
+    </div>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-inner">
+    <div class="download-content">
+      <h2 class="reveal">The AI Governance Kit</h2>
+      <p class="dl-intro reveal reveal-delay-1">Two ready-to-use governance artifacts built for mid-market companies. Everything your leadership team will ask for before your next board meeting.</p>
+      <ul class="kit-list">
+        <li class="reveal reveal-delay-2">AI Acceptable Use Policy (PDF)</li>
+        <li class="reveal reveal-delay-2">Data Classification Matrix (Excel)</li>
+      </ul>
+    </div>
+    <div class="gated-form">
+      <form>
+        <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
+        <div class="form-group"><label for="email">Work Email</label><input type="email" id="email" name="email" placeholder="your@company.com" required></div>
+        <button type="submit" class="btn-download reveal reveal-delay-2">Download the Governance Kit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
+  </div>
+  <p class="tagline reveal">Assess · Identify · Result</p>
+  <h2 class="reveal">What will you <strong style="color:#AC9379;">Unlock?</strong></h2>
+  <div class="cta-row reveal">
+    <a href="assessment.html" class="btn-primary">Get Started</a>
+  </div>
+  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
+  <div class="footer-bottom reveal">
+    <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
+    <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
+    <p class="contact-sub">A conversation about where you are and what's possible.</p>
+    <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="contact-field">
+        <label for="cf-email">Work Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="contact-field">
+        <label for="cf-interest">What's on your mind?</label>
+        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Let's Connect</button>
+      <p class="contact-note">We'll reach out within one business day.</p>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <h3>We'll be in touch.</h3>
+      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
+    </div>
+  </div>
+</div>
+<script>
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('contactSuccess');
+  var data = { name: form.querySelector('#cf-name').value, email: form.querySelector('#cf-email').value, company: form.querySelector('#cf-company').value, interest: form.querySelector('#cf-interest').value, source: window.location.pathname };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(function() { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
+</script>
+
+<script>
+function toggleGov(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.gov-check-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+(function() {
+  const nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+})();
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  alert('Thank you, ' + name + '! Check your inbox at ' + email + ' for the Governance Kit.');
+  this.reset();
+});
+
+
+// Scroll progress bar
+(function() {
+  var progress = document.getElementById('scrollProgress');
+  if (!progress) return;
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = (scrollTop / docHeight) * 100;
+    progress.style.width = scrollPercent + '%';
+  });
+})();
+
+// Gateway ambient particles
+(function() {
+  var container = document.getElementById('gatewayParticles');
+  if (!container) return;
+  for (var i = 0; i < 20; i++) {
+    var p = document.createElement('div');
+    p.className = 'gateway-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = (2 + Math.random() * 3) + 'px';
+    p.style.height = p.style.width;
+    p.style.background = Math.random() > 0.5
+      ? 'rgba(172, 147, 121, ' + (0.15 + Math.random() * 0.2) + ')'
+      : 'rgba(122, 139, 111, ' + (0.12 + Math.random() * 0.15) + ')';
+    container.appendChild(p);
+  }
+})();
+
+// Parallax on download section
+(function() {
+  var dlContent = document.querySelector('.download-content');
+  if (!dlContent) return;
+  window.addEventListener('scroll', function() {
+    var rect = dlContent.getBoundingClientRect();
+    var windowH = window.innerHeight;
+    if (rect.top < windowH && rect.bottom > 0) {
+      var prog = (windowH - rect.top) / (windowH + rect.height);
+      var offset = (prog - 0.5) * -20;
+      dlContent.style.transform = 'translateY(' + offset + 'px)';
+    }
+  });
+})();
+
+
+
+
+  (function(){var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible");});},{threshold:0.15});document.querySelectorAll(".gateway-point.gw-reveal").forEach(function(el){o.observe(el);});})();
+</script>
+<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#AC9379;color:#FDFBF9;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#967F67;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
+<div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
+<script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".editorial-open");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
+</body>
+</html>
