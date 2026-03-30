@@ -175,7 +175,7 @@ const state = {
   profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[], urgency:[], barriers:[] },
   answers: {},
   tags: {},
-  openText: { ot1:'', ot2:'' },
+  openText: { ot1:'' },
   cxSkipped: false,
   iotSkipped: false,
   screenIndex: 0,
@@ -194,120 +194,139 @@ const DIM_NAMES = {
 // C-SUITE QUESTIONS
 // ============================================================
 const CS_QUESTIONS = [
-  { id:'cs1', dim:'D4', type:'scenario', text:'Your employees are using AI tools right now \u2014 ChatGPT, Copilot, Gemini, or others. How much visibility do you have into what\u2019s actually happening?', options:[
-    {text:'Full visibility \u2014 we know who\u2019s using what, how, and with what data',score:4},
-    {text:'Good visibility \u2014 we\u2019ve deployed approved tools and have usage data',score:3},
-    {text:'Partial \u2014 we know some of it but couldn\u2019t give you the full picture',score:2},
-    {text:'Minimal \u2014 I know it\u2019s happening but couldn\u2019t tell you the specifics',score:1},
-    {text:'None \u2014 and I\u2019m not sure I\u2019d know where to look',score:0}
+  // Q1 - D4 Governance: AI Visibility (unchanged - strong opener)
+  { id:'cs1', dim:'D4', type:'scenario', text:'Your employees are using AI tools right now - ChatGPT, Copilot, Gemini, or others. How much visibility do you have into what\u2019s actually happening?', options:[
+    {text:'Full visibility - we know who\u2019s using what, how, and with what data',score:4},
+    {text:'Good visibility - we\u2019ve deployed approved tools and have usage data',score:3},
+    {text:'Partial - we know some of it but couldn\u2019t give you the full picture',score:2},
+    {text:'Minimal - I know it\u2019s happening but couldn\u2019t tell you the specifics',score:1},
+    {text:'None - and I\u2019m not sure I\u2019d know where to look',score:0}
   ]},
+  // Q2 - D2 Data: Data Trust (unchanged - gut check Likert)
   { id:'cs2', dim:'D2', type:'likert', text:'I am confident that the data my teams rely on for decisions is accurate, complete, and current.' },
-  { id:'cs3', dim:'D1', type:'scenario', text:'Has your organization made commitments about AI \u2014 to your board, your customers, or your own leadership team \u2014 that you haven\u2019t yet delivered on?', options:[
-    {text:'No \u2014 we\u2019ve delivered on what we\u2019ve committed to and have a clear roadmap ahead',score:4},
-    {text:'Minor gaps \u2014 we\u2019re mostly on track but a few things have taken longer than expected',score:3},
-    {text:'Yes \u2014 we made specific commitments and they\u2019ve stalled or fallen behind',score:2},
-    {text:'We\u2019ve talked about AI internally but never formalized a plan or commitment',score:1},
+  // Q3 - D1 Strategy: Execution Gap (FIXED: differentiated C/D per Jen msg 127)
+  { id:'cs3', dim:'D1', type:'scenario', text:'Has your organization made commitments about AI - to your board, your customers, or your own leadership team - that you haven\u2019t yet delivered on?', options:[
+    {text:'No - we\u2019ve delivered on what we\u2019ve committed to and have a clear roadmap ahead',score:4},
+    {text:'Minor gaps - we\u2019re mostly on track but a few things have taken longer than expected',score:3},
+    {text:'Yes - we made specific commitments and they\u2019ve stalled or fallen significantly behind',score:2},
+    {text:'We haven\u2019t formalized a plan yet - AI has been discussed but nothing concrete is in motion',score:1},
     {text:'We haven\u2019t made specific commitments about AI yet',score:0}
   ]},
+  // Q4 - D6 Workforce: Adoption Reality (unchanged - makes CEOs wince)
   { id:'cs4', dim:'D6', type:'scenario', text:'When your organization rolls out a new technology or AI-powered tool, what typically happens?', options:[
-    {text:'Rapid adoption \u2014 people find applications beyond what we intended',score:4},
+    {text:'Rapid adoption - people find applications beyond what we intended',score:4},
     {text:'Strong adoption within weeks, supported by training and leadership encouragement',score:3},
-    {text:'Moderate \u2014 some teams embrace it, others ignore it for months',score:2},
+    {text:'Moderate - some teams embrace it, others ignore it for months',score:2},
     {text:'A few early adopters try it, but most people stick with what they know',score:1},
     {text:'It mostly sits unused',score:0}
   ]},
-  { id:'cs5', dim:'D3', type:'scenario', text:'When your teams need your core business systems to work together \u2014 pulling data across platforms, rolling out a new tool, or scaling an operation \u2014 what typically happens?', options:[
-    {text:'Everything connects \u2014 new tools integrate smoothly and data flows where it needs to go',score:4},
-    {text:'Mostly works \u2014 occasional friction, but teams get what they need without major delays',score:3},
-    {text:'It\u2019s a bottleneck \u2014 getting systems to work together requires IT involvement and weeks of lead time',score:2},
-    {text:'It\u2019s a known pain point \u2014 we have systems that don\u2019t integrate and manual processes filling the gaps',score:1},
+  // Q5 - D3 Infrastructure: Systems Integration (FIXED: converted to scenario per Jen msg 128, differentiated options per msg 129)
+  { id:'cs5', dim:'D3', type:'scenario', text:'When your teams need your core business systems to work together - pulling data across platforms, rolling out a new tool, or scaling an operation - what typically happens?', options:[
+    {text:'Everything connects - new tools integrate smoothly and data flows where it needs to go',score:4},
+    {text:'Mostly works - occasional friction, but teams get what they need without major delays',score:3},
+    {text:'It\u2019s a bottleneck - getting systems to talk to each other takes IT involvement and significant lead time',score:2},
+    {text:'It\u2019s a known pain point - we rely on manual workarounds to bridge the gaps',score:1},
     {text:'I don\u2019t have visibility into how well our systems work together',score:0}
   ]},
-  { id:'cs6', dim:'D5', type:'scenario', cxGate:true, text:'When a customer interacts with your company \u2014 whether by phone, email, chat, or in person \u2014 does that experience feel consistent regardless of which channel or person they reach?', options:[
-    {text:'Yes \u2014 consistent experience with shared context across every touchpoint',score:4},
-    {text:'Mostly \u2014 our primary channels are connected but customers still hit gaps between them',score:3},
-    {text:'Inconsistent \u2014 it depends on the channel or person, and we know it\u2019s a problem',score:2},
+  // Q6 - D5 CX: Consistency (FIXED: condensed to 5 options per Jen msg 130)
+  { id:'cs6', dim:'D5', type:'scenario', cxGate:true, text:'When a customer interacts with your company - whether by phone, email, chat, or in person - does that experience feel consistent regardless of which channel or person they reach?', options:[
+    {text:'Yes - consistent experience with shared context across every touchpoint',score:4},
+    {text:'Mostly - our primary channels are connected but customers still hit gaps',score:3},
+    {text:'Inconsistent - it depends on the channel or person, and we know it\u2019s a problem',score:2},
     {text:'We haven\u2019t formalized how customer experience works across channels',score:1},
-    {text:'Not applicable \u2014 we don\u2019t operate customer-facing support operations',score:-1,skip:true}
+    {text:'Not applicable - we don\u2019t operate customer-facing support operations',score:-1,skip:true}
   ]},
-  { id:'cs7', dim:'D4', type:'scenario', text:'Every time someone at your company uses an AI tool, they\u2019re generating intelligence \u2014 prompts, workflows, problem-solving approaches, institutional knowledge. What\u2019s happening with that intelligence?', options:[
+  // Q7 - D4 Governance: Intelligence Capture (unchanged - thesis question)
+  { id:'cs7', dim:'D4', type:'scenario', text:'Every time someone at your company uses an AI tool, they\u2019re generating intelligence - prompts, workflows, problem-solving approaches, institutional knowledge. What\u2019s happening with that intelligence?', options:[
     {text:'We capture it on a governed platform and it flows back into the organization',score:4},
     {text:'We have guidelines for documenting AI-assisted work, with partial adoption',score:3},
     {text:'Some teams share AI outputs informally, but nothing is captured systematically',score:2},
-    {text:'It stays with the individual \u2014 we\u2019re not capturing any of it',score:1},
+    {text:'It stays with the individual - we\u2019re not capturing any of it',score:1},
     {text:'I hadn\u2019t thought about it that way until right now',score:0}
   ]},
+  // Q8 - D1 Strategy: AI ROI (FIXED: converted to Likert, removed board reference per Jen msg 131)
   { id:'cs8', dim:'D1', type:'likert', text:'If asked today, I could quantify the return on our AI investments so far.' },
+  // Q9 - D3 Infrastructure: Deployment Readiness (FIXED: added "I don\u2019t know" option per Jen msg 132)
   { id:'cs9', dim:'D3', type:'scenario', text:'If your leadership team decided tomorrow to deploy AI across a core business function, what would happen?', options:[
-    {text:'We\u2019d move fast \u2014 the infrastructure and team are ready to support it',score:4},
+    {text:'We\u2019d move fast - the infrastructure and team are ready to support it',score:4},
     {text:'It would take some work, but we could get there within a reasonable timeframe',score:3},
-    {text:'It would be a significant effort \u2014 we\u2019d hit bottlenecks and need outside help',score:2},
-    {text:'I don\u2019t have enough visibility into our infrastructure to answer confidently',score:0}
+    {text:'It would be a significant effort - we\u2019d hit bottlenecks and need outside help',score:2},
+    {text:'I\u2019m honestly not sure what would happen',score:1},
+    {text:'I don\u2019t have enough visibility into our readiness to answer confidently',score:0}
   ]},
-  { id:'cs10', dim:'D6', type:'likert', text:'Our leadership team is actively driving AI adoption \u2014 not just endorsing it, but personally championing and modeling its use.' },
-  { id:'cs11', dim:'D2', type:'scenario', text:'If you needed to answer a strategic question using data from across your organization \u2014 sales, operations, finance, customer \u2014 how long would it take to pull that together?', options:[
-    {text:'Hours \u2014 our data is accessible and integrated across the business',score:4},
-    {text:'A day or two \u2014 most of it is reachable but some assembly required',score:3},
-    {text:'A week or more \u2014 it requires pulling from multiple systems and people',score:2},
-    {text:'It would be a significant project \u2014 our data lives in silos',score:1},
+  // Q10 - D6 Workforce: Leadership Driving AI (unchanged - endorsing vs driving knife edge)
+  { id:'cs10', dim:'D6', type:'likert', text:'Our leadership team is actively driving AI adoption - not just endorsing it, but personally championing and modeling its use.' },
+  // Q11 - D2 Data: Accessibility (unchanged - every CEO has felt this)
+  { id:'cs11', dim:'D2', type:'scenario', text:'If you needed to answer a strategic question using data from across your organization - sales, operations, finance, customer - how long would it take to pull that together?', options:[
+    {text:'Hours - our data is accessible and integrated across the business',score:4},
+    {text:'A day or two - most of it is reachable but some assembly required',score:3},
+    {text:'A week or more - it requires pulling from multiple systems and people',score:2},
+    {text:'It would be a significant project - our data lives in silos',score:1},
     {text:'I\u2019m not sure we could do it at all with current systems',score:0}
   ]},
-  { id:'cs12', dim:'D5', type:'scenario', cxConditional:true, text:'Are you using any AI or automation in how you interact with customers \u2014 chatbots, intelligent routing, agent assistance, automated responses, or predictive analytics?', options:[
-    {text:'Yes \u2014 AI is embedded across multiple customer touchpoints with measurable impact',score:4},
-    {text:'Yes \u2014 we\u2019re using AI in one or two areas of the customer experience',score:3},
-    {text:'Basic automation only \u2014 IVR, simple chatbot, or auto-responses',score:2},
-    {text:'No \u2014 all customer interactions are handled manually',score:1},
-    {text:'No \u2014 AI hasn\u2019t been part of the CX conversation yet',score:0}
+  // Q12 - D5 CX: AI in Customer Interactions (FIXED: removed contradictory last option per Jen msg 134)
+  { id:'cs12', dim:'D5', type:'scenario', cxConditional:true, text:'Are you using any AI or automation in how you interact with customers - chatbots, intelligent routing, agent assistance, automated responses, or predictive analytics?', options:[
+    {text:'Yes - AI is embedded across multiple customer touchpoints with measurable impact',score:4},
+    {text:'Yes - we\u2019re using AI in one or two areas of the customer experience',score:3},
+    {text:'Basic automation only - IVR, simple chatbot, or auto-responses',score:2},
+    {text:'No - all customer interactions are handled manually',score:1},
+    {text:'I\u2019m not sure what\u2019s in place right now',score:0}
   ]},
+  // Q13 - D4 Governance: AI Policy (FIXED: replaced "hasn't been a priority" with "I don't know" per Jen msg 135)
   { id:'cs13', dim:'D4', type:'scenario', text:'Does your organization have a written policy governing how employees can and cannot use AI tools?', options:[
-    {text:'Yes \u2014 comprehensive framework covering usage, data handling, tool authorization, and compliance',score:4},
-    {text:'Yes \u2014 documented acceptable use policy communicated to employees',score:3},
-    {text:'Informally \u2014 some guidelines exist but nothing documented or enforced',score:2},
-    {text:'No \u2014 we don\u2019t have AI-specific policies in place',score:1},
+    {text:'Yes - comprehensive framework covering usage, data handling, tool authorization, and compliance',score:4},
+    {text:'Yes - documented acceptable use policy communicated to employees',score:3},
+    {text:'Informally - some guidelines exist but nothing documented or enforced',score:2},
+    {text:'No - but we know we need one',score:1},
     {text:'I don\u2019t know whether we have one',score:0}
   ]},
-  { id:'cs14', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes \u2014 not AI exploration, but measurable results?', options:[
+  // Q14 - D1 Strategy: AI Ownership (unchanged - explorer vs owner)
+  { id:'cs14', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes - not AI exploration, but measurable results?', options:[
     {text:'A dedicated AI leader or team with cross-functional authority and reporting structure',score:4},
     {text:'A specific executive with defined goals and budget',score:3},
     {text:'IT handles it as part of their general responsibilities',score:2},
-    {text:'Someone has been informally tasked with "figuring out AI"',score:1},
-    {text:'Nobody \u2014 it hasn\u2019t been formally assigned',score:0}
+    {text:'Someone has been informally tasked with figuring out AI',score:1},
+    {text:'Nobody - it hasn\u2019t been formally assigned',score:0}
   ]},
-  { id:'cs15', dim:'D2', type:'scenario', text:'When different teams in your organization report on the same metric \u2014 revenue, customer count, pipeline, headcount \u2014 do they get the same number?', options:[
-    {text:'Yes \u2014 we have a single source of truth that everyone works from',score:4},
-    {text:'Usually \u2014 core metrics are consistent but some teams maintain their own versions',score:3},
-    {text:'It depends \u2014 different departments often work from different numbers',score:2},
-    {text:'I\u2019m not confident they would \u2014 our data lives in too many places',score:1},
+  // Q15 - D2 Data: Single Source of Truth (REPLACED per Jen msg 136 - old Q was duplicate of Q7/Q2. New: metrics consistency)
+  { id:'cs15', dim:'D2', type:'scenario', text:'When different teams in your organization report on the same metric - revenue, customer count, pipeline, headcount - do they get the same number?', options:[
+    {text:'Yes - we have a single source of truth that everyone works from',score:4},
+    {text:'Usually - core metrics are consistent but some teams maintain their own versions',score:3},
+    {text:'It depends - different departments often work from different numbers',score:2},
+    {text:'I\u2019m not confident they would - our data lives in too many places',score:1},
     {text:'I don\u2019t have visibility into how consistent our data is across teams',score:0}
   ]},
-  { id:'cs16', dim:'D3', type:'scenario', text:'How many strategic initiatives in the last two years have been slowed down or killed by technology limitations you didn\u2019t anticipate?', options:[
-    {text:'None \u2014 our technology has kept pace with what the business needs',score:4},
-    {text:'One or two \u2014 minor delays but nothing that derailed a major initiative',score:3},
-    {text:'Several \u2014 technology constraints have been a recurring bottleneck',score:2},
-    {text:'It\u2019s a pattern \u2014 we regularly hit walls we didn\u2019t see coming',score:1},
-    {text:'I don\u2019t have visibility into whether technology has been the constraint',score:0}
+  // Q16 - D3 Infrastructure: Competitive Speed (REPLACED per Jen msg 138 - old was too IT-focused. New: aspirational/FOMO)
+  { id:'cs16', dim:'D3', type:'scenario', text:'Your closest competitor just announced they\u2019re using AI to do something your customers will notice. How quickly could your organization respond?', options:[
+    {text:'Quickly - we have the infrastructure and team to deploy a competitive response within weeks',score:4},
+    {text:'Reasonably fast - it would take some effort but we\u2019d have something in market within a quarter',score:3},
+    {text:'Slowly - we\u2019d need to evaluate tools, build infrastructure, and assemble the right team first',score:2},
+    {text:'We\u2019d struggle - we don\u2019t have the foundation to move that quickly right now',score:1},
+    {text:'I\u2019m not sure we\u2019d even know how to start',score:0}
   ]},
-  { id:'cs17', dim:'D5', type:'scenario', cxConditional:true, text:'Do you have real visibility into what\u2019s actually happening in your customer interactions \u2014 not just satisfaction scores, but the substance and quality of the conversations?', options:[
-    {text:'Yes \u2014 AI-powered analytics give us insight into 100% of interactions',score:4},
-    {text:'Good visibility \u2014 QA program reviews a meaningful sample with structured evaluation',score:3},
-    {text:'Basic \u2014 we track metrics like handle time and CSAT but don\u2019t analyze conversation substance',score:2},
-    {text:'Limited \u2014 we rely on customer complaints and anecdotal feedback',score:1},
-    {text:'No \u2014 we don\u2019t have systematic visibility into interaction quality',score:0}
+  // Q17 - D5 CX: Interaction Visibility (unchanged per Jen msg 139 - keep, C-suite should know)
+  { id:'cs17', dim:'D5', type:'scenario', cxConditional:true, text:'Do you have real visibility into what\u2019s actually happening in your customer interactions - not just satisfaction scores, but the substance and quality of the conversations?', options:[
+    {text:'Yes - AI-powered analytics give us insight into 100% of interactions',score:4},
+    {text:'Good visibility - QA program reviews a meaningful sample with structured evaluation',score:3},
+    {text:'Basic - we track metrics like handle time and CSAT but don\u2019t analyze conversation substance',score:2},
+    {text:'Limited - we rely on customer complaints and anecdotal feedback',score:1},
+    {text:'No - we don\u2019t have systematic visibility into interaction quality',score:0}
   ]},
+  // Q18 - D6 Workforce: Identifying Innovators (FIXED: tightened middle options per Jen msg 140)
   { id:'cs18', dim:'D6', type:'scenario', text:'Do you know which people in your organization are already using AI in creative, high-impact ways to solve business problems?', options:[
-    {text:'Yes \u2014 we\u2019ve identified them and are building on their knowledge across the organization',score:4},
-    {text:'We know who some of them are but haven\u2019t done anything structured with it yet',score:3},
-    {text:'I suspect they exist but couldn\u2019t name them',score:1},
-    {text:'No \u2014 we have no visibility into who\u2019s using AI or how',score:0}
+    {text:'Yes - we\u2019ve identified them and are building on their knowledge across the organization',score:4},
+    {text:'We know who some of them are and are starting to leverage their expertise',score:3},
+    {text:'I suspect they exist but couldn\u2019t name them',score:2},
+    {text:'No - we have no visibility into who\u2019s innovating with AI',score:0}
   ]}
 ];
 
 const CS_TAG = { id:'cs-tag', text:'What is the single biggest thing standing between your organization and effective AI adoption?', options:[
-  {text:'We don\u2019t know where to start \u2014 too many options, no clear roadmap',tag:'Strategy'},
-  {text:'Budget and ROI uncertainty \u2014 we can\u2019t justify the investment yet',tag:'ROI'},
-  {text:'Our data isn\u2019t ready \u2014 too scattered, too messy, or too siloed',tag:'Data'},
-  {text:'Security and compliance concerns \u2014 we\u2019re not sure how to use AI safely',tag:'Security'},
-  {text:'Our people aren\u2019t ready \u2014 resistance, skills gaps, or cultural inertia',tag:'Culture'},
+  {text:'We don\u2019t know where to start  - too many options, no clear roadmap',tag:'Strategy'},
+  {text:'Budget and ROI uncertainty  - we can\u2019t justify the investment yet',tag:'ROI'},
+  {text:'Our data isn\u2019t ready  - too scattered, too messy, or too siloed',tag:'Data'},
+  {text:'Security and compliance concerns  - we\u2019re not sure how to use AI safely',tag:'Security'},
+  {text:'Our people aren\u2019t ready  - resistance, skills gaps, or cultural inertia',tag:'Culture'},
   {text:'We\u2019ve started but can\u2019t tell if what we\u2019re doing is working',tag:'Measurement'}
 ]};
 
@@ -319,14 +338,14 @@ const CS_DIM_MAP = { D1:['cs3','cs8','cs14'], D2:['cs2','cs11','cs15'], D3:['cs5
 const IT_QUESTIONS = {
   D1: [
     { id:'it1', dim:'D1', type:'scenario', text:'Is AI currently being deployed in your organization, and if so, what is it being used for?', options:[
-      {text:'No \u2014 AI hasn\u2019t moved beyond informal discussion',score:0},
+      {text:'No  - AI hasn\u2019t moved beyond informal discussion',score:0},
       {text:'We\u2019re exploring or piloting AI in one or two areas, but nothing is in production',score:1},
       {text:'AI is deployed in specific use cases with measurable results in at least one department',score:2},
       {text:'Multiple active use cases across departments, tied to a documented strategy with executive ownership',score:3},
       {text:'Comprehensive AI deployment with a phased roadmap, KPIs, and budget tied to the architecture',score:4}
     ]},
     { id:'it2', dim:'D1', type:'scenario', text:'Who owns AI initiatives in your organization?', options:[
-      {text:'Nobody \u2014 there\u2019s no designated owner for AI',score:0},
+      {text:'Nobody  - there\u2019s no designated owner for AI',score:0},
       {text:'IT handles it as part of general responsibilities',score:1},
       {text:'A specific leader or team has been informally designated',score:2},
       {text:'A dedicated AI leader or team with cross-functional visibility',score:3},
@@ -356,11 +375,11 @@ const IT_QUESTIONS = {
       {text:'Self-service data access with governed APIs, real-time integration, and automated pipelines',score:4}
     ]},
     { id:'it6', dim:'D2', type:'scenario', text:'If a new AI tool needed to pull data from three different systems in your organization, how long would that take to set up?', options:[
-      {text:'Months \u2014 we\u2019d need to build the connections from scratch',score:0},
-      {text:'Several weeks \u2014 significant IT involvement and custom work',score:1},
+      {text:'Months  - we\u2019d need to build the connections from scratch',score:0},
+      {text:'Several weeks  - significant IT involvement and custom work',score:1},
       {text:'A few weeks with existing tools and moderate IT support',score:2},
-      {text:'Days \u2014 we have integration infrastructure in place',score:3},
-      {text:'Hours \u2014 we have APIs, middleware, and a data platform that handles this routinely',score:4}
+      {text:'Days  - we have integration infrastructure in place',score:3},
+      {text:'Hours  - we have APIs, middleware, and a data platform that handles this routinely',score:4}
     ]}
   ],
   D3: [
@@ -373,13 +392,13 @@ const IT_QUESTIONS = {
     ]},
     { id:'it8', dim:'D3', type:'scenario', text:'If an AI workload running in production failed or went down, how quickly could your systems recover?', options:[
       {text:'We don\u2019t have AI workloads in production',score:0},
-      {text:'Recovery would take days \u2014 we lack specific DR/BC plans for AI',score:1},
+      {text:'Recovery would take days  - we lack specific DR/BC plans for AI',score:1},
       {text:'We could recover within a day with manual intervention',score:2},
-      {text:'Recovery within hours \u2014 documented procedures for AI workload recovery',score:3},
-      {text:'Automated failover and recovery in minutes \u2014 AI workloads covered by DR/BC framework',score:4}
+      {text:'Recovery within hours  - documented procedures for AI workload recovery',score:3},
+      {text:'Automated failover and recovery in minutes  - AI workloads covered by DR/BC framework',score:4}
     ]},
     { id:'it9', dim:'D3', type:'scenario', iotSkip:true, text:'Does your organization have operational technology, IoT devices, or edge computing that would need to connect to AI systems?', options:[
-      {text:'No \u2014 not applicable to our operations',score:-1,skip:true},
+      {text:'No  - not applicable to our operations',score:-1,skip:true},
       {text:'Yes, but they are not connected to any central systems today',score:1},
       {text:'Some are connected, but integration with AI systems would require significant work',score:2},
       {text:'Connected and managed, with a path to AI integration',score:3},
@@ -388,21 +407,21 @@ const IT_QUESTIONS = {
   ],
   D4: [
     { id:'it10', dim:'D4', type:'scenario', text:'Does your organization have policies specifically governing AI use?', options:[
-      {text:'No \u2014 we have no AI-specific policies',score:0},
+      {text:'No  - we have no AI-specific policies',score:0},
       {text:'Informal guidelines, but nothing documented or enforced',score:1},
       {text:'Basic policy exists, but it\u2019s not comprehensive or widely known',score:2},
       {text:'Documented AI acceptable use policy, communicated to all employees, with periodic review',score:3},
       {text:'Comprehensive AI governance framework including acceptable use, data classification, tool authorization, incident response, and regular updates',score:4}
     ]},
     { id:'it11', dim:'D4', type:'scenario', text:'How mature is your organization\u2019s cybersecurity posture as it relates to AI and data protection?', options:[
-      {text:'Basic \u2014 standard IT security but nothing specific to AI or advanced data classification',score:0},
-      {text:'Developing \u2014 foundational security controls and beginning to think about AI-specific risks',score:1},
-      {text:'Established \u2014 solid security framework with some AI-specific considerations and documented data classification processes',score:2},
-      {text:'Advanced \u2014 comprehensive security with AI-specific controls, data classification, access governance, and regular assessment',score:3},
-      {text:'Leading \u2014 zero-trust architecture, AI-specific threat monitoring, automated data classification, and continuous security validation',score:4}
+      {text:'Basic  - standard IT security but nothing specific to AI or advanced data classification',score:0},
+      {text:'Developing  - foundational security controls and beginning to think about AI-specific risks',score:1},
+      {text:'Established  - solid security framework with some AI-specific considerations and documented data classification processes',score:2},
+      {text:'Advanced  - comprehensive security with AI-specific controls, data classification, access governance, and regular assessment',score:3},
+      {text:'Leading  - zero-trust architecture, AI-specific threat monitoring, automated data classification, and continuous security validation',score:4}
     ]},
     { id:'it12', dim:'D4', type:'scenario', text:'When your employees use AI tools, what happens to the prompts, workflows, and outputs they create?', options:[
-      {text:'We have no idea \u2014 it happens in individual accounts with no visibility',score:0},
+      {text:'We have no idea  - it happens in individual accounts with no visibility',score:0},
       {text:'We know people are using AI, but outputs stay with individuals and nothing is captured',score:1},
       {text:'Some teams share AI outputs informally, but nothing is captured systematically',score:2},
       {text:'We have guidelines for documenting AI-assisted work, but adoption is inconsistent',score:3},
@@ -418,7 +437,7 @@ const IT_QUESTIONS = {
       {text:'Advanced CX operation with AI-assisted routing, real-time analytics, and predictive capabilities',score:4}
     ]},
     { id:'it14', dim:'D5', type:'scenario', cxConditional:true, text:'How integrated are your customer communication channels?', options:[
-      {text:'Completely separate \u2014 each channel operates independently',score:0},
+      {text:'Completely separate  - each channel operates independently',score:0},
       {text:'Some channels share data, but most are disconnected',score:1},
       {text:'Partially integrated with a unified view for some channels',score:2},
       {text:'Mostly integrated with a single platform managing multiple channels',score:3},
@@ -434,21 +453,21 @@ const IT_QUESTIONS = {
   ],
   D6: [
     { id:'it17', dim:'D6', type:'scenario', text:'How does your leadership team view AI adoption?', options:[
-      {text:'Resistant or skeptical \u2014 leadership has concerns about AI and has not championed adoption',score:0},
-      {text:'Cautious \u2014 open to the idea but not actively driving it',score:1},
-      {text:'Supportive \u2014 leadership sees value and has begun allocating time and resources',score:2},
-      {text:'Championing \u2014 leadership is actively driving AI adoption with visible commitment and communication',score:3},
-      {text:'All-in \u2014 AI is central to strategy, C-level leadership models AI use daily, and adoption is a performance expectation',score:4}
+      {text:'Resistant or skeptical  - leadership has concerns about AI and has not championed adoption',score:0},
+      {text:'Cautious  - open to the idea but not actively driving it',score:1},
+      {text:'Supportive  - leadership sees value and has begun allocating time and resources',score:2},
+      {text:'Championing  - leadership is actively driving AI adoption with visible commitment and communication',score:3},
+      {text:'All-in  - AI is central to strategy, C-level leadership models AI use daily, and adoption is a performance expectation',score:4}
     ]},
     { id:'it18', dim:'D6', type:'scenario', text:'When your organization rolls out a new AI-powered tool, what typically happens?', options:[
       {text:'Most people ignore it or resist using it',score:0},
       {text:'A few early adopters try it, but most of the organization doesn\u2019t engage',score:1},
-      {text:'Moderate adoption with pockets of enthusiasm \u2014 some teams embrace it, others lag behind',score:2},
-      {text:'Strong adoption \u2014 most employees engage within weeks, supported by training and leadership encouragement',score:3},
-      {text:'Rapid adoption with employees finding creative applications beyond the original scope \u2014 internal champions emerge organically',score:4}
+      {text:'Moderate adoption with pockets of enthusiasm  - some teams embrace it, others lag behind',score:2},
+      {text:'Strong adoption  - most employees engage within weeks, supported by training and leadership encouragement',score:3},
+      {text:'Rapid adoption with employees finding creative applications beyond the original scope  - internal champions emerge organically',score:4}
     ]},
     { id:'it20', dim:'D6', type:'scenario', text:'Do you know which employees in your organization are most actively and creatively using AI to solve business problems?', options:[
-      {text:'No \u2014 we have no visibility into who is using AI or how',score:0},
+      {text:'No  - we have no visibility into who is using AI or how',score:0},
       {text:'We suspect some people are, but we couldn\u2019t name them',score:1},
       {text:'A few have self-identified, but there\u2019s no systematic way to find them',score:2},
       {text:'We\u2019ve identified AI champions and are starting to build on their knowledge',score:3},
@@ -630,9 +649,9 @@ function buildScreens() {
       s.push({type:'question', q:q, num:i+1, total:18});
     });
     s.push({type:'profile-checkbox', id:'barriers', text:'What\u2019s standing between your organization and effective AI adoption?', hint:'Select all that apply', options:[
-      'No clear roadmap \u2014 too many options, don\u2019t know where to start',
+      'No clear roadmap  - too many options, don\u2019t know where to start',
       'Budget and ROI uncertainty',
-      'Data isn\u2019t ready \u2014 too scattered, too messy, or too siloed',
+      'Data isn\u2019t ready  - too scattered, too messy, or too siloed',
       'Security and compliance concerns',
       'Cultural resistance or skills gaps',
       'We\u2019ve started but can\u2019t tell if it\u2019s working'
@@ -870,7 +889,7 @@ function renderQuestion(screen) {
         </div>
         <div class="btn-row">
           <a class="back-link" onclick="goBack()">Back</a>
-          <button class="btn-primary" id="nextBtn" ${existing!==undefined?'':'disabled'} onclick="goNext()">Continue</button>
+          <span></span>
         </div>
       </div></div>`;
   } else {
@@ -883,7 +902,7 @@ function renderQuestion(screen) {
         </div>
         <div class="btn-row">
           <a class="back-link" onclick="goBack()">Back</a>
-          <button class="btn-primary" id="nextBtn" ${existing!==undefined?'':'disabled'} onclick="goNext()">Continue</button>
+          <span></span>
         </div>
       </div></div>`;
   }
@@ -899,7 +918,8 @@ function selectAnswer(id, score, el, type, isSkip, gateType) {
   const container = type === 'likert' ? document.querySelector('.likert-row') : document.getElementById('options');
   container.querySelectorAll(type === 'likert' ? '.likert-btn' : '.option-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
-  document.getElementById('nextBtn').disabled = false;
+  const nextBtn = document.getElementById('nextBtn');
+  if (nextBtn) nextBtn.disabled = false;
   setTimeout(() => goNext(), 600);
 }
 
@@ -1273,21 +1293,9 @@ function validateContact() {
 }
 
 function showIntro() {
+  // Skip intro — go straight to questions per Jen's feedback
   buildScreens();
-  const introText = state.track === 'csuite'
-    ? 'This isn\u2019t a test. There are no wrong answers. We\u2019re going to ask you a few questions about how your organization thinks about AI \u2014 where the opportunity is, where the exposure might be, and what the companies ahead of you are doing differently. It takes about 10 minutes. The results are yours immediately.'
-    : 'This assessment maps your organization\u2019s technical environment across six dimensions of AI readiness. The questions are specific. The results are honest. It takes about 12 minutes, and your results are available immediately.';
-  app.innerHTML = `
-    <div class="screen active"><div class="screen-inner" style="text-align:center;">
-      <div class="logo" style="justify-content:center;margin-bottom:40px;">
-        <span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>
-      </div>
-      <p style="font-size:16px;color:var(--gray);line-height:1.8;max-width:560px;margin:0 auto 32px;">${introText}</p>
-      <div style="margin-top:16px;">
-        <a class="back-link" onclick="showRoles()" style="margin-right:24px;">Back</a>
-        <button class="btn-primary" onclick="showScreen(0)">Let\u2019s Go</button>
-      </div>
-    </div></div>`;
+  showScreen(0);
 }
 
 // ============================================================
