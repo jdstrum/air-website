@@ -36,6 +36,18 @@
   }
 }
 </script>
+
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('contactSuccess');
+  var data = { name: form.querySelector('#cf-name').value, email: form.querySelector('#cf-email').value, company: form.querySelector('#cf-company').value, interest: form.querySelector('#cf-interest').value, source: window.location.pathname };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(function() { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
 <title>AI Readiness Assessment | AI Resulting</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
@@ -188,6 +200,30 @@ textarea.form-input { min-height:100px; resize:vertical; }
   .results-body { padding:0 20px 40px; }
 }
 </style>
+
+/* ═══ CONTACT MODAL ═══ */
+.contact-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;visibility:hidden;transition:all 0.35s ease;}
+.contact-overlay.open{opacity:1;visibility:visible;}
+.contact-modal{background:#2F2F2F;border-radius:16px 16px 0 0;max-width:520px;width:100%;padding:48px 40px 40px;text-align:center;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;max-height:90vh;overflow-y:auto;}
+.contact-overlay.open .contact-modal{transform:translateY(0);}
+.contact-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#9A9488;font-size:24px;cursor:pointer;padding:4px 8px;transition:color 0.2s;line-height:1;}
+.contact-close:hover{color:#FDFBF9;}
+.contact-modal h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(22px,2.8vw,32px);font-weight:700;color:#FDFBF9;margin-bottom:8px;letter-spacing:-0.02em;}
+.contact-modal .contact-sub{font-size:15px;color:#9A9488;margin-bottom:32px;line-height:1.6;}
+.contact-form{display:flex;flex-direction:column;gap:14px;text-align:left;}
+.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:480px){.contact-row{grid-template-columns:1fr;}.contact-modal{padding:40px 24px 32px;}}
+.contact-field{display:flex;flex-direction:column;}
+.contact-field label{font-size:12px;font-weight:600;color:#9A9488;margin-bottom:6px;letter-spacing:0.04em;text-transform:uppercase;}
+.contact-field input,.contact-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(221,215,208,0.15);border-radius:6px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:#FDFBF9;transition:all 0.3s;resize:none;}
+.contact-field input::placeholder,.contact-field textarea::placeholder{color:rgba(221,215,208,0.35);}
+.contact-field input:focus,.contact-field textarea:focus{outline:none;border-color:#AC9379;background:rgba(255,255,255,0.1);}
+.contact-submit{display:inline-block;background:#AC9379;color:#FDFBF9;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;border:none;letter-spacing:0.02em;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);margin-top:8px;width:100%;}
+.contact-submit:hover{background:#967F67;transform:translateY(-2px);box-shadow:0 8px 32px rgba(172,147,121,0.25);}
+.contact-note{font-size:13px;color:#7a7468;margin-top:10px;text-align:center;}
+.contact-success{display:none;text-align:center;padding:40px 0;}
+.contact-success h3{font-family:'Trebuchet MS',Georgia,serif;font-size:24px;font-weight:700;color:#AC9379;margin-bottom:12px;}
+.contact-success p{font-size:16px;color:#DDD7D0;line-height:1.6;}
 </head>
 <body>
 
@@ -1336,5 +1372,51 @@ function showIntro() {
 // ============================================================
 showWelcome();
 </script>
+
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('contactSuccess');
+  var data = { name: form.querySelector('#cf-name').value, email: form.querySelector('#cf-email').value, company: form.querySelector('#cf-company').value, interest: form.querySelector('#cf-interest').value, source: window.location.pathname };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(function() { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
 </body>
+<!-- CONTACT MODAL -->
+<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
+    <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
+    <p class="contact-sub">A conversation about where you are and what's possible.</p>
+    <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="contact-field">
+        <label for="cf-email">Work Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="contact-field">
+        <label for="cf-interest">What's on your mind?</label>
+        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Let's Connect</button>
+      <p class="contact-note">We'll reach out within one business day.</p>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <h3>We'll be in touch.</h3>
+      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
+    </div>
+  </div>
+</div>
 </html>
