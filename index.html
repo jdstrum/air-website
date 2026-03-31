@@ -762,7 +762,8 @@
 
   .assessment-section {
     background: #FDFBF9;
-    padding: 120px 8vw;
+    padding: 80px 8vw;
+    text-align: center;
   }
 
   .assessment-section h2 {
@@ -774,46 +775,19 @@
     letter-spacing: -0.02em;
   }
 
-  .assessment-intro {
+  .assessment-section p {
     font-size: 17px;
     color: #2F2F2F;
     line-height: 1.7;
     max-width: 700px;
-    margin-bottom: 48px;
-  }
-
-  .assessment-card {
-    background: #2F2F2F;
-    border-radius: 8px;
-    padding: 56px 48px;
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
-
-  .assessment-card h3 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 700;
-    color: #FDFBF9;
-    margin-bottom: 20px;
-    letter-spacing: -0.01em;
-  }
-
-  .assessment-card p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #DDD7D0;
     margin-bottom: 32px;
   }
 
-  .assessment-note {
-    font-size: 15px;
-    color: #2F2F2F;
-    line-height: 1.7;
-    max-width: 700px;
-    padding: 32px;
-    background: rgba(172, 147, 121, 0.08);
-    border-radius: 6px;
+  .assessment-section .cta-row {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
   }
 
   .bridge-section {
@@ -873,59 +847,6 @@
     background: #1a1a1a;
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(47, 47, 47, 0.25);
-  }
-
-  .expect {
-    background: #F2EDE9;
-    padding: 100px 8vw;
-  }
-
-  .expect h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(32px, 4.5vw, 56px);
-    font-weight: 700;
-    color: #2F2F2F;
-    margin-bottom: 56px;
-    letter-spacing: -0.02em;
-  }
-
-  .timeline {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    max-width: 900px;
-  }
-
-  .timeline-step {
-    position: relative;
-  }
-
-  .timeline-step::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #DDD7D0;
-    margin-bottom: 24px;
-  }
-
-  .timeline-step:first-child::before {
-    background: linear-gradient(to right, #AC9379, #DDD7D0);
-  }
-
-  .timeline-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: #AC9379;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-  }
-
-  .timeline-text {
-    font-size: 17px;
-    color: #2F2F2F;
-    font-weight: 500;
   }
 
   .footer-cta {
@@ -1039,7 +960,6 @@
       line-height: 1.18;
     }
 
-    .timeline { grid-template-columns: 1fr 1fr; }
     .footer-cta .cta-row { flex-direction: column; align-items: center; }
   }
 
@@ -1061,6 +981,7 @@
         <a href="/the-data-gap.html">The Data Gap</a>
         <a href="/the-governance-gap.html">The Governance Gap</a>
         <a href="/the-spending-gap.html">The Spending Gap</a>
+        <a href="/the-experience-gap.html">The Experience Gap</a>
         <a href="/the-imagination-gap.html">The Imagination Gap</a>
       </div>
     </div>
@@ -1158,24 +1079,9 @@
 
 <section class="assessment-section" id="assessment">
   <h2 class="reveal">Measure your AI readiness.</h2>
-  <p class="assessment-intro reveal">A focused assessment that maps your organization across all six dimensions of readiness — and shows you exactly what's working, what's missing, and what to do about it.</p>
-  <p class="assessment-intro reveal" style="margin-top:-16px;margin-bottom:8px;">Behind the assessment is a <span style="color:#C4956A;font-weight:600;">seven-layer architecture</span> that maps every gap to a specific capability. Your Resultant uses that architecture to build the plan.</p>
-  <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px;margin-bottom:32px;">
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#7A8B6F;border-radius:24px;padding:10px 22px;">AI Platform</span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#AC9379;border-radius:24px;padding:10px 22px;">Governance</span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#7A8B6F;border-radius:24px;padding:10px 22px;">Enablement &amp; Training</span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#A67B5B;border-radius:24px;padding:10px 22px;">Data &amp; Intelligence</span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#9A9488;border-radius:24px;padding:10px 22px;">Network &amp; Cloud</span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#AC9379;border-radius:24px;padding:10px 22px;">CX &amp; Scale</span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#FDFBF9;background:#9A9488;border-radius:24px;padding:10px 22px;">Security &amp; Monitoring</span>
-  </div>
-  <div class="assessment-card reveal">
-    <h3>AI Readiness Assessment</h3>
-    <p>Targeted questions tailored to your role — whether you set the strategy or build the infrastructure. We'll ask for your title upfront and serve you the right assessment automatically. You'll walk away with a personalized readiness profile scored across all six dimensions.</p>
+  <p class="reveal">Take the assessment to measure where you stand across all six dimensions of AI readiness.</p>
+  <div class="cta-row reveal">
     <a href="assessment.html" class="btn-primary">Take the Assessment</a>
-  </div>
-  <div class="assessment-note reveal">
-    <strong>What you'll get:</strong> A dimensional readiness score, a visual breakdown of strengths and weaknesses, and specific next steps tailored to your situation. No generic report — this is built from your answers.
   </div>
 </section>
 
@@ -1185,28 +1091,6 @@
   <p class="reveal" style="margin-top: 16px; font-size: 17px; color: #2F2F2F; max-width: 620px; margin-left: auto; margin-right: auto;">Assessment to action. Diagnosis to solution. Readiness to results.</p>
   <div class="cta-row reveal">
     <a href="#" class="btn-primary-dark" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
-  </div>
-</section>
-
-<section class="expect">
-  <h2 class="reveal">The path to clarity.</h2>
-  <div class="timeline">
-    <div class="timeline-step reveal">
-      <div class="timeline-label">Today</div>
-      <div class="timeline-text">Take the assessment.</div>
-    </div>
-    <div class="timeline-step reveal reveal-delay-1">
-      <div class="timeline-label">Immediately</div>
-      <div class="timeline-text">See where you stand across six dimensions of AI readiness.</div>
-    </div>
-    <div class="timeline-step reveal reveal-delay-2">
-      <div class="timeline-label">Next Steps</div>
-      <div class="timeline-text">Connect with a Resultant. Every gap maps to a solution.</div>
-    </div>
-    <div class="timeline-step reveal reveal-delay-3">
-      <div class="timeline-label">Ongoing</div>
-      <div class="timeline-text">Evolving the architecture. Scaling what works.</div>
-    </div>
   </div>
 </section>
 

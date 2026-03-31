@@ -333,6 +333,7 @@
         <a href="/the-data-gap.html">The Data Gap</a>
         <a href="/the-governance-gap.html" class="active">The Governance Gap</a>
         <a href="/the-spending-gap.html">The Spending Gap</a>
+        <a href="/the-experience-gap.html">The Experience Gap</a>
         <a href="/the-imagination-gap.html">The Imagination Gap</a>
       </div>
     </div>
@@ -398,6 +399,42 @@
       </div>
     </div>
     <p class="reveal" style="margin-top:40px;font-size:clamp(18px, 2vw, 22px);color:#2F2F2F;line-height:1.5;font-weight:500;max-width:600px;">Your assessment shows you where these gaps are.<br><span style="color:#AC9379;font-weight:600;">A Resultant brings the right solutions to close them.</span></p>
+</section>
+
+<section class="governance-grid" style="background: linear-gradient(135deg, rgba(172,147,121,0.03), rgba(172,147,121,0.01)); border-top: 1px solid #E4DAD0; border-bottom: 1px solid #E4DAD0;">
+  <h2 class="reveal">The security exposure ungoverned AI creates.</h2>
+  <p class="reveal reveal-delay-1" style="font-size: 17px; color: #6a6358; line-height: 1.75; max-width: 720px; margin-bottom: 48px;">AI adoption without governance is creating attack vectors that your security infrastructure wasn't built to handle. These aren't theoretical risks. They're active threats mid-market companies are facing right now.</p>
+
+  <div class="gov-checklist">
+    <div class="gov-check-item reveal" onclick="toggleGov(this)">
+      <div class="gov-header"><span class="gov-num" style="color: #967F67;">01</span><span class="gov-title">Unauthorized data exfiltration through AI interactions</span><span class="gov-toggle">+</span></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Your employees are copying customer data, code snippets, strategy documents, and proprietary processes into public AI models to get faster answers. They think it's safe because the models "don't retain inputs." That's not how these systems work. Every prompt is training data. Every interaction is creating intelligence that leaves your environment permanently.</p></div></div>
+    </div>
+
+    <div class="gov-check-item reveal reveal-delay-1" onclick="toggleGov(this)">
+      <div class="gov-header"><span class="gov-num" style="color: #967F67;">02</span><span class="gov-title">Prompt injection and model manipulation</span><span class="gov-toggle">+</span></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Without policy boundaries, attackers can embed commands in your customer data that manipulate AI outputs — extracting information, generating false transactions, or poisoning decision-making processes your team relies on. Your security team can't detect this happening inside an unsanctioned ChatGPT account.</p></div></div>
+    </div>
+
+    <div class="gov-check-item reveal reveal-delay-2" onclick="toggleGov(this)">
+      <div class="gov-header"><span class="gov-num" style="color: #967F67;">03</span><span class="gov-title">Data poisoning and training attacks</span><span class="gov-toggle">+</span></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>If your team is using fine-tuned models or uploading proprietary datasets for analysis, you're exposed to data poisoning attacks. Adversaries can inject false information into training data, creating models that produce wrong answers with high confidence. Without verification processes, hallucinated outputs become operational decisions.</p></div></div>
+    </div>
+
+    <div class="gov-check-item reveal reveal-delay-3" onclick="toggleGov(this)">
+      <div class="gov-header"><span class="gov-num" style="color: #967F67;">04</span><span class="gov-title">Credential and key exposure through context leakage</span><span class="gov-toggle">+</span></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Developers are pasting code into AI tools to debug faster. That code often contains API keys, connection strings, database passwords, and authentication tokens. Once posted, those credentials are extractable by anyone with access to the model or by analyzing the model's behavior. This is happening in your Slack channels, email, and unsanctioned AI tools.</p></div></div>
+    </div>
+
+    <div class="gov-check-item reveal" onclick="toggleGov(this)">
+      <div class="gov-header"><span class="gov-num" style="color: #967F67;">05</span><span class="gov-title">Shadow AI compliance violations</span><span class="gov-toggle">+</span></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Your CISO and compliance teams don't know which AI tools employees are using or what data flows through them. That means you can't audit AI usage against regulatory requirements, can't enforce data residency rules, and can't demonstrate due diligence if something goes wrong. One employee uploading customer PII to a public AI model puts your entire organization at regulatory risk.</p></div></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px; padding: 32px; background: #FDFBF9; border: 1px solid #E4DAD0; border-radius: 8px; max-width: 720px;">
+    <p class="reveal" style="font-size: 16px; color: #2F2F2F; line-height: 1.75; margin: 0;">These threats don't show up in traditional security posture assessments because they're not infrastructure vulnerabilities. They're behavioral exposures. <span style="color: #AC9379; font-weight: 600;">Governance surfaces what's happening. An AI readiness assessment identifies the exposure. The governance framework creates the structure to control it.</span></p>
+  </div>
 </section>
 
 <section class="gateway-section">

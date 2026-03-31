@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO / OG / AEO -->
+<meta name="description" content="Your customers' expectations have been reset by AI. Your teams collaborate on tools built for a different era. The experience gap is where AI delivers the fastest visible ROI — if the foundation is in place.">
+<link rel="canonical" href="https://airesulting.vercel.app/the-experience-gap.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://airesulting.vercel.app/the-experience-gap.html">
+<meta property="og:title" content="The Experience Gap — AI Resulting">
+<meta property="og:description" content="Customer expectations have been reset. Internal collaboration hasn't kept up. AI transforms both — but only on the right foundation.">
+<meta property="og:site_name" content="AI Resulting">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Experience Gap — AI Resulting">
+<meta name="twitter:description" content="Customer expectations have been reset. Internal collaboration hasn't kept up. AI transforms both — but only on the right foundation.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://airesulting.vercel.app/the-experience-gap.html",
+  "headline": "The Experience Gap: Where AI Delivers the Fastest Visible ROI",
+  "description": "The experience layer — customer-facing and internal — is where AI creates the most visible, measurable change. But only if the foundation supports it.",
+  "author": {
+    "@id": "https://airesulting.vercel.app/#organization"
+  },
+  "publisher": {
+    "@id": "https://airesulting.vercel.app/#organization"
+  },
+  "mainEntityOfPage": "https://airesulting.vercel.app/the-experience-gap.html",
+  "about": [
+    { "@type": "Thing", "name": "Customer Experience AI" },
+    { "@type": "Thing", "name": "Contact Center AI" },
+    { "@type": "Thing", "name": "Unified Communications" },
+    { "@type": "Thing", "name": "Collaboration AI" }
+  ],
+  "keywords": "customer experience AI, contact center AI, UCaaS, collaboration AI, CX readiness, mid-market AI, experience gap"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the experience gap in AI readiness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The experience gap is the distance between what customers and employees now expect from AI-enhanced interactions and what most mid-market organizations actually deliver. It spans both external CX operations (contact center, service, omnichannel) and internal collaboration (meetings, knowledge management, communication platforms)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does AI deliver the fastest ROI for mid-market companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The experience layer — customer interactions and team collaboration — consistently delivers the fastest measurable returns. AI-enhanced contact centers reduce handle times, improve first-call resolution, and surface patterns invisible to manual review. AI-powered collaboration captures meeting intelligence, automates follow-ups, and makes institutional knowledge searchable."
+      }
+    }
+  ]
+}
+</script>
+<title>The Experience Gap: Where AI Delivers the Fastest Visible ROI — AI Resulting</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
+  body { color: #2F2F2F; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #FDFBF9; }
+
+  /* NAV */
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
+  .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+  .nav-logo .mark { background: #FDFBF9; color: #AC9379; border: 1px solid rgba(172,147,121,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
+  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; }
+  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
+  .nav-links a:hover { color: #AC9379; }
+  .nav-links a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #AC9379; }
+  .nav-dropdown-label.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
+  .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.06); }
+  .nav-dropdown-menu a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-links .nav-cta { background: #AC9379; color: #FDFBF9; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
+  .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:#2F2F2F;margin:5px 0;transition:all 0.3s;}
+  .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .nav-hamburger.active span:nth-child(2){opacity:0;}
+  .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+  @media (max-width: 768px) {
+    .nav-hamburger{display:block;}
+    .nav-links{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(253,251,249,0.98);flex-direction:column;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:all 0.4s;}
+    .nav-links.open{opacity:1;visibility:visible;}
+    .nav-links a:not(.nav-cta){font-size:20px;color:#2F2F2F;}
+    .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:transparent;box-shadow:none;padding:4px 0 4px 16px;min-width:auto;}
+    .nav-dropdown-label svg{display:none;}
+  }
+
+  /* SCROLL PROGRESS */
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #AC9379; z-index: 200; transition: width 0.15s; width: 0; }
+
+  /* HERO */
+  .hero { background: #2F2F2F; padding: 160px 8vw 100px; position: relative; overflow: hidden; }
+  .hero-inner { max-width: 720px; }
+  .hero-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(32px, 4.2vw, 50px); font-weight: 700; color: #FDFBF9; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 24px; }
+  .hero-label em { color: #AC9379; font-style: normal; }
+  .hero-sub { font-size: clamp(15px, 1.6vw, 18px); color: #DDD7D0; line-height: 1.7; max-width: 560px; opacity: 0.85; }
+
+  /* TWO SIDES */
+  .two-sides { padding: 100px 8vw; background: #FDFBF9; }
+  .two-sides-inner { max-width: 1100px; margin: 0 auto; }
+  .two-sides h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .two-sides-lede { font-size: 17px; color: #2F2F2F; opacity: 0.65; line-height: 1.7; max-width: 600px; margin-bottom: 56px; }
+  .sides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .side-card { border-top: 3px solid #AC9379; padding-top: 28px; }
+  .side-card .side-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #AC9379; margin-bottom: 12px; }
+  .side-card h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #2F2F2F; margin-bottom: 12px; line-height: 1.3; }
+  .side-card p { font-size: 15px; line-height: 1.7; color: #2F2F2F; opacity: 0.6; }
+  @media(max-width:768px) { .sides-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* CX SECTION */
+  .cx-section { padding: 100px 8vw; background: #F2EDE9; }
+  .cx-inner { max-width: 900px; margin: 0 auto; }
+  .cx-inner h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #2F2F2F; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .cx-lede { font-size: 16px; color: #7a7468; line-height: 1.7; max-width: 600px; margin-bottom: 48px; }
+  .cx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cx-card { background: #FDFBF9; border-radius: 8px; padding: 32px; }
+  .cx-card h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #2F2F2F; margin-bottom: 8px; }
+  .cx-card p { font-size: 14px; line-height: 1.7; color: #2F2F2F; opacity: 0.6; }
+  .cx-card .cx-metric { display: block; font-family: 'Trebuchet MS', Georgia, serif; font-size: 13px; font-weight: 700; color: #AC9379; margin-top: 12px; letter-spacing: -0.01em; }
+  @media(max-width:768px) { .cx-grid { grid-template-columns: 1fr; } }
+
+  /* BIG STAT */
+  .big-stat { padding: 80px 8vw; text-align: center; background: #FDFBF9; }
+  .big-stat .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(80px, 12vw, 140px); font-weight: 700; color: #AC9379; line-height: 1; letter-spacing: -0.04em; }
+  .big-stat .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #2F2F2F; margin-top: 8px; letter-spacing: -0.02em; }
+  .big-stat .stat-sub { font-size: 16px; color: #9A9488; margin-top: 16px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+  /* COLLAB SECTION */
+  .collab-section { padding: 100px 8vw; background: #2F2F2F; }
+  .collab-inner { max-width: 900px; margin: 0 auto; }
+  .collab-inner h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .collab-lede { font-size: 16px; color: #DDD7D0; opacity: 0.7; line-height: 1.7; max-width: 600px; margin-bottom: 48px; }
+  .collab-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .collab-card { border-top: 2px solid rgba(172,147,121,0.4); padding-top: 24px; }
+  .collab-card h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #FDFBF9; margin-bottom: 8px; }
+  .collab-card p { font-size: 14px; line-height: 1.7; color: #DDD7D0; opacity: 0.6; }
+  @media(max-width:768px) { .collab-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* CONTRAST SECTION */
+  .contrast-section { padding: 100px 8vw; background: #FDFBF9; }
+  .contrast-inner { max-width: 820px; margin: 0 auto; }
+  .contrast-inner h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #2F2F2F; margin-bottom: 48px; letter-spacing: -0.01em; }
+  .contrast-row { display: grid; grid-template-columns: 1fr 32px 1fr; align-items: start; gap: 0; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(172,147,121,0.15); }
+  .contrast-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .contrast-before { font-size: 15px; line-height: 1.7; color: #2F2F2F; opacity: 0.35; }
+  .contrast-before .label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #9A9488; margin-bottom: 6px; opacity: 0.7; }
+  .contrast-arrow { display: flex; align-items: flex-start; justify-content: center; padding-top: 24px; font-size: 16px; color: #AC9379; }
+  .contrast-after { font-size: 15px; line-height: 1.7; color: #2F2F2F; font-weight: 500; }
+  .contrast-after .label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #AC9379; margin-bottom: 6px; }
+  @media(max-width:768px) { .contrast-row { grid-template-columns: 1fr; gap: 16px; } .contrast-arrow { display: none; } }
+
+  /* FOUNDATION CALLOUT */
+  .foundation { padding: 80px 8vw; background: #F2EDE9; text-align: center; }
+  .foundation-inner { max-width: 640px; margin: 0 auto; }
+  .foundation h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: #2F2F2F; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .foundation p { font-size: 16px; color: #7a7468; line-height: 1.7; margin-bottom: 32px; }
+  .foundation .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .foundation .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+
+  /* RESULTANT BRIDGE */
+  .resultant-bridge { padding: 64px 8vw; background: #FDFBF9; text-align: center; }
+  .resultant-bridge-inner { max-width: 600px; margin: 0 auto; }
+  .resultant-bridge h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2vw, 24px); font-weight: 700; color: #2F2F2F; margin-bottom: 12px; }
+  .resultant-bridge p { font-size: 16px; color: #9A9488; line-height: 1.6; margin-bottom: 24px; }
+  .btn-conversation { display: inline-block; color: #AC9379; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; border-bottom: 2px solid #AC9379; padding-bottom: 2px; transition: opacity 0.3s; }
+  .btn-conversation:hover { opacity: 0.7; }
+
+  /* CONTACT MODAL */
+  .contact-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(47,47,47,0.6); z-index: 300; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .contact-overlay.open { display: flex; }
+  .contact-modal { background: #FDFBF9; border-radius: 12px; padding: 48px; max-width: 520px; width: 90%; position: relative; box-shadow: 0 24px 64px rgba(47,47,47,0.15); }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 28px; color: #9A9488; cursor: pointer; transition: color 0.3s; }
+  .contact-close:hover { color: #2F2F2F; }
+  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #2F2F2F; margin-bottom: 8px; }
+  .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 28px; line-height: 1.5; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-field { display: flex; flex-direction: column; gap: 4px; }
+  .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-field input, .contact-field textarea { font-family: 'DM Sans', sans-serif; font-size: 15px; padding: 12px 16px; border: 1px solid #E4DAD0; border-radius: 6px; background: #fff; color: #2F2F2F; transition: border 0.3s; }
+  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; }
+  .contact-submit { background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 24px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s; margin-top: 8px; }
+  .contact-submit:hover { background: #967F67; }
+  .contact-note { font-size: 13px; color: #9A9488; text-align: center; margin-top: 8px; }
+  .contact-success { display: none; text-align: center; padding: 24px 0; }
+  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; color: #2F2F2F; margin-bottom: 8px; }
+  .contact-success p { font-size: 15px; color: #9A9488; }
+
+  /* FOOTER CTA */
+  .footer-cta { background: #2F2F2F; padding: 80px 8vw 48px; text-align: center; }
+  .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 20px; }
+  .footer-cta .tagline { font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #AC9379; margin-bottom: 40px; }
+  .footer-cta .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .footer-cta .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .footer-bottom { margin-top: 64px; padding-top: 24px; border-top: 1px solid rgba(253,251,249,0.08); }
+  .footer-bottom p { font-size: 13px; color: #9A9488; }
+  .footer-bottom a { color: #9A9488; text-decoration: none; transition: color 0.3s; }
+  .footer-bottom a:hover { color: #AC9379; }
+
+  /* REVEAL ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
+  </a>
+  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-label active">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dropdown-menu">
+        <a href="/the-data-gap.html">The Data Gap</a>
+        <a href="/the-governance-gap.html">The Governance Gap</a>
+        <a href="/the-spending-gap.html">The Spending Gap</a>
+        <a href="/the-experience-gap.html" class="active">The Experience Gap</a>
+        <a href="/the-imagination-gap.html">The Imagination Gap</a>
+      </div>
+    </div>
+    <a href="/our-approach.html">Our Approach</a>
+    <a href="/field-notes.html">Field Notes</a>
+    <a href="#" onclick="event.preventDefault();document.getElementById('contactOverlay').classList.add('open');" style="cursor:pointer;">Book a Conversation</a>
+    <a href="assessment.html" class="nav-cta">Take the Assessment</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-label reveal">Your customers' expectations<br>have already been reset.<br><em>Has your operation kept up?</em></h1>
+    <p class="hero-sub reveal">Every interaction your customer has with AI — anywhere — recalibrates what they expect from you. And inside your walls, the intelligence generated in every meeting, every collaboration, every conversation disappears the moment it ends.</p>
+  </div>
+</section>
+
+<!-- TWO SIDES OF THE GAP -->
+<section class="two-sides">
+  <div class="two-sides-inner">
+    <h2 class="reveal">Two sides of the same gap.</h2>
+    <p class="two-sides-lede reveal">The experience layer is both external and internal. Your customers interact with you through channels AI can transform. Your teams collaborate on platforms AI can elevate. Both are producing intelligence your organization isn't capturing.</p>
+    <div class="sides-grid">
+      <div class="side-card reveal">
+        <div class="side-label">External — Your Customers</div>
+        <h3>The contact center running on a ten-year-old platform is the single highest-ROI AI opportunity in your organization.</h3>
+        <p>Customers call, email, chat — and every interaction generates signals your current tools can't see. Sentiment shifts. Churn indicators. Product feedback buried in call transcripts. AI-enhanced CX doesn't just reduce handle times. It surfaces patterns that manual review and 2% sample QA will never catch.</p>
+      </div>
+      <div class="side-card reveal reveal-delay-1">
+        <div class="side-label">Internal — Your Teams</div>
+        <h3>The strategy discussion that happened Tuesday is already gone.</h3>
+        <p>Your best thinking happens in meetings, Slack threads, working sessions. None of it is searchable. None of it compounds. When someone asks "have we discussed this before?" the answer is always "probably, but nobody remembers where." AI-enhanced collaboration captures, summarizes, and makes institutional knowledge accessible — not in theory, in practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER EXPERIENCE — WHAT AI CHANGES -->
+<section class="cx-section">
+  <div class="cx-inner">
+    <h2 class="reveal">What AI changes on the customer side.</h2>
+    <p class="cx-lede reveal">These aren't aspirational capabilities. They're deployed and measured in mid-market companies running on the right foundation.</p>
+    <div class="cx-grid">
+      <div class="cx-card reveal">
+        <h3>Intelligent routing</h3>
+        <p>Customers matched to the right agent before they explain their problem. Skills-based, sentiment-aware, context-carrying.</p>
+        <span class="cx-metric">Measurable reduction in transfers and repeat explanations</span>
+      </div>
+      <div class="cx-card reveal reveal-delay-1">
+        <h3>Real-time sentiment analysis</h3>
+        <p>Frustration detected and escalated before the customer asks. Supervisors see it happening live, not in a report three days later.</p>
+        <span class="cx-metric">Escalations triggered by signal, not by shouting</span>
+      </div>
+      <div class="cx-card reveal reveal-delay-2">
+        <h3>100% quality management</h3>
+        <p>Every interaction evaluated — not a 2% sample. Consistent scoring. Pattern detection across thousands of conversations your QA team couldn't review manually.</p>
+        <span class="cx-metric">Complete visibility instead of statistical guessing</span>
+      </div>
+      <div class="cx-card reveal reveal-delay-3">
+        <h3>Automated post-call intelligence</h3>
+        <p>Summaries, action items, CRM updates — generated automatically. Agents spend time on the next customer, not on documentation.</p>
+        <span class="cx-metric">Minutes back per interaction, compounded across every call</span>
+      </div>
+      <div class="cx-card reveal">
+        <h3>Predictive churn detection</h3>
+        <p>Behavioral signals — call frequency, tone shifts, topic patterns — surfaced before the customer cancels. Retention actions triggered by data, not by gut.</p>
+        <span class="cx-metric">At-risk accounts flagged weeks before renewal conversations</span>
+      </div>
+      <div class="cx-card reveal reveal-delay-1">
+        <h3>Omnichannel continuity</h3>
+        <p>A customer who starts on chat and calls in doesn't repeat their story. Context follows them across every channel, every touchpoint, every handoff.</p>
+        <span class="cx-metric">One customer view across every interaction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG STAT -->
+<section class="big-stat">
+  <div class="reveal">
+    <div class="number"><span class="count-up" data-target="200">0</span>+</div>
+    <div class="stat-line">seat contact centers are sitting on the highest-ROI AI opportunity in their entire organization.</div>
+    <div class="stat-sub">Reduced handle times. Higher first-call resolution. Lower cost per interaction. And the intelligence from every customer conversation becomes an asset that compounds quarter over quarter.</div>
+  </div>
+</section>
+
+<!-- COLLABORATION -->
+<section class="collab-section">
+  <div class="collab-inner">
+    <h2 class="reveal">What AI changes on the inside.</h2>
+    <p class="collab-lede reveal">The intelligence your teams generate every day — in meetings, in messages, in working sessions — either compounds or evaporates. AI determines which.</p>
+    <div class="collab-grid">
+      <div class="collab-card reveal">
+        <h3>Meeting intelligence</h3>
+        <p>Every meeting captured, summarized, and distributed with action items. Decisions become searchable. Context stops living in one person's head.</p>
+      </div>
+      <div class="collab-card reveal reveal-delay-1">
+        <h3>Knowledge management that works</h3>
+        <p>Past deliverables, strategy discussions, decisions — all indexed and searchable. "Have we done this before?" answered in seconds instead of days of asking around.</p>
+      </div>
+      <div class="collab-card reveal reveal-delay-2">
+        <h3>Communication that surfaces signal</h3>
+        <p>AI filters noise from signal across channels. What matters rises. What doesn't recedes. Your people spend time on work, not on parsing messages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRAST -->
+<section class="contrast-section">
+  <div class="contrast-inner">
+    <h2 class="reveal">What most companies have versus what's possible.</h2>
+
+    <div class="contrast-row reveal">
+      <div class="contrast-before">
+        <span class="label">Current state</span>
+        QA reviews 2% of customer interactions. Problems surface in CSAT surveys weeks later. By then the customer is gone.
+      </div>
+      <div class="contrast-arrow">→</div>
+      <div class="contrast-after">
+        <span class="label">AI-enhanced</span>
+        Every interaction scored in real time. Patterns detected across thousands of conversations. Problems surface in hours, not weeks.
+      </div>
+    </div>
+
+    <div class="contrast-row reveal">
+      <div class="contrast-before">
+        <span class="label">Current state</span>
+        A customer who calls after chatting starts from scratch. Channels operate independently. The customer feels it.
+      </div>
+      <div class="contrast-arrow">→</div>
+      <div class="contrast-after">
+        <span class="label">AI-enhanced</span>
+        Context follows the customer across every channel. The agent knows the full history before they say hello.
+      </div>
+    </div>
+
+    <div class="contrast-row reveal">
+      <div class="contrast-before">
+        <span class="label">Current state</span>
+        A two-hour strategy session produces a few notes someone typed. Within a week, half the decisions are forgotten or disputed.
+      </div>
+      <div class="contrast-arrow">→</div>
+      <div class="contrast-after">
+        <span class="label">AI-enhanced</span>
+        Meeting recorded, summarized, action items distributed automatically. Decisions are searchable institutional record, not fading memory.
+      </div>
+    </div>
+
+    <div class="contrast-row reveal">
+      <div class="contrast-before">
+        <span class="label">Current state</span>
+        Your collaboration platform is a firehose. Important messages get buried. People miss what matters and drown in what doesn't.
+      </div>
+      <div class="contrast-arrow">→</div>
+      <div class="contrast-after">
+        <span class="label">AI-enhanced</span>
+        AI surfaces what's relevant to your role, your projects, your priorities. Signal rises. Noise recedes.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATION CALLOUT -->
+<section class="foundation">
+  <div class="foundation-inner reveal">
+    <h2>None of this works without the foundation.</h2>
+    <p>AI-enhanced CX requires data that flows between systems, infrastructure that handles the traffic, and governance that protects what's sensitive. AI-enhanced collaboration requires the same layers. The experience gap doesn't close with a platform purchase. It closes when the layers beneath it are in place.</p>
+    <a href="assessment.html" class="btn-primary">Find your gaps</a>
+  </div>
+</section>
+
+<!-- RESULTANT BRIDGE -->
+<section class="resultant-bridge">
+  <div class="resultant-bridge-inner reveal">
+    <h3>The fastest visible ROI. The clearest proof of what's possible.</h3>
+    <p>The experience layer is where AI earns its keep — visibly, measurably, quarter over quarter. A Resultant maps which capabilities fit your operation and matches you to the right solutions.</p>
+    <a href="#" class="btn-conversation" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
+    <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
+    <p class="contact-sub">A conversation about where you are and what's possible.</p>
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="contact-field">
+        <label for="cf-email">Work Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="contact-field">
+        <label for="cf-interest">What's on your mind?</label>
+        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Let's Connect</button>
+      <p class="contact-note">We'll reach out within one business day.</p>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <h3>We'll be in touch.</h3>
+      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
+  </div>
+  <p class="tagline reveal">Assess &middot; Identify &middot; Result</p>
+  <h2 class="reveal">What will you <strong style="color:#AC9379;">Transform?</strong></h2>
+  <div class="cta-row reveal" style="margin-top: 24px;">
+    <a href="assessment.html" class="btn-primary">Get Started</a>
+  </div>
+  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
+  <div class="footer-bottom reveal">
+    <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
+</section>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// SCROLL PROGRESS
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('scrollProgress').style.width = (window.scrollY / h * 100) + '%';
+});
+
+// REVEAL ON SCROLL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Force-reveal hero elements
+requestAnimationFrame(() => {
+  document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+});
+
+// COUNT-UP ANIMATION
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = target / 40;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { el.textContent = target; clearInterval(timer); }
+        else { el.textContent = Math.floor(current); }
+      }, 30);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+
+// CONTACT FORM
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('contactSuccess');
+  const data = {
+    name: form.querySelector('#cf-name').value,
+    email: form.querySelector('#cf-email').value,
+    company: form.querySelector('#cf-company').value,
+    interest: form.querySelector('#cf-interest').value,
+    source: 'experience-gap-page'
+  };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(() => { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
+</script>
+<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#AC9379;color:#FDFBF9;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#967F67;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
+<div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
+<script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".hero");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
+</body>
+</html>
