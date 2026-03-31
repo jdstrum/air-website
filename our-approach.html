@@ -490,20 +490,20 @@ body {
   opacity:0.6;
   line-height:1.6;
 }
-.layer-row:nth-child(1) .layer-num { color:#7A8B6F; }
-.layer-row:nth-child(1) .layer-name-pill { background:#7A8B6F; }
-.layer-row:nth-child(2) .layer-num { color:#AC9379; }
-.layer-row:nth-child(2) .layer-name-pill { background:#AC9379; }
-.layer-row:nth-child(3) .layer-num { color:#7A8B6F; }
-.layer-row:nth-child(3) .layer-name-pill { background:#7A8B6F; }
-.layer-row:nth-child(4) .layer-num { color:#A67B5B; }
-.layer-row:nth-child(4) .layer-name-pill { background:#A67B5B; }
-.layer-row:nth-child(5) .layer-num { color:#9A9488; }
-.layer-row:nth-child(5) .layer-name-pill { background:rgba(154,148,136,0.3); }
-.layer-row:nth-child(6) .layer-num { color:#AC9379; }
-.layer-row:nth-child(6) .layer-name-pill { background:#AC9379; }
-.layer-row:nth-child(7) .layer-num { color:#9A9488; }
-.layer-row:nth-child(7) .layer-name-pill { background:rgba(154,148,136,0.3); }
+.layer-rows > .layer-row:nth-child(1) .layer-num { color:#7A8B6F; }
+.layer-rows > .layer-row:nth-child(1) .layer-name-pill { background:#7A8B6F; }
+.layer-rows > .layer-row:nth-child(2) .layer-num { color:#AC9379; }
+.layer-rows > .layer-row:nth-child(2) .layer-name-pill { background:#AC9379; }
+.layer-rows > .layer-row:nth-child(3) .layer-num { color:#7A8B6F; }
+.layer-rows > .layer-row:nth-child(3) .layer-name-pill { background:#7A8B6F; }
+.layer-rows > .layer-row:nth-child(4) .layer-num { color:#A67B5B; }
+.layer-rows > .layer-row:nth-child(4) .layer-name-pill { background:#A67B5B; }
+.layer-rows > .layer-row:nth-child(5) .layer-num { color:#9A9488; }
+.layer-rows > .layer-row:nth-child(5) .layer-name-pill { background:rgba(154,148,136,0.3); }
+.layer-rows > .layer-row:nth-child(6) .layer-num { color:#AC9379; }
+.layer-rows > .layer-row:nth-child(6) .layer-name-pill { background:#AC9379; }
+.layer-rows > .layer-row:nth-child(7) .layer-num { color:#9A9488; }
+.layer-rows > .layer-row:nth-child(7) .layer-name-pill { background:rgba(154,148,136,0.3); }
 @media(max-width:768px){
   .layer-row{grid-template-columns:40px 1fr;gap:10px;}
   .layer-outcome{font-size:14px;}
@@ -840,6 +840,7 @@ body {
     <h2 class="reveal">The architecture.</h2>
     <p class="layers-lede reveal">Seven layers that map every gap to a specific capability — from platform and governance to connectivity and scale. Your Resultant uses this architecture to build the plan.</p>
 
+    <div class="layer-rows">
     <div class="layer-row reveal">
       <div class="layer-num">1</div>
       <div>
@@ -875,8 +876,8 @@ body {
     <div class="layer-row reveal reveal-d2">
       <div class="layer-num">5</div>
       <div>
-        <span class="layer-name-pill">Continuous</span>
-        <p class="layer-outcome">Security, monitoring, endpoint governance. The layer that never sleeps.</p>
+        <span class="layer-name-pill">Security</span>
+        <p class="layer-outcome">Monitoring, endpoint governance, continuous protection. The layer that never sleeps.</p>
       </div>
     </div>
 
@@ -895,6 +896,7 @@ body {
         <p class="layer-outcome">CX platforms, production AI, cross-functional deployment. Where readiness becomes results.</p>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -908,12 +910,12 @@ body {
     <p class="network-sub reveal">Cloud, infrastructure, security, data, governance, CX — matched to your specific gaps, not sold from a product catalog.</p>
 
     <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;">
+      <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">AI & Automation</span>
       <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Cloud & Infrastructure</span>
-      <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Network & Security</span>
+      <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Collaboration</span>
       <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Customer Experience</span>
       <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Data & Governance</span>
-      <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">AI & Automation</span>
-      <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Collaboration</span>
+      <span style="font-family:'Trebuchet MS',Georgia,serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--camel);padding:10px 20px;border:1px solid rgba(172,147,121,0.3);border-radius:4px;">Network & Security</span>
     </div>
 
   </div>
