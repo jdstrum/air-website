@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#FDFBF9"/>
-  <text x="16" y="21.5" font-family="Trebuchet MS, Georgia, serif" font-size="14" font-weight="700" fill="#AC9379" text-anchor="middle" letter-spacing="0.5">AI</text>
+  <!-- A -->
+  <path d="M7.2 22.5L11.5 10.5C11.7 9.9 12.1 9.5 12.7 9.5C13.3 9.5 13.7 9.9 13.9 10.5L18.2 22.5C18.3 22.8 18.1 23 17.8 23H16.8C16.4 23 16.1 22.8 16 22.4L15.2 20.1H10.2L9.4 22.4C9.3 22.8 9 23 8.6 23H7.6C7.3 23 7.1 22.8 7.2 22.5ZM14.5 18.2L12.7 12.8L10.9 18.2H14.5Z" fill="#AC9379"/>
+  <!-- I -->
+  <path d="M20.5 9.8C20.5 9.5 20.7 9.3 21 9.3H22C22.3 9.3 22.5 9.5 22.5 9.8V22.7C22.5 23 22.3 23.2 22 23.2H21C20.7 23.2 20.5 23 20.5 22.7V9.8Z" fill="#AC9379"/>
 </svg>
