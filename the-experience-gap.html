@@ -327,7 +327,7 @@
 <!-- BIG STAT -->
 <section class="big-stat">
   <div class="reveal">
-    <div class="number"><span class="count-up" data-target="200">0</span>+</div>
+    <div class="number">200+</div>
     <div class="stat-line">seat contact centers are sitting on the highest-ROI AI opportunity in their entire organization.</div>
     <div class="stat-sub">Reduced handle times. Higher first-call resolution. Lower cost per interaction. Intelligence that compounds quarter over quarter.</div>
   </div>
@@ -361,15 +361,6 @@
     <h2>None of this works without the foundation.</h2>
     <p>Data that flows. Infrastructure that handles it. Governance that protects it. The experience gap doesn't close with a platform purchase. It closes when the layers beneath it are in place.</p>
     <a href="assessment.html" class="btn-primary">Find your gaps</a>
-  </div>
-</section>
-
-<!-- RESULTANT BRIDGE -->
-<section class="resultant-bridge">
-  <div class="resultant-bridge-inner reveal">
-    <h3>This is where AI earns its keep.</h3>
-    <p>Visibly. Measurably. Quarter over quarter. A Resultant maps the capabilities that fit your operation.</p>
-    <a href="#" class="btn-conversation" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
   </div>
 </section>
 
@@ -447,24 +438,6 @@ requestAnimationFrame(() => {
   document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
 });
 
-// COUNT-UP ANIMATION
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const el = e.target;
-      const target = parseInt(el.dataset.target);
-      let current = 0;
-      const step = target / 40;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) { el.textContent = target; clearInterval(timer); }
-        else { el.textContent = Math.floor(current); }
-      }, 30);
-      countObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 
 // CONTACT FORM
 function handleSubmit(e) {
