@@ -223,9 +223,6 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
-  /* COUNT-UP ANIMATION */
-  .count-up { display: inline-block; }
-
   /* HAMBURGER */
   .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
 
@@ -293,6 +290,7 @@
         <a href="/the-data-gap.html" class="active">The Data Gap</a>
         <a href="/the-governance-gap.html">The Governance Gap</a>
         <a href="/the-spending-gap.html">The Spending Gap</a>
+        <a href="/the-experience-gap.html">The Experience Gap</a>
         <a href="/the-imagination-gap.html">The Imagination Gap</a>
       </div>
     </div>
@@ -376,7 +374,7 @@
 <!-- BIG STAT — Apple-style massive number -->
 <section class="big-stat">
   <div class="reveal">
-    <div class="number"><span class="count-up" data-target="80">0</span>+</div>
+    <div class="number">80+</div>
     <div class="stat-line">applications in the average mid-market company.</div>
     <div class="stat-sub">Almost none of them share data natively. Your CRM doesn't talk to your ERP. Your contact center doesn't talk to your cloud. AI built on fragments produces fragments.</div>
   </div>
@@ -627,24 +625,6 @@ requestAnimationFrame(() => {
   });
 });
 
-// COUNT-UP ANIMATION
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const el = e.target;
-      const target = parseInt(el.dataset.target);
-      let current = 0;
-      const step = target / 40;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) { el.textContent = target; clearInterval(timer); }
-        else { el.textContent = Math.floor(current); }
-      }, 30);
-      countObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 
 // CONTACT FORM
 function handleSubmit(e) {
