@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
 <meta name="description" content="Your business is already paying for AI it isn't using. See the data on adoption gaps, license waste, and shadow AI — then find out where you stand.">
 <link rel="canonical" href="https://airesulting.vercel.app/the-spending-gap.html">
@@ -56,9 +55,9 @@
 body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-x:hidden;}
 .site-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 8vw;background:#FDFBF9;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(47,47,47,0.06);}
 .nav-logo{display:flex;align-items:center;gap:2px;text-decoration:none;}
-.nav-logo .mark{background:#FDFBF9;color:#AC9379;font-weight:700;font-size:12px;padding:3px 5px;border-radius:4px;border:1px solid rgba(172,147,121,0.3);}
-.nav-logo .r{font-family:'Trebuchet MS',sans-serif;font-weight:700;font-size:20px;color:#AC9379;}
-.nav-logo .name{font-family:'Trebuchet MS',sans-serif;font-weight:600;font-size:20px;color:#2F2F2F;}
+.nav-logo .mark{background:#FDFBF9;color:#AC9379;font-weight:700;font-size:10px;padding:5px 7px;border-radius:5px;letter-spacing:0.08em;margin-right:5px;border:1px solid rgba(172,147,121,0.3);}
+.nav-logo .r{font-family:'Trebuchet MS',sans-serif;font-weight:700;font-size:20px;color:#AC9379; letter-spacing: -0.02em;}
+.nav-logo .name{font-family:'Trebuchet MS',sans-serif;font-weight:600;font-size:18px;color:#2F2F2F; margin-left: -1px;}
 .nav-links{display:flex;align-items:center;gap:32px;}
 .nav-links a{text-decoration:none;color:#2F2F2F;font-size:14px;font-weight:500;opacity:0.7;transition:opacity 0.3s;}
 .nav-links a:hover{opacity:1;}
@@ -299,7 +298,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
   <p class="hero-sub">The licenses are active. The invoices are paid. The adoption isn't happening.<br>Here's what the data says.</p>
   <div class="hero-stat">
     <div class="counter-wrap">
-      <span class="counter-num" id="heroCounter">56</span>
+      <span class="counter-num" id="heroCounter">0</span>
       <span class="counter-pct">%</span>
     </div>
     <div class="counter-label">of CEOs say their AI investments have delivered <strong>nothing.</strong></div>
@@ -389,7 +388,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 
 <section class="footer-cta">
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
-    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9; margin-left: -1px;">esulting</span>
   </div>
   <p class="tagline reveal">Assess · Identify · Result</p>
   <h2 class="reveal">What will you <strong style="color:#AC9379;">Capture?</strong></h2>
@@ -449,7 +448,14 @@ function handleContactSubmit(e) {
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
 </script>
 <script>
-/* counter animation removed — static display */
+(function(){
+  var target=56,counter=document.getElementById("heroCounter"),started=false;
+  function animateCounter(){if(started)return;started=true;var current=0,duration=2000,start=performance.now();
+  function step(ts){var elapsed=ts-start,progress=Math.min(elapsed/duration,1),eased=1-Math.pow(1-progress,3);
+  current=Math.round(eased*target);counter.textContent=current;if(progress<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);}
+  setTimeout(animateCounter,1000);
+})();
 (function(){
   var o=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add("visible");});},{threshold:0.12});
   document.querySelectorAll(".reveal,.tool-card,.funnel-stage,.ice-row,.bridge-point").forEach(function(el){o.observe(el);});

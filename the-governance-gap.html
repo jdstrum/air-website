@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
 <meta name="description" content="Your teams are already using AI. Without governance, every interaction leaks proprietary data. Learn the five capabilities that separate AI adoption from AI exposure.">
 <link rel="canonical" href="https://airesulting.vercel.app/the-governance-gap.html">
@@ -58,9 +57,9 @@
   .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
   .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
-  .nav-logo .mark { background: #FDFBF9; color: #AC9379; border: 1px solid rgba(172,147,121,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
-  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; }
-  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; }
+  .nav-logo .mark { background: #FDFBF9; color: #AC9379; border: 1px solid rgba(172,147,121,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
+  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379;  letter-spacing: -0.02em;}
+  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F;  margin-left: -1px;}
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
   .nav-links a:hover { color: #AC9379; }
@@ -117,25 +116,15 @@
   .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
 
-  .reg-callout { padding: 80px 8vw; background: #FDFBF9; }
-  .reg-callout-inner { max-width: 820px; margin: 0 auto; }
-  .reg-callout-inner h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #2F2F2F; margin-bottom: 12px; letter-spacing: -0.01em; }
-  .reg-lede { font-size: 15px; color: #6a6358; margin-bottom: 48px; max-width: 600px; line-height: 1.6; }
-  .reg-timeline { position: relative; padding-left: 28px; border-left: 2px solid rgba(172,147,121,0.3); }
-  .reg-milestone { position: relative; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(172,147,121,0.1); }
-  .reg-milestone:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-  .reg-milestone::before { content: ''; position: absolute; left: -33px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: #AC9379; }
-  .reg-milestone.past::before { background: #7A8B6F; }
-  .reg-milestone.imminent::before { background: #AC9379; box-shadow: 0 0 12px rgba(172,147,121,0.4); }
-  .reg-date-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: 14px; font-weight: 700; color: #AC9379; margin-bottom: 6px; }
-  .reg-milestone.past .reg-date-label { color: #7A8B6F; }
-  .reg-name { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #2F2F2F; margin-bottom: 4px; }
-  .reg-desc { font-size: 14px; color: #6a6358; line-height: 1.6; }
-  .reg-bottom { margin-top: 48px; padding: 28px 32px; background: rgba(172,147,121,0.06); border: 1px solid #E4DAD0; border-radius: 8px; }
-  .reg-bottom p { font-size: 15px; color: #2F2F2F; line-height: 1.7; }
-  .reg-source { font-size: 12px; color: #9A9488; margin-top: 12px; }
-  .reg-source a { color: #AC9379; text-decoration: none; }
-  .reg-source a:hover { text-decoration: underline; }
+  .reg-callout { padding: 48px 8vw; background: #FDFBF9; }
+  .reg-callout-inner { max-width: 760px; background: linear-gradient(135deg, rgba(172,147,121,0.06), rgba(172,147,121,0.02)); border: 1px solid #E4DAD0; border-radius: 12px; padding: 40px; display: flex; gap: 40px; align-items: center; }
+  .reg-dates { display: flex; flex-direction: column; gap: 16px; min-width: 160px; }
+  .reg-date { text-align: center; }
+  .reg-date-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #AC9379; }
+  .reg-date-what { font-size: 12px; color: #9A9488; font-weight: 500; }
+  .reg-text h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #2F2F2F; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .reg-text p { font-size: 15px; color: #6a6358; line-height: 1.7; }
+  @media (max-width: 768px) { .reg-callout-inner { flex-direction: column; gap: 24px; } .reg-dates { flex-direction: row; gap: 24px; } }
 
   .download-section { background: #F2EDE9; padding: 80px 8vw; }
   .download-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; }
@@ -419,27 +408,27 @@
   <div class="gov-checklist">
     <div class="gov-check-item reveal" onclick="toggleGov(this)">
       <div class="gov-header"><span class="gov-num" style="color: #967F67;">01</span><span class="gov-title">Unauthorized data exfiltration through AI interactions</span><span class="gov-toggle">+</span></div>
-      <div class="gov-detail"><div class="gov-detail-inner"><p>Your employees are copying customer data, code snippets, strategy documents, and proprietary processes into public AI models to get faster answers. They think it's safe because the models "don't retain inputs." That's not how these systems work. Every prompt is training data. Every interaction is creating intelligence that leaves your environment permanently.</p><p style="font-size:12px;color:#9A9488;margin-top:12px;"><a href="https://www.cyberhaven.com/blog/sensitive-data-flowing-into-ai-tools" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">Cyberhaven, 2026</a> — 77% of employees paste company data into AI tools; 39.7% of AI interactions expose sensitive data. <a href="https://thehackernews.com/2025/10/new-research-ai-is-already-1-data.html" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">LayerX, 2025</a> — AI is now the #1 data exfiltration vector in the enterprise.</p></div></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Your employees are copying customer data, code snippets, strategy documents, and proprietary processes into public AI models to get faster answers. They think it's safe because the models "don't retain inputs." That's not how these systems work. Every prompt is training data. Every interaction is creating intelligence that leaves your environment permanently.</p></div></div>
     </div>
 
     <div class="gov-check-item reveal reveal-delay-1" onclick="toggleGov(this)">
       <div class="gov-header"><span class="gov-num" style="color: #967F67;">02</span><span class="gov-title">Prompt injection and model manipulation</span><span class="gov-toggle">+</span></div>
-      <div class="gov-detail"><div class="gov-detail-inner"><p>Without policy boundaries, attackers can embed commands in your customer data that manipulate AI outputs — extracting information, generating false transactions, or poisoning decision-making processes your team relies on. Your security team can't detect this happening inside an unsanctioned ChatGPT account.</p><p style="font-size:12px;color:#9A9488;margin-top:12px;"><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">OWASP Top 10 for LLMs, 2025</a> — Prompt injection is classified as the #1 LLM vulnerability. Attackers embed hidden instructions in external content that LLMs process as trusted input.</p></div></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Without policy boundaries, attackers can embed commands in your customer data that manipulate AI outputs — extracting information, generating false transactions, or poisoning decision-making processes your team relies on. Your security team can't detect this happening inside an unsanctioned ChatGPT account.</p></div></div>
     </div>
 
     <div class="gov-check-item reveal reveal-delay-2" onclick="toggleGov(this)">
       <div class="gov-header"><span class="gov-num" style="color: #967F67;">03</span><span class="gov-title">Data poisoning and training attacks</span><span class="gov-toggle">+</span></div>
-      <div class="gov-detail"><div class="gov-detail-inner"><p>If your team is using fine-tuned models or uploading proprietary datasets for analysis, you're exposed to data poisoning attacks. Adversaries can inject false information into training data, creating models that produce wrong answers with high confidence. Without verification processes, hallucinated outputs become operational decisions.</p><p style="font-size:12px;color:#9A9488;margin-top:12px;"><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">OWASP Top 10 for LLMs, 2025</a> — Training data poisoning and supply chain vulnerabilities are both classified in the top 10 LLM security risks.</p></div></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>If your team is using fine-tuned models or uploading proprietary datasets for analysis, you're exposed to data poisoning attacks. Adversaries can inject false information into training data, creating models that produce wrong answers with high confidence. Without verification processes, hallucinated outputs become operational decisions.</p></div></div>
     </div>
 
     <div class="gov-check-item reveal reveal-delay-3" onclick="toggleGov(this)">
       <div class="gov-header"><span class="gov-num" style="color: #967F67;">04</span><span class="gov-title">Credential and key exposure through context leakage</span><span class="gov-toggle">+</span></div>
-      <div class="gov-detail"><div class="gov-detail-inner"><p>Developers are pasting code into AI tools to debug faster. That code often contains API keys, connection strings, database passwords, and authentication tokens. Once posted, those credentials are extractable by anyone with access to the model or by analyzing the model's behavior. This is happening in your Slack channels, email, and unsanctioned AI tools.</p><p style="font-size:12px;color:#9A9488;margin-top:12px;"><a href="https://www.cyberhaven.com/blog/sensitive-data-flowing-into-ai-tools" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">Cyberhaven, 2026</a> — Employees average 14 paste events/day into non-corporate accounts; 40% of files uploaded to GenAI tools contain sensitive PII or PCI data.</p></div></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Developers are pasting code into AI tools to debug faster. That code often contains API keys, connection strings, database passwords, and authentication tokens. Once posted, those credentials are extractable by anyone with access to the model or by analyzing the model's behavior. This is happening in your Slack channels, email, and unsanctioned AI tools.</p></div></div>
     </div>
 
     <div class="gov-check-item reveal" onclick="toggleGov(this)">
       <div class="gov-header"><span class="gov-num" style="color: #967F67;">05</span><span class="gov-title">Shadow AI compliance violations</span><span class="gov-toggle">+</span></div>
-      <div class="gov-detail"><div class="gov-detail-inner"><p>Your CISO and compliance teams don't know which AI tools employees are using or what data flows through them. That means you can't audit AI usage against regulatory requirements, can't enforce data residency rules, and can't demonstrate due diligence if something goes wrong. One employee uploading customer PII to a public AI model puts your entire organization at regulatory risk.</p><p style="font-size:12px;color:#9A9488;margin-top:12px;"><a href="https://www.isaca.org/resources/news-and-trends/industry-news/2025/the-rise-of-shadow-ai-auditing-unauthorized-ai-tools-in-the-enterprise" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">ISACA, 2025</a> — 47% of employees use AI through personal accounts outside IT oversight. <a href="https://www.kiteworks.com/cybersecurity-risk-management/employees-sharing-confidential-data-unauthorized-ai-tools/" target="_blank" rel="noopener" style="color:#AC9379;text-decoration:none;">Kiteworks, 2025</a> — Shadow AI breaches cost an average of $670,000 more than traditional incidents.</p></div></div>
+      <div class="gov-detail"><div class="gov-detail-inner"><p>Your CISO and compliance teams don't know which AI tools employees are using or what data flows through them. That means you can't audit AI usage against regulatory requirements, can't enforce data residency rules, and can't demonstrate due diligence if something goes wrong. One employee uploading customer PII to a public AI model puts your entire organization at regulatory risk.</p></div></div>
     </div>
   </div>
 
@@ -476,51 +465,14 @@
 </section>
 
 <section class="reg-callout">
-  <div class="reg-callout-inner">
-    <h2 class="reveal">The regulatory timeline is already here.</h2>
-    <p class="reg-lede reveal">More than 1,500 AI-related bills have been introduced across all 50 states. These are the deadlines that matter for mid-market companies.</p>
-
-    <div class="reg-timeline">
-      <div class="reg-milestone past reveal">
-        <div class="reg-date-label">February 2025 — Active</div>
-        <div class="reg-name">EU AI Act — Prohibited Practices & AI Literacy</div>
-        <div class="reg-desc">Banned AI practices now enforceable. Organizations deploying AI must demonstrate AI literacy across relevant staff.</div>
-      </div>
-
-      <div class="reg-milestone past reveal">
-        <div class="reg-date-label">August 2025 — Active</div>
-        <div class="reg-name">EU AI Act — General-Purpose AI Model Rules</div>
-        <div class="reg-desc">Obligations for providers of foundation models and GPAI systems. Transparency, documentation, and copyright compliance now required.</div>
-      </div>
-
-      <div class="reg-milestone imminent reveal">
-        <div class="reg-date-label">January 2026 — Active</div>
-        <div class="reg-name">California AI Transparency Laws</div>
-        <div class="reg-desc">Frontier developers must publish risk frameworks and report safety incidents. Training data transparency now required for all GenAI systems used in California.</div>
-      </div>
-
-      <div class="reg-milestone imminent reveal">
-        <div class="reg-date-label">June 2026</div>
-        <div class="reg-name">Colorado AI Act (SB 24-205)</div>
-        <div class="reg-desc">Deployers of high-risk AI systems must demonstrate reasonable care against algorithmic discrimination. Impact assessments, consumer disclosures, and documentation of AI decision-making required.</div>
-      </div>
-
-      <div class="reg-milestone reveal">
-        <div class="reg-date-label">August 2026</div>
-        <div class="reg-name">EU AI Act — Full Enforcement</div>
-        <div class="reg-desc">High-risk AI system rules activate. Transparency obligations for AI-generated content. Every EU member state must have an AI regulatory sandbox operational.</div>
-      </div>
-
-      <div class="reg-milestone reveal">
-        <div class="reg-date-label">August 2027</div>
-        <div class="reg-name">EU AI Act — Extended High-Risk Compliance</div>
-        <div class="reg-desc">Final compliance deadline for high-risk AI embedded in regulated products and GPAI models placed on market before August 2025.</div>
-      </div>
+  <div class="reg-callout-inner reveal">
+    <div class="reg-dates">
+      <div class="reg-date"><div class="reg-date-num">June 2026</div><div class="reg-date-what">Colorado AI Act</div></div>
+      <div class="reg-date"><div class="reg-date-num">August 2026</div><div class="reg-date-what">EU AI Act</div></div>
     </div>
-
-    <div class="reg-bottom reveal">
-      <p>The companies already governing AI won't scramble when these deadlines hit. The governance capabilities on this page aren't just good practice — <span style="color: #AC9379; font-weight: 600;">they're what regulators are about to require.</span></p>
-      <p class="reg-source">Sources: <a href="https://artificialintelligenceact.eu/implementation-timeline/" target="_blank" rel="noopener">EU AI Act Implementation Timeline</a> · <a href="https://www.kslaw.com/news-and-insights/new-state-ai-laws-are-effective-on-january-1-2026-but-a-new-executive-order-signals-disruption" target="_blank" rel="noopener">King & Spalding, 2026</a> · <a href="https://drata.com/blog/artificial-intelligence-regulations-state-and-federal-ai-laws-2026" target="_blank" rel="noopener">Drata State & Federal AI Laws, 2026</a></p>
+    <div class="reg-text">
+      <h3>The companies already governing AI won't have to scramble when regulation arrives.</h3>
+      <p>More than 1,500 AI-related bills have been introduced across all 50 states. Two major compliance deadlines hit this year. The governance capabilities above aren't just good practice — they're what regulators are about to require.</p>
     </div>
   </div>
 </section>
@@ -547,7 +499,7 @@
 
 <section class="footer-cta">
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
-    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9;">esulting</span>
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9; margin-left: -1px;">esulting</span>
   </div>
   <p class="tagline reveal">Assess · Identify · Result</p>
   <h2 class="reveal">What will you <strong style="color:#AC9379;">Unlock?</strong></h2>
