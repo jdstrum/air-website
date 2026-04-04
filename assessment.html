@@ -206,7 +206,7 @@ textarea.form-input { min-height:100px; resize:vertical; }
 // STATE
 // ============================================================
 const state = {
-  track: null,       // 'strategic' or 'technical'
+  track: null,       // set to 'strategic' at assessment start (unified assessment)
   contact: { firstName:'', lastName:'', email:'', company:'', title:'' },
   profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[] },
   answers: {},
@@ -232,190 +232,92 @@ const DIM_NAMES = {
 };
 
 // ============================================================
-// STRATEGIC TRACK QUESTIONS (S1-S18)
+// UNIFIED ASSESSMENT QUESTIONS (18 questions, best of both tracks)
 // ============================================================
-const STRATEGIC_QUESTIONS = [
+const UNIFIED_QUESTIONS = [
   // D1 — Strategic Vision & Leadership
-  { id:'s1', dim:'D1', type:'likert', text:'Our organization has a documented AI strategy with clear ownership, defined milestones, and measurable business outcomes.' },
-  { id:'s2', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes \u2014 not exploration, but measurable results?', options:[
+  { id:'q1', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes \u2014 not exploration, but measurable results?', options:[
     {text:'A dedicated AI leader or team with cross-functional authority and budget',score:4},
     {text:'A specific executive with defined goals',score:3},
     {text:'IT handles it as part of their general responsibilities',score:2},
     {text:'Someone has been informally tasked with figuring it out',score:1},
     {text:'Nobody \u2014 it hasn\u2019t been formally assigned',score:0}
   ]},
-  { id:'s3', dim:'D1', type:'likert', text:'If asked today, I could clearly articulate the business outcomes our AI investments have produced.' },
+  { id:'q2', dim:'D1', type:'likert', text:'Our organization has a documented AI strategy with clear ownership, defined milestones, and measurable business outcomes.' },
+  { id:'q3', dim:'D1', type:'likert', text:'If asked today, I could clearly articulate the business outcomes our AI investments have produced.' },
 
   // D2 — Data & Infrastructure
-  { id:'s4', dim:'D2', type:'scenario', text:'If you needed to pull a cross-functional dataset \u2014 combining sales, operations, finance, and customer data \u2014 how long would it take?', options:[
+  { id:'q4', dim:'D2', type:'scenario', text:'If you needed to pull a cross-functional dataset \u2014 combining sales, operations, finance, and customer data \u2014 how long would it take?', options:[
     {text:'Hours \u2014 our data is accessible and integrated across the business',score:4},
     {text:'A day or two \u2014 most of it is reachable but some assembly required',score:3},
     {text:'A week or more \u2014 it requires pulling from multiple systems and people',score:2},
     {text:'It would be a significant project \u2014 our data lives in silos',score:1},
     {text:'We can\u2019t \u2014 our systems don\u2019t talk to each other',score:0}
   ]},
-  { id:'s5', dim:'D2', type:'likert', text:'When I see a report or dashboard, I trust the numbers without needing to ask where they came from or who pulled them.' },
-  { id:'s6', dim:'D2', type:'likert', text:'I\u2019m confident our network and cloud environment could handle a significant increase in AI workload without major upgrades.' },
+  { id:'q5', dim:'D2', type:'likert', text:'We have a clear picture of our data landscape \u2014 where it lives, who owns it, how reliable it is, and what\u2019s classified.' },
+  { id:'q6', dim:'D2', type:'scenario', text:'Which best describes your cloud and infrastructure environment?', routeOption:true, options:[
+    {text:'Cloud-native with automated provisioning, scaling, and AI-ready compute',score:4},
+    {text:'Cloud-first with most production workloads running in managed cloud infrastructure',score:3},
+    {text:'Hybrid \u2014 some workloads in the cloud, some on-premise, with active migration',score:2},
+    {text:'Primarily on-premise with limited cloud adoption',score:1},
+    {text:'Mostly on-premise \u2014 cloud hasn\u2019t been a priority',score:0}
+  ]},
 
   // D3 — Governance & Security
-  { id:'s7', dim:'D3', type:'scenario', text:'How much visibility do you have into which AI tools your employees are actually using and what company data is flowing through them?', options:[
+  { id:'q7', dim:'D3', type:'scenario', text:'How much visibility do you have into which AI tools your employees are actually using and what company data is flowing through them?', options:[
     {text:'Full visibility \u2014 we know who\u2019s using what, with what data, on approved platforms',score:4},
     {text:'Good visibility \u2014 we\u2019ve deployed approved tools and track usage',score:3},
     {text:'Partial \u2014 we know some of it but couldn\u2019t give the full picture',score:2},
     {text:'Minimal \u2014 I know it\u2019s happening but couldn\u2019t tell you the specifics',score:1},
     {text:'None \u2014 and I\u2019m not sure I\u2019d know where to look',score:0}
   ]},
-  { id:'s8', dim:'D3', type:'likert', text:'Our organization has a written, documented policy governing how employees can and cannot use AI tools.' },
-  { id:'s9', dim:'D3', type:'likert', text:'The intelligence our people generate through AI \u2014 prompts, workflows, problem-solving approaches \u2014 is being captured and retained by the organization.' },
+  { id:'q8', dim:'D3', type:'likert', text:'Our organization has a written, documented policy governing how employees can and cannot use AI tools.' },
+  { id:'q9', dim:'D3', type:'likert', text:'AI interactions in our organization are captured on a governed platform where the intelligence flows back into the business \u2014 not trapped in individual accounts.' },
 
   // D4 — AI Spend & ROI
-  { id:'s10', dim:'D4', type:'scenario', text:'For the AI tools your organization has purchased \u2014 Copilot, Einstein, Now Assist, Zoom AI, or others \u2014 what percentage of licensed users actively use them on a regular basis?', options:[
-    {text:'75%+ \u2014 strong adoption across licensed users',score:4},
-    {text:'50\u201375% \u2014 more than half are active but there\u2019s a gap',score:3},
-    {text:'25\u201350% \u2014 we\u2019re paying for more than we\u2019re using',score:2},
-    {text:'Under 25% \u2014 most licenses sit unused',score:1},
-    {text:'I don\u2019t know \u2014 we haven\u2019t measured adoption against purchased seats',score:0}
+  { id:'q10', dim:'D4', type:'scenario', text:'If your CFO asked you today how much the organization spends on AI \u2014 licenses, compute, embedded features, cloud costs \u2014 how confident is your answer?', options:[
+    {text:'Precise \u2014 I can break it down by tool, team, and use case',score:4},
+    {text:'Reasonable estimate \u2014 I know the major line items but not the full picture',score:3},
+    {text:'Rough guess \u2014 I know some of it but AI costs are spread across budgets',score:2},
+    {text:'Not confident \u2014 AI spending is buried inside broader platform and cloud costs',score:1},
+    {text:'No idea \u2014 nobody has pulled it together',score:0}
   ]},
-  { id:'s11', dim:'D4', type:'likert', text:'I could identify every AI-related line item on our P&L and tell you which ones are producing measurable value.' },
-  { id:'s12', dim:'D4', type:'likert', text:'Our organization has reallocated or eliminated AI spending that wasn\u2019t producing results.' },
+  { id:'q11', dim:'D4', type:'likert', text:'I could identify every AI-related line item on our budget and tell you which ones are producing measurable value.' },
+  { id:'q12', dim:'D4', type:'likert', text:'Our organization has reallocated or eliminated AI spending that wasn\u2019t producing results.' },
 
   // D5 — Experience Layer
-  { id:'s13', dim:'D5', type:'scenario', cxGate:true, text:'How does your organization primarily interact with customers?', options:[
-    {text:'Advanced CX operation \u2014 AI-assisted routing, real-time analytics, omnichannel',score:4},
-    {text:'Integrated contact center with quality tools and workforce management',score:3},
-    {text:'Multi-channel support (phone, email, chat) with some automation',score:2},
-    {text:'Basic phone and email support with manual processes',score:1},
-    {text:'We don\u2019t operate customer-facing support operations',score:-1,skip:true}
+  { id:'q13', dim:'D5', type:'scenario', cxGate:true, text:'When a customer moves between channels \u2014 chat to phone to email \u2014 what happens to their context?', options:[
+    {text:'Full continuity \u2014 every channel shares context, history, and AI-generated insights in real time',score:4},
+    {text:'Mostly connected \u2014 agents can see prior interactions but some channels are siloed',score:3},
+    {text:'Partially \u2014 some channels talk to each other, others don\u2019t',score:2},
+    {text:'Minimal \u2014 customers repeat themselves across almost every channel',score:1},
+    {text:'We don\u2019t operate multi-channel customer support',score:-1,skip:true}
   ]},
-  { id:'s14', dim:'D5', type:'likert', text:'The intelligence generated in our meetings, strategy sessions, and team conversations is captured and accessible afterward \u2014 not trapped in the heads of whoever attended.' },
-  { id:'s15', dim:'D5', type:'likert', cxConditional:true, text:'When a customer contacts us through one channel and follows up through another, they don\u2019t have to repeat their story.' },
+  { id:'q14', dim:'D5', type:'likert', text:'The intelligence generated in our meetings, strategy sessions, and team conversations is captured and accessible afterward \u2014 not trapped in the heads of whoever attended.' },
+  { id:'q15', dim:'D5', type:'likert', cxConditional:true, text:'When a customer contacts us through one channel and follows up through another, they don\u2019t have to repeat their story.' },
 
   // D6 — Workforce & Adoption
-  { id:'s16', dim:'D6', type:'likert', text:'Our leadership team isn\u2019t just endorsing AI \u2014 they\u2019re personally using it, visibly championing it, and modeling the behavior they\u2019re asking for.' },
-  { id:'s17', dim:'D6', type:'scenario', text:'Do you know which people in your organization are already using AI in creative, high-impact ways?', options:[
-    {text:'Yes \u2014 we\u2019ve identified them and are building on their expertise across the organization',score:4},
-    {text:'We know who some of them are and are starting to leverage what they\u2019ve built',score:3},
-    {text:'I suspect they exist but couldn\u2019t name them',score:2},
-    {text:'No \u2014 we have no visibility into who\u2019s innovating with AI',score:1},
-    {text:'We haven\u2019t thought about it \u2014 AI adoption isn\u2019t something we track at the individual level',score:0}
+  { id:'q16', dim:'D6', type:'scenario', text:'When someone on your team builds something useful with AI \u2014 a workflow, a prompt, an automation \u2014 what happens next?', options:[
+    {text:'It gets documented, shared, and scaled across the organization',score:4},
+    {text:'Their manager notices and it spreads within the team',score:3},
+    {text:'It stays with that person \u2014 no system to capture or share it',score:2},
+    {text:'Nobody knows it happened',score:1},
+    {text:'We don\u2019t have anyone building with AI yet',score:0}
   ]},
-  { id:'s18', dim:'D6', type:'likert', text:'When we roll out a new technology or AI tool, most of the organization engages with it within weeks \u2014 not months.' }
+  { id:'q17', dim:'D6', type:'likert', text:'Our leadership team isn\u2019t just endorsing AI \u2014 they\u2019re personally using it, visibly championing it, and modeling the behavior they\u2019re asking for.' },
+  { id:'q18', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' }
 ];
 
-// Strategic dimension map
-const STRATEGIC_DIM_MAP = {
-  D1:['s1','s2','s3'], D2:['s4','s5','s6'], D3:['s7','s8','s9'],
-  D4:['s10','s11','s12'], D5:['s13','s14','s15'], D6:['s16','s17','s18']
+// Unified dimension map
+const UNIFIED_DIM_MAP = {
+  D1:['q1','q2','q3'], D2:['q4','q5','q6'], D3:['q7','q8','q9'],
+  D4:['q10','q11','q12'], D5:['q13','q14','q15'], D6:['q16','q17','q18']
 };
 
-// Strategic presentation order (mixed dimensions for engagement)
-const STRATEGIC_ORDER = ['s7','s5','s2','s18','s4','s13','s9','s3','s10','s16','s6','s15','s8','s1','s11','s14','s17','s12'];
+// Presentation order (mixed dimensions, no two consecutive from same dimension)
+const UNIFIED_ORDER = ['q7','q5','q1','q16','q4','q13','q8','q3','q10','q14','q12','q6','q9','q17','q11','q15','q2','q18'];
 
-// ============================================================
-// TECHNICAL TRACK QUESTIONS (T1-T18)
-// ============================================================
-const TECHNICAL_QUESTIONS = {
-  D1: [
-    { id:'t1', dim:'D1', type:'scenario', text:'Who owns AI initiatives in your organization, and what does that ownership actually look like?', options:[
-      {text:'C-level ownership with a steering committee, defined budget, and reporting structure',score:4},
-      {text:'A dedicated AI leader or team with cross-functional visibility and budget',score:3},
-      {text:'A specific leader has been designated, but scope and authority are still forming',score:2},
-      {text:'IT handles it as part of general responsibilities',score:1},
-      {text:'Nobody \u2014 there\u2019s no designated owner',score:0}
-    ]},
-    { id:'t2', dim:'D1', type:'likert', text:'Our AI initiatives are tied to a documented strategy with specific use cases, timelines, and measurable outcomes \u2014 not just general direction.' },
-    { id:'t3', dim:'D1', type:'likert', text:'Leadership gives AI the same rigor they give other strategic investments \u2014 defined budget, progress reviews, and accountability for outcomes.' }
-  ],
-  D2: [
-    { id:'t4', dim:'D2', type:'scenario', text:'If a new AI tool needed to pull data from three different core systems in your organization, how long would that integration take?', options:[
-      {text:'Hours \u2014 we have APIs, middleware, and a data platform that handles this routinely',score:4},
-      {text:'Days \u2014 we have integration infrastructure in place',score:3},
-      {text:'Weeks \u2014 we have some tooling but it takes coordination and IT support',score:2},
-      {text:'A month or more \u2014 significant custom work and IT involvement',score:1},
-      {text:'Months \u2014 we\u2019d need to build the connections from scratch',score:0}
-    ]},
-    { id:'t5', dim:'D2', type:'likert', text:'We have a clear picture of our data landscape \u2014 where it lives, who owns it, how reliable it is, and what\u2019s classified.' },
-    { id:'t6', dim:'D2', type:'scenario', text:'Which best describes your cloud and infrastructure environment?', options:[
-      {text:'Cloud-native with automated provisioning, scaling, and AI-ready compute',score:4},
-      {text:'Cloud-first with most production workloads running in managed cloud infrastructure',score:3},
-      {text:'Hybrid \u2014 some workloads in the cloud, some on-premise, with active migration',score:2},
-      {text:'Beginning cloud migration, but most workloads are still on-premise',score:1},
-      {text:'Primarily on-premise with limited cloud adoption',score:0}
-    ]}
-  ],
-  D3: [
-    { id:'t7', dim:'D3', type:'scenario', text:'When you audit AI tool usage across your organization, what do you typically find?', options:[
-      {text:'We have full visibility \u2014 approved tools, tracked usage, governed data flows',score:4},
-      {text:'We track sanctioned tools and have detection for unsanctioned ones',score:3},
-      {text:'We know about some usage but regularly discover tools we didn\u2019t know about',score:2},
-      {text:'We\u2019ve never run an audit but know shadow AI exists',score:1},
-      {text:'We have no visibility into what AI tools are being used or how',score:0}
-    ]},
-    { id:'t8', dim:'D3', type:'likert', text:'We have comprehensive AI governance \u2014 acceptable use policy, data classification for AI, tool authorization process, and output verification workflows.' },
-    { id:'t9', dim:'D3', type:'likert', text:'AI interactions in our organization are captured on a governed platform where the intelligence flows back into the business \u2014 not trapped in individual accounts.' }
-  ],
-  D4: [
-    { id:'t10', dim:'D4', type:'scenario', text:'If your CFO asked you today how much the organization spends on AI \u2014 licenses, compute, embedded features, cloud costs \u2014 how confident is your answer?', options:[
-      {text:'Precise \u2014 I can break it down by tool, team, and use case',score:4},
-      {text:'Reasonable estimate \u2014 I know the major line items but not the full picture',score:3},
-      {text:'Rough guess \u2014 I know some of it but AI costs are spread across budgets',score:2},
-      {text:'Not confident \u2014 AI spending is buried inside broader platform and cloud costs',score:1},
-      {text:'No idea \u2014 nobody has pulled it together',score:0}
-    ]},
-    { id:'t11', dim:'D4', type:'likert', text:'We know which AI tools have overlapping capabilities and have consolidated or eliminated the redundancy.' },
-    { id:'t12', dim:'D4', type:'likert', text:'When we deploy a new AI capability, we can project what it will cost at 2x and 5x adoption \u2014 compute, storage, and API calls included.' }
-  ],
-  D5: [
-    { id:'t13', dim:'D5', type:'scenario', cxGate:true, text:'When a customer moves between channels \u2014 chat to phone to email \u2014 what happens to their context?', options:[
-      {text:'Full continuity \u2014 every channel shares context, history, and AI-generated insights in real time',score:4},
-      {text:'Mostly connected \u2014 agents can see prior interactions but some channels are siloed',score:3},
-      {text:'Partially \u2014 some channels talk to each other, others don\u2019t',score:2},
-      {text:'Minimal \u2014 customers repeat themselves across almost every channel',score:1},
-      {text:'We don\u2019t operate multi-channel customer support',score:-1,skip:true}
-    ]},
-    { id:'t14', dim:'D5', type:'likert', text:'The intelligence from our meetings and collaboration tools \u2014 decisions, action items, key discussions \u2014 is captured automatically and searchable afterward.' },
-    { id:'t15', dim:'D5', type:'likert', cxConditional:true, text:'Our CX, UCaaS, and collaboration platforms share data at the integration layer \u2014 not just within each tool but across them.' }
-  ],
-  D6: [
-    { id:'t16', dim:'D6', type:'scenario', text:'When someone on your team builds something useful with AI \u2014 a workflow, a prompt, an automation \u2014 what happens next?', options:[
-      {text:'It gets documented, shared, and scaled across the organization',score:4},
-      {text:'Their manager notices and it spreads within the team',score:3},
-      {text:'It stays with that person \u2014 no system to capture or share it',score:2},
-      {text:'Nobody knows it happened',score:1},
-      {text:'We don\u2019t have anyone building with AI yet',score:0}
-    ]},
-    { id:'t17', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' },
-    { id:'t18', dim:'D6', type:'likert', text:'IT is positioned as an enabler of AI adoption, not a gatekeeper \u2014 teams can experiment within guardrails without waiting months for approval.' }
-  ]
-};
-
-const TECHNICAL_DIM_MAP = {
-  D1:['t1','t2','t3'], D2:['t4','t5','t6'], D3:['t7','t8','t9'],
-  D4:['t10','t11','t12'], D5:['t13','t14','t15'], D6:['t16','t17','t18']
-};
-
-// Technical presentation order (mixed dimensions for engagement)
-const TECHNICAL_ORDER = ['t7','t5','t1','t16','t4','t13','t9','t2','t10','t14','t12','t6','t8','t18','t11','t15','t3','t17'];
-
-// IT Section intros (v2 dimensions)
-const IT_INTROS = {
-  D1:{title:'Strategic Vision & Leadership',text:'How your organization thinks about AI at the strategic level \u2014 who owns it, whether there\u2019s a real plan, and how seriously leadership treats it.'},
-  D2:{title:'Data & Infrastructure',text:'AI is only as good as the data it can reach and the infrastructure it runs on. This section gets at both.'},
-  D3:{title:'Governance & Security',text:'Your employees are already using AI. Do you know which tools, what data is flowing out, and what intelligence is coming back?'},
-  D4:{title:'AI Spend & ROI',text:'You\u2019re paying for AI tools. Has anyone measured what they\u2019re actually producing?'},
-  D5:{title:'Experience Layer',text:'For companies with customer-facing operations, this is where AI pays back fastest. For everyone, internal collaboration intelligence matters.'},
-  D6:{title:'Workforce & Adoption',text:'The technology is ready. Your people may not be \u2014 and you probably don\u2019t know who your builders are.'}
-};
-
-// IT Section feedback (v2)
-const IT_FEEDBACK = {
-  D1:{strong:'Your leadership team has real ownership, budget, and direction for AI. That puts you ahead of the vast majority of mid-market companies we assess. What matters now is whether the rest of your architecture can support the ambition.',developing:'Strategic intent is there, but it hasn\u2019t fully translated into ownership, budget, or a documented plan. Most organizations are in exactly this position. The dimensions that follow will show you what a real plan needs to include.',early:'AI is on the radar but hasn\u2019t become a strategic priority with clear ownership. What matters is that you\u2019re here, asking the question.',newTerritory:'AI hasn\u2019t been a formal leadership conversation yet. But your employees are using AI tools whether leadership has engaged or not. This assessment will show you what\u2019s happening beneath the surface.'},
-  D2:{strong:'Your data is accessible, governed, and your infrastructure can handle what AI demands. That\u2019s rare. Most organizations we assess have data scattered across systems with no clear path to integration.',developing:'You have a sense of where your data lives, but accessibility and integration speed are limiting what AI can do. This is fixable and one of the highest-impact areas to address.',early:'Data quality, accessibility, and infrastructure are significant gaps. AI tools deployed on top of messy, siloed data will underperform. Before investing in platforms, this dimension needs attention.',newTerritory:'Your data and infrastructure environment isn\u2019t ready for AI workloads. That\u2019s an honest starting point and it\u2019s better to know now than after you\u2019ve spent budget on tools that can\u2019t reach the data they need.'},
-  D3:{strong:'You have AI governance policies in place, security posture is mature, and you\u2019re capturing intelligence from AI interactions. That\u2019s exceptional \u2014 most organizations have none of this.',developing:'Some governance exists but it\u2019s either incomplete or inconsistently enforced. The intelligence your people are generating through AI tools is partially visible but not systematically captured.',early:'AI governance is minimal or nonexistent. Your people are using AI tools and the organization has limited visibility into what\u2019s being used, what data is being shared, or what intelligence is being created.',newTerritory:'There are no AI-specific policies, limited security maturity, and no visibility into AI usage. Risk compounds every day the distance between usage and governance stays this wide. But that\u2019s also where the biggest opportunity lives.'},
-  D4:{strong:'AI spending is tracked, measured against outcomes, and actively optimized. You can articulate ROI by use case. Very few mid-market companies can say that \u2014 and it means every new AI investment you make builds on real spend discipline.',developing:'There\u2019s some awareness of AI spending, but the organization can\u2019t draw a clean line from AI investment to business outcome. Adoption rates against purchased licenses are probably uneven.',early:'You\u2019re spending on AI without the visibility to know what\u2019s producing. Budget goes to die in the space between what\u2019s purchased and what\u2019s actually used.',newTerritory:'AI spend has not been audited or measured against outcomes. Your people are proving demand for AI through tools you aren\u2019t paying for and can\u2019t see.'},
-  D5:{strong:'AI is embedded in how you serve customers and how your teams collaborate. Intelligence from interactions is being captured and built on.',developing:'AI is touching the experience layer in spots but isn\u2019t systematic. Your tools almost certainly do more than your organization uses them for.',early:'AI hasn\u2019t been meaningfully applied to customer experience or internal collaboration \u2014 the areas where you\u2019d see results first and most visibly.',skipped:'This section was not assessed based on your earlier response. Your organization\u2019s model doesn\u2019t require CX-specific assessment at this time.'},
-  D6:{strong:'Leadership supports AI adoption, your workforce engages with new tools, and you can identify your innovators. This is the lowest-scoring dimension across every industry we see, so being strong here is a genuine differentiator.',developing:'There\u2019s willingness, but the infrastructure for adoption isn\u2019t complete. Leadership support varies and you probably have innovators hiding in plain sight that you haven\u2019t identified yet.',early:'AI literacy is low and leadership engagement is limited. When new tools roll out, adoption is slow or uneven. This is the most common finding.',newTerritory:'The workforce isn\u2019t prepared for AI adoption, and leadership hasn\u2019t engaged with it as a priority. This is a culture challenge as much as a technology one.'}
-};
+// (Technical track removed — unified assessment uses UNIFIED_QUESTIONS above)
 
 // ============================================================
 // DIMENSIONAL INTERPRETATIONS (v2 results engine)
@@ -464,90 +366,55 @@ const DIM_INTERP = {
 // LOWEST-DIMENSION CALLOUTS (v2)
 // ============================================================
 const LOWEST_CALLOUT = {
-  strategic:{
-    D1:'Your AI ambitions haven\u2019t translated into ownership, measurement, or a plan the business can execute against. Without strategy, every other investment is uncoordinated.',
-    D2:'The data your organization relies on \u2014 and the infrastructure it runs on \u2014 aren\u2019t where they need to be for AI to work. This is the foundation layer. Everything else sits on top of it.',
-    D3:'Your employees are generating intelligence through AI tools every day. Right now that intelligence isn\u2019t being captured, governed, or protected. This is your most time-sensitive exposure.',
-    D4:'You\u2019re paying for AI that isn\u2019t producing. What you\u2019re purchasing and what\u2019s being used are far enough apart that the difference could fund the foundation work that actually delivers outcomes.',
-    D5:'Your customer operations and internal collaboration represent the fastest path to visible AI ROI \u2014 and right now that potential is untapped.',
-    D6:'The technology is ready but your organization\u2019s ability to adopt, champion, and build on AI tools is the constraint. Every other investment on this report either lands or stalls based on this dimension.'
-  },
-  technical:{
-    D1:'AI hasn\u2019t been formalized as a strategic priority with ownership, budget, and accountability for measurable outcomes.',
-    D2:'Data accessibility, integration speed, and infrastructure capacity are the constraints that will determine whether AI workloads succeed or stall.',
-    D3:'AI governance is incomplete. Policies, data classification, shadow AI detection, and intelligence capture aren\u2019t in place to manage what\u2019s already happening.',
-    D4:'AI spending lacks the visibility and measurement to distinguish investments from waste. Adoption rates against licensed seats likely reveal significant reallocation opportunity.',
-    D5:'Your experience layer \u2014 customer operations and internal collaboration \u2014 has significant room for AI integration that would produce measurable improvements.',
-    D6:'AI literacy, leadership engagement, and adoption velocity are the limiting factors. The technology is ahead of the organization\u2019s readiness to use it.'
-  }
+  D1:'Your AI ambitions haven\u2019t translated into ownership, measurement, or a plan the business can execute against. Without strategy, every other investment is uncoordinated.',
+  D2:'The data your organization relies on \u2014 and the infrastructure it runs on \u2014 aren\u2019t where they need to be for AI to work. This is the foundation layer. Everything else sits on top of it.',
+  D3:'Your employees are generating intelligence through AI tools every day. Right now that intelligence isn\u2019t being captured, governed, or protected. This is your most time-sensitive exposure.',
+  D4:'You\u2019re paying for AI that isn\u2019t producing. What you\u2019re purchasing and what\u2019s being used are far enough apart that the difference could fund the foundation work that actually delivers outcomes.',
+  D5:'Your customer operations and internal collaboration represent the fastest path to visible AI ROI \u2014 and right now that potential is untapped.',
+  D6:'The technology is ready but your organization\u2019s ability to adopt, champion, and build on AI tools is the constraint. Every other investment on this report either lands or stalls based on this dimension.'
 };
 
 // ============================================================
 // SKIP DIAGNOSIS PATTERNS (v2)
 // ============================================================
 function getSkipDiagnosis(scores) {
-  const track = state.track;
   // Pattern 1: Tools Without Foundation
   if (scores.D4 <= 40 && (scores.D2 <= 50 || scores.D3 <= 50)) {
-    return { name:'Tools Without Foundation', copy: track === 'strategic'
-      ? 'Your organization invested in AI tools before the layers beneath them were ready. It\u2019s the pattern we see most often \u2014 and it explains why the spending hasn\u2019t produced results. The tools work. They just can\u2019t reach the data they need, operate under governance that doesn\u2019t exist yet, or run on infrastructure that was built for a different era. The spend keeps flowing. The outcomes don\u2019t follow. Fixing it means going back to what was skipped: getting data accessible, putting governance in place, modernizing the infrastructure. Once those layers are in, the tools you\u2019ve already paid for start earning their keep.'
-      : 'Your environment has AI tools deployed on a foundation that can\u2019t fully support them. Data integration is too slow for AI workloads that need real-time access. Governance gaps mean usage is ungoverned and intelligence leaves the organization with every interaction. Infrastructure may be carrying workloads it was never designed for. The pattern: tools were purchased before the architecture was ready. Start with the layers that were skipped \u2014 consolidate data, stand up governance, modernize infrastructure. Once those are in place, the tools you\u2019ve already invested in start producing.'
-    };
+    return { name:'Tools Without Foundation', copy:'Your organization invested in AI tools before the layers beneath them were ready. It\u2019s the pattern we see most often \u2014 and it explains why the spending hasn\u2019t produced results. The tools work. They just can\u2019t reach the data they need, operate under governance that doesn\u2019t exist yet, or run on infrastructure that was built for a different era. The spend keeps flowing. The outcomes don\u2019t follow. Fixing it means going back to what was skipped: getting data accessible, putting governance in place, modernizing the infrastructure. Once those layers are in, the tools you\u2019ve already paid for start earning their keep.' };
   }
   // Pattern 2: Governance Gap
   if (scores.D3 <= 45 && scores.D3 <= Math.min(scores.D1,scores.D2,scores.D4,scores.D5||100,scores.D6)) {
-    return { name:'Governance Gap', copy: track === 'strategic'
-      ? 'Your biggest exposure is governance. Your employees are using AI tools right now \u2014 and most likely, nobody knows exactly which ones, what data flows through them, or what intelligence is being created. Every ungoverned AI interaction carries risk: proprietary data flowing into public models, regulatory exposure accumulating without anyone watching, organizational intelligence leaving the building permanently. Governance is also the fastest fix on this list. Policy, visibility, and a capture mechanism for what your people are already generating. That work needs to happen ahead of the regulatory deadlines already on the calendar \u2014 Colorado AI Act in June 2026, EU AI Act full enforcement in August 2026.'
-      : 'Governance is your most significant gap. Shadow AI is likely present and untracked. There\u2019s no comprehensive policy governing what tools are sanctioned, what data can flow where, or how AI-generated outputs are verified. The intelligence your people generate through AI interactions \u2014 prompts, workflows, problem-solving patterns \u2014 disappears into individual accounts the organization will never see again. Regulatory exposure compounds as AI legislation takes effect. The fix: classify your data, publish an acceptable use policy, detect shadow AI, build output verification into the workflow, and deploy a governed platform that captures intelligence. That\u2019s the layer that makes everything else safe to scale.'
-    };
+    return { name:'Governance Gap', copy:'Your biggest exposure is governance. Your employees are using AI tools right now \u2014 and most likely, nobody knows exactly which ones, what data flows through them, or what intelligence is being created. Every ungoverned AI interaction carries risk: proprietary data flowing into public models, regulatory exposure accumulating without anyone watching, organizational intelligence leaving the building permanently. Governance is also the fastest fix on this list. Policy, visibility, and a capture mechanism for what your people are already generating. That work needs to happen ahead of the regulatory deadlines already on the calendar \u2014 Colorado AI Act in June 2026, EU AI Act full enforcement in August 2026.' };
   }
   // Pattern 3: Data Bottleneck
   if (scores.D2 <= 45 && scores.D2 <= Math.min(scores.D1,scores.D3,scores.D4,scores.D5||100,scores.D6)) {
-    return { name:'Data Bottleneck', copy: track === 'strategic'
-      ? 'Data is your constraint. Information lives in systems across the business that don\u2019t talk to each other, and getting a cross-functional view takes weeks when it should take hours. AI tools deployed on fragmented data produce fragmented results \u2014 and that\u2019s why adoption stalls. People try the tools, get inconsistent outputs, and stop trusting them. The work is targeted integration \u2014 connecting core systems, standing up governed APIs, getting to a point where AI can reach what it needs fast enough to be useful. When the data layer works, everything above it starts working too.'
-      : 'Your data environment is the primary bottleneck for AI performance. Data is siloed across systems with limited cross-functional accessibility. Integration speed is too slow for AI workloads that need real-time or near-real-time data access. Quality, consistency, and governance of data sources likely vary across departments. The work that will move the needle most: build the integration layer, lock down data quality standards, implement governed APIs, and create pipelines that connect fragmented information into a single usable foundation. Every AI use case you pursue will succeed or fail based on whether the data underneath it is accessible and trustworthy.'
-    };
+    return { name:'Data Bottleneck', copy:'Data is your constraint. Information lives in systems across the business that don\u2019t talk to each other, and getting a cross-functional view takes weeks when it should take hours. AI tools deployed on fragmented data produce fragmented results \u2014 and that\u2019s why adoption stalls. People try the tools, get inconsistent outputs, and stop trusting them. The work is targeted integration \u2014 connecting core systems, standing up governed APIs, getting to a point where AI can reach what it needs fast enough to be useful. When the data layer works, everything above it starts working too.' };
   }
   // Pattern 4: Spending Blind
   if (scores.D4 <= 40) {
     const sorted = Object.entries(scores).filter(([k])=>scores[k]!==null).sort((a,b)=>a[1]-b[1]);
     const bottom2 = sorted.slice(0,2).map(s=>s[0]);
     if (bottom2.includes('D4')) {
-      return { name:'Spending Blind', copy: track === 'strategic'
-        ? 'You\u2019re spending on AI without the visibility to know what\u2019s producing. Licenses are active, invoices are paid, but adoption against purchased seats likely tells a different story than the budget line suggests. Meanwhile, your employees are proving demand for AI \u2014 just through tools you aren\u2019t paying for and can\u2019t see. Closing this gap means measuring what you have, eliminating what isn\u2019t being used, and redirecting that budget to foundation work that will produce outcomes. The delta between what\u2019s purchased and what\u2019s actually used often reveals budget that can be redirected without asking for new spending.'
-        : 'AI spend visibility is a significant gap. The organization is likely paying for AI capabilities across multiple platforms \u2014 Copilot, Einstein, Now Assist, embedded AI features \u2014 without clear measurement of adoption rates or business outcomes against investment. Unauthorized AI tools are filling the gaps the purchased tools left open. The remediation starts with a full audit: every AI-related line item matched to actual usage. The delta between purchased and active typically reveals real reallocation room \u2014 budget that can move to infrastructure, data integration, or governance work where it will actually produce.'
-      };
+      return { name:'Spending Blind', copy:'You\u2019re spending on AI without the visibility to know what\u2019s producing. Licenses are active, invoices are paid, but adoption against purchased seats likely tells a different story than the budget line suggests. Meanwhile, your employees are proving demand for AI \u2014 just through tools you aren\u2019t paying for and can\u2019t see. Closing this gap means measuring what you have, eliminating what isn\u2019t being used, and redirecting that budget to foundation work that will produce outcomes. The delta between what\u2019s purchased and what\u2019s actually used often reveals budget that can be redirected without asking for new spending.' };
     }
   }
   // Pattern 5: Experience Untapped
   const d5Score = scores.D5 !== null ? scores.D5 : 100;
   const overall = getOverallScore();
   if (d5Score <= 40 && overall >= 45) {
-    return { name:'Experience Untapped', copy: track === 'strategic'
-      ? 'Your foundation is stronger than your activation. Strategy, data, and governance have some structure in place \u2014 but the experience layer where AI delivers the most visible return is barely touched. On the customer side: interaction patterns, sentiment signals, churn indicators \u2014 all buried in conversations nobody is analyzing. On the internal side, it\u2019s the strategy session from Tuesday that\u2019s already gone \u2014 meeting intelligence, institutional knowledge, collaboration insights that disappear the moment the session ends. AI produces its fastest measurable ROI here, and the wins build internal credibility for everything that follows.'
-      : 'Your technical foundation scores higher than your experience layer deployment. Infrastructure and governance work is underway, but AI hasn\u2019t been meaningfully applied to customer experience or internal collaboration \u2014 the areas where it produces the most visible returns. Contact center operations, if you have them, are where AI pays back fastest in most mid-market environments \u2014 routing, sentiment analysis, automated QA, predictive analytics. Internal collaboration platforms almost certainly have AI capabilities bundled in current licenses that nobody has turned on yet. This is activation work \u2014 deploying what you\u2019ve already paid for on the foundation you\u2019ve already built.'
-    };
+    return { name:'Experience Untapped', copy:'Your foundation is stronger than your activation. Strategy, data, and governance have some structure in place \u2014 but the experience layer where AI delivers the most visible return is barely touched. On the customer side: interaction patterns, sentiment signals, churn indicators \u2014 all buried in conversations nobody is analyzing. Internally, it\u2019s the strategy session from Tuesday that\u2019s already gone \u2014 meeting intelligence, institutional knowledge, collaboration insights that disappear the moment the session ends. AI produces its fastest measurable ROI here, and the wins build internal credibility for everything that follows.' };
   }
   // Pattern 6: Leadership-Execution Gap
   if (scores.D1 >= 55 && (scores.D6 <= 40 || scores.D2 <= 40)) {
-    return { name:'Leadership-Execution Gap', copy: track === 'strategic'
-      ? 'Leadership sees the value of AI. There\u2019s directional commitment and strategic intent. But between the vision and the execution, something is stalling. Either the workforce isn\u2019t adopting at the pace the strategy requires, or the data and infrastructure underneath can\u2019t support what leadership is asking for. Somewhere between the boardroom and the building, AI initiatives are losing momentum. Closing that distance means connecting strategy to specific enablement paths, real training programs, and infrastructure work that turns intent into capability.'
-      : 'Strategic scores suggest leadership alignment on AI, but execution-layer dimensions tell a different story. The workforce may not be adopting at the rate strategy demands, or the data environment and infrastructure can\u2019t deliver on the commitments leadership has made. Strategic ambition outrunning operational readiness is something we see constantly. Start by closing the gaps in whichever dimensions scored lowest. Build enablement programs that connect approved tools to daily workflows. Improve data accessibility so AI tools actually work for the people expected to use them.'
-    };
+    return { name:'Leadership-Execution Gap', copy:'Leadership sees the value of AI. There\u2019s directional commitment and strategic intent. But between the vision and the execution, something is stalling. Either the workforce isn\u2019t adopting at the pace the strategy requires, or the data and infrastructure underneath can\u2019t support what leadership is asking for. Somewhere between the boardroom and the building, AI initiatives are losing momentum. Closing that distance means connecting strategy to specific enablement paths, real training programs, and infrastructure work that turns intent into capability.' };
   }
   // Pattern 7: Stronger Than You Think
   const allAbove40 = scores.D1 >= 40 && scores.D2 >= 40 && scores.D3 >= 40 && scores.D4 >= 40 && (scores.D5 === null || scores.D5 >= 40) && scores.D6 >= 40;
   if (overall >= 60 && allAbove40) {
-    return { name:'Stronger Than You Think', copy: track === 'strategic'
-      ? 'Your organization has built more foundation than most. No single dimension is critically weak, and the overall pattern shows intentional progress. What matters at this point is whether that foundation is compounding. Is the intelligence from AI interactions being captured and retained? Is ROI measured precisely enough to know where to invest next? Are the wins from early adopters scaling beyond the teams that created them? The organizations that pull ahead from here stop building foundation and start multiplying what they\u2019ve built.'
-      : 'Your technical environment shows meaningful readiness across all six dimensions. No critical gaps are present. The architecture supports AI workloads, governance has taken shape, and the workforce shows real adoption. At this level, the work is optimization: making sure AI interactions feed back into the organization as retained intelligence, that spend flows to the highest-impact use cases, and that the experience layer fully leverages what you\u2019ve built underneath.'
-    };
+    return { name:'Stronger Than You Think', copy:'Your organization has built more foundation than most. No single dimension is critically weak, and the overall pattern shows intentional progress. What matters at this point is whether that foundation is compounding. Is the intelligence from AI interactions being captured and retained? Is ROI measured precisely enough to know where to invest next? Are the wins from early adopters scaling beyond the teams that created them? The organizations that pull ahead from here stop building foundation and start multiplying what they\u2019ve built.' };
   }
   // Fallback
-  return { name:null, copy: track === 'strategic'
-    ? 'Your results reveal a specific readiness profile. Every mid-market company we assess falls somewhere on the continuum \u2014 from organizations just beginning to see what\u2019s happening in their environment to those compounding returns from a fully governed AI operation. The dimensional breakdown below shows which layers need attention and in what order.'
-    : 'Your results map to a specific position on the AI readiness continuum. The dimensional scores below identify which layers of the architecture are in place and which have gaps. The order matters \u2014 governance and data work come before platform deployment, infrastructure comes before scale. The breakdown below gives you the specific findings.'
-  };
+  return { name:null, copy:'Your results reveal a specific readiness profile. Every mid-market company we assess falls somewhere on the continuum \u2014 from organizations just beginning to see what\u2019s happening in their environment to those compounding returns from a fully governed AI operation. The dimensional breakdown below shows which layers need attention and in what order.' };
 }
 
 // ============================================================
@@ -579,12 +446,11 @@ const CTA_BODY = 'A Resultant is a senior technology advisor who works across 30
 // SCORING
 // ============================================================
 function getDimScore(dimId) {
-  const map = state.track === 'strategic' ? STRATEGIC_DIM_MAP : TECHNICAL_DIM_MAP;
-  const qIds = map[dimId];
+  const qIds = UNIFIED_DIM_MAP[dimId];
   let sum = 0, count = 0;
   qIds.forEach(id => {
     const a = state.answers[id];
-    if (a !== undefined && a >= 0) { sum += a; count++; }
+    if (a !== undefined && a !== null && a >= 0) { sum += a; count++; }
   });
   if (count === 0) return 0;
   return Math.round((sum / (count * 4)) * 100);
@@ -595,9 +461,8 @@ function getOverallScore() {
   let total = 0, count = 0;
   dims.forEach(d => {
     if (d === 'D5' && state.cxSkipped) {
-      // Score D5 on 2 questions only (s14/t14 always scored; s15/t15 skipped)
-      const map = state.track === 'strategic' ? STRATEGIC_DIM_MAP : TECHNICAL_DIM_MAP;
-      const nonCxId = map.D5[1]; // s14 or t14 (meeting intelligence, always shown)
+      // Score D5 on 2 questions only (q14 always scored; q15 skipped)
+      const nonCxId = UNIFIED_DIM_MAP.D5[1]; // q14 (meeting intelligence, always shown)
       const a = state.answers[nonCxId];
       if (a !== undefined && a >= 0) { total += Math.round((a / 4) * 100); count++; }
       return;
@@ -611,8 +476,7 @@ function getOverallScore() {
 function getDimScoreForResults(dimId) {
   if (dimId === 'D5' && state.cxSkipped) {
     // Only score on the one non-conditional, non-gate question
-    const map = state.track === 'strategic' ? STRATEGIC_DIM_MAP : TECHNICAL_DIM_MAP;
-    const nonCxId = map.D5[1]; // s14 or t14
+    const nonCxId = UNIFIED_DIM_MAP.D5[1]; // q14
     const a = state.answers[nonCxId];
     if (a !== undefined && a >= 0) return Math.round((a / 4) * 100);
     return 0;
@@ -631,22 +495,6 @@ function getTierColor(tier) {
   return {Foundational:'#B85C4F',Developing:'#C4956A',Advancing:'#5B8A72',Leading:'#7A8B6F'}[tier] || '#AC9379';
 }
 
-function getITFeedbackLevel(dimId) {
-  const map = TECHNICAL_DIM_MAP;
-  const qIds = map[dimId];
-  let sum = 0, count = 0;
-  qIds.forEach(id => {
-    const a = state.answers[id];
-    if (a !== undefined && a >= 0) { sum += a; count++; }
-  });
-  if (count === 0) return 'skipped';
-  const avg = sum / count;
-  if (avg >= 3) return 'strong';
-  if (avg >= 2) return 'developing';
-  if (avg >= 1) return 'early';
-  return 'newTerritory';
-}
-
 // ============================================================
 // PERSONAL EMAIL DOMAINS
 // ============================================================
@@ -663,41 +511,24 @@ function buildScreens() {
   s.push({type:'profile-radio', id:'size', text:'How many employees does your organization have?', options:['Under 100','100\u2013500','500\u20131,000','1,000\u20132,000','Over 2,000']});
   s.push({type:'profile-radio', id:'revenue', text:'What is your approximate annual revenue?', options:['Under $50M','$50M\u2013$150M','$150M\u2013$500M','$500M\u2013$1B','Over $1B']});
 
-  // Questions — both tracks use mixed order across dimensions
-  if (state.track === 'strategic') {
-    const qMap = {};
-    STRATEGIC_QUESTIONS.forEach(q => qMap[q.id] = q);
-    STRATEGIC_ORDER.forEach((id, i) => {
-      s.push({type:'question', q:qMap[id], num:i+1, total:18});
-    });
-  } else {
-    const tqMap = {};
-    Object.values(TECHNICAL_QUESTIONS).flat().forEach(q => tqMap[q.id] = q);
-    TECHNICAL_ORDER.forEach((id, i) => {
-      s.push({type:'question', q:tqMap[id], num:i+1, total:18});
-    });
-  }
+  // Questions — unified, mixed order across dimensions
+  const qMap = {};
+  UNIFIED_QUESTIONS.forEach(q => qMap[q.id] = q);
+  UNIFIED_ORDER.forEach((id, i) => {
+    s.push({type:'question', q:qMap[id], num:i+1, total:18});
+  });
 
-  // Urgency context (multi-select, track-specific)
-  if (state.track === 'strategic') {
-    s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s weighing on you most right now?', hint:'Select all that apply', options:[
-      'Board or investor pressure to show AI ROI',
-      'Competitors moving faster on AI',
-      'AI spending without measurable returns',
-      'Employees using AI tools without oversight',
-      'Don\u2019t know where to start or what to prioritize',
-      'Worried we\u2019re falling behind'
-    ]});
-  } else {
-    s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s weighing on you most right now?', hint:'Select all that apply', options:[
-      'Shadow AI spreading without visibility or controls',
-      'Data scattered across too many systems to integrate',
-      'Infrastructure not ready for AI workloads',
-      'Security or compliance risk from unmanaged AI',
-      'Handed "figure out AI" without dedicated budget or headcount',
-      'Skills gaps on the team'
-    ]});
-  }
+  // Urgency context (multi-select)
+  s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s weighing on you most right now?', hint:'Select all that apply', options:[
+    'Board or investor pressure to show AI ROI',
+    'Competitors moving faster on AI',
+    'AI spending without measurable returns',
+    'Employees using AI tools without oversight or governance',
+    'Data scattered across too many systems to integrate',
+    'Don\u2019t know where to start or what to prioritize',
+    'Skills gaps across the team',
+    'Worried we\u2019re falling behind'
+  ]});
 
   // Barrier (multi select with tags, both tracks same)
   s.push({type:'tagMulti', tag:{id:'barrier', text:'What are the biggest things standing between your organization and effective AI adoption? Select all that apply.', options:[
@@ -791,8 +622,6 @@ function renderScreen(screen) {
     case 'question': renderQuestion(screen); break;
     case 'tag': renderTag(screen); break;
     case 'tagMulti': renderTagMulti(screen); break;
-    case 'section-intro': renderSectionIntro(screen); break;
-    case 'section-feedback': renderSectionFeedback(screen); break;
     case 'open-text': renderOpenText(screen); break;
     case 'results': renderResults(); break;
   }
@@ -828,9 +657,6 @@ function renderProfilePlatforms() {
     {name:'ERP / Finance', opts:['SAP','Oracle','NetSuite','Sage','Don\u2019t know','Other']},
     {name:'Cloud Platform', opts:['Microsoft Azure','AWS','Google Cloud','Don\u2019t know','Other']}
   ];
-  if (state.track === 'technical') {
-    cats.push({name:'IT Service Management', opts:['ServiceNow','Jira Service Management','Freshservice','None','Don\u2019t know','Other']});
-  }
   var selected = state.profile.platforms || [];
   app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
     '<div class="q-text">Which of these does your organization use today?</div>' +
@@ -894,6 +720,10 @@ function renderQuestion(screen) {
       '<span></span>' +
       '</div></div></div>';
   } else {
+    var routeBtn = '';
+    if (q.routeOption) {
+      routeBtn = '<button class="option-btn ' + (existing===null&&state.answers.hasOwnProperty(q.id)?'selected':'') + '" style="margin-top:8px;border-style:dashed;color:var(--gray);" onclick="selectRouteOption(\'' + q.id + '\',this)">Someone else in my organization would know this better</button>';
+    }
     app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
       '<div class="q-number">Question ' + screen.num + ' of ' + screen.total + '</div>' +
       '<div class="q-text">' + q.text + '</div>' +
@@ -901,6 +731,7 @@ function renderQuestion(screen) {
       q.options.map(function(o) {
         return '<button class="option-btn ' + (existing===o.score?'selected':'') + '" onclick="selectAnswer(\'' + q.id + '\',' + o.score + ',this,\'scenario\',' + (o.skip?'true':'false') + ',\'' + (q.cxGate?'cxGate':'') + '\')">' + o.text + '</button>';
       }).join('') +
+      routeBtn +
       '</div>' +
       '<div class="btn-row">' +
       '<a class="back-link" onclick="goBack()">Back</a>' +
@@ -917,6 +748,13 @@ function selectAnswer(id, score, el, type, isSkip, gateType) {
   var container = type === 'likert' ? document.querySelector('.likert-row') : document.getElementById('options');
   var selector = type === 'likert' ? '.likert-btn' : '.option-btn';
   container.querySelectorAll(selector).forEach(function(b) { b.classList.remove('selected'); });
+  el.classList.add('selected');
+  setTimeout(function() { goNext(); }, 600);
+}
+
+function selectRouteOption(id, el) {
+  state.answers[id] = null; // null = routed/delegated, excluded from scoring
+  document.querySelectorAll('#options .option-btn').forEach(function(b) { b.classList.remove('selected'); });
   el.classList.add('selected');
   setTimeout(function() { goNext(); }, 600);
 }
@@ -968,68 +806,6 @@ function toggleTag(id, tag, el) {
   document.getElementById('nextBtn').disabled = state.tags[id].length === 0;
 }
 
-function renderSectionIntro(screen) {
-  var info = IT_INTROS[screen.dim];
-  if (screen.dim === 'D5' && state.cxSkipped) {
-    app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-      '<div class="section-intro">' +
-      '<div class="dim-label">' + info.title + '</div>' +
-      '<p style="color:var(--gray);margin-top:16px;">Based on your earlier response, the customer experience questions don\u2019t apply. We\u2019ll focus on internal collaboration intelligence.</p>' +
-      '</div>' +
-      '<div style="text-align:center;margin-top:24px;">' +
-      '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-      '</div></div></div>';
-    return;
-  }
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="section-intro">' +
-    '<div class="dim-label">' + info.title + '</div>' +
-    '<p>' + info.text + '</p>' +
-    '</div>' +
-    '<div style="text-align:center;margin-top:24px;">' +
-    '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
-
-function renderSectionFeedback(screen) {
-  if (screen.dim === 'D5' && state.cxSkipped) {
-    // Show feedback based on the one non-gated question (t14)
-    var fb = IT_FEEDBACK[screen.dim];
-    var a = state.answers['t14'];
-    var level;
-    if (a === undefined) level = 'skipped';
-    else if (a >= 3) level = 'strong';
-    else if (a >= 2) level = 'developing';
-    else if (a >= 1) level = 'early';
-    else level = 'newTerritory';
-    if (level === 'skipped') { goNext(); return; }
-    var text = fb[level] || fb.developing;
-    var levelNames = {strong:'Strong',developing:'Developing',early:'Early',newTerritory:'New Territory'};
-    app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-      '<div class="section-feedback">' +
-      '<div class="feedback-label">' + DIM_NAMES[screen.dim] + ' Summary</div>' +
-      '<div class="feedback-level">' + levelNames[level] + '</div>' +
-      '<p>' + text + '</p>' +
-      '</div>' +
-      '<div style="text-align:center;margin-top:32px;">' +
-      '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-      '</div></div></div>';
-    return;
-  }
-  var level2 = getITFeedbackLevel(screen.dim);
-  var fb2 = IT_FEEDBACK[screen.dim];
-  var text2 = fb2[level2] || fb2.developing;
-  var levelNames2 = {strong:'Strong',developing:'Developing',early:'Early',newTerritory:'New Territory',skipped:'Skipped'};
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="section-feedback">' +
-    '<div class="feedback-label">' + DIM_NAMES[screen.dim] + ' Summary</div>' +
-    '<div class="feedback-level">' + levelNames2[level2] + '</div>' +
-    '<p>' + text2 + '</p>' +
-    '</div>' +
-    '<div style="text-align:center;margin-top:32px;">' +
-    '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
 
 function renderOpenText(screen) {
   var val = state.openText[screen.id] || '';
@@ -1090,8 +866,7 @@ function renderResults() {
     }
   });
 
-  var trackKey = state.track;
-  var callouts = LOWEST_CALLOUT[trackKey];
+  var callouts = LOWEST_CALLOUT;
   var ctaHeadline = CTA_HEADLINES[tier];
   var firstName = state.contact.firstName || '';
 
@@ -1118,11 +893,6 @@ function renderResults() {
       '<div class="dim-bar-track"><div class="dim-bar-fill" data-width="' + d.score + '%" style="width:0;background:' + tc + ';"><span>' + d.score + '%</span></div></div>' +
       '<div class="dim-bar-tier" style="color:' + tc + '">' + t + '</div></div>';
   });
-
-  // Cross-track text
-  var crossTrackText = state.track === 'strategic'
-    ? firstName + ', want the full picture? Share the Technical Assessment with your CIO or technology leader. When both perspectives are in, a Resultant has the complete diagnostic \u2014 what leadership sees and what the architecture shows.'
-    : firstName + ', want the full picture? Share the Strategic Assessment with your CEO or business leader. When both perspectives are in, a Resultant has the complete diagnostic \u2014 what the business needs and what the environment can deliver.';
 
   app.innerHTML =
     '<div class="results-header">' +
@@ -1162,14 +932,11 @@ function renderResults() {
     '<div class="cta-personal">' + firstName + ', your results are ready. If you want to talk about what comes next, we\u2019re here.</div>' +
     '<div class="cta-framing">' + ctaHeadline + '</div>' +
     '<div class="cta-body">' + CTA_BODY + '</div>' +
-    '<button class="btn-primary" onclick="window.open(\'mailto:info@airesulting.com?subject=Assessment%20Conversation%20Request&body=' + encodeURIComponent(firstName + ' ' + state.contact.lastName + ' from ' + state.contact.company + ' completed the ' + (state.track==='strategic'?'Strategic':'Technical') + ' AI Readiness Assessment (' + tier + ', ' + overall + '%).') + '\',\'_blank\')">Talk to a Resultant</button>' +
+    '<button class="btn-primary" onclick="window.open(\'mailto:info@airesulting.com?subject=Assessment%20Conversation%20Request&body=' + encodeURIComponent(firstName + ' ' + state.contact.lastName + ' from ' + state.contact.company + ' completed the AI Readiness Assessment (' + tier + ', ' + overall + '%).') + '\',\'_blank\')">Talk to a Resultant</button>' +
     '</div>' +
 
-    // Cross-track prompt
-    '<div class="cross-track">' +
-    '<p>' + crossTrackText + '</p>' +
-    '<button class="btn-secondary" onclick="shareAssessment()">Share the Assessment</button>' +
-    '</div>' +
+    // Routed questions note (if any were delegated)
+    getRoutedNote(firstName) +
 
     // Action row
     '<div class="action-row">' +
@@ -1197,8 +964,18 @@ function renderResults() {
 function shareAssessment() {
   var url = window.location.href;
   var subject = encodeURIComponent('AI Readiness Assessment');
-  var body = encodeURIComponent('I just completed the AI Resulting readiness assessment. Take the ' + (state.track==='strategic'?'Technical':'Strategic') + ' version so we can see the full picture together.\n\n' + url);
+  var body = encodeURIComponent('I just completed the AI Resulting readiness assessment. It takes about 10 minutes and maps where you stand across six dimensions of AI readiness.\n\n' + url);
   window.open('mailto:?subject=' + subject + '&body=' + body);
+}
+
+function getRoutedNote(firstName) {
+  // Check if any questions were routed (answer === null)
+  var routed = UNIFIED_QUESTIONS.filter(function(q) { return q.routeOption && state.answers[q.id] === null; });
+  if (routed.length === 0) return '';
+  return '<div class="cross-track">' +
+    '<p>' + firstName + ', you indicated that someone else in your organization would be better positioned to answer ' + (routed.length === 1 ? 'one question' : routed.length + ' questions') + ' on this assessment. Consider sharing it with your technology leader \u2014 their perspective would complete the picture, and a Resultant will have both views when you talk.</p>' +
+    '<button class="btn-secondary" onclick="shareAssessment()">Share the Assessment</button>' +
+    '</div>';
 }
 
 function emailResults() {
@@ -1241,25 +1018,11 @@ function showWelcome() {
     '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>' +
     '</div>' +
     '<h1 class="screen-title">Know Where You Stand.</h1>' +
-    '<p class="screen-sub" style="max-width:560px;margin:0 auto 24px;">Two assessments. One built for the boardroom, one built for the server room. Choose the lens that fits how you think about AI.</p>' +
+    '<p class="screen-sub" style="max-width:600px;margin:0 auto 20px;">AI readiness has two dimensions. The strategic side \u2014 vision, investment, governance \u2014 and the technical side \u2014 data, infrastructure, adoption. A CEO who knows the strategy but can\u2019t see the infrastructure is guessing. A CTO who knows the infrastructure but wasn\u2019t part of the strategy is building blind.</p>' +
+    '<p class="screen-sub" style="max-width:600px;margin:0 auto 24px;">This assessment covers both. Eighteen questions across six dimensions. Your results map to the AI Readiness Continuum with a personalized report and clear next steps.</p>' +
     '<p style="font-size:13px;color:var(--gray);margin:0 auto 32px;letter-spacing:0.02em;">Takes about 10 minutes.</p>' +
-    '<div style="display:flex;gap:16px;max-width:600px;margin:0 auto;flex-wrap:wrap;">' +
-    '<button class="option-btn" style="flex:1;min-width:260px;padding:28px 24px;text-align:center;" onclick="selectPathway(\'strategic\',this)">' +
-    '<strong style="display:block;margin-bottom:10px;font-size:18px;font-family:\'Trebuchet MS\',sans-serif;">Strategic Assessment</strong>' +
-    '<span style="font-size:14px;color:var(--gray);line-height:1.6;">How AI connects to business outcomes, investment priorities, and organizational readiness.</span>' +
-    '</button>' +
-    '<button class="option-btn" style="flex:1;min-width:260px;padding:28px 24px;text-align:center;" onclick="selectPathway(\'technical\',this)">' +
-    '<strong style="display:block;margin-bottom:10px;font-size:18px;font-family:\'Trebuchet MS\',sans-serif;">Technical Assessment</strong>' +
-    '<span style="font-size:14px;color:var(--gray);line-height:1.6;">How your infrastructure, data environment, and security posture support AI workloads.</span>' +
-    '</button>' +
-    '</div></div></div>';
-}
-
-function selectPathway(pathway, el) {
-  state.track = pathway;
-  document.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
-  el.classList.add('selected');
-  setTimeout(function() { renderContactGate(); }, 400);
+    '<button class="btn-primary" onclick="renderContactGate()" style="padding:16px 48px;font-size:16px;">Begin Assessment</button>' +
+    '</div></div>';
 }
 
 function renderContactGate() {
@@ -1326,6 +1089,7 @@ function validateContact() {
 }
 
 function startAssessment() {
+  state.track = 'strategic'; // unified assessment, set for results engine compatibility
   buildScreens();
   showScreen(0);
 }
