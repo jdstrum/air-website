@@ -479,10 +479,11 @@
       <p class="dl-intro reveal reveal-delay-1">A ready-to-implement governance policy built for mid-market companies. Data classification, tool authorization tiers, prohibited uses, incident response — everything your leadership team will ask for before your next board meeting.</p>
     </div>
     <div class="gated-form">
-      <form>
+      <form id="govKitForm">
         <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
-        <div class="form-group"><label for="email">Work Email</label><input type="email" id="email" name="email" placeholder="your@company.com" required></div>
+        <div class="form-group"><label for="email">Work Email</label><input type="email" id="email" name="email" placeholder="your@company.com" required><span id="emailError" style="display:none;color:#c0392b;font-size:13px;margin-top:4px;">Please enter a work email address.</span></div>
         <button type="submit" class="btn-download reveal reveal-delay-2">Download the Policy</button>
+        <p class="form-note">Your PDF will download immediately.</p>
       </form>
     </div>
   </div>
@@ -568,14 +569,42 @@ function toggleGov(item) {
   const nav = document.querySelector('.site-nav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 })();
-document.querySelector('form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  alert('Thank you, ' + name + '! Check your inbox at ' + email + ' for the Governance Kit.');
-  this.reset();
-});
-
+// Work-email validation + direct PDF download
+(function() {
+  var blockedDomains = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','outlook.com','live.com','aol.com','icloud.com','me.com','mac.com','mail.com','protonmail.com','proton.me','zoho.com','yandex.com','gmx.com','gmx.net','inbox.com','fastmail.com','hushmail.com','tutanota.com','msn.com','comcast.net','att.net','verizon.net','cox.net','charter.net','earthlink.net','sbcglobal.net','optonline.net','frontier.com','windstream.net'];
+  var form = document.getElementById('govKitForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var emailInput = document.getElementById('email');
+    var emailError = document.getElementById('emailError');
+    var email = emailInput.value.trim().toLowerCase();
+    var domain = email.split('@')[1] || '';
+    if (blockedDomains.indexOf(domain) !== -1) {
+      emailError.style.display = 'block';
+      emailInput.style.borderColor = '#c0392b';
+      return;
+    }
+    emailError.style.display = 'none';
+    emailInput.style.borderColor = '#DDD7D0';
+    var name = document.getElementById('name').value;
+    console.log('AUP lead:', { name: name, email: email, source: window.location.pathname, timestamp: new Date().toISOString() });
+    var link = document.createElement('a');
+    link.href = '/assets/AIR-AI-Acceptable-Use-Policy.pdf';
+    link.download = 'AIR-AI-Acceptable-Use-Policy.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#AC9379;margin-bottom:8px;">Your download has started.</h3><p style="font-size:15px;color:#6a6358;line-height:1.6;">Check your downloads folder for the AI Acceptable Use Policy.</p></div>';
+  });
+  var emailInput = document.getElementById('email');
+  if (emailInput) {
+    emailInput.addEventListener('input', function() {
+      document.getElementById('emailError').style.display = 'none';
+      emailInput.style.borderColor = '#DDD7D0';
+    });
+  }
+})();
 
 // Scroll progress bar
 (function() {
