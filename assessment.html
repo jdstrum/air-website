@@ -175,12 +175,18 @@ textarea.form-input { min-height:100px; resize:vertical; }
 .results-footer p { font-size:11px; color:var(--gray-light); }
 
 /* Responsive */
+@media(max-width:768px) {
+  .form-flex { flex-direction:column !important; }
+}
 @media(max-width:600px) {
   .screen { padding:40px 16px 60px; }
   .likert-row { flex-direction:column; }
-  .likert-btn { min-width:auto; }
+  .likert-btn { min-width:auto; padding:16px 12px; }
+  .chip { padding:12px 16px; }
   .btn-row { flex-direction:column-reverse; gap:16px; align-items:stretch; text-align:center; }
   .action-row { flex-direction:column; align-items:center; }
+  .results-header h1 { font-size:22px; }
+  .tier-score { font-size:36px; }
 }
 
 /* Print */
@@ -1034,7 +1040,7 @@ function renderContactGate() {
     '</div>' +
     '<h2 class="screen-title">Before we begin.</h2>' +
     '<p class="screen-sub">So we can build your personalized readiness report.</p>' +
-    '<div style="display:flex;gap:16px;">' +
+    '<div class="form-flex" style="display:flex;gap:16px;">' +
     '<div class="form-group" style="flex:1;">' +
     '<label>First Name</label>' +
     '<input class="form-input" type="text" id="contactFirstName" value="' + state.contact.firstName + '" placeholder="First name" oninput="state.contact.firstName=this.value;validateContact()">' +
@@ -1048,7 +1054,7 @@ function renderContactGate() {
     '<input class="form-input" type="email" id="contactEmail" value="' + state.contact.email + '" placeholder="you@company.com" oninput="state.contact.email=this.value;validateContact()" onblur="validateContact()">' +
     '<div class="form-error" id="emailError">Please use your work email address.</div>' +
     '</div>' +
-    '<div style="display:flex;gap:16px;">' +
+    '<div class="form-flex" style="display:flex;gap:16px;">' +
     '<div class="form-group" style="flex:1;">' +
     '<label>Company Name</label>' +
     '<input class="form-input" type="text" id="contactCompany" value="' + state.contact.company + '" placeholder="Your company" oninput="state.contact.company=this.value;validateContact()">' +

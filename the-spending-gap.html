@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
 <meta name="description" content="Your business is already paying for AI it isn't using. See the data on adoption gaps, license waste, and shadow AI — then find out where you stand.">
 <link rel="canonical" href="https://airesulting.vercel.app/the-spending-gap.html">
@@ -90,6 +91,7 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .sticky-cta a{display:flex;align-items:center;gap:8px;background:#AC9379;color:#FDFBF9;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}
 .sticky-cta a:hover{background:#967F67;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}
 .sticky-cta svg{width:16px;height:16px;}
+@media(max-width:600px){.sticky-cta{bottom:16px;right:16px;left:16px;}.sticky-cta a{width:100%;justify-content:center;}}
 .hero{padding:100px 8vw 80px;text-align:center;background:#2F2F2F;color:#FDFBF9;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%, rgba(172,147,121,0.08) 0%, transparent 60%),radial-gradient(ellipse at 70% 80%, rgba(122,139,111,0.06) 0%, transparent 50%);pointer-events:none;}
 .hero-label{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#AC9379;margin-bottom:24px;font-weight:600;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
@@ -218,7 +220,8 @@ body{font-family:"DM Sans",sans-serif;background:#FDFBF9;color:#2F2F2F;overflow-
 .contact-modal .contact-sub{font-size:15px;color:#9A9488;margin-bottom:32px;line-height:1.6;}
 .contact-form{display:flex;flex-direction:column;gap:14px;text-align:left;}
 .contact-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-@media(max-width:480px){.contact-row{grid-template-columns:1fr;}.contact-modal{padding:40px 24px 32px;}}
+@media(max-width:600px){.contact-row{grid-template-columns:1fr;}.contact-modal{padding:40px 24px 32px;}}
+@media(max-width:480px){.contact-modal{padding:40px 24px 32px;}}
 .contact-field{display:flex;flex-direction:column;}
 .contact-field label{font-size:12px;font-weight:600;color:#9A9488;margin-bottom:6px;letter-spacing:0.04em;text-transform:uppercase;}
 .contact-field input,.contact-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(221,215,208,0.15);border-radius:6px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:#FDFBF9;transition:all 0.3s;resize:none;}
