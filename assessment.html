@@ -252,7 +252,7 @@ const STRATEGIC_QUESTIONS = [
     {text:'A day or two \u2014 most of it is reachable but some assembly required',score:3},
     {text:'A week or more \u2014 it requires pulling from multiple systems and people',score:2},
     {text:'It would be a significant project \u2014 our data lives in silos',score:1},
-    {text:'I\u2019m not sure we could do it with current systems',score:0}
+    {text:'We can\u2019t \u2014 our systems don\u2019t talk to each other',score:0}
   ]},
   { id:'s5', dim:'D2', type:'likert', text:'When I see a report or dashboard, I trust the numbers without needing to ask where they came from or who pulled them.' },
   { id:'s6', dim:'D2', type:'likert', text:'I\u2019m confident our network and cloud environment could handle a significant increase in AI workload without major upgrades.' },
@@ -296,7 +296,8 @@ const STRATEGIC_QUESTIONS = [
     {text:'Yes \u2014 we\u2019ve identified them and are building on their expertise across the organization',score:4},
     {text:'We know who some of them are and are starting to leverage what they\u2019ve built',score:3},
     {text:'I suspect they exist but couldn\u2019t name them',score:2},
-    {text:'No \u2014 we have no visibility into who\u2019s innovating with AI',score:1}
+    {text:'No \u2014 we have no visibility into who\u2019s innovating with AI',score:1},
+    {text:'We haven\u2019t thought about it \u2014 AI adoption isn\u2019t something we track at the individual level',score:0}
   ]},
   { id:'s18', dim:'D6', type:'likert', text:'When we roll out a new technology or AI tool, most of the organization engages with it within weeks \u2014 not months.' }
 ];
@@ -329,8 +330,8 @@ const TECHNICAL_QUESTIONS = {
     { id:'t4', dim:'D2', type:'scenario', text:'If a new AI tool needed to pull data from three different core systems in your organization, how long would that integration take?', options:[
       {text:'Hours \u2014 we have APIs, middleware, and a data platform that handles this routinely',score:4},
       {text:'Days \u2014 we have integration infrastructure in place',score:3},
-      {text:'A few weeks with existing tools and moderate IT support',score:2},
-      {text:'Several weeks \u2014 significant IT involvement and custom work',score:1},
+      {text:'Weeks \u2014 we have some tooling but it takes coordination and IT support',score:2},
+      {text:'A month or more \u2014 significant custom work and IT involvement',score:1},
       {text:'Months \u2014 we\u2019d need to build the connections from scratch',score:0}
     ]},
     { id:'t5', dim:'D2', type:'likert', text:'We have a clear picture of our data landscape \u2014 where it lives, who owns it, how reliable it is, and what\u2019s classified.' },
@@ -380,7 +381,8 @@ const TECHNICAL_QUESTIONS = {
       {text:'It gets documented, shared, and scaled across the organization',score:4},
       {text:'Their manager notices and it spreads within the team',score:3},
       {text:'It stays with that person \u2014 no system to capture or share it',score:2},
-      {text:'Nobody knows it happened',score:1}
+      {text:'Nobody knows it happened',score:1},
+      {text:'We don\u2019t have anyone building with AI yet',score:0}
     ]},
     { id:'t17', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' },
     { id:'t18', dim:'D6', type:'likert', text:'IT is positioned as an enabler of AI adoption, not a gatekeeper \u2014 teams can experiment within guardrails without waiting months for approval.' }
