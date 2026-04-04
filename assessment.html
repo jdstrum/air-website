@@ -354,43 +354,46 @@ const TECHNICAL_QUESTIONS = {
     { id:'t9', dim:'D3', type:'likert', text:'AI interactions in our organization are captured on a governed platform where the intelligence flows back into the business \u2014 not trapped in individual accounts.' }
   ],
   D4: [
-    { id:'t10', dim:'D4', type:'scenario', text:'For the AI tools your organization has purchased \u2014 Copilot, Einstein, Now Assist, or others \u2014 how does actual usage compare to licensed seats?', options:[
-      {text:'75%+ active usage \u2014 strong adoption across licensed users',score:4},
-      {text:'50\u201375% \u2014 more than half are active, but there\u2019s a meaningful gap',score:3},
-      {text:'25\u201350% \u2014 we\u2019re paying for significantly more than we\u2019re using',score:2},
-      {text:'Under 25% \u2014 most licenses sit unused',score:1},
-      {text:'We haven\u2019t measured adoption against purchased seats',score:0}
+    { id:'t10', dim:'D4', type:'scenario', text:'If your CFO asked you today how much the organization spends on AI \u2014 licenses, compute, embedded features, cloud costs \u2014 how confident is your answer?', options:[
+      {text:'Precise \u2014 I can break it down by tool, team, and use case',score:4},
+      {text:'Reasonable estimate \u2014 I know the major line items but not the full picture',score:3},
+      {text:'Rough guess \u2014 I know some of it but AI costs are spread across budgets',score:2},
+      {text:'Not confident \u2014 AI spending is buried inside broader platform and cloud costs',score:1},
+      {text:'No idea \u2014 nobody has pulled it together',score:0}
     ]},
-    { id:'t11', dim:'D4', type:'likert', text:'We have visibility into every AI-related line item \u2014 licenses, compute, cloud costs \u2014 and can tie each one to a specific use case or business outcome.' },
-    { id:'t12', dim:'D4', type:'likert', text:'We have actively consolidated redundant AI tools or eliminated licenses that weren\u2019t being used.' }
+    { id:'t11', dim:'D4', type:'likert', text:'We know which AI tools have overlapping capabilities and have consolidated or eliminated the redundancy.' },
+    { id:'t12', dim:'D4', type:'likert', text:'When we deploy a new AI capability, we can project what it will cost at 2x and 5x adoption \u2014 compute, storage, and API calls included.' }
   ],
   D5: [
-    { id:'t13', dim:'D5', type:'scenario', cxGate:true, text:'How does your organization handle customer interactions and support?', options:[
-      {text:'Advanced CX operation \u2014 AI-assisted routing, real-time analytics, predictive capabilities',score:4},
-      {text:'Integrated contact center with workforce management and quality tools',score:3},
-      {text:'Multi-channel support (phone, email, chat) with some automation',score:2},
-      {text:'Basic phone and email with manual processes',score:1},
-      {text:'We don\u2019t operate customer support or contact center operations',score:-1,skip:true}
+    { id:'t13', dim:'D5', type:'scenario', cxGate:true, text:'When a customer moves between channels \u2014 chat to phone to email \u2014 what happens to their context?', options:[
+      {text:'Full continuity \u2014 every channel shares context, history, and AI-generated insights in real time',score:4},
+      {text:'Mostly connected \u2014 agents can see prior interactions but some channels are siloed',score:3},
+      {text:'Partially \u2014 some channels talk to each other, others don\u2019t',score:2},
+      {text:'Minimal \u2014 customers repeat themselves across almost every channel',score:1},
+      {text:'We don\u2019t operate multi-channel customer support',score:-1,skip:true}
     ]},
-    { id:'t14', dim:'D5', type:'likert', text:'Our collaboration tools capture and distribute meeting intelligence \u2014 summaries, action items, decisions \u2014 automatically, not manually.' },
-    { id:'t15', dim:'D5', type:'likert', cxConditional:true, text:'Our customer communication channels are integrated \u2014 a customer who starts on chat and calls in doesn\u2019t have to repeat their story.' }
+    { id:'t14', dim:'D5', type:'likert', text:'The intelligence from our meetings and collaboration tools \u2014 decisions, action items, key discussions \u2014 is captured automatically and searchable afterward.' },
+    { id:'t15', dim:'D5', type:'likert', cxConditional:true, text:'Our CX, UCaaS, and collaboration platforms share data at the integration layer \u2014 not just within each tool but across them.' }
   ],
   D6: [
-    { id:'t16', dim:'D6', type:'likert', text:'Leadership is actively driving AI adoption \u2014 not just approving it, but visibly using AI tools themselves and championing adoption as a strategic priority.' },
-    { id:'t17', dim:'D6', type:'scenario', text:'When your organization rolls out a new AI-powered tool, what typically happens?', options:[
-      {text:'Rapid adoption \u2014 people find applications beyond what we intended',score:4},
-      {text:'Strong adoption within weeks, supported by training and leadership encouragement',score:3},
-      {text:'Moderate \u2014 some teams embrace it, others ignore it for months',score:2},
-      {text:'A few early adopters try it, but most stick with what they know',score:1},
-      {text:'It mostly sits unused',score:0}
+    { id:'t16', dim:'D6', type:'scenario', text:'When someone on your team builds something useful with AI \u2014 a workflow, a prompt, an automation \u2014 what happens next?', options:[
+      {text:'It gets documented, shared, and scaled across the organization',score:4},
+      {text:'Their manager notices and it spreads within the team',score:3},
+      {text:'It stays with that person \u2014 no system to capture or share it',score:2},
+      {text:'Nobody knows it happened',score:1}
     ]},
-    { id:'t18', dim:'D6', type:'likert', text:'We have identified our most innovative AI users and are systematically building on what they\u2019ve created.' }
+    { id:'t17', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' },
+    { id:'t18', dim:'D6', type:'likert', text:'IT is positioned as an enabler of AI adoption, not a gatekeeper \u2014 teams can experiment within guardrails without waiting months for approval.' }
   ]
 };
 
 const TECHNICAL_DIM_MAP = {
   D1:['t1','t2','t3'], D2:['t4','t5','t6'], D3:['t7','t8','t9'],
   D4:['t10','t11','t12'], D5:['t13','t14','t15'], D6:['t16','t17','t18']
+};
+
+// Technical presentation order (mixed dimensions for engagement)
+const TECHNICAL_ORDER = ['t7','t5','t1','t16','t4','t13','t9','t2','t10','t14','t12','t6','t8','t18','t11','t15','t3','t17']
 };
 
 // IT Section intros (v2 dimensions)
@@ -659,30 +662,18 @@ function buildScreens() {
   s.push({type:'profile-radio', id:'size', text:'How many employees does your organization have?', options:['Under 100','100\u2013500','500\u20131,000','1,000\u20132,000','Over 2,000']});
   s.push({type:'profile-radio', id:'revenue', text:'What is your approximate annual revenue?', options:['Under $50M','$50M\u2013$150M','$150M\u2013$500M','$500M\u2013$1B','Over $1B']});
 
-  // AI tools (Technical track only)
-  if (state.track === 'technical') {
-    s.push({type:'profile-checkbox', id:'aiTools', text:'Which AI tools are you aware of being used in your organization?', hint:'Select all that apply', options:['Microsoft Copilot','ChatGPT / OpenAI','Google Gemini','Claude (Anthropic)','Midjourney / DALL-E','GitHub Copilot','Industry-specific AI tools','I suspect AI tools are being used but I don\u2019t have full visibility']});
-  }
-
-  // Questions
+  // Questions — both tracks use mixed order across dimensions
   if (state.track === 'strategic') {
-    // Strategic: questions in mixed order
     const qMap = {};
     STRATEGIC_QUESTIONS.forEach(q => qMap[q.id] = q);
     STRATEGIC_ORDER.forEach((id, i) => {
       s.push({type:'question', q:qMap[id], num:i+1, total:18});
     });
   } else {
-    // Technical: grouped by dimension with section intros and feedback
-    const dimOrder = ['D1','D2','D3','D4','D5','D6'];
-    let qNum = 0;
-    dimOrder.forEach(dim => {
-      s.push({type:'section-intro', dim:dim});
-      TECHNICAL_QUESTIONS[dim].forEach(q => {
-        qNum++;
-        s.push({type:'question', q:q, num:qNum, total:18});
-      });
-      s.push({type:'section-feedback', dim:dim});
+    const tqMap = {};
+    Object.values(TECHNICAL_QUESTIONS).flat().forEach(q => tqMap[q.id] = q);
+    TECHNICAL_ORDER.forEach((id, i) => {
+      s.push({type:'question', q:tqMap[id], num:i+1, total:18});
     });
   }
 
@@ -707,8 +698,8 @@ function buildScreens() {
     ]});
   }
 
-  // Barrier (single select with tags, both tracks same)
-  s.push({type:'tag', tag:{id:'barrier', text:'What is the single biggest thing standing between your organization and effective AI adoption?', options:[
+  // Barrier (multi select with tags, both tracks same)
+  s.push({type:'tagMulti', tag:{id:'barrier', text:'What are the biggest things standing between your organization and effective AI adoption? Select all that apply.', options:[
     {text:'No clear roadmap \u2014 too many options, no starting point',tag:'Strategy'},
     {text:'Budget and ROI uncertainty',tag:'ROI'},
     {text:'Data isn\u2019t ready \u2014 too scattered, messy, or siloed',tag:'Data'},
@@ -798,6 +789,7 @@ function renderScreen(screen) {
     case 'profile-checkbox': renderProfileCheckbox(screen); break;
     case 'question': renderQuestion(screen); break;
     case 'tag': renderTag(screen); break;
+    case 'tagMulti': renderTagMulti(screen); break;
     case 'section-intro': renderSectionIntro(screen); break;
     case 'section-feedback': renderSectionFeedback(screen); break;
     case 'open-text': renderOpenText(screen); break;
@@ -949,6 +941,30 @@ function selectTag(id, tag, el) {
   document.querySelectorAll('#options .option-btn').forEach(function(b) { b.classList.remove('selected'); });
   el.classList.add('selected');
   document.getElementById('nextBtn').disabled = false;
+}
+
+function renderTagMulti(screen) {
+  var tag = screen.tag;
+  var existing = state.tags[tag.id] || [];
+  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
+    '<div class="q-text">' + tag.text + '</div>' +
+    '<div id="options">' +
+    tag.options.map(function(o) {
+      return '<button class="option-btn ' + (existing.indexOf(o.tag)>-1?'selected':'') + '" onclick="toggleTag(\'' + tag.id + '\',\'' + o.tag + '\',this)">' + o.text + '</button>';
+    }).join('') +
+    '</div>' +
+    '<div class="btn-row">' +
+    '<a class="back-link" onclick="goBack()">Back</a>' +
+    '<button class="btn-primary" id="nextBtn" ' + (existing.length?'':'disabled') + ' onclick="goNext()">Continue</button>' +
+    '</div></div></div>';
+}
+
+function toggleTag(id, tag, el) {
+  if (!state.tags[id] || !Array.isArray(state.tags[id])) state.tags[id] = [];
+  var idx = state.tags[id].indexOf(tag);
+  if (idx > -1) { state.tags[id].splice(idx, 1); el.classList.remove('selected'); }
+  else { state.tags[id].push(tag); el.classList.add('selected'); }
+  document.getElementById('nextBtn').disabled = state.tags[id].length === 0;
 }
 
 function renderSectionIntro(screen) {
