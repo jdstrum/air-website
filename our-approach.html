@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
-<meta name="description" content="AI Resulting pairs a readiness assessment with a network of 300+ technology partners. No pitch. Just a clear picture of where you are and a plan to close the gaps.">
+<meta name="description" content="AI Resulting pairs a readiness assessment with a network of 300+ technology partners. Seven architecture layers — from secure AI gateway and governance to data intelligence, connectivity, security, enablement, and CX — each matched to the right solution. No pitch. Just clarity.">
 <link rel="canonical" href="https://airesulting.vercel.app/our-approach.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://airesulting.vercel.app/our-approach.html">
@@ -23,7 +23,7 @@
   "@type": "WebPage",
   "@id": "https://airesulting.vercel.app/our-approach.html",
   "name": "Our Approach — AI Resulting",
-  "description": "How the Resultant model works: independent AI readiness advisory that maps your gaps to the right solutions from a network of 300+ technology partners.",
+  "description": "How the Resultant model works: independent AI readiness advisory across seven architecture layers — platform, governance, intelligence, connectivity, security, enablement, and scale — each mapped to the right solution from a network of 300+ technology partners.",
   "isPartOf": {"@id": "https://airesulting.vercel.app/#website"},
   "about": {"@id": "https://airesulting.vercel.app/#organization"},
   "url": "https://airesulting.vercel.app/our-approach.html"
@@ -47,7 +47,15 @@
       "name": "How is AI Resulting different from a consulting firm?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Traditional consulting firms charge for strategy and leave you to implement it. Vendors only see the problem their product solves. AI Resulting's model uses a Resultant who starts with your AI readiness assessment, maps gaps across six dimensions, and connects you with the right solutions from a network of 300+ technology partners — then stays with you for the life of the relationship."
+        "text": "Traditional consulting firms charge for strategy and leave you to implement it. Vendors only see the problem their product solves. AI Resulting's model uses a Resultant who starts with your AI readiness assessment, maps gaps across seven architecture layers, and connects you with the right solutions from a network of 300+ technology partners — then stays with you for the life of the relationship."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the seven layers of the AI readiness architecture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The AI readiness architecture spans seven layers: (1) Platform — secure AI gateway with managed model access, cost visibility, and agentic workflow automation; (2) Governance — acceptable use policies, shadow AI detection, DSAR automation, consent management, and NIST-aligned risk assessments; (3) Intelligence — data readiness, analytics platforms, system integration, and organizational knowledge capture; (4) Connectivity — managed networking, SD-WAN, colocation, and hybrid cloud infrastructure; (5) Security — SASE, zero-trust access, AI traffic visibility, and real-time threat detection; (6) Enablement — training, adoption, collaboration tools, and virtual desktop environments; (7) Scale — AI-powered contact center, unified communications, agent assist, and production AI deployment."
       }
     }
   ]
@@ -485,6 +493,11 @@ body {
   width:fit-content;
   margin-bottom:8px;
 }
+.layer-caps { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.layer-cap { font-size:11px; color:var(--camel); font-weight:600; background:rgba(172,147,121,0.08); padding:4px 10px; border-radius:3px; white-space:nowrap; letter-spacing:0.02em; }
+.layer-gap-link { display:inline-flex; align-items:center; gap:5px; font-size:13px; color:var(--camel); font-weight:600; text-decoration:none; margin-top:10px; transition:color 0.2s; }
+.layer-gap-link:hover { color:#967F67; }
+.layer-gap-link svg { width:13px; height:13px; }
 .layer-outcome {
   font-size:15px;
   color:#DDD7D0;
@@ -846,7 +859,8 @@ body {
       <div class="layer-num">1</div>
       <div>
         <span class="layer-name-pill">Platform</span>
-        <p class="layer-outcome">The AI gateway. Model access, cost visibility, intelligence capture. This is the immediate, visible first move.</p>
+        <p class="layer-outcome">The secure AI gateway. Managed model access, cost visibility, intelligence capture, and agentic workflow automation. This is the immediate, visible first move — the infrastructure layer that makes AI operationally real without requiring your team to build it from scratch.</p>
+        <div class="layer-caps"><span class="layer-cap">AI Gateway</span><span class="layer-cap">Managed Cloud</span><span class="layer-cap">Agentic Workflows</span><span class="layer-cap">Cost Visibility</span></div>
       </div>
     </div>
 
@@ -854,7 +868,9 @@ body {
       <div class="layer-num">2</div>
       <div>
         <span class="layer-name-pill">Governance</span>
-        <p class="layer-outcome">Policies, acceptable use, data classification. The capability that makes speed possible.</p>
+        <p class="layer-outcome">Acceptable use policies, data classification, AI inventory scanning, shadow AI detection, DSAR automation, consent management, and NIST-aligned risk assessments. The capability that makes speed possible — and the one regulators are about to require.</p>
+        <div class="layer-caps"><span class="layer-cap">Shadow AI Detection</span><span class="layer-cap">DSAR Automation</span><span class="layer-cap">Consent Management</span><span class="layer-cap">NIST AI RMF</span><span class="layer-cap">Bias Testing</span></div>
+        <a href="/the-governance-gap.html" class="layer-gap-link">Explore the Governance Gap <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -862,7 +878,9 @@ body {
       <div class="layer-num">3</div>
       <div>
         <span class="layer-name-pill">Intelligence</span>
-        <p class="layer-outcome">Data readiness, integration, organizational knowledge capture. The layer where AI starts compounding.</p>
+        <p class="layer-outcome">Data readiness, system integration, analytics platforms, and organizational knowledge capture. AI can't generate insight from data it can't reach. This layer connects fragmented systems and turns scattered data into a compounding strategic asset — accessible to business leaders in plain language, not just data engineers.</p>
+        <div class="layer-caps"><span class="layer-cap">Data Intelligence Cloud</span><span class="layer-cap">Predictive Analytics</span><span class="layer-cap">Natural Language Queries</span><span class="layer-cap">System Integration</span></div>
+        <a href="/the-data-gap.html" class="layer-gap-link">Explore the Data Gap <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -870,7 +888,9 @@ body {
       <div class="layer-num">4</div>
       <div>
         <span class="layer-name-pill">Connectivity</span>
-        <p class="layer-outcome">Network, cloud, compute. The infrastructure that everything else runs on.</p>
+        <p class="layer-outcome">Network, cloud, and compute — but designed for AI workloads, not just office traffic. Managed LAN/WAN, SD-WAN, high-density colocation, hybrid cloud environments, and the physical infrastructure that keeps proprietary data in your control. A gap here constrains everything above it.</p>
+        <div class="layer-caps"><span class="layer-cap">Managed LAN/WAN</span><span class="layer-cap">SD-WAN</span><span class="layer-cap">Colocation</span><span class="layer-cap">Hybrid Cloud</span><span class="layer-cap">High-Density Compute</span></div>
+        <a href="/the-spending-gap.html" class="layer-gap-link">Explore the Spending Gap <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -878,7 +898,9 @@ body {
       <div class="layer-num">5</div>
       <div>
         <span class="layer-name-pill">Security</span>
-        <p class="layer-outcome">Monitoring, endpoint governance, continuous protection. The layer that never sleeps.</p>
+        <p class="layer-outcome">SASE, zero-trust access, AI traffic visibility, and real-time threat detection across every layer. AI changes the security equation — your team needs visibility into every AI interaction traversing the network, not just traditional endpoint monitoring. This layer unifies network security and AI security into a single architecture.</p>
+        <div class="layer-caps"><span class="layer-cap">SASE</span><span class="layer-cap">Zero Trust</span><span class="layer-cap">AI Traffic Visibility</span><span class="layer-cap">Threat Detection</span><span class="layer-cap">DNS Security</span></div>
+        <a href="/the-governance-gap.html" class="layer-gap-link">Explore the Governance Gap <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -886,7 +908,9 @@ body {
       <div class="layer-num">6</div>
       <div>
         <span class="layer-name-pill">Enablement</span>
-        <p class="layer-outcome">Training, adoption, collaboration tools. Most platforms you already own have AI built in that nobody's using. This layer turns that into actual value.</p>
+        <p class="layer-outcome">Training, adoption, collaboration tools, and virtual desktop environments that give distributed teams secure access. Most platforms you already own have AI built in that nobody's using. This layer turns that latent capability into actual value — and gives cautious adopters a clear way to say yes.</p>
+        <div class="layer-caps"><span class="layer-cap">Virtual Desktops</span><span class="layer-cap">Adoption Programs</span><span class="layer-cap">Collaboration</span><span class="layer-cap">AI Training</span></div>
+        <a href="/the-imagination-gap.html" class="layer-gap-link">Explore the Imagination Gap <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -894,7 +918,9 @@ body {
       <div class="layer-num">7</div>
       <div>
         <span class="layer-name-pill">Scale</span>
-        <p class="layer-outcome">CX platforms, production AI, cross-functional deployment. Where readiness becomes results.</p>
+        <p class="layer-outcome">AI-powered contact center, unified communications, agent assist, sentiment analysis, conversational AI, and cross-functional production deployment. Where readiness becomes results — and where every customer interaction generates intelligence that makes the next one better.</p>
+        <div class="layer-caps"><span class="layer-cap">AI Contact Center</span><span class="layer-cap">Unified Communications</span><span class="layer-cap">Agent Assist</span><span class="layer-cap">Conversational AI</span></div>
+        <a href="/the-experience-gap.html" class="layer-gap-link">Explore the Experience Gap <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
     </div>
