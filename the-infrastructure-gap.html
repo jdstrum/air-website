@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- SEO / OG / AEO -->
+<meta name="description" content="AI workloads move massive data in real time. Most mid-market infrastructure was designed for email and file sharing. That's the infrastructure gap — and it's the reason AI pilots stall.">
+<meta name="keywords" content="AI infrastructure, AI-ready infrastructure, SD-WAN, cloud migration, edge compute, hybrid cloud, colocation, high-density compute, FinOps, network modernization, mid-market IT infrastructure, AI data center">
+<link rel="canonical" href="https://airesulting.vercel.app/the-infrastructure-gap.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://airesulting.vercel.app/the-infrastructure-gap.html">
+<meta property="og:title" content="The Infrastructure Gap — AI Resulting">
+<meta property="og:description" content="Your infrastructure wasn't built for what AI demands. SD-WAN, cloud, edge compute, high-density colocation — here's what AI-ready actually looks like.">
+<meta property="og:site_name" content="AI Resulting">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Infrastructure Gap — AI Resulting">
+<meta name="twitter:description" content="Your infrastructure wasn't built for what AI demands. SD-WAN, cloud, edge compute, high-density colocation — here's what AI-ready actually looks like.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://airesulting.vercel.app/the-infrastructure-gap.html",
+  "headline": "The Infrastructure Gap: Your Network Wasn't Built for AI",
+  "description": "AI workloads move massive data in real time. Most mid-market infrastructure was designed for email and file sharing. Here's what closing the infrastructure gap looks like.",
+  "author": {
+    "@id": "https://airesulting.vercel.app/#organization"
+  },
+  "publisher": {
+    "@id": "https://airesulting.vercel.app/#organization"
+  },
+  "mainEntityOfPage": "https://airesulting.vercel.app/the-infrastructure-gap.html",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "AI Infrastructure"
+    },
+    {
+      "@type": "Thing",
+      "name": "Network Modernization"
+    },
+    {
+      "@type": "Thing",
+      "name": "Cloud Migration"
+    }
+  ],
+  "keywords": "AI infrastructure, SD-WAN, cloud migration, edge compute, hybrid cloud, colocation, FinOps, network modernization, mid-market infrastructure"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AI-ready infrastructure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI-ready infrastructure includes managed cloud environments built for AI compute intensity, software-defined networking (SD-WAN) that eliminates bandwidth bottlenecks, edge compute for low-latency processing near sensitive data, high-density colocation capable of 50–80+ kW per cabinet for GPU workloads, and FinOps visibility to optimize spend as AI scales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't existing infrastructure handle AI workloads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most mid-market infrastructure was designed for email, file sharing, and traditional applications. AI workloads require 10–100x more compute density, real-time data movement across hybrid environments, GPU-accelerated processing, and network architectures that can handle massive parallel data flows — none of which legacy infrastructure was built to support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between cloud-ready and AI-ready infrastructure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cloud-ready means you've migrated to managed cloud with SD-WAN and scalable bandwidth. AI-ready goes further — it adds edge compute for sensitive data processing, high-density colocation for GPU workloads, hybrid architecture that keeps data close while scaling compute on demand, and FinOps discipline to manage the cost curve as AI usage grows."
+      }
+    }
+  ]
+}
+</script>
+<title>The Infrastructure Gap: Your Network Wasn't Built for AI — AI Resulting</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
+  body { color: #2F2F2F; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #FDFBF9; }
+
+  /* NAV */
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
+  .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+  .nav-logo .mark { background: #FDFBF9; color: #AC9379; border: 1px solid rgba(172,147,121,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
+  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379; letter-spacing: -0.02em; }
+  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; margin-left: -1px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
+  .nav-links a:hover { color: #AC9379; }
+  .nav-links a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #AC9379; }
+  .nav-dropdown-label.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
+  .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.06); }
+  .nav-dropdown-menu a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-links .nav-cta { background: #AC9379; color: #FDFBF9; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
+  .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
+  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#FDFBF9;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#FDFBF9;} }
+
+  /* HERO — horizontal split with capacity meter visual */
+  .hero { background: #2F2F2F; padding: 160px 8vw 100px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 20% 60%, rgba(122,139,111,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(172,147,121,0.06) 0%, transparent 50%); pointer-events: none; }
+  .hero-inner { max-width: 640px; position: relative; z-index: 1; }
+  .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; }
+  .hero h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 700; color: #FDFBF9; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 24px; }
+  .hero h1 em { font-style: normal; color: #AC9379; }
+  .hero-sub { font-size: clamp(16px, 1.8vw, 19px); color: rgba(253,251,249,0.65); line-height: 1.7; max-width: 520px; margin-bottom: 48px; }
+  .hero .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .hero .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+
+  /* CAPACITY METERS — unique to this page */
+  .meters { padding: 80px 8vw; background: #FDFBF9; }
+  .meters-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; text-align: center; }
+  .meters h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; color: #2F2F2F; text-align: center; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .meters-sub { font-size: 16px; color: #9A9488; text-align: center; max-width: 540px; margin: 0 auto 56px; line-height: 1.6; }
+  .meter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 900px; margin: 0 auto; }
+  .meter-card { text-align: center; padding: 32px 24px; border-radius: 12px; background: #F2EDE9; }
+  .meter-icon { width: 56px; height: 56px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .meter-icon svg { width: 28px; height: 28px; }
+  .meter-card h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #2F2F2F; margin-bottom: 12px; }
+  .meter-bar { height: 8px; background: #DDD7D0; border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+  .meter-fill { height: 100%; border-radius: 4px; width: 0; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+  .meter-fill.animated { width: var(--target); }
+  .meter-fill.over { background: linear-gradient(90deg, #AC9379, #967F67); }
+  .meter-fill.under { background: linear-gradient(90deg, #7A8B6F, #5f7054); }
+  .meter-labels { display: flex; justify-content: space-between; font-size: 11px; color: #9A9488; font-weight: 500; }
+  .meter-labels .demand { color: #AC9379; font-weight: 700; }
+  .meter-card p { font-size: 14px; color: #9A9488; line-height: 1.55; margin-top: 12px; }
+  @media (max-width: 768px) { .meter-grid { grid-template-columns: 1fr; max-width: 400px; } }
+
+  /* BIG STAT */
+  .big-stat { padding: 100px 8vw; text-align: center; background: #FDFBF9; }
+  .big-stat .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(80px, 12vw, 140px); font-weight: 700; color: #AC9379; line-height: 1; letter-spacing: -0.04em; }
+  .big-stat .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #2F2F2F; margin-top: 8px; letter-spacing: -0.02em; }
+  .big-stat .stat-sub { font-size: 16px; color: #9A9488; margin-top: 16px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .big-stat .source-note { font-size: 11px; color: #DDD7D0; margin-top: 12px; }
+  .big-stat .source-note a { color: #AC9379; text-decoration: none; }
+
+  /* FLOW VISUAL — the Legacy → AI-Ready journey */
+  .flow-visual { padding: 80px 8vw; background: #2F2F2F; text-align: center; color: #FDFBF9; position: relative; overflow: hidden; }
+  .flow-visual h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; color: #FDFBF9; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .flow-visual .flow-sub { font-size: 17px; color: #DDD7D0; margin-bottom: 56px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .flow-diagram { display: flex; align-items: flex-start; justify-content: center; gap: 0; max-width: 800px; margin: 0 auto; flex-wrap: wrap; }
+  .flow-stage { text-align: center; flex: 1; min-width: 140px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; }
+  .flow-stage-icon { width: 64px; height: 64px; min-width: 64px; min-height: 64px; max-width: 64px; max-height: 64px; border-radius: 50%; margin: 0 0 16px 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .flow-stage-icon svg { width: 28px; height: 28px; flex-shrink: 0; display: block; }
+  .flow-stage-icon.red { background: rgba(180, 90, 90, 0.15); border: 2px solid rgba(180, 90, 90, 0.4); }
+  .flow-stage-icon.amber { background: rgba(172, 147, 121, 0.15); border: 2px solid rgba(172, 147, 121, 0.4); }
+  .flow-stage-icon.green { background: rgba(122, 139, 111, 0.15); border: 2px solid rgba(122, 139, 111, 0.4); }
+  .flow-stage-icon.gold { background: rgba(172, 147, 121, 0.25); border: 2px solid #AC9379; }
+  .flow-stage h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #FDFBF9; margin-bottom: 6px; }
+  .flow-stage p { font-size: 13px; color: #9A9488; line-height: 1.5; }
+  .flow-arrow { color: #AC9379; font-size: 24px; flex-shrink: 0; opacity: 0.5; padding: 0 4px; margin-top: 44px; align-self: flex-start; }
+  @media (max-width: 768px) { .flow-arrow { display: none; } .flow-diagram { gap: 8px; } .flow-stage { min-width: 120px; } }
+
+  /* INFRASTRUCTURE CAPABILITIES — horizontal stats */
+  .infra { padding: 80px 8vw; background: #2F2F2F; color: #FDFBF9; }
+  .infra-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; text-align: center; }
+  .infra h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
+  .infra-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: left; }
+  .infra-item { padding: 28px 0; border-top: 3px solid #AC9379; }
+  .infra-item:nth-child(2) { border-top-color: #7A8B6F; }
+  .infra-item:nth-child(3) { border-top-color: #AC9379; }
+  .infra-item:nth-child(4) { border-top-color: #7A8B6F; }
+  .infra-item h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #FDFBF9; margin-bottom: 8px; white-space: nowrap; }
+  .infra-item p { font-size: 14px; color: #9A9488; line-height: 1.6; }
+  @media (max-width: 768px) { .infra-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .infra-row { grid-template-columns: 1fr; } }
+
+  /* SECOND STAT */
+  .stat-two { padding: 80px 8vw; background: #FDFBF9; text-align: center; }
+  .stat-two .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(60px, 10vw, 100px); font-weight: 700; color: #7A8B6F; line-height: 1; letter-spacing: -0.04em; }
+  .stat-two .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; color: #2F2F2F; margin-top: 8px; letter-spacing: -0.02em; }
+  .stat-two .stat-sub { font-size: 15px; color: #9A9488; margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+  /* SOLUTIONS */
+  .solutions { padding: 80px 8vw; background: #F2EDE9; }
+  .solutions h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
+  .solution-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .sol-item { background: #FDFBF9; border-radius: 10px; padding: 28px 24px; text-align: center; transition: all 0.3s; }
+  .sol-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(47, 47, 47, 0.06); }
+  .sol-icon { font-size: 28px; margin-bottom: 14px; display: block; color: #AC9379; }
+  .sol-item h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #2F2F2F; margin-bottom: 6px; }
+  .sol-item p { font-size: 14px; color: #7a7468; line-height: 1.55; }
+  @media (max-width: 768px) { .solution-strip { grid-template-columns: 1fr; } }
+
+  /* RESULTANT BRIDGE */
+  .resultant-bridge { padding: 48px 8vw 64px; background: #F2EDE9; text-align: center; }
+  .resultant-bridge-inner { max-width: 600px; margin: 0 auto; border-top: 2px solid #AC9379; padding-top: 36px; }
+  .resultant-bridge-inner h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: #2F2F2F; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .resultant-bridge-inner p { font-size: 15px; color: #7a7468; line-height: 1.7; margin-bottom: 28px; }
+  .btn-conversation { display: inline-block; background: transparent; color: #AC9379; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 6px; border: 2px solid #AC9379; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+  .btn-conversation:hover { background: #AC9379; color: #FDFBF9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.2); }
+
+  /* CONTACT MODAL */
+  .contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
+  .contact-overlay.open { opacity: 1; visibility: visible; }
+  .contact-modal { background: #2F2F2F; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
+  .contact-overlay.open .contact-modal { transform: translateY(0); }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+  .contact-close:hover { color: #FDFBF9; }
+  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+  .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
+  .contact-field { display: flex; flex-direction: column; }
+  .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FDFBF9; transition: all 0.3s; resize: none; }
+  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(221,215,208,0.35); }
+  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; background: rgba(255,255,255,0.1); }
+  .contact-submit { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
+  .contact-submit:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
+  .contact-success { display: none; text-align: center; padding: 40px 0; }
+  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #AC9379; margin-bottom: 12px; }
+  .contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
+
+  /* BUTTONS */
+  .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+
+  /* FOOTER CTA */
+  .footer-cta { background: #2F2F2F; padding: 120px 8vw; text-align: center; color: #FDFBF9; }
+  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #AC9379; font-style: italic; margin-bottom: 48px; }
+  .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #FDFBF9; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
+  .footer-cta .cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 80px; }
+  .footer-cta .cta-row .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
+  .footer-cta .cta-row .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .footer-cta > p { font-size: 13px; color: #9A9488; margin-top: 20px; }
+  .footer-cta > p a { color: #AC9379; text-decoration: underline; text-underline-offset: 3px; }
+  .footer-bottom { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .footer-bottom p { font-size: 13px; color: #9A9488; }
+  .footer-bottom a { color: #9A9488; text-decoration: none; }
+  .footer-bottom a:hover { color: #AC9379; }
+  .footer-logo-text { font-family: 'Trebuchet MS', sans-serif; font-weight: 600; }
+
+  /* SCROLL PROGRESS */
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #AC9379; z-index: 200; width: 0%; transition: width 0.1s linear; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* HAMBURGER */
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
+
+  @media (max-width: 768px) {
+    .site-nav { padding: 16px 6vw; }
+    .hero { padding: 130px 6vw 80px; }
+    .meters { padding: 60px 6vw; }
+    .big-stat { padding: 64px 6vw; }
+    .flow-visual { padding: 60px 6vw; }
+    .infra { padding: 60px 6vw; }
+    .stat-two { padding: 60px 6vw; }
+    .solutions { padding: 60px 6vw; }
+    .footer-cta { padding: 80px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
+  </a>
+  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-label active">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dropdown-menu">
+        <a href="/the-data-gap.html">The Data Gap</a>
+        <a href="/the-infrastructure-gap.html" class="active">The Infrastructure Gap</a>
+        <a href="/the-governance-gap.html">The Governance Gap</a>
+        <a href="/the-spending-gap.html">The Spending Gap</a>
+        <a href="/the-experience-gap.html">The Experience Gap</a>
+        <a href="/the-imagination-gap.html">The Imagination Gap</a>
+      </div>
+    </div>
+    <a href="/our-approach.html">Our Approach</a>
+    <a href="/field-notes.html">Field Notes</a>
+    <a href="#" onclick="event.preventDefault();document.getElementById('contactOverlay').classList.add('open');" style="cursor:pointer;">Book a Conversation</a>
+    <a href="assessment.html" class="nav-cta">Take the Assessment</a>
+  </div>
+</nav>
+
+<!-- HERO — dark, statement-driven, distinct from Data Gap's centered cream hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-label">The Infrastructure Gap</span>
+    <h1>Your network wasn't built for what <em>AI demands.</em></h1>
+    <p class="hero-sub">AI workloads move massive data in real time. Most mid-market infrastructure was designed for email and file sharing. The gap between what you have and what AI requires is measurable — in latency, in bandwidth, in compute density.</p>
+    <a href="assessment.html" class="btn-primary">Find Your Gaps</a>
+  </div>
+</section>
+
+<!-- CAPACITY METERS — unique visual motif for this page -->
+<section class="meters">
+  <span class="meters-label reveal">Where the gap shows up</span>
+  <h2 class="reveal reveal-delay-1">Three dimensions. One constraint.</h2>
+  <p class="meters-sub reveal reveal-delay-2">AI doesn't fail because the model is wrong. It fails because the infrastructure underneath can't keep up.</p>
+  <div class="meter-grid">
+    <div class="meter-card reveal">
+      <div class="meter-icon" style="background:rgba(172,147,121,0.1); border:2px solid rgba(172,147,121,0.3);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#AC9379" stroke-width="1.5" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h10"/><circle cx="20" cy="18" r="2" fill="#AC9379" opacity="0.3"/></svg>
+      </div>
+      <h3>Bandwidth</h3>
+      <div class="meter-bar"><div class="meter-fill over" style="--target:92%;"></div></div>
+      <div class="meter-labels"><span>Your capacity</span><span class="demand">AI demand</span></div>
+      <p>AI training and inference saturate traditional WAN links. Real-time data movement needs bandwidth that scales on demand.</p>
+    </div>
+    <div class="meter-card reveal reveal-delay-1">
+      <div class="meter-icon" style="background:rgba(122,139,111,0.1); border:2px solid rgba(122,139,111,0.3);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7A8B6F" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><rect x="7" y="7" width="4" height="4" rx="1"/><rect x="13" y="7" width="4" height="4" rx="1"/><rect x="7" y="13" width="4" height="4" rx="1"/><rect x="13" y="13" width="4" height="4" rx="1"/></svg>
+      </div>
+      <h3>Compute Density</h3>
+      <div class="meter-bar"><div class="meter-fill over" style="--target:85%;"></div></div>
+      <div class="meter-labels"><span>Your capacity</span><span class="demand">AI demand</span></div>
+      <p>GPU workloads need 50–80+ kW per cabinet. Most enterprise racks were built for 5–10 kW. The math doesn't work.</p>
+    </div>
+    <div class="meter-card reveal reveal-delay-2">
+      <div class="meter-icon" style="background:rgba(172,147,121,0.1); border:2px solid rgba(172,147,121,0.3);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#AC9379" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg>
+      </div>
+      <h3>Latency</h3>
+      <div class="meter-bar"><div class="meter-fill over" style="--target:78%;"></div></div>
+      <div class="meter-labels"><span>Your capacity</span><span class="demand">AI demand</span></div>
+      <p>AI inference at the edge needs sub-10ms response. Data traversing legacy hub-and-spoke networks can't get there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BIG STAT -->
+<section class="big-stat">
+  <div class="reveal">
+    <div class="number">10x</div>
+    <div class="stat-line">more compute density than traditional workloads.</div>
+    <div class="stat-sub">AI inference and training require GPU-accelerated environments that most mid-market data centers were never designed to support. The infrastructure gap isn't incremental — it's exponential.</div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE JOURNEY — visual progression -->
+<section class="flow-visual">
+  <h2 class="reveal">Where are you on the infrastructure journey?</h2>
+  <p class="flow-sub reveal reveal-delay-1">Most organizations are somewhere between legacy and hybrid. AI-ready is a destination that requires deliberate architecture — not just a cloud migration.</p>
+  <div class="flow-diagram reveal reveal-delay-2">
+    <div class="flow-stage">
+      <div class="flow-stage-icon red">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b45a5a" stroke-width="1.5"/><rect x="8" y="8" width="8" height="8" rx="1" fill="#b45a5a" opacity="0.3"/></svg>
+      </div>
+      <h3>Legacy</h3>
+      <p>On-prem servers, no cloud, hardware you've outgrown</p>
+    </div>
+    <div class="flow-arrow reveal reveal-delay-2">&rarr;</div>
+    <div class="flow-stage">
+      <div class="flow-stage-icon amber">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="8" height="12" rx="2" stroke="#AC9379" stroke-width="1.5"/><rect x="14" y="6" width="8" height="12" rx="2" stroke="#AC9379" stroke-width="1.5"/><line x1="10" y1="12" x2="14" y2="12" stroke="#AC9379" stroke-width="1.5" stroke-dasharray="2 2"/></svg>
+      </div>
+      <h3>Hybrid</h3>
+      <p>Part cloud, part on-prem, network bottlenecks everywhere</p>
+    </div>
+    <div class="flow-arrow reveal reveal-delay-2">&rarr;</div>
+    <div class="flow-stage">
+      <div class="flow-stage-icon green">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#7A8B6F" stroke-width="1.5"/><path d="M8 12 L11 15 L16 9" stroke="#7A8B6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Cloud-Ready</h3>
+      <p>Managed cloud, SD-WAN, bandwidth that scales on demand</p>
+    </div>
+    <div class="flow-arrow reveal reveal-delay-2">&rarr;</div>
+    <div class="flow-stage">
+      <div class="flow-stage-icon gold">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 15,10 22,10 16,15 18,22 12,18 6,22 8,15 2,10 9,10" stroke="#AC9379" stroke-width="1.5" fill="#AC9379" fill-opacity="0.15"/></svg>
+      </div>
+      <h3>AI-Ready</h3>
+      <p>Edge compute, GPU power, FinOps, hybrid infrastructure built for AI</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR CAPABILITIES -->
+<section class="infra">
+  <span class="infra-label reveal">What AI-ready infrastructure looks like</span>
+  <h2 class="reveal reveal-delay-1">Four capabilities. One foundation.</h2>
+  <div class="infra-row">
+    <div class="infra-item reveal">
+      <h3>Cloud that scales</h3>
+      <p>Managed environments built for AI compute intensity — not just file storage. Auto-provisioned, auto-scaled, compliance-ready.</p>
+    </div>
+    <div class="infra-item reveal reveal-delay-1">
+      <h3>Network that flows</h3>
+      <p>Software-defined architecture that eliminates bottlenecks as AI traffic spikes. Managed LAN and WAN with single-dashboard visibility.</p>
+    </div>
+    <div class="infra-item reveal reveal-delay-2">
+      <h3>Edge compute</h3>
+      <p>Sensitive data stays close. Processing power stays available. High-density colocation built for GPU workloads, not legacy racks.</p>
+    </div>
+    <div class="infra-item reveal reveal-delay-3">
+      <h3>Spend you can see</h3>
+      <p>FinOps visibility so you optimize what you have before adding more. Every dollar of cloud and compute spend accounted for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECOND STAT -->
+<section class="stat-two">
+  <div class="reveal">
+    <div class="number">87%</div>
+    <div class="stat-line">of AI projects never make it to production.</div>
+    <div class="stat-sub">The model works. The data is ready. But the network can't move it fast enough, the compute isn't dense enough, and the architecture wasn't built for real-time inference at scale. Infrastructure is the barrier cited most often.</div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions">
+  <h2 class="reveal">What closing the infrastructure gap looks like.</h2>
+  <div class="solution-strip">
+    <div class="sol-item reveal">
+      <span class="sol-icon">&#9729;</span>
+      <h3>Managed Cloud</h3>
+      <p>Environments built for AI throughput, security, and compliance — provisioned in weeks, not quarters.</p>
+    </div>
+    <div class="sol-item reveal reveal-delay-1">
+      <span class="sol-icon">&#8651;</span>
+      <h3>SD-WAN</h3>
+      <p>Software-defined networking that routes AI traffic intelligently and scales bandwidth on demand.</p>
+    </div>
+    <div class="sol-item reveal reveal-delay-2">
+      <span class="sol-icon">&#9878;</span>
+      <h3>High-Density Colocation</h3>
+      <p>50–80+ kW per cabinet. Purpose-built for GPU-accelerated AI workloads and real-time inference.</p>
+    </div>
+    <div class="sol-item reveal reveal-delay-1">
+      <span class="sol-icon">&#9671;</span>
+      <h3>Hybrid Architecture</h3>
+      <p>Sensitive data stays on-prem. Compute scales in the cloud. Connected by a network that knows the difference.</p>
+    </div>
+    <div class="sol-item reveal reveal-delay-2">
+      <span class="sol-icon">&#9673;</span>
+      <h3>FinOps</h3>
+      <p>Real-time visibility into cloud and compute spend. Optimize before you add — and know exactly where AI ROI is landing.</p>
+    </div>
+    <div class="sol-item reveal reveal-delay-3">
+      <span class="sol-icon">&#9740;</span>
+      <h3>Managed Networking</h3>
+      <p>Enterprise-grade LAN and WAN delivered as a service. One dashboard. One partner. No hardware refresh cycles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTANT BRIDGE -->
+<section class="resultant-bridge">
+  <div class="resultant-bridge-inner reveal">
+    <h3>You don't need to figure this out alone.</h3>
+    <p>The assessment shows you where the gaps are. A Resultant brings the right solutions to close them.</p>
+    <a href="#" class="btn-conversation" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
+    <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
+    <p class="contact-sub">A conversation about where you are and what's possible.</p>
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="contact-field">
+        <label for="cf-email">Work Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="contact-field">
+        <label for="cf-interest">What's on your mind?</label>
+        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Let's Connect</button>
+      <p class="contact-note">We'll reach out within one business day.</p>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <h3>We'll be in touch.</h3>
+      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
+    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9; margin-left: -1px;">esulting</span>
+  </div>
+  <p class="tagline reveal">Assess &middot; Identify &middot; Result</p>
+  <h2 class="reveal">What will you <strong style="color:#AC9379;">Build?</strong></h2>
+  <div class="cta-row reveal">
+    <a href="assessment.html" class="btn-primary">Get Started</a>
+  </div>
+  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
+  <div class="footer-bottom reveal">
+    <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
+</section>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// SCROLL PROGRESS
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('scrollProgress').style.width = (window.scrollY / h * 100) + '%';
+});
+
+// REVEAL ON SCROLL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Force-reveal hero elements already in viewport on load
+requestAnimationFrame(() => {
+  document.querySelectorAll('.hero .reveal').forEach(el => {
+    el.classList.add('visible');
+  });
+});
+
+// METER BAR ANIMATION
+const meterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.meter-fill').forEach(fill => fill.classList.add('animated'));
+      meterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.meter-grid').forEach(el => meterObserver.observe(el));
+
+// CONTACT FORM
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('contactSuccess');
+  const data = {
+    name: form.querySelector('#cf-name').value,
+    email: form.querySelector('#cf-email').value,
+    company: form.querySelector('#cf-company').value,
+    interest: form.querySelector('#cf-interest').value,
+    source: 'infrastructure-gap-page'
+  };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(() => { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+}
+</script>
+</body>
+</html>
