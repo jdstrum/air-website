@@ -160,17 +160,16 @@
   .stat-two .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; color: #2F2F2F; margin-top: 8px; letter-spacing: -0.02em; }
   .stat-two .stat-sub { font-size: 15px; color: #9A9488; margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
-  /* SOLUTION STRIP — icon + one-liner, no paragraphs */
-  .solutions { padding: 80px 8vw; background: #F2EDE9; }
-  .solutions h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
-  .solution-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
-  .sol-item { background: #FDFBF9; border-radius: 10px; padding: 28px 24px; text-align: center; transition: all 0.3s; }
-  .sol-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(47, 47, 47, 0.06); }
-  .sol-icon { font-size: 28px; margin-bottom: 14px; display: block; color: #AC9379; }
-  .sol-item h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #2F2F2F; margin-bottom: 6px; }
-  .sol-item p { font-size: 14px; color: #7a7468; line-height: 1.55; }
-  @media (max-width: 768px) { .solution-strip { grid-template-columns: 1fr; } }
-  @media (max-width: 600px) { .solution-strip { grid-template-columns: 1fr; } }
+  /* DATA CLOSER — numbered narrative points */
+  .data-closer { padding: 80px 8vw; background: #2F2F2F; color: #FDFBF9; }
+  .closer-inner { max-width: 720px; }
+  .data-closer h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 48px; letter-spacing: -0.02em; line-height: 1.2; }
+  .closer-points { display: flex; flex-direction: column; gap: 0; }
+  .closer-point { display: flex; gap: 24px; padding: 28px 0; border-top: 1px solid rgba(221,215,208,0.12); }
+  .closer-point:first-child { border-top: none; }
+  .closer-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 28px; font-weight: 700; color: #AC9379; line-height: 1; min-width: 36px; flex-shrink: 0; }
+  .closer-point h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #FDFBF9; margin-bottom: 8px; line-height: 1.4; }
+  .closer-point p { font-size: 15px; color: #9A9488; line-height: 1.65; }
 
   /* RESULTANT BRIDGE */
   .resultant-bridge { padding: 48px 8vw 64px; background: #F2EDE9; text-align: center; }
@@ -556,39 +555,32 @@
   </div>
 </section>
 
-<!-- SOLUTIONS — clean icon grid, one-liners -->
-<section class="solutions">
-  <h2 class="reveal">What closing the data gap looks like.</h2>
-  <div class="solution-strip">
-    <div class="sol-item reveal">
-      <span class="sol-icon">&#9671;</span>
-      <h3>Unified Data Platform</h3>
-      <p>One intelligence layer connecting CRM, ERP, and operations — so AI has the full picture, not fragments.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-1">
-      <span class="sol-icon">&#9729;</span>
-      <h3>Natural Language Analytics</h3>
-      <p>Ask your data a question in plain English. Get an answer in seconds. No SQL. No data science team required.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-2">
-      <span class="sol-icon">&#8651;</span>
-      <h3>Predictive Modeling</h3>
-      <p>Self-learning algorithms that forecast demand, flag risk, and optimize operations as conditions change.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-1">
-      <span class="sol-icon">&#9878;</span>
-      <h3>No-Code Innovation</h3>
-      <p>Domain experts build and iterate on models without writing a line of code. Knowledge becomes capability overnight.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-2">
-      <span class="sol-icon">&#9740;</span>
-      <h3>Data Governance</h3>
-      <p>Classification, access controls, and compliance guardrails before AI touches anything regulated.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-3">
-      <span class="sol-icon">&#9673;</span>
-      <h3>Continuous Optimization</h3>
-      <p>Reinforcement learning agents that monitor processes across finance, supply chain, and sales in real time.</p>
+<!-- WHAT CHANGES — narrative closer, not a card grid -->
+<section class="data-closer">
+  <div class="closer-inner reveal">
+    <h2>Close the data gap and everything above it accelerates.</h2>
+    <div class="closer-points">
+      <div class="closer-point reveal reveal-delay-1">
+        <span class="closer-num">01</span>
+        <div>
+          <h3>One intelligence layer replaces the spreadsheet scramble.</h3>
+          <p>CRM, ERP, operations, and every other system connected into a unified foundation AI can actually use.</p>
+        </div>
+      </div>
+      <div class="closer-point reveal reveal-delay-2">
+        <span class="closer-num">02</span>
+        <div>
+          <h3>Your business leaders become data users overnight.</h3>
+          <p>Natural language access means anyone can ask a question and get an answer — no SQL, no ticket, no waiting.</p>
+        </div>
+      </div>
+      <div class="closer-point reveal reveal-delay-3">
+        <span class="closer-num">03</span>
+        <div>
+          <h3>AI stops being a pilot and starts being a business tool.</h3>
+          <p>Predictive models, no-code innovation, and continuous optimization — built by the people who know the business best.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -596,8 +588,8 @@
 <!-- RESULTANT BRIDGE -->
 <section class="resultant-bridge">
   <div class="resultant-bridge-inner reveal">
-    <h3>You don't need to figure this out alone.</h3>
-    <p>The assessment shows you where the gaps are. A Resultant brings the right solutions to close them.</p>
+    <h3>Your data doesn't need another dashboard. It needs a plan.</h3>
+    <p>A Resultant maps the gaps, identifies the right solutions, and brings them to you through a single relationship.</p>
     <a href="#" class="btn-conversation" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
   </div>
 </section>
