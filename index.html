@@ -313,10 +313,31 @@
     color: #DDD7D0;
     line-height: 1.7;
     max-width: 600px;
-    margin-bottom: 48px;
+    margin-bottom: 0;
     animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
     opacity: 0;
   }
+
+  .hero-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 48px;
+    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    opacity: 0;
+  }
+
+  .hero-stack-line {
+    font-family: 'Trebuchet MS', Georgia, serif;
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  .hero-stack-line:nth-child(1) { color: #DDD7D0; }
+  .hero-stack-line:nth-child(2) { color: #AC9379; }
+  .hero-stack-line:nth-child(3) { color: #7A8B6F; }
 
   .hero .cta-row {
     display: flex;
@@ -1096,7 +1117,12 @@
       <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
     </div>
     <h1>Clarity first.</h1>
-    <p class="subtitle"><strong style="color:#AC9379;font-size:clamp(20px, 2.4vw, 28px);line-height:1.3;display:inline-block;margin-bottom:8px;">Your guide to AI Readiness.</strong><br>What you have. What you need. Who can deliver it.</p>
+    <p class="subtitle"><strong style="color:#FDFBF9;font-size:clamp(20px, 2.4vw, 28px);line-height:1.3;display:inline-block;margin-bottom:16px;">Your guide to AI <span style="color:#AC9379;">R</span>eadiness.</strong></p>
+    <div class="hero-stack">
+      <span class="hero-stack-line">What you have.</span>
+      <span class="hero-stack-line">What you need.</span>
+      <span class="hero-stack-line">Who can deliver it.</span>
+    </div>
     <div class="cta-row">
       <a href="assessment.html" class="btn-primary">Take the Assessment</a>
       <a href="/our-approach.html" class="btn-ghost">See how it works &rarr;</a>
