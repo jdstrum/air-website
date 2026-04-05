@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
-<meta name="description" content="Most mid-market companies have data scattered across dozens of systems that don't talk to each other — and infrastructure that wasn't built for AI. That's the data gap.">
+<meta name="description" content="Most mid-market companies have data scattered across dozens of systems that don't talk to each other. 73% of enterprise data goes unused. That's the data gap — and it's why AI pilots fail.">
 <link rel="canonical" href="https://airesulting.vercel.app/the-data-gap.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://airesulting.vercel.app/the-data-gap.html">
 <meta property="og:title" content="The Data Gap — AI Resulting">
-<meta property="og:description" content="73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and running on infrastructure that can handle it.">
+<meta property="og:description" content="73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and accessible to the people who need it.">
 <meta property="og:site_name" content="AI Resulting">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Data Gap — AI Resulting">
-<meta name="twitter:description" content="73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and running on infrastructure that can handle it.">
+<meta name="twitter:description" content="73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and accessible to the people who need it.">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">
 {
@@ -38,14 +38,14 @@
     },
     {
       "@type": "Thing",
-      "name": "AI Infrastructure"
+      "name": "Data Intelligence"
     },
     {
       "@type": "Thing",
       "name": "Data Integration"
     }
   ],
-  "keywords": "data readiness, AI data, enterprise data, data integration, mid-market AI, data gap, data consolidation"
+  "keywords": "data readiness, AI data, enterprise data, data integration, mid-market AI, data gap, data consolidation, data intelligence, no-code analytics, predictive analytics, data unification, citizen data scientist"
 }
 </script>
 <title>The Data Gap: Your AI Is Only as Good as What Feeds It — AI Resulting</title>
@@ -111,36 +111,48 @@
   @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
   @media (max-width: 480px) { .problem-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-  /* FLOW VISUAL — the disconnected → connected journey */
-  .flow-visual { padding: 80px 8vw; background: #2F2F2F; text-align: center; color: #FDFBF9; position: relative; overflow: hidden; }
-  .flow-visual h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; color: #FDFBF9; margin-bottom: 16px; letter-spacing: -0.02em; }
-  .flow-visual .flow-sub { font-size: 17px; color: #DDD7D0; margin-bottom: 56px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-  .flow-diagram { display: flex; align-items: flex-start; justify-content: center; gap: 0; max-width: 800px; margin: 0 auto; flex-wrap: wrap; }
-  .flow-stage { text-align: center; flex: 1; min-width: 140px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; }
-  .flow-stage-icon { width: 64px; height: 64px; min-width: 64px; min-height: 64px; max-width: 64px; max-height: 64px; border-radius: 50%; margin: 0 0 16px 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .flow-stage-icon svg { width: 28px; height: 28px; flex-shrink: 0; display: block; }
-  .flow-stage-icon.red { background: rgba(180, 90, 90, 0.15); border: 2px solid rgba(180, 90, 90, 0.4); }
-  .flow-stage-icon.amber { background: rgba(172, 147, 121, 0.15); border: 2px solid rgba(172, 147, 121, 0.4); }
-  .flow-stage-icon.green { background: rgba(122, 139, 111, 0.15); border: 2px solid rgba(122, 139, 111, 0.4); }
-  .flow-stage-icon.gold { background: rgba(172, 147, 121, 0.25); border: 2px solid #AC9379; }
-  .flow-stage h3 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #FDFBF9; margin-bottom: 6px; }
-  .flow-stage p { font-size: 13px; color: #9A9488; line-height: 1.5; }
-  .flow-arrow { color: #AC9379; font-size: 24px; flex-shrink: 0; opacity: 0.5; padding: 0 4px; margin-top: 44px; align-self: flex-start; }
-  @media (max-width: 768px) { .flow-arrow { display: none; } .flow-diagram { gap: 8px; } .flow-stage { min-width: 120px; } }
+  /* DATA JOURNEY — interactive accordion (distinct from Infrastructure's flow diagram) */
+  .data-journey { padding: 80px 8vw; background: #FDFBF9; }
+  .data-journey h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .data-journey .journey-lede { font-size: 16px; color: #9A9488; line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+  .journey-accordion { max-width: 720px; display: flex; flex-direction: column; gap: 0; }
+  .journey-step { border-bottom: 1px solid #E4DAD0; }
+  .journey-step:last-child { border-bottom: none; }
+  .journey-header { display: flex; align-items: center; gap: 20px; padding: 24px 0; cursor: pointer; user-select: none; transition: opacity 0.2s; }
+  .journey-header:hover { opacity: 0.7; }
+  .journey-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; min-width: 40px; }
+  .journey-step:nth-child(1) .journey-num { color: #9A9488; }
+  .journey-step:nth-child(2) .journey-num { color: #AC9379; }
+  .journey-step:nth-child(3) .journey-num { color: #7A8B6F; }
+  .journey-step:nth-child(4) .journey-num { color: #AC9379; }
+  .journey-title { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; letter-spacing: -0.01em; flex: 1; }
+  .journey-toggle { font-size: 20px; color: #AC9379; transition: transform 0.3s; font-weight: 300; }
+  .journey-step.open .journey-toggle { transform: rotate(45deg); }
+  .journey-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; opacity: 0; }
+  .journey-step.open .journey-detail { max-height: 200px; opacity: 1; }
+  .journey-detail-inner { padding: 0 0 24px 60px; }
+  .journey-detail-inner p { font-size: 15px; color: #6a6358; line-height: 1.7; }
 
-  /* INFRASTRUCTURE — horizontal stats, not cards */
-  .infra { padding: 80px 8vw; background: #2F2F2F; color: #FDFBF9; }
-  .infra-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AC9379; margin-bottom: 24px; display: block; text-align: center; }
-  .infra h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
-  .infra-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: left; }
-  .infra-item { padding: 28px 0; border-top: 3px solid #AC9379; }
-  .infra-item:nth-child(2) { border-top-color: #7A8B6F; }
-  .infra-item:nth-child(3) { border-top-color: #A67B5B; }
-  .infra-item:nth-child(4) { border-top-color: #AC9379; }
-  .infra-item h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #FDFBF9; margin-bottom: 8px; white-space: nowrap; }
-  .infra-item p { font-size: 14px; color: #9A9488; line-height: 1.6; }
-  @media (max-width: 768px) { .infra-row { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .infra-row { grid-template-columns: 1fr; } }
+  /* BEFORE / AFTER — data intelligence comparison (distinct from Infrastructure's horizontal grid) */
+  .before-after { padding: 80px 8vw; background: #F2EDE9; }
+  .before-after h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
+  .ba-col { border-radius: 12px; padding: 36px 32px; }
+  .ba-col.before { background: #2F2F2F; color: #FDFBF9; }
+  .ba-col.after { background: #FDFBF9; color: #2F2F2F; border: 2px solid #AC9379; }
+  .ba-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; display: block; }
+  .ba-col.before .ba-label { color: #9A9488; }
+  .ba-col.after .ba-label { color: #AC9379; }
+  .ba-item { padding: 14px 0; border-top: 1px solid rgba(221,215,208,0.15); }
+  .ba-col.after .ba-item { border-top-color: rgba(172,147,121,0.2); }
+  .ba-item:first-of-type { border-top: none; }
+  .ba-item h4 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .ba-col.before .ba-item h4 { color: #DDD7D0; }
+  .ba-col.after .ba-item h4 { color: #2F2F2F; }
+  .ba-item p { font-size: 13px; line-height: 1.5; }
+  .ba-col.before .ba-item p { color: #9A9488; }
+  .ba-col.after .ba-item p { color: #7a7468; }
+  @media (max-width: 768px) { .ba-grid { grid-template-columns: 1fr; } }
 
   /* SECOND STAT */
   .stat-two { padding: 80px 8vw; background: #FDFBF9; text-align: center; }
@@ -268,7 +280,7 @@
       "name": "Why does data readiness matter for AI?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AI models are only as good as the data that feeds them. Without consolidated, clean, well-governed data running on infrastructure that can handle AI compute demands, organizations end up with AI tools that produce inaccurate or incomplete results, undermining trust and adoption."
+        "text": "AI models are only as good as the data that feeds them. Without consolidated, clean, well-governed data that's accessible to the people who need it, organizations end up with AI tools that produce inaccurate or incomplete results, undermining trust and adoption."
       }
     }
   ]
@@ -290,6 +302,7 @@
       <span class="nav-dropdown-label active">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="nav-dropdown-menu">
         <a href="/the-data-gap.html" class="active">The Data Gap</a>
+        <a href="/the-infrastructure-gap.html">The Infrastructure Gap</a>
         <a href="/the-governance-gap.html">The Governance Gap</a>
         <a href="/the-spending-gap.html">The Spending Gap</a>
         <a href="/the-experience-gap.html">The Experience Gap</a>
@@ -369,7 +382,7 @@
     </svg>
   </div>
   <div class="hero-label reveal reveal-delay-1">AI is ready. <em>Your data isn't.</em></div>
-  <p class="hero-statement reveal reveal-delay-2">Most mid-market companies have data scattered across systems that were never designed to share — and infrastructure that wasn't built for what AI demands. That's the data gap.</p>
+  <p class="hero-statement reveal reveal-delay-2">Most mid-market companies have data scattered across systems that were never designed to share. Your people can't ask their data a question and get an answer — so they guess, wait three weeks for a report, or use ChatGPT. That's the data gap.</p>
   <div class="reveal reveal-delay-3"><a href="assessment.html" class="btn-primary">Find Your Gaps</a></div>
 </section>
 
@@ -433,65 +446,103 @@
   </div>
 </section>
 
-<!-- INFRASTRUCTURE JOURNEY — visual progression, not text walls -->
-<section class="flow-visual">
-  <h2 class="reveal">Your infrastructure wasn't built for what AI demands.</h2>
-  <p class="flow-sub reveal reveal-delay-1">AI workloads move massive data in real time. Most mid-market infrastructure was designed for email and file sharing.</p>
-  <div class="flow-diagram reveal reveal-delay-2">
-    <div class="flow-stage">
-      <div class="flow-stage-icon red">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b45a5a" stroke-width="1.5"/><rect x="8" y="8" width="8" height="8" rx="1" fill="#b45a5a" opacity="0.3"/></svg>
+<!-- DATA JOURNEY — interactive accordion -->
+<section class="data-journey">
+  <h2 class="reveal">The path from scattered to intelligent.</h2>
+  <p class="journey-lede reveal reveal-delay-1">Most companies are stuck at step one. The good news: each step compounds on the one before it — and the first move unlocks more than you'd expect.</p>
+  <div class="journey-accordion">
+    <div class="journey-step open reveal reveal-delay-2">
+      <div class="journey-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="journey-num">1</span>
+        <span class="journey-title">Scattered — data trapped in silos</span>
+        <span class="journey-toggle">+</span>
       </div>
-      <h3>Legacy</h3>
-      <p>On-prem servers, no cloud, hardware you've outgrown</p>
+      <div class="journey-detail">
+        <div class="journey-detail-inner">
+          <p>Your CRM, ERP, contact center, and operations systems each hold a piece of the picture. None of them share data natively. Getting a cross-functional report takes weeks. AI built on one silo misses context from all the others.</p>
+        </div>
+      </div>
     </div>
-    <div class="flow-arrow reveal reveal-delay-2">&rarr;</div>
-    <div class="flow-stage">
-      <div class="flow-stage-icon amber">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="8" height="12" rx="2" stroke="#AC9379" stroke-width="1.5"/><rect x="14" y="6" width="8" height="12" rx="2" stroke="#AC9379" stroke-width="1.5"/><line x1="10" y1="12" x2="14" y2="12" stroke="#AC9379" stroke-width="1.5" stroke-dasharray="2 2"/></svg>
+    <div class="journey-step reveal reveal-delay-2">
+      <div class="journey-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="journey-num">2</span>
+        <span class="journey-title">Connected — systems linked into a single data layer</span>
+        <span class="journey-toggle">+</span>
       </div>
-      <h3>Hybrid</h3>
-      <p>Part cloud, part on-prem, network bottlenecks everywhere</p>
+      <div class="journey-detail">
+        <div class="journey-detail-inner">
+          <p>Integrations connect your critical systems so data flows between them. One intelligence layer sits on top — not replacing what you have, but unifying it. The fragmentation starts to dissolve, and AI finally has the full picture.</p>
+        </div>
+      </div>
     </div>
-    <div class="flow-arrow reveal reveal-delay-2">&rarr;</div>
-    <div class="flow-stage">
-      <div class="flow-stage-icon green">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#7A8B6F" stroke-width="1.5"/><path d="M8 12 L11 15 L16 9" stroke="#7A8B6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="journey-step reveal reveal-delay-3">
+      <div class="journey-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="journey-num">3</span>
+        <span class="journey-title">Accessible — business leaders ask, data answers</span>
+        <span class="journey-toggle">+</span>
       </div>
-      <h3>Cloud-Ready</h3>
-      <p>Managed cloud, SD-WAN, bandwidth that scales on demand</p>
+      <div class="journey-detail">
+        <div class="journey-detail-inner">
+          <p>Natural language queries replace SQL and spreadsheet requests. A VP of sales asks "what's our fastest-growing segment this quarter?" and gets an answer in seconds — not a ticket to the data team. The three-week report cycle disappears.</p>
+        </div>
+      </div>
     </div>
-    <div class="flow-arrow reveal reveal-delay-2">&rarr;</div>
-    <div class="flow-stage">
-      <div class="flow-stage-icon gold">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 15,10 22,10 16,15 18,22 12,18 6,22 8,15 2,10 9,10" stroke="#AC9379" stroke-width="1.5" fill="#AC9379" fill-opacity="0.15"/></svg>
+    <div class="journey-step reveal reveal-delay-3">
+      <div class="journey-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="journey-num">4</span>
+        <span class="journey-title">Intelligent — predictive, self-learning, continuous</span>
+        <span class="journey-toggle">+</span>
       </div>
-      <h3>AI-Ready</h3>
-      <p>Edge compute, GPU power, FinOps, hybrid infrastructure built for AI</p>
+      <div class="journey-detail">
+        <div class="journey-detail-inner">
+          <p>Self-learning models monitor processes across finance, supply chain, sales, and operations. They forecast demand, flag risk, and optimize spend — getting smarter as conditions change. Your domain experts build and iterate on models without writing code.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- INFRA CAPABILITIES — minimal, horizontal -->
-<section class="infra">
-  <span class="infra-label reveal">What AI-ready infrastructure looks like</span>
-  <h2 class="reveal reveal-delay-1">Four capabilities. One foundation.</h2>
-  <div class="infra-row">
-    <div class="infra-item reveal">
-      <h3>Cloud that scales</h3>
-      <p>Managed environments built for AI compute intensity, not just file storage.</p>
+<!-- BEFORE / AFTER — data intelligence comparison -->
+<section class="before-after">
+  <h2 class="reveal">What data intelligence changes.</h2>
+  <div class="ba-grid">
+    <div class="ba-col before reveal">
+      <span class="ba-label">Without data intelligence</span>
+      <div class="ba-item">
+        <h4>Cross-functional reporting</h4>
+        <p>Three-week wait. Manual exports. Conflicting numbers between departments.</p>
+      </div>
+      <div class="ba-item">
+        <h4>Who can access insights</h4>
+        <p>Only analysts with SQL. Business leaders wait in a queue.</p>
+      </div>
+      <div class="ba-item">
+        <h4>Forecasting</h4>
+        <p>Backward-looking spreadsheets updated monthly. Stale by the time they ship.</p>
+      </div>
+      <div class="ba-item">
+        <h4>Innovation</h4>
+        <p>Requires a data science team you don't have and a six-month project timeline.</p>
+      </div>
     </div>
-    <div class="infra-item reveal reveal-delay-1">
-      <h3>Network that flows</h3>
-      <p>Software-defined architecture that eliminates bottlenecks as AI traffic spikes.</p>
-    </div>
-    <div class="infra-item reveal reveal-delay-2">
-      <h3>Edge compute</h3>
-      <p>Sensitive data stays close. Processing power stays available. Hybrid by design.</p>
-    </div>
-    <div class="infra-item reveal reveal-delay-3">
-      <h3>Spend you can see</h3>
-      <p>FinOps visibility so you optimize what you have before adding more.</p>
+    <div class="ba-col after reveal reveal-delay-1">
+      <span class="ba-label">With data intelligence</span>
+      <div class="ba-item">
+        <h4>Cross-functional reporting</h4>
+        <p>Ask a question in plain language. Get a unified answer in seconds.</p>
+      </div>
+      <div class="ba-item">
+        <h4>Who can access insights</h4>
+        <p>Anyone. Natural language interface turns every business leader into a data user.</p>
+      </div>
+      <div class="ba-item">
+        <h4>Forecasting</h4>
+        <p>Self-learning models that update continuously as new data arrives. Always current.</p>
+      </div>
+      <div class="ba-item">
+        <h4>Innovation</h4>
+        <p>No-code environment. Domain experts build models in days. Knowledge becomes capability.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -501,7 +552,7 @@
   <div class="reveal">
     <div class="number">73%</div>
     <div class="stat-line">of enterprise data goes unused.</div>
-    <div class="stat-sub">AI makes it possible to activate the data you've been sitting on — but only if it's consolidated, clean, and running on infrastructure that can handle it.</div>
+    <div class="stat-sub">AI makes it possible to activate the data you've been sitting on — but only if it's consolidated, clean, and accessible to every person in the organization who needs it.</div>
   </div>
 </section>
 
@@ -512,32 +563,32 @@
     <div class="sol-item reveal">
       <span class="sol-icon">&#9671;</span>
       <h3>Unified Data Platform</h3>
-      <p>One layer connecting CRM, ERP, and operations into an AI-ready foundation.</p>
+      <p>One intelligence layer connecting CRM, ERP, and operations — so AI has the full picture, not fragments.</p>
     </div>
     <div class="sol-item reveal reveal-delay-1">
       <span class="sol-icon">&#9729;</span>
-      <h3>AI-Ready Cloud</h3>
-      <p>Managed environments built for AI throughput, security, and compliance.</p>
+      <h3>Natural Language Analytics</h3>
+      <p>Ask your data a question in plain English. Get an answer in seconds. No SQL. No data science team required.</p>
     </div>
     <div class="sol-item reveal reveal-delay-2">
       <span class="sol-icon">&#8651;</span>
-      <h3>Modern Network</h3>
-      <p>Bandwidth that scales with demand instead of locking you into hardware.</p>
+      <h3>Predictive Modeling</h3>
+      <p>Self-learning algorithms that forecast demand, flag risk, and optimize operations as conditions change.</p>
     </div>
     <div class="sol-item reveal reveal-delay-1">
       <span class="sol-icon">&#9878;</span>
-      <h3>Hybrid Compute</h3>
-      <p>Sensitive data stays close. Processing power scales where you need it.</p>
+      <h3>No-Code Innovation</h3>
+      <p>Domain experts build and iterate on models without writing a line of code. Knowledge becomes capability overnight.</p>
     </div>
     <div class="sol-item reveal reveal-delay-2">
       <span class="sol-icon">&#9740;</span>
       <h3>Data Governance</h3>
-      <p>Classification and controls before AI touches anything regulated.</p>
+      <p>Classification, access controls, and compliance guardrails before AI touches anything regulated.</p>
     </div>
     <div class="sol-item reveal reveal-delay-3">
       <span class="sol-icon">&#9673;</span>
-      <h3>Cost Intelligence</h3>
-      <p>See every dollar of cloud spend. Optimize before you add.</p>
+      <h3>Continuous Optimization</h3>
+      <p>Reinforcement learning agents that monitor processes across finance, supply chain, and sales in real time.</p>
     </div>
   </div>
 </section>
