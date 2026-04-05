@@ -662,6 +662,63 @@
     .dim-grid { grid-template-columns: 1fr; }
   }
 
+  /* ARCHITECTURE STRIP */
+  .arch-strip {
+    background: #2F2F2F;
+    padding: 56px 8vw;
+    text-align: center;
+  }
+  .arch-strip p.arch-intro {
+    font-size: 15px;
+    color: #9A9488;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .arch-layers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 820px;
+    margin: 0 auto 28px;
+    flex-wrap: wrap;
+  }
+  .arch-pill {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FDFBF9;
+    padding: 8px 16px;
+    border-radius: 4px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+  .arch-pill:nth-child(odd) { background: rgba(172,147,121,0.2); }
+  .arch-pill:nth-child(even) { background: rgba(122,139,111,0.2); }
+  .arch-arrow {
+    color: rgba(253,251,249,0.2);
+    font-size: 14px;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+  .arch-link {
+    font-size: 14px;
+    color: #AC9379;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .arch-link:hover { color: #967F67; }
+  .arch-link svg { width: 14px; height: 14px; }
+  @media (max-width: 768px) {
+    .arch-layers { gap: 4px; }
+    .arch-arrow { display: none; }
+    .arch-pill { font-size: 12px; padding: 6px 12px; margin: 2px; }
+  }
+
   .assessment-section {
     background: #FDFBF9;
     padding: 80px 8vw;
@@ -984,6 +1041,20 @@
       <p>Your people are already using AI whether you've sanctioned it or not. The gap is between what they're doing on their own and what the organization is doing to support them.</p>
     </div>
   </div>
+</section>
+
+<section class="arch-strip">
+  <p class="arch-intro reveal">The assessment tells you where the gaps are. Seven layers of architecture tell your Resultant how to close them.</p>
+  <div class="arch-layers reveal">
+    <span class="arch-pill">Platform</span><span class="arch-arrow">→</span>
+    <span class="arch-pill">Governance</span><span class="arch-arrow">→</span>
+    <span class="arch-pill">Intelligence</span><span class="arch-arrow">→</span>
+    <span class="arch-pill">Connectivity</span><span class="arch-arrow">→</span>
+    <span class="arch-pill">Security</span><span class="arch-arrow">→</span>
+    <span class="arch-pill">Enablement</span><span class="arch-arrow">→</span>
+    <span class="arch-pill">Scale</span>
+  </div>
+  <a href="/our-approach.html" class="arch-link reveal">See the full architecture <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
 </section>
 
 <section class="assessment-section" id="assessment">
