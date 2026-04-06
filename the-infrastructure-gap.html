@@ -411,8 +411,8 @@
       <p>Managed environments built for AI compute intensity — not just file storage. Auto-provisioned, auto-scaled, compliance-ready.</p>
     </div>
     <div class="infra-item reveal reveal-delay-1">
-      <h3>Network that flows</h3>
-      <p>Software-defined architecture that eliminates bottlenecks as AI traffic spikes. Managed LAN and WAN with single-dashboard visibility.</p>
+      <h3>Network built for AI traffic</h3>
+      <p>Software-defined architecture that eliminates bottlenecks as workloads spike. Managed LAN and WAN with single-dashboard visibility.</p>
     </div>
     <div class="infra-item reveal reveal-delay-2">
       <h3>Edge compute</h3>
@@ -468,15 +468,6 @@
       <h3>Managed Networking</h3>
       <p>Enterprise-grade LAN and WAN delivered as a service. One dashboard. One partner. No hardware refresh cycles.</p>
     </div>
-  </div>
-</section>
-
-<!-- RESULTANT BRIDGE -->
-<section class="resultant-bridge">
-  <div class="resultant-bridge-inner reveal">
-    <h3>The diagnostic shows you where the constraints are.</h3>
-    <p>A Resultant maps the right infrastructure to your specific gaps — and manages the deployment through a single relationship.</p>
-    <a href="#" class="btn-conversation" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
   </div>
 </section>
 
@@ -585,5 +576,8 @@ function handleSubmit(e) {
   setTimeout(() => { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
 }
 </script>
+<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#AC9379;color:#FDFBF9;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#967F67;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
+<div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
+<script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".hero");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
 </body>
 </html>
