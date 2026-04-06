@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
-<meta name="description" content="Take the free AI Readiness Assessment. Get scored across six dimensions — strategy, data, governance, spend, experience, and workforce — with a personalized readiness profile and Continuum positioning.">
+<meta name="description" content="Take the free AI Readiness Diagnostic. Get scored across six dimensions — strategy, data, governance, investment visibility, experience, and workforce — with a personalized readiness profile and Continuum positioning.">
 <link rel="canonical" href="https://airesulting.vercel.app/assessment.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://airesulting.vercel.app/assessment.html">
@@ -23,7 +23,7 @@
   "@type": "WebApplication",
   "@id": "https://airesulting.vercel.app/assessment.html",
   "name": "AI Readiness Assessment",
-  "description": "A focused assessment that maps your organization across six dimensions of AI readiness — strategy, data, governance, spend, experience, and workforce.",
+  "description": "A focused diagnostic that maps your organization across six dimensions of AI readiness — strategy, data, governance, investment visibility, experience, and workforce.",
   "url": "https://airesulting.vercel.app/assessment.html",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
@@ -198,7 +198,35 @@ textarea.form-input { min-height:100px; resize:vertical; }
   .dim-bar-track { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .tier-label,.dim-tier-badge,.phase-badge { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .results-body { padding:0 20px 40px; }
+  .results-footer { page-break-inside:avoid; margin-top:0; padding-top:12px; }
+  .action-row { display:none!important; height:0; overflow:hidden; margin:0; padding:0; }
+  .privacy-note { display:none!important; }
 }
+
+/* Contact overlay */
+.contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
+.contact-overlay.open { opacity: 1; visibility: visible; }
+.contact-modal { background: #2F2F2F; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
+.contact-overlay.open .contact-modal { transform: translateY(0); }
+.contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+.contact-close:hover { color: #FDFBF9; }
+.contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 8px; letter-spacing: -0.02em; }
+.contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
+.contact-field { display: flex; flex-direction: column; }
+.contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+.contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FDFBF9; transition: all 0.3s; resize: none; }
+.contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(221,215,208,0.35); }
+.contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; background: rgba(255,255,255,0.1); }
+.contact-submit { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
+.contact-submit:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+.contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
+.contact-success { display: none; text-align: center; padding: 40px 0; }
+.contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #AC9379; margin-bottom: 12px; }
+.contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
+.privacy-note { font-size: 12px; color: #7a7468; text-align: center; margin-top: 16px; letter-spacing: 0.01em; }
 </style>
 </head>
 <body>
@@ -304,11 +332,11 @@ const UNIFIED_QUESTIONS = [
 
   // D6 — Workforce & Adoption
   { id:'q16', dim:'D6', type:'scenario', text:'When someone on your team builds something useful with AI \u2014 a workflow, a prompt, an automation \u2014 what happens next?', options:[
-    {text:'It gets documented, shared, and scaled across the organization',score:4},
-    {text:'Their manager notices and it spreads within the team',score:3},
-    {text:'It stays with that person \u2014 they\u2019d share it if asked, but nobody asks',score:2},
-    {text:'It goes unnoticed \u2014 we have no visibility into who\u2019s building what with AI',score:1},
-    {text:'We don\u2019t have anyone building with AI yet',score:0}
+    {text:'It gets documented, shared, and adopted across teams \u2014 we have a system for scaling what works',score:4},
+    {text:'It spreads informally \u2014 people share within their teams but there\u2019s no structured path to scale it',score:3},
+    {text:'It stays with that person \u2014 useful work is happening, but nobody outside their circle sees it',score:2},
+    {text:'I\u2019d have no way of knowing \u2014 we don\u2019t have visibility into who\u2019s doing what with AI',score:1},
+    {text:'I\u2019m not sure anyone is \u2014 or if they are, it\u2019s not something that\u2019s surfaced',score:0}
   ]},
   { id:'q17', dim:'D6', type:'likert', text:'Our leadership team isn\u2019t just endorsing AI \u2014 they\u2019re personally using it, visibly championing it, and modeling the behavior they\u2019re asking for.' },
   { id:'q18', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' }
@@ -390,7 +418,7 @@ function getSkipDiagnosis(scores) {
   }
   // Pattern 2: Governance Gap
   if (scores.D3 <= 45 && scores.D3 <= Math.min(scores.D1,scores.D2,scores.D4,scores.D5||100,scores.D6)) {
-    return { name:'Governance Gap', copy:'Your biggest exposure is governance. Your employees are using AI tools right now \u2014 and most likely, nobody knows exactly which ones, what data flows through them, or what intelligence is being created. Shadow AI is present and untracked. There\u2019s no comprehensive policy governing what tools are sanctioned, what data can flow where, or how outputs are verified. Every ungoverned interaction carries risk: proprietary data flowing into public models, regulatory exposure accumulating, organizational intelligence leaving the building permanently. Governance is also the fastest fix on this list. Classify your data, publish an acceptable use policy, detect shadow AI, build output verification into the workflow, and deploy a governed platform that captures intelligence. That work needs to happen ahead of the regulatory deadlines already on the calendar \u2014 Colorado AI Act in June 2026, EU AI Act full enforcement in August 2026.' };
+    return { name:'Governance Gap', copy:'Your biggest exposure is governance. Your employees are using AI tools right now \u2014 and most likely, nobody knows exactly which ones, what data flows through them, or what intelligence is being created. Shadow AI is present and untracked. There\u2019s no comprehensive policy governing what tools are sanctioned, what data can flow where, or how outputs are verified. Every ungoverned interaction carries risk: proprietary data flowing into public models, regulatory exposure accumulating, organizational intelligence leaving the building permanently. Governance is also the fastest fix on this list. Classify your data, publish an acceptable use policy, detect shadow AI, build output verification into the workflow, and deploy a governed platform that captures intelligence.' };
   }
   // Pattern 3: Data Bottleneck
   if (scores.D2 <= 45 && scores.D2 <= Math.min(scores.D1,scores.D3,scores.D4,scores.D5||100,scores.D6)) {
@@ -401,7 +429,7 @@ function getSkipDiagnosis(scores) {
     const sorted = Object.entries(scores).filter(([k])=>scores[k]!==null).sort((a,b)=>a[1]-b[1]);
     const bottom2 = sorted.slice(0,2).map(s=>s[0]);
     if (bottom2.includes('D4')) {
-      return { name:'Spending Blind', copy:'You\u2019re spending on AI without the visibility to know what\u2019s producing. The organization is likely paying for AI capabilities across multiple platforms \u2014 Copilot, Einstein, Now Assist, embedded AI features \u2014 without clear measurement of adoption rates or business outcomes. Licenses are active, invoices are paid, but adoption against purchased seats likely tells a different story than the budget line suggests. Meanwhile, your employees are proving demand for AI through tools you aren\u2019t paying for and can\u2019t see. Closing this gap means a full audit: every AI-related line item matched to actual usage. The delta between what\u2019s purchased and what\u2019s active typically reveals real reallocation room \u2014 budget that can move to data integration, governance, or infrastructure work where it will actually produce.' };
+      return { name:'Spending Blind', copy:'You\u2019re spending on AI without the architecture to know what\u2019s producing. AI capabilities are embedded across enterprise platforms, bundled into licenses, layered into cloud costs \u2014 and nobody has pulled the full picture together. Invoices are paid, but adoption against purchased seats likely tells a different story than the budget line suggests. Meanwhile, your employees are proving demand for AI through tools you aren\u2019t paying for and can\u2019t see. Closing this gap means a full audit: every AI-related line item matched to actual usage. The delta between what\u2019s purchased and what\u2019s active typically reveals real reallocation room \u2014 budget that can move to data integration, governance, or infrastructure work where it will actually produce.' };
     }
   }
   // Pattern 5: Experience Untapped
@@ -446,7 +474,7 @@ const CTA_HEADLINES = {
   Leading:'You\u2019re in a strong position. The next move is what multiplies from here.'
 };
 
-const CTA_BODY = 'A Resultant is a senior technology advisor who works across 300+ technology suppliers and recommends based on fit, not margin. They\u2019ll have your results before you talk.';
+const CTA_BODY = 'A Resultant is a senior technology advisor who works across 300+ technology suppliers. They\u2019ll have reviewed your results before you talk.';
 
 // ============================================================
 // SCORING
@@ -936,10 +964,9 @@ function renderResults() {
 
     // CTA Section
     '<div class="cta-section">' +
-    '<div class="cta-personal">' + firstName + ', your results are ready. If you want to talk about what comes next, we\u2019re here.</div>' +
     '<div class="cta-framing">' + ctaHeadline + '</div>' +
     '<div class="cta-body">' + CTA_BODY + '</div>' +
-    '<button class="btn-primary" onclick="window.open(\'mailto:info@airesulting.com?subject=Assessment%20Conversation%20Request&body=' + encodeURIComponent(firstName + ' ' + state.contact.lastName + ' from ' + state.contact.company + ' completed the AI Readiness Assessment (' + tier + ', ' + overall + '%).') + '\',\'_blank\')">Talk to a Resultant</button>' +
+    '<button class="btn-primary" onclick="document.getElementById(\'contactOverlay\').classList.add(\'open\')">Talk to a Resultant</button>' +
     '</div>' +
 
     // Routed questions note (if any were delegated)
@@ -957,6 +984,7 @@ function renderResults() {
     '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>' +
     '</div>' +
     '<p>&copy; 2026 AI Resulting. All rights reserved.</p>' +
+    '<p class="privacy-note">Your responses stay here. We don\u2019t sell your data, share it with third parties, or use it to train models.</p>' +
     '</div>' +
     '</div>';
 
@@ -971,7 +999,7 @@ function renderResults() {
 function shareAssessment() {
   var url = window.location.href;
   var subject = encodeURIComponent('AI Readiness Assessment');
-  var body = encodeURIComponent('I just completed the AI Resulting readiness assessment. It takes about 10 minutes and maps where you stand across six dimensions of AI readiness.\n\n' + url);
+  var body = encodeURIComponent('I just completed the AI Resulting readiness diagnostic. It takes about 10 minutes and maps where you stand across six dimensions of AI readiness.\n\n' + url);
   window.open('mailto:?subject=' + subject + '&body=' + body);
 }
 
@@ -1025,10 +1053,9 @@ function showWelcome() {
     '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>' +
     '</div>' +
     '<h1 class="screen-title">Know Where You Stand.</h1>' +
-    '<p class="screen-sub" style="max-width:600px;margin:0 auto 20px;">AI readiness has two dimensions. The strategic side \u2014 vision, investment, governance \u2014 and the technical side \u2014 data, infrastructure, adoption. A CEO who knows the strategy but can\u2019t see the infrastructure is guessing. A CTO who knows the infrastructure but wasn\u2019t part of the strategy is building blind.</p>' +
-    '<p class="screen-sub" style="max-width:600px;margin:0 auto 24px;">This assessment covers both. Eighteen questions across six dimensions. Your results map to the AI Readiness Continuum with a personalized report and clear next steps.</p>' +
+    '<p class="screen-sub" style="max-width:600px;margin:0 auto 24px;">Six dimensions of AI readiness — from strategy and data to infrastructure, governance, and adoption. One diagnostic that scores every gap and maps your results to the AI Readiness Continuum with a personalized report and clear next steps.</p>' +
     '<p style="font-size:13px;color:var(--gray);margin:0 auto 32px;letter-spacing:0.02em;">Takes about 10 minutes.</p>' +
-    '<button class="btn-primary" onclick="renderContactGate()" style="padding:16px 48px;font-size:16px;">Begin Assessment</button>' +
+    '<button class="btn-primary" onclick="renderContactGate()" style="padding:16px 48px;font-size:16px;">Begin Diagnostic</button>' +
     '</div></div>';
 }
 
@@ -1065,7 +1092,7 @@ function renderContactGate() {
     '</div></div>' +
     '<div class="btn-row">' +
     '<a class="back-link" onclick="showWelcome()">Back</a>' +
-    '<button class="btn-primary" id="contactNext" disabled onclick="startAssessment()">Begin Assessment</button>' +
+    '<button class="btn-primary" id="contactNext" disabled onclick="startAssessment()">Begin Diagnostic</button>' +
     '</div></div></div>';
   validateContact();
 }
@@ -1106,5 +1133,53 @@ function startAssessment() {
 // ============================================================
 showWelcome();
 </script>
+
+<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
+    <h2>Let's start with clarity.</h2>
+    <p class="contact-sub">A conversation about where you are and what's possible.</p>
+    <form class="contact-form" id="contactFormOverlay" onsubmit="handleOverlaySubmit(event)">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="contact-field">
+        <label for="cf-email">Work Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="contact-field">
+        <label for="cf-interest">What's on your mind?</label>
+        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Let's Connect</button>
+      <p class="contact-note">We'll reach out within one business day.</p>
+    </form>
+    <div class="contact-success" id="contactSuccessOverlay">
+      <h3>We'll be in touch.</h3>
+      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function handleOverlaySubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactFormOverlay');
+  var success = document.getElementById('contactSuccessOverlay');
+  var data = { name: form.querySelector('#cf-name').value, email: form.querySelector('#cf-email').value, company: form.querySelector('#cf-company').value, interest: form.querySelector('#cf-interest').value, source: 'assessment-results' };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(function() { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+}
+</script>
+
 </body>
 </html>
