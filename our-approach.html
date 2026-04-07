@@ -70,8 +70,8 @@
 :root {
   --charcoal:#1C1914;
   --camel:#C88A50;
-  --linen:#F5F2EC;
-  --sand:#EEE9DF;
+  --linen:#F8F6F2;
+  --sand:#F1EDE8;
   --sage:#C88A50;
   --gray:#9A8C74;
 }
@@ -88,17 +88,17 @@ body {
 .site-nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 6vw;background:transparent;transition:background 0.4s,box-shadow 0.4s;}
 .site-nav.scrolled{background:rgba(22,19,15,0.95);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(0,0,0,0.15);}
 .nav-logo{text-decoration:none;display:inline-flex;align-items:center;}
-.nav-logo .mark{background:#F5F2EC;color:#C88A50;font-size:10px;font-weight:700;padding:5px 7px;border-radius:5px;letter-spacing:0.08em;margin-right:4px;}
+.nav-logo .mark{background:#F8F6F2;color:#C88A50;font-size:10px;font-weight:700;padding:5px 7px;border-radius:5px;letter-spacing:0.08em;margin-right:4px;}
 .nav-logo .r{font-family:'Trebuchet MS',sans-serif;font-size:18px;font-weight:700;color:#C88A50;}
-.nav-logo .name{font-family:'Trebuchet MS',sans-serif;font-size:18px;font-weight:600;color:#F5F2EC;}
+.nav-logo .name{font-family:'Trebuchet MS',sans-serif;font-size:18px;font-weight:600;color:#F8F6F2;}
 .nav-links{display:flex;align-items:center;gap:32px;}
-.nav-links a{color:#F5F2EC;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.06em;opacity:0.85;transition:opacity 0.3s;}
+.nav-links a{color:#F8F6F2;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.06em;opacity:0.85;transition:opacity 0.3s;}
 .nav-links a:hover{opacity:1;}
 .nav-links a.active{opacity:1;color:#C88A50;}
-.nav-cta{background:#C88A50!important;color:#F5F2EC!important;padding:10px 24px;border-radius:6px;opacity:1!important;font-weight:600!important;transition:background 0.3s!important;}
+.nav-cta{background:#C88A50!important;color:#F8F6F2!important;padding:10px 24px;border-radius:6px;opacity:1!important;font-weight:600!important;transition:background 0.3s!important;}
 .nav-cta:hover{background:#A06830!important;}
 .nav-dropdown{position:relative;}
-.nav-dropdown-label{color:#F5F2EC;font-size:13px;font-weight:500;letter-spacing:0.06em;opacity:0.85;cursor:pointer;display:flex;align-items:center;gap:5px;transition:opacity 0.3s;}
+.nav-dropdown-label{color:#F8F6F2;font-size:13px;font-weight:500;letter-spacing:0.06em;opacity:0.85;cursor:pointer;display:flex;align-items:center;gap:5px;transition:opacity 0.3s;}
 .nav-dropdown-label:hover{opacity:1;}
 .nav-dropdown-label svg{width:10px;height:10px;}
 .nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:rgba(22,19,15,0.97);backdrop-filter:blur(12px);border-radius:8px;padding:12px 0;min-width:200px;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 8px 30px rgba(0,0,0,0.2);}
@@ -106,7 +106,7 @@ body {
 .nav-dropdown-menu a{display:block;padding:10px 24px;font-size:13px;text-transform:none;letter-spacing:0;white-space:nowrap;}
 .nav-dropdown-menu a:hover{background:rgba(200,138,80,0.15);}
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#F5F2EC;margin:5px 0;transition:all 0.3s;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#F8F6F2;margin:5px 0;transition:all 0.3s;}
 .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .nav-hamburger.active span:nth-child(2){opacity:0;}
 .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
@@ -675,18 +675,18 @@ body {
 .contact-modal{background:#1C1914;border-radius:16px 16px 0 0;max-width:520px;width:100%;padding:48px 40px 40px;text-align:center;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;max-height:90vh;overflow-y:auto;}
 .contact-overlay.open .contact-modal{transform:translateY(0);}
 .contact-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#9A8C74;font-size:24px;cursor:pointer;padding:4px 8px;transition:color 0.2s;line-height:1;}
-.contact-close:hover{color:#F5F2EC;}
-.contact-modal h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(22px,2.8vw,32px);font-weight:700;color:#F5F2EC;margin-bottom:8px;letter-spacing:-0.02em;}
+.contact-close:hover{color:#F8F6F2;}
+.contact-modal h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(22px,2.8vw,32px);font-weight:700;color:#F8F6F2;margin-bottom:8px;letter-spacing:-0.02em;}
 .contact-modal .contact-sub{font-size:15px;color:#9A8C74;margin-bottom:32px;line-height:1.6;}
 .contact-form{display:flex;flex-direction:column;gap:14px;text-align:left;}
 .contact-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media(max-width:600px){.contact-row{grid-template-columns:1fr;}.contact-modal{padding:40px 24px 32px;}}
 .contact-field{display:flex;flex-direction:column;}
 .contact-field label{font-size:12px;font-weight:600;color:#9A8C74;margin-bottom:6px;letter-spacing:0.04em;text-transform:uppercase;}
-.contact-field input,.contact-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(200,185,160,0.15);border-radius:6px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:#F5F2EC;transition:all 0.3s;resize:none;}
+.contact-field input,.contact-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(200,185,160,0.15);border-radius:6px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:#F8F6F2;transition:all 0.3s;resize:none;}
 .contact-field input::placeholder,.contact-field textarea::placeholder{color:rgba(200,185,160,0.35);}
 .contact-field input:focus,.contact-field textarea:focus{outline:none;border-color:#C88A50;background:rgba(255,255,255,0.1);}
-.contact-submit{display:inline-block;background:#C88A50;color:#F5F2EC;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;border:none;letter-spacing:0.02em;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);margin-top:8px;width:100%;}
+.contact-submit{display:inline-block;background:#C88A50;color:#F8F6F2;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;border:none;letter-spacing:0.02em;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);margin-top:8px;width:100%;}
 .contact-submit:hover{background:#A06830;transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,138,80,0.25);}
 .contact-note{font-size:13px;color:#6A5A48;margin-top:10px;text-align:center;}
 .contact-success{display:none;text-align:center;padding:40px 0;}
@@ -702,7 +702,7 @@ body {
 .scroll-progress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#C88A50,#C88A50);z-index:200;transition:width 0.1s;}
 .sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}
 .sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
-.sticky-cta a{display:flex;align-items:center;gap:8px;background:#C88A50;color:#F5F2EC;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(22,19,15,0.2);transition:all 0.3s;}
+.sticky-cta a{display:flex;align-items:center;gap:8px;background:#C88A50;color:#F8F6F2;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(22,19,15,0.2);transition:all 0.3s;}
 .sticky-cta a:hover{background:#A06830;box-shadow:0 6px 28px rgba(22,19,15,0.3);transform:translateY(-2px);}
 .sticky-cta svg{width:16px;height:16px;}
 @media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}
@@ -963,7 +963,7 @@ body {
 <!-- FOOTER CTA -->
 <section class="footer-cta">
   <div class="reveal" style="display:inline-flex;align-items:center;justify-content:center;width:100%;margin-bottom:28px;">
-    <span style="background:#F5F2EC;color:#C88A50;font-size:12px;font-weight:700;padding:6px 9px;border-radius:5px;letter-spacing:0.08em;margin-right:5px;">AI</span><span style="font-family:'Trebuchet MS',sans-serif;font-size:22px;font-weight:700;color:#C88A50;">R</span><span style="font-family:'Trebuchet MS',sans-serif;font-size:22px;font-weight:600;color:#F5F2EC;">esulting</span>
+    <span style="background:#F8F6F2;color:#C88A50;font-size:12px;font-weight:700;padding:6px 9px;border-radius:5px;letter-spacing:0.08em;margin-right:5px;">AI</span><span style="font-family:'Trebuchet MS',sans-serif;font-size:22px;font-weight:700;color:#C88A50;">R</span><span style="font-family:'Trebuchet MS',sans-serif;font-size:22px;font-weight:600;color:#F8F6F2;">esulting</span>
   </div>
   <h2 class="reveal">Take the assessment.<br>We'll take it from there.</h2>
   <p class="footer-sub reveal">Six dimensions. Your gaps scored before we ever talk.</p>
