@@ -53,180 +53,180 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
-  body { color: #2F2F2F; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #FDFBF9; }
+  body { color: #1C1914; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #F4EFE0; }
 
   /* NAV */
-  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(244,239,224,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(200,185,160,0.4); padding: 14px 8vw; }
   .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
-  .nav-logo .mark { background: #2F2F2F; color: #AC9379; border: 1px solid rgba(172,147,121,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
-  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #AC9379;  letter-spacing: -0.02em;}
-  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F;  margin-left: -1px;}
+  .nav-logo .mark { background: #1C1914; color: #C88A50; border: 1px solid rgba(200,138,80,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
+  .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #C88A50;  letter-spacing: -0.02em;}
+  .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #1C1914;  margin-left: -1px;}
   .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
-  .nav-links a:hover { color: #AC9379; }
-  .nav-links a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
+  .nav-links a:hover { color: #C88A50; }
+  .nav-links a.active { color: #1C1914; font-weight: 600; }
   .nav-dropdown { position: relative; }
-  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
-  .nav-dropdown-label:hover { color: #AC9379; }
-  .nav-dropdown-label.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #C88A50; }
+  .nav-dropdown-label.active { color: #1C1914; font-weight: 600; }
   .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
   .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
-  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(244,239,224,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(22,19,15,0.1); margin-top: 12px; }
   .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
-  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
-  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.06); }
-  .nav-dropdown-menu a.active { color: #2F2F2F; font-weight: 600; }
-  .nav-links .nav-cta { background: #AC9379; color: #FDFBF9; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
-  .nav-links .nav-cta:hover { background: #967F67; color: #FDFBF9; }
-  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#FDFBF9;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#FDFBF9;} }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #C88A50; background: rgba(200,138,80,0.06); }
+  .nav-dropdown-menu a.active { color: #1C1914; font-weight: 600; }
+  .nav-links .nav-cta { background: #C88A50; color: #F4EFE0; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
+  .nav-links .nav-cta:hover { background: #A06830; color: #F4EFE0; }
+  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F4EFE0;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F4EFE0;} }
 
   /* HERO — centered, statement-first, distinct from governance */
-  .hero { background: #F2EDE9; padding: 160px 8vw 80px; text-align: center; position: relative; overflow: hidden; }
-  .hero-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; color: #2F2F2F; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
-  .hero-label em { color: #AC9379; font-style: normal; }
-  .hero-statement { font-family: 'DM Sans', sans-serif; font-size: clamp(15px, 1.8vw, 19px); font-weight: 400; color: #7a7468; line-height: 1.7; max-width: 560px; margin: 0 auto 40px; }
-  .hero .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-  .hero .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .hero { background: #EDE8D5; padding: 160px 8vw 80px; text-align: center; position: relative; overflow: hidden; }
+  .hero-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; color: #1C1914; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+  .hero-label em { color: #C88A50; font-style: normal; }
+  .hero-statement { font-family: 'DM Sans', sans-serif; font-size: clamp(15px, 1.8vw, 19px); font-weight: 400; color: #6A5A48; line-height: 1.7; max-width: 560px; margin: 0 auto 40px; }
+  .hero .btn-primary { display: inline-block; background: #C88A50; color: #F4EFE0; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .hero .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
 
   /* SCATTERED NODES VISUAL — hero background */
   .hero-visual { position: relative; width: 100%; max-width: 680px; height: 220px; margin: 0 auto 48px; }
-  .hero-visual svg { width: 100%; height: 100%; filter: drop-shadow(0 2px 8px rgba(172,147,121,0.08)); }
+  .hero-visual svg { width: 100%; height: 100%; filter: drop-shadow(0 2px 8px rgba(200,138,80,0.08)); }
 
   /* BIG STAT SECTION */
-  .big-stat { padding: 100px 8vw; text-align: center; background: #FDFBF9; }
-  .big-stat .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(80px, 12vw, 140px); font-weight: 700; color: #AC9379; line-height: 1; letter-spacing: -0.04em; }
-  .big-stat .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #2F2F2F; margin-top: 8px; letter-spacing: -0.02em; }
-  .big-stat .stat-sub { font-size: 16px; color: #9A9488; margin-top: 16px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .big-stat { padding: 100px 8vw; text-align: center; background: #F4EFE0; }
+  .big-stat .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(80px, 12vw, 140px); font-weight: 700; color: #C88A50; line-height: 1; letter-spacing: -0.04em; }
+  .big-stat .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #1C1914; margin-top: 8px; letter-spacing: -0.02em; }
+  .big-stat .stat-sub { font-size: 16px; color: #9A8C74; margin-top: 16px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
   /* FOUR PROBLEMS — icon-driven, minimal text */
-  .problems { padding: 80px 8vw; background: #FDFBF9; }
-  .problems h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; text-align: center; margin-bottom: 64px; letter-spacing: -0.02em; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .problems { padding: 80px 8vw; background: #F4EFE0; }
+  .problems h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #1C1914; text-align: center; margin-bottom: 64px; letter-spacing: -0.02em; max-width: 600px; margin-left: auto; margin-right: auto; }
   .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 960px; margin: 0 auto; text-align: center; align-items: start; }
   .problem-item { display: flex; flex-direction: column; align-items: center; }
-  .problem-icon { width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%; background: rgba(172,147,121,0.06); display: flex; align-items: center; justify-content: center; }
+  .problem-icon { width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%; background: rgba(200,138,80,0.06); display: flex; align-items: center; justify-content: center; }
   .problem-icon svg { width: 36px; height: 36px; }
-  .problem-item h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #2F2F2F; margin-bottom: 8px; }
-  .problem-item p { font-size: 14px; color: #7a7468; line-height: 1.55; }
+  .problem-item h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #1C1914; margin-bottom: 8px; }
+  .problem-item p { font-size: 14px; color: #6A5A48; line-height: 1.55; }
   @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
   @media (max-width: 480px) { .problem-grid { grid-template-columns: 1fr; gap: 40px; } }
 
   /* DATA JOURNEY — interactive accordion (distinct from Infrastructure's flow diagram) */
-  .data-journey { padding: 80px 8vw; background: #FDFBF9; }
-  .data-journey h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; margin-bottom: 12px; letter-spacing: -0.02em; }
-  .data-journey .journey-lede { font-size: 16px; color: #9A9488; line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+  .data-journey { padding: 80px 8vw; background: #F4EFE0; }
+  .data-journey h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #1C1914; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .data-journey .journey-lede { font-size: 16px; color: #9A8C74; line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
   .journey-accordion { max-width: 720px; display: flex; flex-direction: column; gap: 0; }
-  .journey-step { border-bottom: 1px solid #E4DAD0; }
+  .journey-step { border-bottom: 1px solid #E8E2CE; }
   .journey-step:last-child { border-bottom: none; }
   .journey-header { display: flex; align-items: center; gap: 20px; padding: 24px 0; cursor: pointer; user-select: none; transition: opacity 0.2s; }
   .journey-header:hover { opacity: 0.7; }
   .journey-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; min-width: 40px; }
-  .journey-step:nth-child(1) .journey-num { color: #9A9488; }
-  .journey-step:nth-child(2) .journey-num { color: #AC9379; }
-  .journey-step:nth-child(3) .journey-num { color: #7A8B6F; }
-  .journey-step:nth-child(4) .journey-num { color: #AC9379; }
-  .journey-title { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; color: #2F2F2F; letter-spacing: -0.01em; flex: 1; }
-  .journey-toggle { font-size: 20px; color: #AC9379; transition: transform 0.3s; font-weight: 300; }
+  .journey-step:nth-child(1) .journey-num { color: #9A8C74; }
+  .journey-step:nth-child(2) .journey-num { color: #C88A50; }
+  .journey-step:nth-child(3) .journey-num { color: #C88A50; }
+  .journey-step:nth-child(4) .journey-num { color: #C88A50; }
+  .journey-title { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; color: #1C1914; letter-spacing: -0.01em; flex: 1; }
+  .journey-toggle { font-size: 20px; color: #C88A50; transition: transform 0.3s; font-weight: 300; }
   .journey-step.open .journey-toggle { transform: rotate(45deg); }
   .journey-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; opacity: 0; }
   .journey-step.open .journey-detail { max-height: 200px; opacity: 1; }
   .journey-detail-inner { padding: 0 0 24px 60px; }
-  .journey-detail-inner p { font-size: 15px; color: #6a6358; line-height: 1.7; }
+  .journey-detail-inner p { font-size: 15px; color: #6A5A48; line-height: 1.7; }
 
   /* BEFORE / AFTER — data intelligence comparison (distinct from Infrastructure's horizontal grid) */
-  .before-after { padding: 80px 8vw; background: #F2EDE9; }
-  .before-after h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #2F2F2F; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
+  .before-after { padding: 80px 8vw; background: #EDE8D5; }
+  .before-after h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #1C1914; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
   .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
   .ba-col { border-radius: 12px; padding: 36px 32px; }
-  .ba-col.before { background: #2F2F2F; color: #FDFBF9; }
-  .ba-col.after { background: #FDFBF9; color: #2F2F2F; border: 2px solid #AC9379; }
+  .ba-col.before { background: #1C1914; color: #F4EFE0; }
+  .ba-col.after { background: #F4EFE0; color: #1C1914; border: 2px solid #C88A50; }
   .ba-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; display: block; }
-  .ba-col.before .ba-label { color: #9A9488; }
-  .ba-col.after .ba-label { color: #AC9379; }
-  .ba-item { padding: 14px 0; border-top: 1px solid rgba(221,215,208,0.15); }
-  .ba-col.after .ba-item { border-top-color: rgba(172,147,121,0.2); }
+  .ba-col.before .ba-label { color: #9A8C74; }
+  .ba-col.after .ba-label { color: #C88A50; }
+  .ba-item { padding: 14px 0; border-top: 1px solid rgba(200,185,160,0.15); }
+  .ba-col.after .ba-item { border-top-color: rgba(200,138,80,0.2); }
   .ba-item:first-of-type { border-top: none; }
   .ba-item h4 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-  .ba-col.before .ba-item h4 { color: #DDD7D0; }
-  .ba-col.after .ba-item h4 { color: #2F2F2F; }
+  .ba-col.before .ba-item h4 { color: #D4C8B0; }
+  .ba-col.after .ba-item h4 { color: #1C1914; }
   .ba-item p { font-size: 13px; line-height: 1.5; }
-  .ba-col.before .ba-item p { color: #9A9488; }
-  .ba-col.after .ba-item p { color: #7a7468; }
+  .ba-col.before .ba-item p { color: #9A8C74; }
+  .ba-col.after .ba-item p { color: #6A5A48; }
   @media (max-width: 768px) { .ba-grid { grid-template-columns: 1fr; } }
 
   /* SECOND STAT */
-  .stat-two { padding: 80px 8vw; background: #FDFBF9; text-align: center; }
-  .stat-two .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(60px, 10vw, 100px); font-weight: 700; color: #7A8B6F; line-height: 1; letter-spacing: -0.04em; }
-  .stat-two .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; color: #2F2F2F; margin-top: 8px; letter-spacing: -0.02em; }
-  .stat-two .stat-sub { font-size: 15px; color: #9A9488; margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .stat-two { padding: 80px 8vw; background: #F4EFE0; text-align: center; }
+  .stat-two .number { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(60px, 10vw, 100px); font-weight: 700; color: #C88A50; line-height: 1; letter-spacing: -0.04em; }
+  .stat-two .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; color: #1C1914; margin-top: 8px; letter-spacing: -0.02em; }
+  .stat-two .stat-sub { font-size: 15px; color: #9A8C74; margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
   /* DATA CLOSER — numbered narrative points */
-  .data-closer { padding: 80px 8vw; background: #2F2F2F; color: #FDFBF9; }
+  .data-closer { padding: 80px 8vw; background: #1C1914; color: #F4EFE0; }
   .closer-inner { max-width: 720px; }
-  .data-closer h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #FDFBF9; margin-bottom: 48px; letter-spacing: -0.02em; line-height: 1.2; }
+  .data-closer h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F4EFE0; margin-bottom: 48px; letter-spacing: -0.02em; line-height: 1.2; }
   .closer-points { display: flex; flex-direction: column; gap: 0; }
   .closer-point { display: flex; gap: 24px; padding: 28px 0; border-top: 1px solid rgba(221,215,208,0.12); }
   .closer-point:first-child { border-top: none; }
-  .closer-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 28px; font-weight: 700; color: #AC9379; line-height: 1; min-width: 36px; flex-shrink: 0; }
-  .closer-point h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #FDFBF9; margin-bottom: 8px; line-height: 1.4; }
-  .closer-point p { font-size: 15px; color: #9A9488; line-height: 1.65; }
+  .closer-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 28px; font-weight: 700; color: #C88A50; line-height: 1; min-width: 36px; flex-shrink: 0; }
+  .closer-point h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #F4EFE0; margin-bottom: 8px; line-height: 1.4; }
+  .closer-point p { font-size: 15px; color: #9A8C74; line-height: 1.65; }
 
   /* RESULTANT BRIDGE */
-  .resultant-bridge { padding: 48px 8vw 64px; background: #F2EDE9; text-align: center; }
-  .resultant-bridge-inner { max-width: 600px; margin: 0 auto; border-top: 2px solid #AC9379; padding-top: 36px; }
-  .resultant-bridge-inner h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: #2F2F2F; margin-bottom: 12px; letter-spacing: -0.01em; }
-  .resultant-bridge-inner p { font-size: 15px; color: #7a7468; line-height: 1.7; margin-bottom: 28px; }
-  .btn-conversation { display: inline-block; background: transparent; color: #AC9379; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 6px; border: 2px solid #AC9379; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
-  .btn-conversation:hover { background: #AC9379; color: #FDFBF9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.2); }
+  .resultant-bridge { padding: 48px 8vw 64px; background: #EDE8D5; text-align: center; }
+  .resultant-bridge-inner { max-width: 600px; margin: 0 auto; border-top: 2px solid #C88A50; padding-top: 36px; }
+  .resultant-bridge-inner h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: #1C1914; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .resultant-bridge-inner p { font-size: 15px; color: #6A5A48; line-height: 1.7; margin-bottom: 28px; }
+  .btn-conversation { display: inline-block; background: transparent; color: #C88A50; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 6px; border: 2px solid #C88A50; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+  .btn-conversation:hover { background: #C88A50; color: #F4EFE0; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.2); }
 
   /* CONTACT MODAL */
   .contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
   .contact-overlay.open { opacity: 1; visibility: visible; }
-  .contact-modal { background: #2F2F2F; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
+  .contact-modal { background: #1C1914; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
   .contact-overlay.open .contact-modal { transform: translateY(0); }
-  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
-  .contact-close:hover { color: #FDFBF9; }
-  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 8px; letter-spacing: -0.02em; }
-  .contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A8C74; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+  .contact-close:hover { color: #F4EFE0; }
+  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #F4EFE0; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .contact-modal .contact-sub { font-size: 15px; color: #9A8C74; margin-bottom: 32px; line-height: 1.6; }
   .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
   .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
   .contact-field { display: flex; flex-direction: column; }
-  .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FDFBF9; transition: all 0.3s; resize: none; }
-  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(221,215,208,0.35); }
-  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; background: rgba(255,255,255,0.1); }
-  .contact-submit { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
-  .contact-submit:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
-  .contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
+  .contact-field label { font-size: 12px; font-weight: 600; color: #9A8C74; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,185,160,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #F4EFE0; transition: all 0.3s; resize: none; }
+  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(200,185,160,0.35); }
+  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #C88A50; background: rgba(255,255,255,0.1); }
+  .contact-submit { display: inline-block; background: #C88A50; color: #F4EFE0; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
+  .contact-submit:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
+  .contact-note { font-size: 13px; color: #6A5A48; margin-top: 10px; text-align: center; }
   .contact-success { display: none; text-align: center; padding: 40px 0; }
-  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #AC9379; margin-bottom: 12px; }
-  .contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
+  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #C88A50; margin-bottom: 12px; }
+  .contact-success p { font-size: 16px; color: #D4C8B0; line-height: 1.6; }
 
   /* CTA BRIDGE */
-  .bridge { padding: 100px 8vw; text-align: center; background: #FDFBF9; }
-  .bridge h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; color: #2F2F2F; margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
-  .bridge p { font-size: 16px; color: #7a7468; line-height: 1.7; max-width: 440px; margin: 0 auto 36px; }
-  .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-  .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .bridge { padding: 100px 8vw; text-align: center; background: #F4EFE0; }
+  .bridge h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; color: #1C1914; margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
+  .bridge p { font-size: 16px; color: #6A5A48; line-height: 1.7; max-width: 440px; margin: 0 auto 36px; }
+  .btn-primary { display: inline-block; background: #C88A50; color: #F4EFE0; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
 
   /* FOOTER CTA */
-  .footer-cta { background: #2F2F2F; padding: 120px 8vw; text-align: center; color: #FDFBF9; }
-  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #AC9379; font-style: italic; margin-bottom: 48px; }
-  .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #FDFBF9; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
+  .footer-cta { background: #1C1914; padding: 120px 8vw; text-align: center; color: #F4EFE0; }
+  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #D4C8B0; font-style: italic; margin-bottom: 48px; }
+  .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #F4EFE0; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
   .footer-cta .cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 80px; }
-  .footer-cta .cta-row .btn-primary { display: inline-block; background: #AC9379; color: #FDFBF9; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
-  .footer-cta .cta-row .btn-primary:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
-  .footer-cta > p { font-size: 13px; color: #9A9488; margin-top: 20px; }
-  .footer-cta > p a { color: #AC9379; text-decoration: underline; text-underline-offset: 3px; }
+  .footer-cta .cta-row .btn-primary { display: inline-block; background: #C88A50; color: #F4EFE0; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
+  .footer-cta .cta-row .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
+  .footer-cta > p { font-size: 13px; color: #9A8C74; margin-top: 20px; }
+  .footer-cta > p a { color: #C88A50; text-decoration: underline; text-underline-offset: 3px; }
   .footer-bottom { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-  .footer-bottom p { font-size: 13px; color: #9A9488; }
-  .footer-bottom a { color: #9A9488; text-decoration: none; }
-  .footer-bottom a:hover { color: #AC9379; }
+  .footer-bottom p { font-size: 13px; color: #9A8C74; }
+  .footer-bottom a { color: #9A8C74; text-decoration: none; }
+  .footer-bottom a:hover { color: #C88A50; }
   .footer-logo-text { font-family: 'Trebuchet MS', sans-serif; font-weight: 600; }
 
   /* SCROLL PROGRESS */
-  .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #AC9379; z-index: 200; width: 0%; transition: width 0.1s linear; }
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #C88A50; z-index: 200; width: 0%; transition: width 0.1s linear; }
 
   /* REVEAL */
   .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -237,7 +237,7 @@
   .reveal-delay-4 { transition-delay: 0.4s; }
 
   /* HAMBURGER */
-  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#FDFBF9;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#D4C8B0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(22,19,15,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#F4EFE0;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}}
 
   @media (max-width: 768px) {
     .site-nav { padding: 16px 6vw; }
@@ -319,64 +319,64 @@
   <div class="hero-visual reveal">
     <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="camelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#AC9379"/><stop offset="100%" stop-color="#967F67"/></linearGradient>
-        <linearGradient id="sageGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7A8B6F"/><stop offset="100%" stop-color="#5f7054"/></linearGradient>
+        <linearGradient id="camelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C88A50"/><stop offset="100%" stop-color="#A06830"/></linearGradient>
+        <linearGradient id="sageGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C88A50"/><stop offset="100%" stop-color="#A06830"/></linearGradient>
         <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        <filter id="softShadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#2F2F2F" flood-opacity="0.08"/></filter>
+        <filter id="softShadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1C1914" flood-opacity="0.08"/></filter>
       </defs>
 
       <!-- Connection lines (dashed = disconnected) -->
       <g stroke-dasharray="5 7" stroke-linecap="round">
-        <line x1="95" y1="50" x2="240" y2="100" stroke="#AC9379" stroke-width="1.2" opacity="0.18"/>
-        <line x1="95" y1="50" x2="340" y2="100" stroke="#AC9379" stroke-width="1.2" opacity="0.12"/>
-        <line x1="585" y1="50" x2="440" y2="100" stroke="#AC9379" stroke-width="1.2" opacity="0.18"/>
-        <line x1="585" y1="50" x2="340" y2="100" stroke="#AC9379" stroke-width="1.2" opacity="0.12"/>
-        <line x1="170" y1="165" x2="290" y2="100" stroke="#7A8B6F" stroke-width="1.2" opacity="0.15"/>
-        <line x1="510" y1="165" x2="390" y2="100" stroke="#7A8B6F" stroke-width="1.2" opacity="0.15"/>
-        <line x1="170" y1="165" x2="340" y2="100" stroke="#7A8B6F" stroke-width="1.2" opacity="0.1"/>
-        <line x1="510" y1="165" x2="340" y2="100" stroke="#7A8B6F" stroke-width="1.2" opacity="0.1"/>
+        <line x1="95" y1="50" x2="240" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.18"/>
+        <line x1="95" y1="50" x2="340" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.12"/>
+        <line x1="585" y1="50" x2="440" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.18"/>
+        <line x1="585" y1="50" x2="340" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.12"/>
+        <line x1="170" y1="165" x2="290" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.15"/>
+        <line x1="510" y1="165" x2="390" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.15"/>
+        <line x1="170" y1="165" x2="340" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.1"/>
+        <line x1="510" y1="165" x2="340" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.1"/>
       </g>
 
       <!-- Data particles drifting between nodes -->
-      <circle r="2.5" fill="#AC9379" opacity="0.5" filter="url(#glow)"><animateMotion dur="5s" repeatCount="indefinite" path="M95,50 Q200,80 340,100 Q200,80 95,50"/></circle>
-      <circle r="2" fill="#7A8B6F" opacity="0.4" filter="url(#glow)"><animateMotion dur="7s" repeatCount="indefinite" path="M585,50 Q460,70 340,100 Q460,70 585,50"/></circle>
-      <circle r="2" fill="#AC9379" opacity="0.35" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" path="M170,165 Q250,130 340,100 Q250,130 170,165"/></circle>
-      <circle r="1.8" fill="#7A8B6F" opacity="0.3" filter="url(#glow)"><animateMotion dur="8s" repeatCount="indefinite" path="M510,165 Q430,130 340,100 Q430,130 510,165"/></circle>
+      <circle r="2.5" fill="#C88A50" opacity="0.5" filter="url(#glow)"><animateMotion dur="5s" repeatCount="indefinite" path="M95,50 Q200,80 340,100 Q200,80 95,50"/></circle>
+      <circle r="2" fill="#C88A50" opacity="0.4" filter="url(#glow)"><animateMotion dur="7s" repeatCount="indefinite" path="M585,50 Q460,70 340,100 Q460,70 585,50"/></circle>
+      <circle r="2" fill="#C88A50" opacity="0.35" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" path="M170,165 Q250,130 340,100 Q250,130 170,165"/></circle>
+      <circle r="1.8" fill="#C88A50" opacity="0.3" filter="url(#glow)"><animateMotion dur="8s" repeatCount="indefinite" path="M510,165 Q430,130 340,100 Q430,130 510,165"/></circle>
 
       <!-- System nodes — rounded pill shapes with glow halos -->
       <!-- CRM (top-left) -->
       <g filter="url(#softShadow)">
-        <circle cx="95" cy="50" r="38" fill="#AC9379" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="5s" repeatCount="indefinite"/></circle>
-        <rect x="40" y="30" width="110" height="40" rx="20" fill="#FDFBF9" stroke="#AC9379" stroke-width="1.5"/>
-        <text x="95" y="55" text-anchor="middle" fill="#AC9379" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.05em">CRM</text>
+        <circle cx="95" cy="50" r="38" fill="#C88A50" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="5s" repeatCount="indefinite"/></circle>
+        <rect x="40" y="30" width="110" height="40" rx="20" fill="#F4EFE0" stroke="#C88A50" stroke-width="1.5"/>
+        <text x="95" y="55" text-anchor="middle" fill="#C88A50" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.05em">CRM</text>
       </g>
 
       <!-- HR (top-right) -->
       <g filter="url(#softShadow)">
-        <circle cx="585" cy="50" r="38" fill="#7A8B6F" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="4.5s" repeatCount="indefinite"/></circle>
-        <rect x="530" y="30" width="110" height="40" rx="20" fill="#FDFBF9" stroke="#7A8B6F" stroke-width="1.5"/>
-        <text x="585" y="55" text-anchor="middle" fill="#7A8B6F" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.05em">HR</text>
+        <circle cx="585" cy="50" r="38" fill="#C88A50" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="4.5s" repeatCount="indefinite"/></circle>
+        <rect x="530" y="30" width="110" height="40" rx="20" fill="#F4EFE0" stroke="#C88A50" stroke-width="1.5"/>
+        <text x="585" y="55" text-anchor="middle" fill="#C88A50" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.05em">HR</text>
       </g>
 
       <!-- ERP (bottom-left) -->
       <g filter="url(#softShadow)">
-        <circle cx="170" cy="165" r="38" fill="#7A8B6F" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="5.5s" repeatCount="indefinite"/></circle>
-        <rect x="105" y="145" width="130" height="40" rx="20" fill="#FDFBF9" stroke="#7A8B6F" stroke-width="1.5"/>
-        <text x="170" y="170" text-anchor="middle" fill="#7A8B6F" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.05em">ERP</text>
+        <circle cx="170" cy="165" r="38" fill="#C88A50" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="5.5s" repeatCount="indefinite"/></circle>
+        <rect x="105" y="145" width="130" height="40" rx="20" fill="#F4EFE0" stroke="#C88A50" stroke-width="1.5"/>
+        <text x="170" y="170" text-anchor="middle" fill="#C88A50" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.05em">ERP</text>
       </g>
 
       <!-- Contact Center (bottom-right) -->
       <g filter="url(#softShadow)">
-        <circle cx="510" cy="165" r="38" fill="#AC9379" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="4.8s" repeatCount="indefinite"/></circle>
-        <rect x="440" y="145" width="140" height="40" rx="20" fill="#FDFBF9" stroke="#AC9379" stroke-width="1.5"/>
-        <text x="510" y="170" text-anchor="middle" fill="#AC9379" font-size="11" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.03em">Contact Center</text>
+        <circle cx="510" cy="165" r="38" fill="#C88A50" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="4.8s" repeatCount="indefinite"/></circle>
+        <rect x="440" y="145" width="140" height="40" rx="20" fill="#F4EFE0" stroke="#C88A50" stroke-width="1.5"/>
+        <text x="510" y="170" text-anchor="middle" fill="#C88A50" font-size="11" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.03em">Contact Center</text>
       </g>
 
       <!-- Center hub — larger, more visible, pulsing -->
-      <circle cx="340" cy="100" r="52" fill="#AC9379" opacity="0.05"><animate attributeName="r" values="48;56;48" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.1;0.04" dur="4s" repeatCount="indefinite"/></circle>
-      <circle cx="340" cy="100" r="36" fill="rgba(172,147,121,0.04)" stroke="#AC9379" stroke-width="1.5" stroke-opacity="0.35"/>
-      <circle cx="340" cy="100" r="24" fill="none" stroke="#AC9379" stroke-width="1" stroke-dasharray="3 5" opacity="0.3"><animateTransform attributeName="transform" type="rotate" from="0 340 100" to="360 340 100" dur="20s" repeatCount="indefinite"/></circle>
-      <text x="340" y="105" text-anchor="middle" fill="#AC9379" font-size="11" font-family="DM Sans, sans-serif" font-weight="700" opacity="0.5" letter-spacing="0.08em">?</text>
+      <circle cx="340" cy="100" r="52" fill="#C88A50" opacity="0.05"><animate attributeName="r" values="48;56;48" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.1;0.04" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="340" cy="100" r="36" fill="rgba(200,138,80,0.04)" stroke="#C88A50" stroke-width="1.5" stroke-opacity="0.35"/>
+      <circle cx="340" cy="100" r="24" fill="none" stroke="#C88A50" stroke-width="1" stroke-dasharray="3 5" opacity="0.3"><animateTransform attributeName="transform" type="rotate" from="0 340 100" to="360 340 100" dur="20s" repeatCount="indefinite"/></circle>
+      <text x="340" y="105" text-anchor="middle" fill="#C88A50" font-size="11" font-family="DM Sans, sans-serif" font-weight="700" opacity="0.5" letter-spacing="0.08em">?</text>
     </svg>
   </div>
   <h1 class="hero-label reveal reveal-delay-1">Your data needs a plan. <em>Not another dashboard.</em></h1>
@@ -400,10 +400,10 @@
     <div class="problem-item reveal">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="12" height="12" rx="2" stroke="#AC9379" stroke-width="2"/>
-          <rect x="18" y="18" width="12" height="12" rx="2" stroke="#AC9379" stroke-width="2"/>
-          <rect x="18" y="2" width="12" height="12" rx="2" stroke="#AC9379" stroke-width="2" opacity="0.4"/>
-          <rect x="2" y="18" width="12" height="12" rx="2" stroke="#AC9379" stroke-width="2" opacity="0.4"/>
+          <rect x="2" y="2" width="12" height="12" rx="2" stroke="#C88A50" stroke-width="2"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" stroke="#C88A50" stroke-width="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" stroke="#C88A50" stroke-width="2" opacity="0.4"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" stroke="#C88A50" stroke-width="2" opacity="0.4"/>
         </svg>
       </div>
       <h3>Silos</h3>
@@ -412,8 +412,8 @@
     <div class="problem-item reveal reveal-delay-1">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="12" stroke="#AC9379" stroke-width="2"/>
-          <path d="M12 12 L20 20 M20 12 L12 20" stroke="#AC9379" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="12" stroke="#C88A50" stroke-width="2"/>
+          <path d="M12 12 L20 20 M20 12 L12 20" stroke="#C88A50" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </div>
       <h3>Quality</h3>
@@ -422,9 +422,9 @@
     <div class="problem-item reveal reveal-delay-2">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="8" width="24" height="16" rx="3" stroke="#AC9379" stroke-width="2"/>
-          <circle cx="16" cy="16" r="4" stroke="#AC9379" stroke-width="2"/>
-          <line x1="16" y1="4" x2="16" y2="8" stroke="#AC9379" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <rect x="4" y="8" width="24" height="16" rx="3" stroke="#C88A50" stroke-width="2"/>
+          <circle cx="16" cy="16" r="4" stroke="#C88A50" stroke-width="2"/>
+          <line x1="16" y1="4" x2="16" y2="8" stroke="#C88A50" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
         </svg>
       </div>
       <h3>Access</h3>
@@ -433,9 +433,9 @@
     <div class="problem-item reveal reveal-delay-3">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 4 L16 12 M16 20 L16 28" stroke="#AC9379" stroke-width="2" stroke-linecap="round"/>
-          <path d="M4 16 L12 16 M20 16 L28 16" stroke="#AC9379" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="16" cy="16" r="3" fill="#AC9379" opacity="0.3"/>
+          <path d="M16 4 L16 12 M16 20 L16 28" stroke="#C88A50" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 16 L12 16 M20 16 L28 16" stroke="#C88A50" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="3" fill="#C88A50" opacity="0.3"/>
         </svg>
       </div>
       <h3>Governance</h3>
@@ -589,7 +589,7 @@
 <div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="contact-modal">
     <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
-    <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
+    <h2>Let's talk about <strong style="color:#C88A50;">your gaps.</strong></h2>
     <p class="contact-sub">A conversation about where you are and what's possible.</p>
     <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
       <div class="contact-row">
@@ -623,14 +623,14 @@
 <!-- FOOTER CTA -->
 <section class="footer-cta">
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
-    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9; margin-left: -1px;">esulting</span>
+    <span style="background: #F4EFE0; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F4EFE0; margin-left: -1px;">esulting</span>
   </div>
-  <p class="tagline reveal">Assess &middot; Identify &middot; Result</p>
-  <h2 class="reveal">What will you <strong style="color:#AC9379;">Connect?</strong></h2>
+  <p class="tagline reveal"><span style="color:#C88A50;">A</span>ssess &middot; <span style="color:#C88A50;">I</span>dentify &middot; <span style="color:#C88A50;">R</span>esult</p>
+  <h2 class="reveal">What will you <strong style="color:#C88A50;">Connect?</strong></h2>
   <div class="cta-row reveal">
     <a href="assessment.html" class="btn-primary">Get Started</a>
   </div>
-  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
+  <p class="reveal" style="font-size: 13px; color: #9A8C74; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #C88A50; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
   <div class="footer-bottom reveal">
     <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
   </div>
@@ -687,7 +687,7 @@ function handleSubmit(e) {
 // Close modal on Escape
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
 </script>
-<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#AC9379;color:#FDFBF9;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#967F67;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
+<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#C88A50;color:#F4EFE0;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(22,19,15,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#A06830;box-shadow:0 6px 28px rgba(22,19,15,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
 <div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
 <script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".hero");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
 </body>
