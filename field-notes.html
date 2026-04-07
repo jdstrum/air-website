@@ -41,8 +41,8 @@
   }
 
   body {
-    background: #FDFBF9;
-    color: #2F2F2F;
+    background: #F5F2EC;
+    color: #1C1914;
     font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -54,7 +54,7 @@
     top: 0;
     left: 0;
     height: 3px;
-    background: #AC9379;
+    background: #C88A50;
     z-index: 105;
     width: 0%;
     transition: width 0.1s linear;
@@ -75,11 +75,11 @@
   }
 
   .site-nav.scrolled {
-    background: rgba(253, 251, 249, 0.95);
+    background: rgba(245,242,236,0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 14px 8vw;
-    box-shadow: 0 1px 0 rgba(47, 47, 47, 0.08);
+    box-shadow: 0 1px 0 rgba(22, 19, 15, 0.08);
   }
 
   .nav-logo {
@@ -89,34 +89,34 @@
   }
 
   .nav-logo .mark {
-    background: #2F2F2F;
-    color: #AC9379;
+    background: #1C1914;
+    color: #C88A50;
     font-size: 10px;
     font-weight: 700;
     padding: 5px 7px;
     border-radius: 5px;
     letter-spacing: 0.08em;
     margin-right: 5px;
-    border: 1px solid rgba(172, 147, 121, 0.3);
+    border: 1px solid rgba(200,138,80,0.3);
   }
 
   .nav-logo .r {
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    color: #AC9379;
+    color: #C88A50;
    letter-spacing: -0.02em;}
 
   .nav-logo .name {
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: #FDFBF9;
+    color: #F5F2EC;
     transition: color 0.4s;
    margin-left: -1px;}
 
   .site-nav.scrolled .nav-logo .name {
-    color: #2F2F2F;
+    color: #1C1914;
    margin-left: -1px;}
 
   .nav-links {
@@ -129,39 +129,39 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    color: rgba(253, 251, 249, 0.7);
+    color: rgba(245,242,236,0.7);
     text-decoration: none;
     letter-spacing: 0.01em;
     transition: color 0.3s;
   }
 
   .site-nav.scrolled .nav-links a {
-    color: #9A9488;
+    color: #9A8C74;
   }
 
   .nav-links a:hover {
-    color: #AC9379;
+    color: #C88A50;
   }
 
   .nav-links a.active {
-    color: #AC9379;
+    color: #C88A50;
   }
 
   .nav-dropdown { position: relative; }
-  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
-  .nav-dropdown-label:hover { color: #AC9379; }
-  .nav-dropdown-label.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label:hover { color: #C88A50; }
+  .nav-dropdown-label.active { color: #1C1914; font-weight: 600; }
   .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
   .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
-  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(22,19,15,0.1); margin-top: 12px; }
   .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
-  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
-  .nav-dropdown-menu a:hover { color: #AC9379; background: rgba(172,147,121,0.06); }
-  .nav-dropdown-menu a.active { color: #2F2F2F; font-weight: 600; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a:hover { color: #C88A50; background: rgba(200,138,80,0.06); }
+  .nav-dropdown-menu a.active { color: #1C1914; font-weight: 600; }
 
   .nav-links .nav-cta {
-    background: #AC9379;
-    color: #FDFBF9;
+    background: #C88A50;
+    color: #F5F2EC;
     padding: 10px 22px;
     border-radius: 5px;
     font-weight: 600;
@@ -169,7 +169,7 @@
   }
 
   .nav-links .nav-cta:hover {
-    background: #967F67;
+    background: #A06830;
   }
 
   @media (max-width: 768px) {
@@ -186,7 +186,7 @@
     justify-content: center;
     padding: 120px 8vw 80px;
     overflow: hidden;
-    background: #2F2F2F;
+    background: #1C1914;
   }
 
   .hero-content {
@@ -201,7 +201,7 @@
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #AC9379;
+    color: #C88A50;
     margin-bottom: 32px;
     animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
     opacity: 0;
@@ -212,7 +212,7 @@
     font-size: clamp(36px, 5vw, 68px);
     font-weight: 700;
     line-height: 1.1;
-    color: #FDFBF9;
+    color: #F5F2EC;
     margin-bottom: 24px;
     letter-spacing: -0.02em;
     animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
@@ -221,7 +221,7 @@
 
   .hero .subtitle {
     font-size: clamp(16px, 2vw, 20px);
-    color: #DDD7D0;
+    color: #D4C8B0;
     line-height: 1.7;
     max-width: 700px;
     animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
@@ -241,17 +241,17 @@
 
   /* Featured Article Section */
   .featured-section {
-    background: #FDFBF9;
+    background: #F5F2EC;
     padding: 120px 8vw;
   }
 
   .featured-card {
     max-width: 1000px;
     margin: 0 auto;
-    background: #F2EDE9;
+    background: #EEE9DF;
     border-radius: 12px;
     padding: 60px 64px;
-    border-left: 4px solid #AC9379;
+    border-left: 4px solid #C88A50;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -266,7 +266,7 @@
   }
 
   .featured-card:hover {
-    box-shadow: 0 12px 40px rgba(47, 47, 47, 0.08);
+    box-shadow: 0 12px 40px rgba(22, 19, 15, 0.08);
   }
 
   .featured-label {
@@ -275,7 +275,7 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #AC9379;
+    color: #C88A50;
     margin-bottom: 16px;
   }
 
@@ -283,7 +283,7 @@
     font-family: 'Trebuchet MS', Georgia, serif;
     font-size: clamp(28px, 3.5vw, 44px);
     font-weight: 700;
-    color: #2F2F2F;
+    color: #1C1914;
     line-height: 1.2;
     margin-bottom: 32px;
     letter-spacing: -0.02em;
@@ -291,7 +291,7 @@
 
   .featured-content {
     font-size: 17px;
-    color: #2F2F2F;
+    color: #1C1914;
     line-height: 1.8;
     max-width: 720px;
   }
@@ -305,19 +305,19 @@
   }
 
   .featured-content em {
-    color: #AC9379;
+    color: #C88A50;
     font-style: italic;
   }
 
   .article-cta {
     margin-top: 48px;
     padding-top: 32px;
-    border-top: 1px solid rgba(47, 47, 47, 0.1);
+    border-top: 1px solid rgba(22, 19, 15, 0.1);
   }
 
   /* Coming Soon Section */
   .coming-soon-section {
-    background: #FDFBF9;
+    background: #F5F2EC;
     padding: 120px 8vw;
   }
 
@@ -330,14 +330,14 @@
     font-family: 'Trebuchet MS', Georgia, serif;
     font-size: clamp(32px, 4.5vw, 56px);
     font-weight: 700;
-    color: #2F2F2F;
+    color: #1C1914;
     margin-bottom: 16px;
     letter-spacing: -0.02em;
   }
 
   .section-intro .description {
     font-size: 17px;
-    color: #9A9488;
+    color: #9A8C74;
     line-height: 1.7;
     max-width: 700px;
   }
@@ -354,7 +354,7 @@
     background: white;
     border-radius: 10px;
     padding: 40px 32px;
-    border: 1px solid #DDD7D0;
+    border: 1px solid #D4C8B0;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
@@ -373,8 +373,8 @@
   }
 
   .article-card:hover {
-    border-color: #AC9379;
-    box-shadow: 0 12px 40px rgba(172, 147, 121, 0.12);
+    border-color: #C88A50;
+    box-shadow: 0 12px 40px rgba(200,138,80,0.12);
     transform: translateY(-4px);
   }
 
@@ -384,7 +384,7 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #AC9379;
+    color: #C88A50;
     margin-bottom: 16px;
   }
 
@@ -392,7 +392,7 @@
     font-family: 'Trebuchet MS', Georgia, serif;
     font-size: 22px;
     font-weight: 700;
-    color: #2F2F2F;
+    color: #1C1914;
     line-height: 1.3;
     margin-bottom: 16px;
     letter-spacing: -0.01em;
@@ -400,7 +400,7 @@
 
   .card-teaser {
     font-size: 15px;
-    color: #9A9488;
+    color: #9A8C74;
     line-height: 1.6;
     margin-bottom: auto;
     margin-bottom: 24px;
@@ -409,14 +409,14 @@
   .card-status {
     font-size: 13px;
     font-weight: 600;
-    color: #DDD7D0;
+    color: #D4C8B0;
     letter-spacing: 0.05em;
   }
 
 
   /* Footer CTA */
   .footer-cta {
-    background: #2F2F2F;
+    background: #1C1914;
     padding: 120px 8vw;
     text-align: center;
   }
@@ -425,7 +425,7 @@
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.25em;
-    color: #9A9488;
+    color: #9A8C74;
     margin-bottom: 40px;
   }
 
@@ -433,7 +433,7 @@
     font-family: 'Trebuchet MS', Georgia, serif;
     font-size: clamp(28px, 4vw, 50px);
     font-weight: 700;
-    color: #FDFBF9;
+    color: #F5F2EC;
     line-height: 1.2;
     margin-bottom: 40px;
     letter-spacing: -0.02em;
@@ -441,7 +441,7 @@
 
   .tagline {
     font-size: clamp(16px, 2vw, 22px);
-    color: #DDD7D0;
+    color: #D4C8B0;
     font-style: italic;
     margin-bottom: 48px;
   }
@@ -461,24 +461,24 @@
 
   .footer-bottom p {
     font-size: 13px;
-    color: #9A9488;
+    color: #9A8C74;
   }
 
   .footer-bottom a {
-    color: #9A9488;
+    color: #9A8C74;
     text-decoration: none;
     transition: color 0.3s;
   }
 
   .footer-bottom a:hover {
-    color: #AC9379;
+    color: #C88A50;
   }
 
   /* Buttons */
   .btn-primary {
     display: inline-block;
-    background: #AC9379;
-    color: #FDFBF9;
+    background: #C88A50;
+    color: #F5F2EC;
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
     font-weight: 600;
@@ -492,14 +492,14 @@
   }
 
   .btn-primary:hover {
-    background: #967F67;
+    background: #A06830;
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25);
+    box-shadow: 0 8px 32px rgba(200,138,80,0.25);
   }
 
   .btn-ghost {
     display: inline-block;
-    color: #9A9488;
+    color: #9A8C74;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -512,17 +512,17 @@
   }
 
   .btn-ghost:hover {
-    color: #AC9379;
+    color: #C88A50;
   }
 
   .btn-outline {
     display: inline-block;
-    color: #DDD7D0;
+    color: #D4C8B0;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 500;
     padding: 14px 28px;
-    border: 1px solid #9A9488;
+    border: 1px solid #9A8C74;
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.3s;
@@ -531,8 +531,8 @@
   }
 
   .btn-outline:hover {
-    border-color: #AC9379;
-    color: #AC9379;
+    border-color: #C88A50;
+    color: #C88A50;
   }
 
   /* Reveal Animation */
@@ -573,7 +573,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: #9A9488;
+    background: #9A8C74;
     margin: 5px 0;
     transition: all 0.3s;
     border-radius: 1px;
@@ -603,7 +603,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(253, 251, 249, 0.98);
+      background: rgba(245,242,236,0.98);
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -618,7 +618,7 @@
     .nav-links.open a {
       display: block !important;
       font-size: 20px;
-      color: #2F2F2F;
+      color: #1C1914;
     }
 
     .nav-links.open .nav-cta {
@@ -626,7 +626,7 @@
       padding: 14px 32px;
     }
 
-    .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#FDFBF9;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#FDFBF9;}
+    .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F5F2EC;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F5F2EC;}
 
     .featured-card {
       padding: 40px 24px;
@@ -658,26 +658,26 @@
   /* CONTACT MODAL */
   .contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
   .contact-overlay.open { opacity: 1; visibility: visible; }
-  .contact-modal { background: #2F2F2F; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
+  .contact-modal { background: #1C1914; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
   .contact-overlay.open .contact-modal { transform: translateY(0); }
-  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
-  .contact-close:hover { color: #FDFBF9; }
-  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #FDFBF9; margin-bottom: 8px; letter-spacing: -0.02em; }
-  .contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A8C74; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+  .contact-close:hover { color: #F5F2EC; }
+  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #F5F2EC; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .contact-modal .contact-sub { font-size: 15px; color: #9A8C74; margin-bottom: 32px; line-height: 1.6; }
   .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
   .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
   .contact-field { display: flex; flex-direction: column; }
-  .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FDFBF9; transition: all 0.3s; resize: none; }
-  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(221,215,208,0.35); }
-  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #AC9379; background: rgba(255,255,255,0.1); }
-  .contact-submit { display: inline-block; background: #AC9379; color: #FDFBF9; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
-  .contact-submit:hover { background: #967F67; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
-  .contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
+  .contact-field label { font-size: 12px; font-weight: 600; color: #9A8C74; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,185,160,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #F5F2EC; transition: all 0.3s; resize: none; }
+  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(200,185,160,0.35); }
+  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #C88A50; background: rgba(255,255,255,0.1); }
+  .contact-submit { display: inline-block; background: #C88A50; color: #F5F2EC; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
+  .contact-submit:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
+  .contact-note { font-size: 13px; color: #6A5A48; margin-top: 10px; text-align: center; }
   .contact-success { display: none; text-align: center; padding: 40px 0; }
-  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #AC9379; margin-bottom: 12px; }
-  .contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
+  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #C88A50; margin-bottom: 12px; }
+  .contact-success p { font-size: 16px; color: #D4C8B0; line-height: 1.6; }
 
 </style>
 </head>
@@ -709,75 +709,151 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-label">FROM THE TRENCHES</div>
-    <h1>Field Notes</h1>
-    <p class="subtitle">Observations, patterns, and insights from the front lines of AI readiness. Real observations from organizations building AI foundations that actually work.</p>
+<!-- FEATURED HERO — Zapier-style split layout -->
+<section style="background:#F5F2EC;padding:140px 8vw 80px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div>
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:20px;">Featured</span>
+      <a href="/field-note-entertainment.html" style="text-decoration:none;">
+        <h1 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:#1C1914;line-height:1.12;letter-spacing:-0.02em;margin-bottom:24px;">For Entertainment Purposes Only</h1>
+      </a>
+      <p style="font-size:17px;color:#1C1914;line-height:1.7;margin-bottom:28px;max-width:520px;">Ryan Serhant almost lost a $50 million deal because both sides asked ChatGPT. Microsoft's own terms classify Copilot as "for entertainment purposes only." The technology works. The foundation doesn't.</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#C88A50;display:flex;align-items:center;justify-content:center;font-family:'Trebuchet MS',sans-serif;font-size:14px;font-weight:700;color:#F5F2EC;">JS</div>
+        <div>
+          <span style="font-size:14px;font-weight:600;color:#1C1914;">Jen Strum</span>
+          <span style="font-size:13px;color:#9A8C74;margin-left:8px;">4 min read</span>
+        </div>
+      </div>
+    </div>
+    <a href="/field-note-entertainment.html" style="text-decoration:none;display:block;">
+      <div style="background:#1C1914;border-radius:12px;padding:60px 48px;position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform 0.3s ease;cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="position:absolute;top:24px;right:24px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;background:rgba(200,138,80,0.12);padding:6px 12px;border-radius:4px;">Field Note</div>
+        <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(56px,6vw,80px);font-weight:700;color:rgba(200,138,80,0.08);line-height:0.9;letter-spacing:-0.03em;position:absolute;top:40px;left:48px;">"</div>
+        <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:600;color:#F5F2EC;line-height:1.4;margin-bottom:16px;">Same deal. Same price.<br>The tool told both of them to walk away.</p>
+        <span style="font-size:14px;color:#C88A50;font-weight:600;">Read &rarr;</span>
+      </div>
+    </a>
   </div>
 </section>
 
-<!-- FEATURED -->
-<section class="featured-section">
-  <div class="featured-card reveal">
-    <span class="featured-label">LATEST</span>
-    <h2 class="featured-title">For Entertainment Purposes Only</h2>
-    <div class="featured-content">
-      <p>Ryan Serhant almost lost a $50 million deal because both sides asked ChatGPT. The seller asked if the price was fair. ChatGPT said they were leaving money on the table. The buyer asked if they were overpaying. ChatGPT said yes. Same deal. Same price. The tool told both of them to walk away.</p>
-      <p>Only days ago, TechCrunch reported that Microsoft's own terms of service for Copilot includes this line in bold capital letters: "Copilot is for entertainment purposes only." Six months of selling an enterprise productivity tool while the legal page says it's a toy.</p>
-    </div>
-    <div class="article-cta">
-      <a href="/field-note-entertainment.html" class="btn-primary" style="padding:14px 32px;font-size:14px;">Read this Field Note</a>
-    </div>
+<!-- COMPACT ROW — recent notes -->
+<section style="background:#F5F2EC;padding:0 8vw 80px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #D4C8B0;border-bottom:1px solid #D4C8B0;">
+    <a href="/field-note-01.html" style="text-decoration:none;padding:32px 32px 32px 0;border-right:1px solid #D4C8B0;transition:all 0.3s;" onmouseover="this.querySelector('h3').style.color='#C88A50'" onmouseout="this.querySelector('h3').style.color='#1C1914'">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+      <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:18px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;transition:color 0.3s;">Your AI Strategy Shouldn't Start with AI</h3>
+      <span style="font-size:13px;color:#9A8C74;">April 2026 &nbsp;|&nbsp; 4 min read</span>
+    </a>
+    <a href="/field-note-02.html" style="text-decoration:none;padding:32px;border-right:1px solid #D4C8B0;transition:all 0.3s;" onmouseover="this.querySelector('h3').style.color='#C88A50'" onmouseout="this.querySelector('h3').style.color='#1C1914'">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+      <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:18px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;transition:color 0.3s;">The Smartest Person at Your Company Is Terrified You'll Find Out What She's Building</h3>
+      <span style="font-size:13px;color:#9A8C74;">April 2026 &nbsp;|&nbsp; 4 min read</span>
+    </a>
+    <a href="/field-note-03.html" style="text-decoration:none;padding:32px 0 32px 32px;transition:all 0.3s;" onmouseover="this.querySelector('h3').style.color='#C88A50'" onmouseout="this.querySelector('h3').style.color='#1C1914'">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+      <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:18px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;transition:color 0.3s;">They Cut Your Bonus to Pay for Software Nobody Uses</h3>
+      <span style="font-size:13px;color:#9A8C74;">April 2026 &nbsp;|&nbsp; 4 min read</span>
+    </a>
   </div>
 </section>
 
-<!-- ALL NOTES -->
-<section class="coming-soon-section">
-  <div class="section-intro">
-    <h2>From the Trenches</h2>
-    <p class="description">Observations from organizations navigating AI readiness. What's working, what's failing, and what nobody talks about in the vendor demo.</p>
-  </div>
-  <div class="cards-grid">
-    <a href="/field-note-01.html" style="text-decoration:none;">
-      <div class="article-card reveal">
-        <span class="card-label">FIELD NOTE</span>
-        <h3 class="card-title">Your AI Strategy Shouldn't Start with AI</h3>
-        <p class="card-teaser">You used to leave the office. Three decades of "efficiency" and you're working more hours than 1995.</p>
-        <span class="card-status" style="color:#AC9379;font-size:14px;">Read &rarr;</span>
-      </div>
-    </a>
-    <a href="/field-note-02.html" style="text-decoration:none;">
-      <div class="article-card reveal reveal-delay-1">
-        <span class="card-label">FIELD NOTE</span>
-        <h3 class="card-title">The Smartest Person at Your Company Is Terrified You'll Find Out What She's Building</h3>
-        <p class="card-teaser">68% of employees are using unauthorized AI tools at work. The real question is why they felt they had to hide.</p>
-        <span class="card-status" style="color:#AC9379;font-size:14px;">Read &rarr;</span>
-      </div>
-    </a>
-    <a href="/field-note-03.html" style="text-decoration:none;">
-      <div class="article-card reveal reveal-delay-2">
-        <span class="card-label">FIELD NOTE</span>
-        <h3 class="card-title">They Cut Your Bonus to Pay for Software Nobody Uses</h3>
-        <p class="card-teaser">54% of companies are cutting employee compensation to fund AI investments. 95% of AI pilots fail.</p>
-        <span class="card-status" style="color:#AC9379;font-size:14px;">Read &rarr;</span>
-      </div>
-    </a>
+<!-- NEWSLETTER / ASSESSMENT CTA — mid-page break -->
+<section style="background:#EEE9DF;padding:72px 8vw;text-align:center;">
+  <h2 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:#1C1914;line-height:1.25;margin-bottom:12px;letter-spacing:-0.02em;">Get observations delivered to your inbox</h2>
+  <p style="font-size:16px;color:#9A8C74;margin-bottom:32px;">New field notes as we publish them. No spam. No sequences. Just the writing.</p>
+  <form style="display:flex;gap:12px;justify-content:center;max-width:480px;margin:0 auto;" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-size:15px;color:#C88A50;font-weight:600;padding:14px 0;\'>You\'re in. We\'ll be in touch.</p>';">
+    <input type="email" placeholder="Email address" required style="flex:1;padding:14px 20px;border:1px solid #D4C8B0;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:15px;color:#1C1914;background:#F5F2EC;outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='#C88A50'" onblur="this.style.borderColor='#D4C8B0'">
+    <button type="submit" style="background:#C88A50;color:#F5F2EC;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:14px 28px;border:none;border-radius:6px;cursor:pointer;transition:background 0.3s;white-space:nowrap;" onmouseover="this.style.background='#A06830'" onmouseout="this.style.background='#C88A50'">Subscribe</button>
+  </form>
+</section>
+
+<!-- DEEP CUTS — card grid with visual blocks -->
+<section style="background:#F5F2EC;padding:100px 8vw;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;color:#1C1914;margin-bottom:16px;letter-spacing:-0.02em;">All Field Notes</h2>
+    <p style="font-size:17px;color:#9A8C74;line-height:1.7;max-width:600px;margin-bottom:56px;">What's working, what's failing, and what nobody talks about in the vendor demo.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;">
+
+      <!-- Card: Entertainment -->
+      <a href="/field-note-entertainment.html" style="text-decoration:none;display:block;">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="background:#1C1914;padding:48px 32px;position:relative;">
+            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
+            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">Copilot is for entertainment purposes only.</p>
+          </div>
+          <div style="padding:28px 32px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">For Entertainment Purposes Only</h3>
+            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">Ryan Serhant almost lost a $50 million deal because both sides asked ChatGPT. The technology works. The foundation doesn't.</p>
+            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: AI Strategy -->
+      <a href="/field-note-01.html" style="text-decoration:none;display:block;">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="background:#1C1914;padding:48px 32px;position:relative;">
+            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
+            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">Those are the only questions that matter.</p>
+          </div>
+          <div style="padding:28px 32px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">Your AI Strategy Shouldn't Start with AI</h3>
+            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">You used to leave the office. Three decades of "efficiency" and you're working more hours than 1995.</p>
+            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Smartest Person -->
+      <a href="/field-note-02.html" style="text-decoration:none;display:block;">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="background:#1C1914;padding:48px 32px;position:relative;">
+            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
+            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">She hasn't told anyone.</p>
+          </div>
+          <div style="padding:28px 32px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">The Smartest Person at Your Company Is Terrified You'll Find Out What She's Building</h3>
+            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">68% of employees are using unauthorized AI tools at work. The real question is why they felt they had to hide.</p>
+            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Cut Your Bonus -->
+      <a href="/field-note-03.html" style="text-decoration:none;display:block;">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="background:#1C1914;padding:48px 32px;position:relative;">
+            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
+            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">The mid-market doesn't have Meta's runway.</p>
+          </div>
+          <div style="padding:28px 32px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
+            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">They Cut Your Bonus to Pay for Software Nobody Uses</h3>
+            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">54% of companies are cutting employee compensation to fund AI investments. 95% of AI pilots fail.</p>
+            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
 
 <!-- Footer CTA -->
 <section class="footer-cta">
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
-    <span style="background: #FDFBF9; color: #AC9379; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #AC9379; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #FDFBF9; margin-left: -1px;">esulting</span>
+    <span style="background: #F5F2EC; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F5F2EC; margin-left: -1px;">esulting</span>
   </div>
-  <p class="tagline reveal"><span style="color:#AC9379;">A</span>ssess · <span style="color:#AC9379;">I</span>dentify · <span style="color:#AC9379;">R</span>esult</p>
-  <h2 class="reveal">What will you <strong style="color:#AC9379;">Discover?</strong></h2>
+  <p class="tagline reveal"><span style="color:#C88A50;">A</span>ssess · <span style="color:#C88A50;">I</span>dentify · <span style="color:#C88A50;">R</span>esult</p>
+  <h2 class="reveal">What will you <strong style="color:#C88A50;">Discover?</strong></h2>
   <div class="cta-row reveal">
     <a href="assessment.html" class="btn-primary">Get Started</a>
   </div>
-  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #AC9379; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
+  <p class="reveal" style="font-size: 13px; color: #9A8C74; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #C88A50; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
   <div class="footer-bottom reveal">
     <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
   </div>
@@ -787,7 +863,7 @@
 <div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="contact-modal">
     <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
-    <h2>Let's talk about <strong style="color:#AC9379;">your gaps.</strong></h2>
+    <h2>Let's talk about <strong style="color:#C88A50;">your gaps.</strong></h2>
     <p class="contact-sub">A conversation about where you are and what's possible.</p>
     <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
       <div class="contact-row">
@@ -854,20 +930,20 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') docum
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #AC9379;
-    color: #FDFBF9;
+    background: #C88A50;
+    color: #F5F2EC;
     padding: 14px 28px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 0 4px 20px rgba(47, 47, 47, 0.2);
+    box-shadow: 0 4px 20px rgba(22, 19, 15, 0.2);
     transition: all 0.3s;
   }
 
   .sticky-cta a:hover {
-    background: #967F67;
-    box-shadow: 0 6px 28px rgba(47, 47, 47, 0.3);
+    background: #A06830;
+    box-shadow: 0 6px 28px rgba(22, 19, 15, 0.3);
     transform: translateY(-2px);
   }
 
