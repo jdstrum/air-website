@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
-<meta name="description" content="Your teams are already using AI. Without governance, every interaction leaks proprietary data. Learn the five capabilities — from data classification and shadow AI detection to DSAR compliance and AI risk management — that separate AI adoption from AI exposure.">
+<meta name="description" content="Your teams are already using AI. Without governance, every interaction leaks proprietary data. Learn the five capabilities that separate AI adoption from AI exposure.">
 <link rel="canonical" href="https://airesulting.vercel.app/the-governance-gap.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://airesulting.vercel.app/the-governance-gap.html">
 <meta property="og:title" content="The Governance Gap — AI Resulting">
-<meta property="og:description" content="Your employees are using AI right now. The question is whether your organization knows what's happening, what data is leaving, and what intelligence you're losing. Close the governance gap with data classification, acceptable use policies, shadow AI detection, and privacy compliance.">
+<meta property="og:description" content="Your employees are using AI right now. The question is whether your organization knows what's happening, what data is leaving, and what intelligence you're losing.">
 <meta property="og:site_name" content="AI Resulting">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Governance Gap — AI Resulting">
-<meta name="twitter:description" content="Your employees are using AI right now. The question is whether your organization knows what's happening, what data is leaving, and what intelligence you're losing. Close the governance gap with data classification, acceptable use policies, shadow AI detection, and privacy compliance.">
+<meta name="twitter:description" content="Your employees are using AI right now. The question is whether your organization knows what's happening, what data is leaving, and what intelligence you're losing.">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">
 {
@@ -22,7 +23,7 @@
   "@type": "Article",
   "@id": "https://airesulting.vercel.app/the-governance-gap.html",
   "headline": "The AI Governance Gap: Why Organizations Are Losing Intelligence",
-  "description": "Your teams are already using AI. Without governance, every interaction leaks proprietary data and institutional knowledge walks out the door. Learn how data classification, acceptable use policies, shadow AI detection, DSAR compliance, and AI risk management close the governance gap.",
+  "description": "Your teams are already using AI. Without governance, every interaction leaks proprietary data and institutional knowledge walks out the door.",
   "author": {
     "@id": "https://airesulting.vercel.app/#organization"
   },
@@ -31,44 +32,48 @@
   },
   "mainEntityOfPage": "https://airesulting.vercel.app/the-governance-gap.html",
   "about": [
-    {"@type": "Thing", "name": "AI Governance"},
-    {"@type": "Thing", "name": "Shadow AI"},
-    {"@type": "Thing", "name": "AI Policy"},
-    {"@type": "Thing", "name": "Data Subject Access Request"},
-    {"@type": "Thing", "name": "DSAR Compliance"},
-    {"@type": "Thing", "name": "AI Risk Management"},
-    {"@type": "Thing", "name": "Privacy Compliance"},
-    {"@type": "Thing", "name": "Consent Management"}
+    {
+      "@type": "Thing",
+      "name": "AI Governance"
+    },
+    {
+      "@type": "Thing",
+      "name": "Shadow AI"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI Policy"
+    }
   ],
-  "keywords": "AI governance, shadow AI, AI policy, enterprise AI security, AI acceptable use, mid-market AI governance, DSAR, data subject access request, DSR, data subject request, privacy compliance, AI risk management, NIST AI RMF, consent management, data classification, CCPA, GDPR, Colorado AI Act, EU AI Act"
+  "keywords": "AI governance, shadow AI, AI policy, enterprise AI security, AI acceptable use, AI governance policy"
 }
 </script>
-<title>The AI Governance Gap: Why Mid-Market Companies Are Losing Intelligence — AI Resulting</title>
+<title>The AI Governance Gap: Why Organizations Are Losing Intelligence — AI Resulting</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
   body { color: #1C1914; font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; background: #F8F6F2; }
 
-  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(221, 215, 208, 0.4); padding: 14px 8vw; }
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 8vw; transition: all 0.4s ease; background: rgba(248,246,242,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-nav.scrolled { box-shadow: 0 1px 0 rgba(200,185,160,0.4); padding: 14px 8vw; }
   .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
-  .nav-logo .mark { background: #F8F6F2; color: #C88A50; border: 1px solid rgba(200,138,80,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
+  .nav-logo .mark { background: #1C1914; color: #C88A50; border: 1px solid rgba(200,138,80,0.3); font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
   .nav-logo .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #C88A50;  letter-spacing: -0.02em;}
   .nav-logo .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #1C1914;  margin-left: -1px;}
   .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s; }
   .nav-links a:hover { color: #C88A50; }
   .nav-links a.active { color: #1C1914; font-weight: 600; }
   .nav-dropdown { position: relative; }
-  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
   .nav-dropdown-label:hover { color: #C88A50; }
   .nav-dropdown-label.active { color: #1C1914; font-weight: 600; }
   .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
   .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
-  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(253, 251, 249, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(47,47,47,0.1); margin-top: 12px; }
+  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(248,246,242,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(22,19,15,0.1); margin-top: 12px; }
   .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
-  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A9488; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #9A8C74; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
   .nav-dropdown-menu a:hover { color: #C88A50; background: rgba(200,138,80,0.06); }
   .nav-dropdown-menu a.active { color: #1C1914; font-weight: 600; }
   .nav-links .nav-cta { background: #C88A50; color: #F8F6F2; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
@@ -79,13 +84,13 @@
   .editorial-left {}
   .editorial-open .page-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 700; letter-spacing: -0.02em; text-transform: none; color: #C88A50; margin-bottom: 16px; display: block; line-height: 1.1; }
   .editorial-open h1 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; line-height: 1.4; color: #1C1914; letter-spacing: -0.01em; }
-  .editorial-abstract { font-size: 16px; color: #7a7468; line-height: 1.75; font-style: italic; border-left: 2px solid #C88A50; padding-left: 24px; }
+  .editorial-abstract { font-size: 16px; color: #6A5A48; line-height: 1.75; font-style: italic; border-left: 2px solid #C88A50; padding-left: 24px; }
   @media (max-width: 768px) { .editorial-open { grid-template-columns: 1fr; gap: 32px; padding: 110px 6vw 56px; } .editorial-abstract { border-left: none; padding-left: 0; border-top: 2px solid #C88A50; padding-top: 20px; } }
 
   .governance-grid { padding: 64px 8vw 72px; }
   .governance-grid h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #1C1914; margin-bottom: 40px; letter-spacing: -0.02em; }
   .gov-checklist { max-width: 720px; display: flex; flex-direction: column; gap: 0; }
-  .gov-check-item { border-bottom: 1px solid #E4DAD0; }
+  .gov-check-item { border-bottom: 1px solid #F1EDE8; }
   .gov-check-item:last-child { border-bottom: none; }
   .gov-header { display: flex; align-items: center; gap: 20px; padding: 22px 0; cursor: pointer; user-select: none; transition: opacity 0.2s; }
   .gov-header:hover { opacity: 0.7; }
@@ -96,65 +101,69 @@
   .gov-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; opacity: 0; }
   .gov-check-item.open .gov-detail { max-height: 200px; opacity: 1; }
   .gov-detail-inner { padding: 0 0 24px 56px; }
-  .gov-detail-inner p { font-size: 15px; color: #6a6358; line-height: 1.7; margin-bottom: 8px; }
+  .gov-detail-inner p { font-size: 15px; color: #6A5A48; line-height: 1.7; margin-bottom: 8px; }
   .gov-detail-inner .gov-air { font-size: 14px; color: #C88A50; font-weight: 600; }
+
+  /* Dark variant for security-exposures section */
+  .gov-dark { background: #1C1914 !important; }
+  .gov-dark h2 { color: #F8F6F2; }
+  .gov-dark .gov-title { color: #F8F6F2; }
+  .gov-dark .gov-check-item { border-bottom-color: rgba(200,185,160,0.12); }
+  .gov-dark .gov-detail-inner p { color: #CEBEA4; }
 
 
   @media (max-width: 768px) { .gov-num { font-size: 24px; } .gov-title { font-size: 16px; } }
 
-  .gateway-section { background: linear-gradient(rgba(47,47,47,0.92), rgba(47,47,47,0.88)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80") center/cover no-repeat fixed; padding: 80px 8vw; color: #F8F6F2; }
+  .gateway-section { background: linear-gradient(rgba(22,19,15,0.92), rgba(22,19,15,0.88)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80") center/cover no-repeat fixed; padding: 80px 8vw; color: #F8F6F2; }
   .gateway-inner { max-width: 760px; }
   .gateway-section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #C88A50; margin-bottom: 24px; display: block; }
   .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
-  .gateway-section .gateway-lede { font-size: 17px; color: #DDD7D0; line-height: 1.75; margin-bottom: 40px; }
-  .gateway-points { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .gateway-section .gateway-lede { font-size: 17px; color: #D4C8B0; line-height: 1.75; margin-bottom: 40px; }
+  .gateway-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #C88A50; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #C88A50; margin-bottom: 8px; letter-spacing: 0.03em; }
-  .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
+  .gateway-point p { font-size: 15px; color: #D4C8B0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
 
   .reg-callout { padding: 48px 8vw; background: #F8F6F2; }
-  .reg-callout-inner { max-width: 760px; background: linear-gradient(135deg, rgba(200,138,80,0.06), rgba(200,138,80,0.02)); border: 1px solid #E4DAD0; border-radius: 12px; padding: 40px; display: flex; gap: 40px; align-items: center; }
+  .reg-callout-inner { max-width: 760px; background: linear-gradient(135deg, rgba(200,138,80,0.06), rgba(200,138,80,0.02)); border: 1px solid #F1EDE8; border-radius: 12px; padding: 40px; display: flex; gap: 40px; align-items: center; }
   .reg-dates { display: flex; flex-direction: column; gap: 16px; min-width: 160px; }
   .reg-date { text-align: center; }
   .reg-date-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #C88A50; }
-  .reg-date-what { font-size: 12px; color: #9A9488; font-weight: 500; }
+  .reg-date-what { font-size: 12px; color: #9A8C74; font-weight: 500; }
   .reg-text h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #1C1914; margin-bottom: 10px; letter-spacing: -0.01em; }
-  .reg-text p { font-size: 15px; color: #6a6358; line-height: 1.7; }
+  .reg-text p { font-size: 15px; color: #6A5A48; line-height: 1.7; }
   @media (max-width: 768px) { .reg-callout-inner { flex-direction: column; gap: 24px; } .reg-dates { flex-direction: row; gap: 24px; } }
 
   .download-section { background: #F1EDE8; padding: 80px 8vw; }
   .download-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; }
   .download-content h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #1C1914; margin-bottom: 16px; letter-spacing: -0.02em; }
-  .download-content .dl-intro { font-size: 16px; color: #4a4a4a; line-height: 1.7; margin-bottom: 32px; }
-  .kit-list { list-style: none; }
-  .kit-list li { font-size: 15px; color: #1C1914; line-height: 1.8; margin-bottom: 10px; padding-left: 18px; position: relative; }
-  .kit-list li::before { content: '→'; position: absolute; left: 0; color: #C88A50; font-weight: 600; }
+  .download-content .dl-intro { font-size: 16px; color: #2C2118; line-height: 1.7; margin-bottom: 32px; }
   .gated-form { display: flex; flex-direction: column; justify-content: center; }
   .gated-form form { display: flex; flex-direction: column; gap: 14px; }
   .form-group { display: flex; flex-direction: column; }
-  .form-group label { font-size: 13px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.02em; }
-  .form-group input { background: #F8F6F2; border: 1px solid #DDD7D0; border-radius: 5px; padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #1C1914; transition: all 0.3s; }
-  .form-group input::placeholder { color: #bbb5ad; }
+  .form-group label { font-size: 13px; font-weight: 600; color: #9A8C74; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-group input { background: #F8F6F2; border: 1px solid #D4C8B0; border-radius: 5px; padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #1C1914; transition: all 0.3s; }
+  .form-group input::placeholder { color: #B8AD9A; }
   .form-group input:focus { outline: none; border-color: #C88A50; background: #fff; }
   .btn-download { display: inline-block; background: #C88A50; color: #F8F6F2; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: none; cursor: pointer; width: 100%; text-align: center; margin-top: 4px; }
-  .btn-download:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.2); }
-  .form-note { font-size: 13px; color: #9A9488; margin-top: 6px; }
+  .btn-download:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.2); }
+  .form-note { font-size: 13px; color: #9A8C74; margin-top: 6px; }
   @media (max-width: 768px) { .download-inner { grid-template-columns: 1fr; gap: 36px; } }
 
   .bridge { padding: 80px 8vw; text-align: center; }
   .bridge h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #1C1914; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; }
-  .bridge p { font-size: 16px; color: #4a4a4a; line-height: 1.7; max-width: 480px; margin: 0 auto 36px; }
+  .bridge p { font-size: 16px; color: #2C2118; line-height: 1.7; max-width: 480px; margin: 0 auto 36px; }
   .btn-primary { display: inline-block; background: #C88A50; color: #F8F6F2; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-  .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
+  .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
 
   .footer { background: #1C1914; padding: 60px 8vw; text-align: center; border-top: 1px solid rgba(221,215,208,0.1); }
   .footer-brand { display: inline-flex; align-items: center; margin-bottom: 16px; }
   .footer-brand .mark { background: #F8F6F2; color: #C88A50; font-size: 10px; font-weight: 700; padding: 5px 7px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 4px; }
   .footer-brand .r { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 700; color: #C88A50; }
   .footer-brand .name { font-family: 'Trebuchet MS', sans-serif; font-size: 18px; font-weight: 600; color: #F8F6F2; }
-  .tagline { font-size: 13px; color: #C88A50; font-style: italic; margin-bottom: 24px; }
-  .footer-links { font-size: 13px; color: #9A9488; }
-  .footer-links a { color: #9A9488; text-decoration: none; transition: color 0.3s; }
+  .tagline { font-size: 13px; color: #D4C8B0; font-style: italic; margin-bottom: 24px; }
+  .footer-links { font-size: 13px; color: #9A8C74; }
+  .footer-links a { color: #9A8C74; text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: #C88A50; }
 
   .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -163,7 +172,7 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  .section-divider { width: 60px; height: 2px; background: #DDD7D0; margin: 0 8vw; }
+  .section-divider { width: 60px; height: 2px; background: #D4C8B0; margin: 0 8vw; }
 
   @media (max-width: 768px) {
     .site-nav { padding: 16px 6vw; }
@@ -206,7 +215,7 @@
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    background: rgba(172, 147, 121, 0.3);
+    background: rgba(200,138,80,0.3);
     animation: floatUp linear infinite;
   }
 
@@ -222,7 +231,7 @@
   /* GRADIENT PULSE on editorial opening */
   @keyframes gradientPulse {
     0%, 100% { background-color: #F1EDE8; }
-    50% { background-color: #E4DAD0; }
+    50% { background-color: #F1EDE8; }
   }
   .editorial-open {
     animation: gradientPulse 6s ease-in-out infinite;
@@ -230,12 +239,12 @@
 
 
 
-  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#DDD7D0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(47,47,47,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#F8F6F2;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}.nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F8F6F2;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F8F6F2;}}
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#D4C8B0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(22,19,15,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#F8F6F2;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}.nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F8F6F2;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F8F6F2;}}
 
   .editorial-graphic{display:flex;align-items:center;justify-content:center;}
   .hero-graphic-wrap{position:relative;width:280px;height:280px;}@media(max-width:768px){.hero-graphic-wrap{width:200px;height:200px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
 
-  .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}
+  .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}.gateway-point.gw-reveal:nth-child(4){transition-delay:0.45s;}
 
   .footer-cta { background: #1C1914; padding: 120px 8vw; text-align: center; color: #F8F6F2; }
   .footer-cta .mark { background: #F8F6F2; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
@@ -245,12 +254,12 @@
   .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #F8F6F2; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
   .footer-cta .cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 80px; }
   .footer-cta .cta-row .btn-primary { display: inline-block; background: #C88A50; color: #F8F6F2; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
-  .footer-cta .cta-row .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
-  .footer-cta > p { font-size: 13px; color: #9A9488; margin-top: 20px; }
+  .footer-cta .cta-row .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
+  .footer-cta > p { font-size: 13px; color: #9A8C74; margin-top: 20px; }
   .footer-cta > p a { color: #C88A50; text-decoration: underline; text-underline-offset: 3px; }
   .footer-bottom { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-  .footer-bottom p { font-size: 13px; color: #9A9488; }
-  .footer-bottom a { color: #9A9488; text-decoration: none; }
+  .footer-bottom p { font-size: 13px; color: #9A8C74; }
+  .footer-bottom a { color: #9A8C74; text-decoration: none; }
   .footer-bottom a:hover { color: #C88A50; }
   .footer-logo-text { font-family: 'Trebuchet MS', sans-serif; font-weight: 600; }
   /* CONTACT MODAL */
@@ -258,24 +267,24 @@
   .contact-overlay.open { opacity: 1; visibility: visible; }
   .contact-modal { background: #1C1914; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
   .contact-overlay.open .contact-modal { transform: translateY(0); }
-  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A9488; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
+  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A8C74; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
   .contact-close:hover { color: #F8F6F2; }
   .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #F8F6F2; margin-bottom: 8px; letter-spacing: -0.02em; }
-  .contact-modal .contact-sub { font-size: 15px; color: #9A9488; margin-bottom: 32px; line-height: 1.6; }
+  .contact-modal .contact-sub { font-size: 15px; color: #9A8C74; margin-bottom: 32px; line-height: 1.6; }
   .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
   .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 480px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
+  @media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
   .contact-field { display: flex; flex-direction: column; }
-  .contact-field label { font-size: 12px; font-weight: 600; color: #9A9488; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(221,215,208,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #F8F6F2; transition: all 0.3s; resize: none; }
-  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(221,215,208,0.35); }
+  .contact-field label { font-size: 12px; font-weight: 600; color: #9A8C74; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,185,160,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #F8F6F2; transition: all 0.3s; resize: none; }
+  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(200,185,160,0.35); }
   .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #C88A50; background: rgba(255,255,255,0.1); }
   .contact-submit { display: inline-block; background: #C88A50; color: #F8F6F2; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
-  .contact-submit:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(172, 147, 121, 0.25); }
-  .contact-note { font-size: 13px; color: #7a7468; margin-top: 10px; text-align: center; }
+  .contact-submit:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
+  .contact-note { font-size: 13px; color: #6A5A48; margin-top: 10px; text-align: center; }
   .contact-success { display: none; text-align: center; padding: 40px 0; }
   .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #C88A50; margin-bottom: 12px; }
-  .contact-success p { font-size: 16px; color: #DDD7D0; line-height: 1.6; }
+  .contact-success p { font-size: 16px; color: #D4C8B0; line-height: 1.6; }
 </style>
 
 <script type="application/ld+json">
@@ -293,7 +302,7 @@
     },
     {
       "@type": "Question",
-      "name": "Why do mid-market companies need AI governance?",
+      "name": "Why do organizations need AI governance?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Without AI governance, every employee interaction with AI tools potentially leaks proprietary data and institutional knowledge. The governance gap isn't about restricting AI use, it's about five capabilities: an acceptable use policy, tool authorization, intelligence capture, a governance committee, and vendor and model evaluation frameworks."
@@ -305,30 +314,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "An AI acceptable use policy is a documented framework that defines how employees can and cannot use AI tools in the workplace. It covers which tools are authorized, what data can and cannot be shared with AI systems, how AI-generated outputs should be reviewed, and what compliance and security requirements must be met."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is a DSAR and why does it matter for AI governance?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A DSAR (Data Subject Access Request) is a formal request from an individual to see what personal data a company holds about them and how it is being processed. Under GDPR, CCPA, and emerging state privacy laws, companies must fulfill these requests within strict timelines. As AI systems ingest and process more personal data, DSAR compliance becomes inseparable from AI governance — organizations need automated workflows to locate, retrieve, and delete personal data across every system AI touches."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between a DSAR, DSR, and SAR?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A DSR (Data Subject Request) is the broad category covering all privacy rights an individual can exercise — including access, deletion, correction, portability, and opt-out. A DSAR (Data Subject Access Request) is a specific type of DSR focused on the right to access and view personal data. SAR (Subject Access Request) is the UK and legacy term for the same concept. All three are central to privacy compliance under regulations like GDPR, CCPA, the Colorado AI Act, and the EU AI Act."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does shadow AI create privacy and DSAR compliance risk?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "When employees use unsanctioned AI tools with company data, personal information may flow into third-party models without consent management, data mapping, or audit trails. This makes it nearly impossible to fulfill DSARs or demonstrate compliance to regulators, because the organization has no visibility into where personal data has been sent or how it is being processed. Automated AI inventory scanning and governance frameworks are required to close this gap."
       }
     }
   ]
@@ -351,8 +336,8 @@
       <span class="nav-dropdown-label active">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="nav-dropdown-menu">
         <a href="/the-data-gap.html">The Data Gap</a>
+        <a href="/the-infrastructure-gap.html">The Infrastructure Gap</a>
         <a href="/the-governance-gap.html" class="active">The Governance Gap</a>
-        <a href="/the-spending-gap.html">The Spending Gap</a>
         <a href="/the-experience-gap.html">The Experience Gap</a>
         <a href="/the-imagination-gap.html">The Imagination Gap</a>
       </div>
@@ -367,7 +352,7 @@
 <section class="editorial-open">
   <div class="editorial-left">
     <h1 class="reveal" style="font-size:clamp(28px, 3.5vw, 42px); line-height:1.15; margin-bottom:20px;">Every time your team uses a public AI tool, <span style="color:#C88A50;">intelligence</span> leaves the building.</h1>
-    <p class="reveal reveal-delay-1" style="font-family:'Trebuchet MS',Georgia,serif; font-size:clamp(18px, 2.2vw, 26px); font-weight:600; color:#6a6358; line-height:1.3;">Governance is how you get it back.</p>
+    <p class="reveal reveal-delay-1" style="font-family:'DM Sans',sans-serif; font-size:clamp(17px, 1.9vw, 22px); font-weight:400; color:#6A5A48; line-height:1.5; letter-spacing:0.01em;">Governance is how you get it back.</p>
   </div>
   <div class="editorial-graphic reveal reveal-delay-2">
     <div class="hero-graphic-wrap">
@@ -435,9 +420,9 @@
   </div>
 </section>
 
-<section class="governance-grid" style="background: linear-gradient(135deg, rgba(200,138,80,0.03), rgba(200,138,80,0.01)); border-top: 1px solid #E4DAD0; border-bottom: 1px solid #E4DAD0;">
+<section class="governance-grid gov-dark">
   <h2 class="reveal">What happens when the layers are missing.</h2>
-  <p class="reveal reveal-delay-1" style="font-size: 17px; color: #6a6358; line-height: 1.75; max-width: 720px; margin-bottom: 48px;">AI adoption without governance is creating attack vectors that your security infrastructure wasn't built to handle. These aren't theoretical risks. They're active threats organizations are facing right now.</p>
+  <p class="reveal reveal-delay-1" style="font-size: 17px; color: #CEBEA4; line-height: 1.75; max-width: 720px; margin-bottom: 48px;">AI adoption without governance is creating attack vectors that your security infrastructure wasn't built to handle. These aren't theoretical risks. They're active threats organizations are facing right now.</p>
 
   <div class="gov-checklist">
     <div class="gov-check-item reveal" onclick="toggleGov(this)">
@@ -466,8 +451,8 @@
     </div>
   </div>
 
-  <div style="margin-top: 48px; padding: 32px; background: #F8F6F2; border: 1px solid #E4DAD0; border-radius: 8px; max-width: 720px;">
-    <p class="reveal" style="font-size: 16px; color: #1C1914; line-height: 1.75; margin: 0;">These threats don't show up in traditional security posture assessments because they're not infrastructure vulnerabilities. They're behavioral exposures. <span style="color: #C88A50; font-weight: 600;">Governance surfaces what's happening. An AI readiness assessment identifies the exposure. The governance framework creates the structure to control it.</span></p>
+  <div style="margin-top: 48px; padding: 32px; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,185,160,0.15); border-radius: 8px; max-width: 720px;">
+    <p class="reveal" style="font-size: 16px; color: #CEBEA4; line-height: 1.75; margin: 0;">These threats don't show up in traditional security posture assessments because they're not infrastructure vulnerabilities. They're behavioral exposures. <span style="color: #C88A50; font-weight: 600;">Governance surfaces what's happening. An AI readiness assessment identifies the exposure. The governance framework creates the structure to control it.</span></p>
   </div>
 </section>
 
@@ -476,7 +461,7 @@
   <div class="gateway-inner">
     <span class="section-label reveal">The Opportunity</span>
     <h2 class="reveal reveal-delay-1">Governance is how you secure your AI environment — and compound every advantage it creates.</h2>
-    <p class="gateway-lede reveal reveal-delay-2">Most companies have AI usage without AI governance — proprietary data flowing into public models, insights that never come back, zero visibility. The organizations closing that gap aren't just reducing risk. They're building a compounding advantage.</p>
+    <p class="gateway-lede reveal reveal-delay-2">Most companies have people using AI with no one watching where the data goes. Prompts, documents, client information — it leaves and doesn't come back. The organizations fixing that aren't just reducing risk. They're turning what everyone else is giving away into an advantage.</p>
     <div class="gateway-points">
       <div class="gateway-point gw-reveal">
         <h3>Your data becomes your moat</h3>
@@ -510,7 +495,7 @@
 <section class="download-section">
   <div class="download-inner">
     <div class="download-content">
-      <h2 class="reveal">AI Acceptable Use Policy</h2>
+      <h2 class="reveal">The AI Acceptable Use Policy</h2>
       <p class="dl-intro reveal reveal-delay-1">A ready-to-implement governance policy built for organizations that move fast and can't afford to get this wrong. Data classification, tool authorization tiers, prohibited uses, incident response — everything your leadership team will ask for before your next board meeting.</p>
     </div>
     <div class="gated-form">
@@ -528,12 +513,12 @@
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
     <span style="background: #F8F6F2; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F8F6F2; margin-left: -1px;">esulting</span>
   </div>
-  <p class="tagline reveal"><span style="color:#C88A50;">A</span><span style="color:#F8F6F2;">ssess</span> · <span style="color:#C88A50;">I</span><span style="color:#F8F6F2;">dentify</span> · <span style="color:#C88A50;">R</span><span style="color:#F8F6F2;">esult</span></p>
+  <p class="tagline reveal"><span style="color:#C88A50;">A</span>ssess · <span style="color:#C88A50;">I</span>dentify · <span style="color:#C88A50;">R</span>esult</p>
   <h2 class="reveal">What will you <strong style="color:#C88A50;">Unlock?</strong></h2>
   <div class="cta-row reveal">
     <a href="assessment.html" class="btn-primary">Get Started</a>
   </div>
-  <p class="reveal" style="font-size: 13px; color: #9A9488; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #C88A50; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
+  <p class="reveal" style="font-size: 13px; color: #9A8C74; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #C88A50; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
   <div class="footer-bottom reveal">
     <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
   </div>
@@ -621,30 +606,25 @@ function toggleGov(item) {
       return;
     }
     emailError.style.display = 'none';
-    emailInput.style.borderColor = '#DDD7D0';
+    emailInput.style.borderColor = '#D4C8B0';
     var name = document.getElementById('name').value;
-    // Log the lead capture
     console.log('AUP lead:', { name: name, email: email, source: window.location.pathname, timestamp: new Date().toISOString() });
-    // Trigger direct PDF download
     var link = document.createElement('a');
     link.href = '/assets/AIR-AI-Acceptable-Use-Policy.pdf';
     link.download = 'AIR-AI-Acceptable-Use-Policy.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    // Show confirmation
-    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Your download has started.</h3><p style="font-size:15px;color:#6a6358;line-height:1.6;">Check your downloads folder for the AI Acceptable Use Policy.</p></div>';
+    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Your download has started.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">Check your downloads folder for the AI Acceptable Use Policy.</p></div>';
   });
-  // Clear error on re-type
   var emailInput = document.getElementById('email');
   if (emailInput) {
     emailInput.addEventListener('input', function() {
       document.getElementById('emailError').style.display = 'none';
-      emailInput.style.borderColor = '#DDD7D0';
+      emailInput.style.borderColor = '#D4C8B0';
     });
   }
 })();
-
 
 // Scroll progress bar
 (function() {
@@ -697,7 +677,7 @@ function toggleGov(item) {
 
   (function(){var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible");});},{threshold:0.15});document.querySelectorAll(".gateway-point.gw-reveal").forEach(function(el){o.observe(el);});})();
 </script>
-<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#C88A50;color:#F8F6F2;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(47,47,47,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#A06830;box-shadow:0 6px 28px rgba(47,47,47,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
+<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#C88A50;color:#F8F6F2;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(22,19,15,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#A06830;box-shadow:0 6px 28px rgba(22,19,15,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
 <div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
 <script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".editorial-open");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
 </body>
