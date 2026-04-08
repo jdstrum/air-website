@@ -107,8 +107,8 @@
   .gateway-section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #C88A50; margin-bottom: 24px; display: block; }
   .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
   .gateway-section .gateway-lede { font-size: 17px; color: #DDD7D0; line-height: 1.75; margin-bottom: 40px; }
-  .gateway-points { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #C88A50; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); border-left-color: #DDD7D0; }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #C88A50; margin-bottom: 8px; letter-spacing: 0.03em; }
+  .gateway-points { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #C88A50; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #C88A50; margin-bottom: 8px; letter-spacing: 0.03em; }
   .gateway-point p { font-size: 15px; color: #DDD7D0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
 
@@ -235,13 +235,13 @@
   .editorial-graphic{display:flex;align-items:center;justify-content:center;}
   .hero-graphic-wrap{position:relative;width:280px;height:280px;}@media(max-width:768px){.hero-graphic-wrap{width:200px;height:200px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
 
-  .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}.gateway-point.gw-reveal:nth-child(4){transition-delay:0.45s;}
+  .gateway-point.gw-reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}.gateway-point.gw-reveal.visible{opacity:1;transform:translateY(0);}.gateway-point.gw-reveal:nth-child(1){transition-delay:0s;}.gateway-point.gw-reveal:nth-child(2){transition-delay:0.15s;}.gateway-point.gw-reveal:nth-child(3){transition-delay:0.3s;}
 
   .footer-cta { background: #1C1914; padding: 120px 8vw; text-align: center; color: #F8F6F2; }
   .footer-cta .mark { background: #F8F6F2; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
   .footer-cta .r { font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; }
   .footer-cta .name { font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F8F6F2; }
-  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #C88A50; font-style: italic; margin-bottom: 48px; }
+  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #F8F6F2; font-style: italic; margin-bottom: 48px; }
   .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #F8F6F2; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
   .footer-cta .cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 80px; }
   .footer-cta .cta-row .btn-primary { display: inline-block; background: #C88A50; color: #F8F6F2; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
@@ -357,6 +357,7 @@
         <a href="/the-imagination-gap.html">The Imagination Gap</a>
       </div>
     </div>
+    <a href="/our-approach.html">Our Approach</a>
     <a href="/field-notes.html">Field Notes</a>
     <a href="#" onclick="event.preventDefault();document.getElementById('contactOverlay').classList.add('open');" style="cursor:pointer;">Book a Conversation</a>
     <a href="assessment.html" class="nav-cta">Take the Assessment</a>
@@ -365,8 +366,8 @@
 
 <section class="editorial-open">
   <div class="editorial-left">
-    <h1 class="reveal" style="font-size:clamp(28px, 3.5vw, 42px); line-height:1.15; margin-bottom:20px;">Every time your team uses a public AI tool, intelligence leaves the building.</h1>
-    <p class="reveal reveal-delay-1" style="font-family:'Trebuchet MS',Georgia,serif; font-size:clamp(18px, 2.2vw, 26px); font-weight:600; color:#C88A50; line-height:1.3;">Governance is how you get it back.</p>
+    <h1 class="reveal" style="font-size:clamp(28px, 3.5vw, 42px); line-height:1.15; margin-bottom:20px;">Every time your team uses a public AI tool, <span style="color:#C88A50;">intelligence</span> leaves the building.</h1>
+    <p class="reveal reveal-delay-1" style="font-family:'Trebuchet MS',Georgia,serif; font-size:clamp(18px, 2.2vw, 26px); font-weight:600; color:#6a6358; line-height:1.3;">Governance is how you get it back.</p>
   </div>
   <div class="editorial-graphic reveal reveal-delay-2">
     <div class="hero-graphic-wrap">
@@ -478,18 +479,14 @@
     <p class="gateway-lede reveal reveal-delay-2">Most companies have AI usage without AI governance — proprietary data flowing into public models, insights that never come back, zero visibility. The organizations closing that gap aren't just reducing risk. They're building a compounding advantage.</p>
     <div class="gateway-points">
       <div class="gateway-point gw-reveal">
-        <h3>Intelligence compounds</h3>
-        <p>A governed environment captures every AI interaction — turning daily work into a strategic asset that gets smarter over time.</p>
+        <h3>Your data becomes your moat</h3>
+        <p>A governed environment keeps proprietary data in-house and captures every AI interaction — turning daily work into a compounding advantage no competitor can replicate.</p>
       </div>
       <div class="gateway-point gw-reveal">
         <h3>Guessing becomes steering</h3>
         <p>Know exactly where AI is being used, by whom, and with what data — then direct it.</p>
       </div>
-      <div class="gateway-point gw-reveal">
-        <h3>Data becomes your moat</h3>
-        <p>Proprietary data that stays in your environment becomes a competitive advantage no one can replicate.</p>
-      </div>
-      <div class="gateway-point gw-reveal">
+      <div class="gateway-point gw-reveal" style="padding-top:36px;">
         <h3>Confidence to say yes</h3>
         <p>Clear guardrails mean leadership stops blocking AI initiatives and starts enabling them.</p>
       </div>
@@ -531,7 +528,7 @@
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
     <span style="background: #F8F6F2; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F8F6F2; margin-left: -1px;">esulting</span>
   </div>
-  <p class="tagline reveal">Assess · Identify · Result</p>
+  <p class="tagline reveal"><span style="color:#C88A50;">A</span><span style="color:#F8F6F2;">ssess</span> · <span style="color:#C88A50;">I</span><span style="color:#F8F6F2;">dentify</span> · <span style="color:#C88A50;">R</span><span style="color:#F8F6F2;">esult</span></p>
   <h2 class="reveal">What will you <strong style="color:#C88A50;">Unlock?</strong></h2>
   <div class="cta-row reveal">
     <a href="assessment.html" class="btn-primary">Get Started</a>
