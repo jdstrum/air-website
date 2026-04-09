@@ -79,18 +79,19 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
 .nav-dropdown-menu a.active { color: #1C1914; font-weight: 600; }
 .nav-links .nav-cta{background:#C88A50;color:#F8F6F2;padding:10px 22px;border-radius:5px;font-weight:600;transition:all 0.3s;}
 .nav-links .nav-cta:hover{background:#A06830;color:#F8F6F2;}
+/* HAMBURGER + MOBILE NAV */
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#1C1914;margin:5px 0;transition:all 0.3s;border-radius:1px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#1C1914;margin:5px 0;transition:all 0.3s;}
 .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .nav-hamburger.active span:nth-child(2){opacity:0;}
 .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-@media(max-width:768px){
+@media (max-width: 768px) {
   .nav-hamburger{display:block;}
-  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(22,19,15,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}
-  .nav-links.open{display:flex!important;}
-  .nav-links.open a{display:block!important;font-size:20px;color:#F8F6F2;}
-  .nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}
-  .nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F8F6F2;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F8F6F2;}
+  .nav-links{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(248,246,242,0.98);flex-direction:column;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:all 0.4s;}
+  .nav-links.open{opacity:1;visibility:visible;}
+  .nav-links a:not(.nav-cta){font-size:20px;color:#1C1914;}
+  .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:transparent;box-shadow:none;padding:4px 0 4px 16px;min-width:auto;}
+  .nav-dropdown-label svg{display:none;}
 }
 
 /* HERO */

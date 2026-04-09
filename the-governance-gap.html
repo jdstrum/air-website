@@ -78,7 +78,6 @@
   .nav-dropdown-menu a.active { color: #1C1914; font-weight: 600; }
   .nav-links .nav-cta { background: #C88A50; color: #F8F6F2; padding: 10px 22px; border-radius: 5px; font-weight: 600; transition: all 0.3s; }
   .nav-links .nav-cta:hover { background: #A06830; color: #F8F6F2; }
-  @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } }
 
   .editorial-open { background: #F1EDE8; padding: 130px 8vw 72px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; }
   .editorial-left {}
@@ -120,7 +119,7 @@
   .gateway-section h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
   .gateway-section .gateway-lede { font-size: 17px; color: #D4C8B0; line-height: 1.75; margin-bottom: 40px; }
   .gateway-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #C88A50; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #C88A50; margin-bottom: 8px; letter-spacing: 0.03em; }
+  .gateway-point { background: rgba(255,255,255,0.06); border-left: 3px solid #C88A50; border-radius: 0 6px 6px 0; padding: 24px 24px 28px; transition: all 0.3s; }.gateway-point:hover { background: rgba(255,255,255,0.1); border-left-color: #D4C8B0; }.gateway-point h3 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #C88A50; margin-bottom: 8px; letter-spacing: 0.03em; }
   .gateway-point p { font-size: 15px; color: #D4C8B0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
 
@@ -239,7 +238,20 @@
 
 
 
-  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#D4C8B0;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(22,19,15,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#F8F6F2;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}.nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F8F6F2;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F8F6F2;}}
+  /* HAMBURGER + MOBILE NAV */
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:#1C1914;margin:5px 0;transition:all 0.3s;}
+  .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .nav-hamburger.active span:nth-child(2){opacity:0;}
+  .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+  @media (max-width: 768px) {
+    .nav-hamburger{display:block;}
+    .nav-links{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(248,246,242,0.98);flex-direction:column;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:all 0.4s;}
+    .nav-links.open{opacity:1;visibility:visible;}
+    .nav-links a:not(.nav-cta){font-size:20px;color:#1C1914;}
+    .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:transparent;box-shadow:none;padding:4px 0 4px 16px;min-width:auto;}
+    .nav-dropdown-label svg{display:none;}
+  }
 
   .editorial-graphic{display:flex;align-items:center;justify-content:center;}
   .hero-graphic-wrap{position:relative;width:280px;height:280px;}@media(max-width:768px){.hero-graphic-wrap{width:200px;height:200px;margin:0 auto;}}@keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes rotateOrbitReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}@keyframes pulseNode{0%,100%{r:4;opacity:.7}50%{r:6;opacity:1}}@keyframes pulseCenter{0%,100%{r:14}50%{r:16}}@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-20}}@keyframes fadeInScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.hero-svg{animation:fadeInScale 1s ease-out both}.orbit-1{animation:rotateOrbit 30s linear infinite;transform-origin:110px 110px}.orbit-2{animation:rotateOrbitReverse 24s linear infinite;transform-origin:110px 110px}.orbit-3{animation:rotateOrbit 18s linear infinite;transform-origin:110px 110px}.pulse-node{animation:pulseNode 3s ease-in-out infinite}.pulse-node-d1{animation-delay:.5s}.pulse-node-d2{animation-delay:1s}.pulse-node-d3{animation-delay:1.5s}.pulse-node-d4{animation-delay:2s}.pulse-node-d5{animation-delay:2.5s}.center-pulse{animation:pulseCenter 4s ease-in-out infinite}.data-flow{animation:dashFlow 2s linear infinite}
@@ -250,7 +262,7 @@
   .footer-cta .mark { background: #F8F6F2; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px; }
   .footer-cta .r { font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; }
   .footer-cta .name { font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F8F6F2; }
-  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #F8F6F2; font-style: italic; margin-bottom: 48px; }
+  .footer-cta .tagline { font-size: clamp(16px, 2vw, 22px); color: #D4C8B0; font-style: italic; margin-bottom: 48px; }
   .footer-cta h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4vw, 50px); font-weight: 700; color: #F8F6F2; line-height: 1.2; margin-bottom: 40px; letter-spacing: -0.02em; }
   .footer-cta .cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 80px; }
   .footer-cta .cta-row .btn-primary { display: inline-block; background: #C88A50; color: #F8F6F2; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; }
@@ -406,22 +418,8 @@
     </div>
 </section>
 
-<!-- THREE LAYERS EDITORIAL -->
-<section class="governance-grid" style="background:#F8F6F2; border-top: 1px solid #E4DAD0;">
-  <div style="max-width:680px;">
-    <h2 class="reveal" style="font-size:clamp(22px, 2.8vw, 32px); margin-bottom:28px;">But those five capabilities rest on something most organizations haven't finished building.</h2>
-    <div style="border-left:2px solid rgba(200,138,80,0.4); padding-left:24px; margin-bottom:40px;">
-      <p class="reveal" style="font-size:16px; color:#6a6358; line-height:1.75; margin-bottom:20px;">Governance isn't one discipline. It's three — and they're interdependent.</p>
-      <p class="reveal" style="font-size:16px; color:#6a6358; line-height:1.75; margin-bottom:20px;"><strong style="color:#1C1914;"><a href="the-data-gap.html" style="color:#1C1914; text-decoration:none; border-bottom:1px solid rgba(200,138,80,0.4);">Data governance</a></strong> comes first. Ownership, quality, lineage, access. Without it, every AI tool you deploy is operating on a foundation no one has validated. The organizations getting value from AI invested in this layer years before the tools showed up.</p>
-      <p class="reveal" style="font-size:16px; color:#6a6358; line-height:1.75; margin-bottom:20px;"><strong style="color:#1C1914;">AI governance</strong> comes next. Acceptable use, oversight, monitoring, response. This is where most organizations start — and it's why most governance programs stall. You can't govern AI well if the data underneath it is still unowned, inconsistent, or treated as an administrative task.</p>
-      <p class="reveal" style="font-size:16px; color:#6a6358; line-height:1.75;"><strong style="color:#1C1914;">Decision authority</strong> is the layer almost no one has addressed. Data governance tells you the inputs were trusted. AI governance tells you the model was approved. Neither tells you who owns the decision the AI is influencing — or who absorbs the consequences when that decision causes harm. That missing seat is where most governance frameworks stop short.</p>
-    </div>
-    <p class="reveal" style="font-family:'Trebuchet MS',Georgia,serif; font-size:clamp(18px, 2.2vw, 24px); font-weight:700; color:#1C1914; letter-spacing:-0.02em;">Govern the data. Govern the model. Govern the decision.<br><span style="color:#C88A50;">All three — or trust none of it.</span></p>
-  </div>
-</section>
-
 <section class="governance-grid gov-dark">
-  <h2 class="reveal">What happens when the layers are missing.</h2>
+  <h2 class="reveal">The security exposure ungoverned AI creates.</h2>
   <p class="reveal reveal-delay-1" style="font-size: 17px; color: #CEBEA4; line-height: 1.75; max-width: 720px; margin-bottom: 48px;">AI adoption without governance is creating attack vectors that your security infrastructure wasn't built to handle. These aren't theoretical risks. They're active threats organizations are facing right now.</p>
 
   <div class="gov-checklist">
@@ -471,7 +469,7 @@
         <h3>Guessing becomes steering</h3>
         <p>Know exactly where AI is being used, by whom, and with what data — then direct it.</p>
       </div>
-      <div class="gateway-point gw-reveal" style="padding-top:36px;">
+      <div class="gateway-point gw-reveal">
         <h3>Confidence to say yes</h3>
         <p>Clear guardrails mean leadership stops blocking AI initiatives and starts enabling them.</p>
       </div>
