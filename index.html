@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
-<meta name="description" content="AI Resulting — preparation is the competitive advantage. Lead with clarity. We guide organizations through AI readiness: what you have, what you need, who can deliver it. Free six-dimension assessment.">
+<meta name="description" content="AI Resulting — AI arrived as a product. Readiness should have been the sale. We guide organizations through AI readiness: what you have, what you need, who can deliver it. Free six-dimension assessment.">
 <link rel="canonical" href="https://airesulting.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://airesulting.vercel.app/">
 <meta property="og:title" content="AI Resulting — Readiness is the competitive advantage.">
-<meta property="og:description" content="Readiness is the competitive advantage. Lead with clarity. What you have. What you need. Who can deliver it. AI readiness for organizations ready to build right.">
+<meta property="og:description" content="AI arrived as a product. Readiness should have been the sale. What you have. What you need. Who can deliver it. AI readiness for organizations ready to build right.">
 <meta property="og:site_name" content="AI Resulting">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Resulting — Readiness is the competitive advantage.">
-<meta name="twitter:description" content="Readiness is the competitive advantage. Lead with clarity. What you have. What you need. Who can deliver it. AI readiness for organizations ready to build right.">
+<meta name="twitter:description" content="AI arrived as a product. Readiness should have been the sale. What you have. What you need. Who can deliver it. AI readiness for organizations ready to build right.">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">
 {
@@ -228,6 +228,9 @@
     color: #F8F6F2;
   }
 
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
 
   .hero {
     position: relative;
@@ -604,6 +607,19 @@
 
   .honest-resolve .warm-accent { color: #A06830; font-weight: 600; }
   .honest-resolve .bronze { color: #C88A50; font-weight: 600; }
+
+  .honest-callout {
+    font-family: 'Trebuchet MS', Georgia, serif;
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 700;
+    color: #1C1914;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 48px 0;
+  }
+
+  .honest-callout .copper { color: #C88A50; }
+
 
   .continuum {
     background: #F1EDE8;
@@ -999,7 +1015,7 @@
 
   .tagline {
     font-size: clamp(16px, 2vw, 22px);
-    color: #CEBEA4;
+    color: #F8F6F2;
     font-style: italic;
     margin-bottom: 48px;
   }
@@ -1087,20 +1103,7 @@
     .footer-cta .cta-row { flex-direction: column; align-items: center; }
   }
 
-  /* HAMBURGER + MOBILE NAV */
-  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
-  .nav-hamburger span{display:block;width:22px;height:2px;background:#CEBEA4;margin:5px 0;transition:all 0.3s;}
-  .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-  .nav-hamburger.active span:nth-child(2){opacity:0;}
-  .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-  @media (max-width: 768px) {
-    .nav-hamburger{display:block;}
-    .nav-links{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(248,246,242,0.98);flex-direction:column;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:all 0.4s;}
-    .nav-links.open{opacity:1;visibility:visible;}
-    .nav-links a:not(.nav-cta){font-size:20px;color:#1C1914;}
-    .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:transparent;box-shadow:none;padding:4px 0 4px 16px;min-width:auto;}
-    .nav-dropdown-label svg{display:none;}
-  }
+  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}.nav-hamburger span{display:block;width:22px;height:2px;background:#CEBEA4;margin:5px 0;transition:all 0.3s;border-radius:1px;}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.nav-hamburger.active span:nth-child(2){opacity:0;}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}@media(max-width:768px){.nav-hamburger{display:block;}.nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(22,19,15,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:100;}.nav-links.open{display:flex!important;}.nav-links.open a{display:block!important;font-size:20px;color:#F8F6F2;}.nav-links.open .nav-cta{font-size:18px;padding:14px 32px;}.nav-links.open .nav-dropdown{display:flex;flex-direction:column;align-items:center;gap:16px;}.nav-links.open .nav-dropdown-label{font-size:20px;color:#F8F6F2;display:none;}.nav-links.open .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:none;backdrop-filter:none;box-shadow:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:auto;}.nav-links.open .nav-dropdown-menu a{padding:0;font-size:20px;color:#F8F6F2;}}
 .footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}
 </style>
 </head>
@@ -1135,7 +1138,7 @@
   <canvas id="heroCanvas"></canvas>
 
   <div class="hero-content">
-    <h1><span style="color:#C88A50;">AI</span> is a system.<br><span style="color:#C88A50;">Readiness</span> determines what it's worth.</h1>
+    <h1><span style="color:#C88A50;">AI</span> arrived as a product.<br><span style="color:#C88A50;">Readiness</span> should have been the sale.</h1>
     <div class="hero-stack">
       <span class="hero-stack-line"><span style="color:#C88A50;">A</span>ssessing what you have.</span>
       <span class="hero-stack-line"><span style="color:#C88A50;">I</span>dentifying what you need.</span>
@@ -1158,12 +1161,19 @@
 <section class="honest-moment" id="honestMoment">
   <div class="honest-moment-circles"></div>
   <div class="honest-moment-inner">
-    <p class="honest-opener reveal">Let's be honest.<br><span class="warm-accent">AI is uncharted territory for everyone.</span></p>
+    <p class="honest-opener reveal">Organizations bought AI the way they buy everything.</p>
     <div class="honest-lines">
-      <p class="honest-line reveal">Even the most seasoned IT professionals and C-suite executives are reeling right now. The rate of change is relentless, <strong class="warm-accent">the noise is deafening</strong>, and everyone's being told they need to move faster while nobody's explaining where to actually go.</p>
-      <p class="honest-line reveal">If you feel like you're behind, you're not. You're standing in the same place as everyone else — looking at a landscape that didn't exist even a few short months ago and trying to figure out <strong class="bronze">what makes sense for your organization</strong>.</p>
+      <p class="honest-line reveal">Features, pricing, contract, sign. Except AI doesn't work that way. It's the first technology where <strong class="warm-accent">the product is the least important layer of the stack</strong>. What makes it perform is everything underneath — and for most organizations, that was never built.</p>
     </div>
-    <p class="honest-resolve reveal">We took over two decades of experience architecting IT solutions for mid-market and enterprise level companies, dove in with our curated network of suppliers, and pieced together the path forward in a way that isn't saturated with overwhelm. A <strong class="warm-accent">methodical, grounded course</strong> for laying the foundation and plugging in the right solutions where and when they belong — no matter where along the continuum your AI journey may go.</p>
+
+    <p class="honest-callout reveal"><span class="copper">The tools aren't the problem.</span><br>The foundation is.</p>
+    <div class="honest-lines">
+      <p class="honest-line reveal">You can't govern AI well if you haven't governed the data going in. You can't govern either one if nobody owns it. And you can't trust the output of a system when no one has decided who answers for the decisions it influences.</p>
+    </div>
+    <p class="honest-callout reveal">Readiness isn't a phase.<br>It's <span class="copper">the whole point</span>.</p>
+    <div class="honest-lines">
+      <p class="honest-line reveal">The organizations getting value from AI invested in these layers long before the tools showed up. The rest are still trying to figure out why nothing's working.</p>
+    </div>
   </div>
 </section>
 
@@ -1179,22 +1189,22 @@
     </div>
     <div class="dim-card reveal reveal-delay-1">
       <span class="dim-icon">02</span>
-      <h3>Data Readiness</h3>
+      <h3><a href="the-data-gap.html" style="color:inherit;text-decoration:none;">Data Readiness</a></h3>
       <p>Your data is spread across dozens of systems that were never built to talk to each other. Everything downstream depends on fixing that.</p>
     </div>
     <div class="dim-card reveal reveal-delay-1">
       <span class="dim-icon">03</span>
-      <h3>Technology Infrastructure</h3>
+      <h3><a href="the-infrastructure-gap.html" style="color:inherit;text-decoration:none;">Technology Infrastructure</a></h3>
       <p>Can your network and compute environment actually handle these workloads? The gap is physical and measurable.</p>
     </div>
     <div class="dim-card reveal reveal-delay-2">
       <span class="dim-icon">04</span>
-      <h3>Governance &amp; Security</h3>
+      <h3><a href="the-governance-gap.html" style="color:inherit;text-decoration:none;">Governance &amp; Security</a></h3>
       <p>Who's using what, what data is going where, and what rules exist to manage it. Without guardrails, nothing else holds.</p>
     </div>
     <div class="dim-card reveal reveal-delay-2">
       <span class="dim-icon">05</span>
-      <h3>Experience Layer</h3>
+      <h3><a href="the-experience-gap.html" style="color:inherit;text-decoration:none;">Experience Layer</a></h3>
       <p>Phone, chat, email, video, collaboration — every channel your customers and teams touch. This is where the ROI shows up first.</p>
     </div>
     <div class="dim-card reveal reveal-delay-3">
@@ -1229,7 +1239,7 @@
 <!-- 6. THE RESULTANT -->
 <section class="the-resultant">
   <h2 class="reveal">The assessment tells you where you stand.<br>Your <span style="color:#C88A50;">Resultant</span> shows you what to do about it.</h2>
-  <p class="reveal">There is a human on the other side of this. Someone who has already reviewed your readiness data and your personalized report before your first conversation — who knows which solutions map to your situation, and who moves at the speed the moment demands.</p>
+  <p class="reveal">There is a human on the other side of this. Not a chatbot. Not a generated report. Someone who has already reviewed your readiness data before your first conversation — who knows which solutions map to your situation, and who moves at the speed the moment demands.</p>
   <p class="reveal" style="margin-top:20px;color:#6A5A48;font-weight:500;font-style:italic;">Assessment to action. Diagnosis to solution. Readiness to results.</p>
   <div class="cta-row reveal">
     <a href="#" class="btn-primary-dark" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
