@@ -271,60 +271,62 @@ const DIM_NAMES = {
 const UNIFIED_QUESTIONS = [
   // D1 — Strategic Vision & Leadership
   { id:'q1', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes \u2014 not exploration, but measurable results?', options:[
-    {text:'A dedicated AI leader or team with cross-functional authority and budget',score:4},
-    {text:'A specific executive with defined goals',score:3},
-    {text:'IT handles it as part of their general responsibilities',score:2},
-    {text:'Someone has been informally tasked with figuring it out',score:1},
-    {text:'Nobody \u2014 it hasn\u2019t been formally assigned',score:0}
+    {text:'A dedicated leader or team owns it \u2014 with budget, authority, and a cross-functional mandate',score:4},
+    {text:'IT is driving it \u2014 they have the technical capability, but it\u2019s not tied to a business strategy',score:3},
+    {text:'A committee or working group meets on it, but nobody owns the outcome',score:2},
+    {text:'Someone got asked to \u2018figure out AI\u2019 on top of their real job',score:1},
+    {text:'Nobody \u2014 AI is happening around us, not because of us',score:0}
   ]},
   { id:'q2', dim:'D1', type:'likert', text:'The people setting AI strategy and the people building AI infrastructure are working from the same plan \u2014 not operating in parallel.' },
-  { id:'q3', dim:'D1', type:'likert', text:'If asked today, I could clearly articulate the business outcomes our AI investments have produced.' },
+  { id:'q3', dim:'D1', type:'scenario', text:'Can you point to a specific business outcome \u2014 revenue, cost savings, speed, customer impact \u2014 that AI has produced for your organization?', options:[
+    {text:'Yes \u2014 we can tie AI directly to measurable outcomes',score:4},
+    {text:'We believe it\u2019s helping, but we can\u2019t prove it with numbers yet',score:2},
+    {text:'We\u2019re still in early stages \u2014 no outcomes to measure yet',score:1},
+    {text:'We haven\u2019t deployed AI in any meaningful way',score:0}
+  ]},
 
   // D2 — Data & Infrastructure
-  { id:'q4', dim:'D2', type:'scenario', text:'If you needed to pull a cross-functional dataset \u2014 combining sales, operations, finance, and customer data \u2014 how long would it take?', options:[
-    {text:'Hours \u2014 our data is accessible and integrated across the business',score:4},
-    {text:'A day or two \u2014 most of it is reachable but some assembly required',score:3},
-    {text:'A week or more \u2014 it requires pulling from multiple systems and people',score:2},
-    {text:'It would be a significant project \u2014 our data lives in silos',score:1},
-    {text:'We can\u2019t \u2014 our systems don\u2019t talk to each other',score:0}
+  { id:'q4', dim:'D2', type:'scenario', text:'If you needed a cross-functional view \u2014 sales, operations, finance, and customer data in one place \u2014 what would that take?', options:[
+    {text:'Same day \u2014 our data is integrated and teams can self-serve',score:4},
+    {text:'A few days \u2014 we\u2019d need to coordinate across teams and clean things up',score:3},
+    {text:'Weeks \u2014 it means chasing people, exporting from multiple systems, and reconciling formats',score:1},
+    {text:'Nobody has a unified view \u2014 I\u2019m not sure we could do it with what we have today',score:0}
   ]},
   { id:'q5', dim:'D2', type:'likert', text:'Our network infrastructure \u2014 bandwidth, latency, reliability across locations \u2014 is ready for what AI workloads, cloud platforms, and real-time data access demand.' },
-  { id:'q6', dim:'D2', type:'scenario', text:'Which best describes your cloud and infrastructure environment?', routeOption:true, options:[
-    {text:'Cloud-native with automated provisioning, scaling, and AI-ready compute',score:4},
-    {text:'Cloud-first with most production workloads running in managed cloud infrastructure',score:3},
-    {text:'Hybrid \u2014 some workloads in the cloud, some on-premise, with active migration',score:2},
-    {text:'Primarily on-premise with limited cloud adoption',score:1},
-    {text:'Mostly on-premise \u2014 cloud hasn\u2019t been a priority',score:0}
+  { id:'q6', dim:'D2', type:'scenario', text:'When a new AI workload needs compute, storage, or bandwidth \u2014 what happens?', routeOption:true, options:[
+    {text:'We provision on demand \u2014 cloud-native, automated scaling, no bottleneck',score:4},
+    {text:'It\u2019s a process \u2014 procurement, approvals, lead time, and sometimes new hardware',score:1},
+    {text:'We haven\u2019t had to find out yet',score:0}
   ]},
 
   // D3 — Governance & Security
   { id:'q7', dim:'D3', type:'scenario', text:'How much visibility do you have into which AI tools your employees are actually using and what company data is flowing through them?', options:[
-    {text:'Full visibility \u2014 we know who\u2019s using what, with what data, on approved platforms',score:4},
-    {text:'Good visibility \u2014 we\u2019ve deployed approved tools and track usage',score:3},
-    {text:'Partial \u2014 we know some of it but couldn\u2019t give the full picture',score:2},
-    {text:'Minimal \u2014 I know it\u2019s happening but couldn\u2019t tell you the specifics',score:1},
-    {text:'None \u2014 and I\u2019m not sure I\u2019d know where to look',score:0}
+    {text:'Complete \u2014 every tool, every user, every data flow, on platforms we control',score:4},
+    {text:'Partial \u2014 we track the tools we\u2019ve approved, but I\u2019d bet there\u2019s usage we can\u2019t see',score:2},
+    {text:'Minimal \u2014 I know people are using AI, I just don\u2019t know what or how',score:0}
   ]},
   { id:'q8', dim:'D3', type:'likert', text:'Our organization has a written, documented policy governing how employees can and cannot use AI tools.' },
-  { id:'q9', dim:'D3', type:'likert', text:'If a regulator asked us to demonstrate how we govern AI use \u2014 what tools are sanctioned, how data is classified, how outputs are verified \u2014 we could produce that documentation today.' },
+  { id:'q9', dim:'D3', type:'likert', text:'When someone in our organization uses AI in a way that creates risk \u2014 feeding in sensitive data, publishing unreviewed outputs \u2014 we find out before it becomes a problem.' },
 
   // D4 — AI Spend & ROI
-  { id:'q10', dim:'D4', type:'scenario', text:'How much does your organization actually spend on AI \u2014 licenses, compute, embedded features, cloud costs \u2014 across all departments?', options:[
-    {text:'We know precisely \u2014 broken down by tool, team, and use case',score:4},
-    {text:'Reasonable estimate \u2014 we know the major line items but not the full picture',score:3},
-    {text:'Rough guess \u2014 some of it is visible but AI costs are spread across budgets',score:2},
-    {text:'Unclear \u2014 AI spending is buried inside broader platform and cloud costs',score:1},
-    {text:'Nobody has pulled it together',score:0}
+  { id:'q10', dim:'D4', type:'scenario', text:'Do you know what your organization is spending on AI \u2014 across licenses, compute, embedded platform features, and consulting \u2014 and whether it\u2019s producing a return?', options:[
+    {text:'Yes \u2014 we track AI spend by category and tie it to measurable outcomes',score:4},
+    {text:'We know the big line items, but AI is bundled into platforms we can\u2019t fully break out',score:2},
+    {text:'It\u2019s scattered \u2014 different budgets, different owners, no unified view',score:1},
+    {text:'We\u2019re not spending enough on AI yet for this to be a meaningful question',score:0}
   ]},
-  { id:'q11', dim:'D4', type:'likert', text:'We know the adoption rate \u2014 how many licensed seats are actively used versus purchased \u2014 for every AI-enabled platform we pay for.' },
-  { id:'q12', dim:'D4', type:'likert', text:'Our organization has reallocated or eliminated AI spending that wasn\u2019t producing results.' },
+  { id:'q11', dim:'D4', type:'likert', text:'When we evaluate a new AI tool or platform, the decision is based on a defined business case \u2014 not just a vendor demo or a team\u2019s enthusiasm.' },
+  { id:'q12', dim:'D4', type:'scenario', text:'For the AI tools and platforms you\u2019re paying for today \u2014 do you know which ones are actually being used and which are sitting idle?', options:[
+    {text:'Yes \u2014 we track adoption and utilization, and we\u2019ve already cut what wasn\u2019t being used',score:4},
+    {text:'We have a sense, but no systematic way to measure adoption vs. spend',score:2},
+    {text:'No \u2014 we\u2019re paying for things we\u2019ve never audited',score:0}
+  ]},
 
   // D5 — Experience Layer
   { id:'q13', dim:'D5', type:'scenario', cxGate:true, text:'When a customer moves between channels \u2014 chat to phone to email \u2014 what happens to their context?', options:[
-    {text:'Full continuity \u2014 every channel shares context, history, and AI-generated insights in real time',score:4},
-    {text:'Mostly connected \u2014 agents can see prior interactions but some channels are siloed',score:3},
-    {text:'Partially \u2014 some channels talk to each other, others don\u2019t',score:2},
-    {text:'Minimal \u2014 customers repeat themselves across almost every channel',score:1},
+    {text:'Seamless \u2014 every channel shares context, history, and AI-generated insights in real time',score:4},
+    {text:'Inconsistent \u2014 some channels connect, others don\u2019t, and it depends on the agent',score:2},
+    {text:'Gone \u2014 customers start over almost every time they switch channels',score:0},
     {text:'We don\u2019t operate multi-channel customer support',score:-1,skip:true}
   ]},
   { id:'q14', dim:'D5', type:'likert', text:'The intelligence generated in our meetings, strategy sessions, and team conversations is captured and accessible afterward \u2014 not trapped in the heads of whoever attended.' },
@@ -332,11 +334,9 @@ const UNIFIED_QUESTIONS = [
 
   // D6 — Workforce & Adoption
   { id:'q16', dim:'D6', type:'scenario', text:'When someone on your team builds something useful with AI \u2014 a workflow, a prompt, an automation \u2014 what happens next?', options:[
-    {text:'It gets documented, shared, and adopted across teams \u2014 we have a system for scaling what works',score:4},
-    {text:'It spreads informally \u2014 people share within their teams but there\u2019s no structured path to scale it',score:3},
-    {text:'It stays with that person \u2014 useful work is happening, but nobody outside their circle sees it',score:2},
-    {text:'I\u2019d have no way of knowing \u2014 we don\u2019t have visibility into who\u2019s doing what with AI',score:1},
-    {text:'I\u2019m not sure anyone is \u2014 or if they are, it\u2019s not something that\u2019s surfaced',score:0}
+    {text:'It gets documented, shared, and adopted \u2014 we have a system for scaling what works',score:4},
+    {text:'It spreads informally within their team, but there\u2019s no path to scale it',score:2},
+    {text:'We\u2019re not there yet \u2014 people are experimenting, but nothing has reached the point of being reusable',score:0}
   ]},
   { id:'q17', dim:'D6', type:'likert', text:'Our leadership team isn\u2019t just endorsing AI \u2014 they\u2019re personally using it, visibly championing it, and modeling the behavior they\u2019re asking for.' },
   { id:'q18', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' }
@@ -540,11 +540,6 @@ const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','h
 function buildScreens() {
   const s = [];
 
-  // Profile: Industry, Size, Revenue
-  s.push({type:'profile-radio', id:'industry', text:'What industry is your company in?', options:['Manufacturing / Industrial','Healthcare / Life Sciences','Financial Services / Insurance','Professional Services / Consulting','Retail / Consumer Goods / Hospitality','Technology / Software / SaaS','Transportation / Logistics / Distribution','Construction / Real Estate','Education / Nonprofit','Other']});
-  s.push({type:'profile-radio', id:'size', text:'How many employees does your organization have?', options:['Under 100','100\u2013500','500\u20131,000','1,000\u20132,000','Over 2,000']});
-  s.push({type:'profile-radio', id:'revenue', text:'What is your approximate annual revenue?', options:['Under $50M','$50M\u2013$150M','$150M\u2013$500M','$500M\u2013$1B','Over $1B']});
-
   // Questions — unified, mixed order across dimensions
   const qMap = {};
   UNIFIED_QUESTIONS.forEach(q => qMap[q.id] = q);
@@ -553,25 +548,23 @@ function buildScreens() {
   });
 
   // Urgency context (multi-select)
-  s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s weighing on you most right now?', hint:'Select all that apply', options:[
+  s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s driving the urgency right now?', hint:'Select all that apply', options:[
     'Board or investor pressure to show AI ROI',
-    'Competitors moving faster on AI',
-    'AI spending without measurable returns',
-    'Employees using AI tools without oversight or governance',
-    'Data scattered across too many systems to integrate',
-    'Don\u2019t know where to start or what to prioritize',
-    'Skills gaps across the team',
-    'Worried we\u2019re falling behind'
+    'Competitors are moving faster',
+    'We\u2019re spending on AI but can\u2019t measure what it\u2019s returning',
+    'AI is being used without governance \u2014 and it\u2019s a liability',
+    'We need a strategy before the next planning cycle',
+    'A specific initiative is stalled and needs to get unstuck'
   ]});
 
   // Barrier (multi select with tags, both tracks same)
-  s.push({type:'tagMulti', tag:{id:'barrier', text:'What are the biggest things standing between your organization and effective AI adoption? Select all that apply.', options:[
-    {text:'No clear roadmap \u2014 too many options, no starting point',tag:'Strategy'},
-    {text:'Budget and ROI uncertainty',tag:'ROI'},
-    {text:'Data isn\u2019t ready \u2014 too scattered, messy, or siloed',tag:'Data'},
-    {text:'Security and compliance concerns',tag:'Security'},
-    {text:'Cultural resistance or skills gaps',tag:'Culture'},
-    {text:'We\u2019ve started but can\u2019t tell if it\u2019s working',tag:'Measurement'}
+  s.push({type:'tagMulti', tag:{id:'barrier', text:'If you could fix one thing tomorrow, what would unblock the most progress?', options:[
+    {text:'A clear roadmap \u2014 we have ambition but no sequenced plan',tag:'Strategy'},
+    {text:'Confidence in ROI \u2014 we can\u2019t justify the next dollar without it',tag:'ROI'},
+    {text:'Data readiness \u2014 it\u2019s too scattered or messy to power anything',tag:'Data'},
+    {text:'Security and compliance clarity \u2014 risk is slowing us down',tag:'Security'},
+    {text:'People \u2014 skills gaps or cultural resistance',tag:'Culture'},
+    {text:'Measurement \u2014 we\u2019ve started but can\u2019t tell if it\u2019s working',tag:'Measurement'}
   ]}});
 
   // Open text
