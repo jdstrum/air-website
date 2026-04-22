@@ -258,9 +258,9 @@ const state = {
 // ============================================================
 const DIM_NAMES = {
   D1:'Strategic Vision & Leadership',
-  D2:'Data & Infrastructure',
-  D3:'Governance & Security',
-  D4:'AI Spend & ROI',
+  D2:'Data Readiness',
+  D3:'Technology Infrastructure',
+  D4:'Governance & Security',
   D5:'Experience Layer',
   D6:'Workforce & Adoption'
 };
@@ -272,9 +272,9 @@ const UNIFIED_QUESTIONS = [
   // D1 — Strategic Vision & Leadership
   { id:'q1', dim:'D1', type:'scenario', text:'Who in your organization is accountable for AI outcomes \u2014 not exploration, but measurable results?', options:[
     {text:'A dedicated leader or team owns it \u2014 with budget, authority, and a cross-functional mandate',score:4},
-    {text:'IT is driving it \u2014 they have the technical capability, but it\u2019s not tied to a business strategy',score:3},
-    {text:'A committee or working group meets on it, but nobody owns the outcome',score:2},
-    {text:'Someone got asked to \u2018figure out AI\u2019 on top of their real job',score:1},
+    {text:'Someone senior owns it, but it\u2019s siloed in one department \u2014 IT, operations, or innovation',score:3},
+    {text:'Someone got asked to \u2018figure out AI\u2019 on top of their real job',score:2},
+    {text:'There\u2019s interest at the top, but no one person or team is accountable for results',score:1},
     {text:'Nobody \u2014 AI is happening around us, not because of us',score:0}
   ]},
   { id:'q2', dim:'D1', type:'likert', text:'The people setting AI strategy and the people building AI infrastructure are working from the same plan \u2014 not operating in parallel.' },
@@ -285,42 +285,43 @@ const UNIFIED_QUESTIONS = [
     {text:'We haven\u2019t deployed AI in any meaningful way',score:0}
   ]},
 
-  // D2 — Data & Infrastructure
+  // D2 — Data Readiness
   { id:'q4', dim:'D2', type:'scenario', text:'If you needed a cross-functional view \u2014 sales, operations, finance, and customer data in one place \u2014 what would that take?', options:[
     {text:'Same day \u2014 our data is integrated and teams can self-serve',score:4},
     {text:'A few days \u2014 we\u2019d need to coordinate across teams and clean things up',score:3},
     {text:'Weeks \u2014 it means chasing people, exporting from multiple systems, and reconciling formats',score:1},
     {text:'Nobody has a unified view \u2014 I\u2019m not sure we could do it with what we have today',score:0}
   ]},
-  { id:'q5', dim:'D2', type:'likert', text:'Our network infrastructure \u2014 bandwidth, latency, reliability across locations \u2014 is ready for what AI workloads, cloud platforms, and real-time data access demand.' },
-  { id:'q6', dim:'D2', type:'scenario', text:'When a new AI workload needs compute, storage, or bandwidth \u2014 what happens?', routeOption:true, options:[
+  { id:'q5', dim:'D2', type:'likert', text:'We know who owns our data \u2014 who\u2019s accountable for its quality, its accuracy, and who can access it \u2014 across every major system we run.' },
+  { id:'q6', dim:'D2', type:'scenario', text:'If an AI tool needed to pull from your customer data, your financials, and your operations data today \u2014 how fast could you make that happen?', options:[
+    {text:'Days \u2014 our data is governed, documented, and ready to connect',score:4},
+    {text:'Weeks \u2014 we\u2019d need to build integrations and clean things up first',score:2},
+    {text:'Months \u2014 our data lives in systems that don\u2019t talk to each other',score:1},
+    {text:'We honestly don\u2019t know \u2014 nobody\u2019s tried',score:0}
+  ]},
+
+  // D3 — Technology Infrastructure
+  { id:'q7', dim:'D3', type:'likert', text:'Our network infrastructure \u2014 bandwidth, latency, reliability across locations \u2014 is ready for what AI workloads, cloud platforms, and real-time data access demand.' },
+  { id:'q8', dim:'D3', type:'scenario', text:'When a new AI workload needs compute, storage, or bandwidth \u2014 what happens?', options:[
     {text:'We provision on demand \u2014 cloud-native, automated scaling, no bottleneck',score:4},
     {text:'It\u2019s a process \u2014 procurement, approvals, lead time, and sometimes new hardware',score:1},
     {text:'We haven\u2019t had to find out yet',score:0}
   ]},
+  { id:'q9', dim:'D3', type:'scenario', text:'Do you understand your applications and workloads well enough to make your next infrastructure decision \u2014 what drives demand, what should scale, and what each workload costs to run?', options:[
+    {text:'Yes \u2014 we have the visibility to make infrastructure decisions based on real data',score:4},
+    {text:'Partially \u2014 we know the critical ones, but most of our environment is undocumented',score:2},
+    {text:'Not really \u2014 we\u2019re making infrastructure decisions based on vendor proposals and best guesses',score:1},
+    {text:'We haven\u2019t mapped this \u2014 decisions get made when something breaks or a contract comes up',score:0}
+  ]},
 
-  // D3 — Governance & Security
-  { id:'q7', dim:'D3', type:'scenario', text:'How much visibility do you have into which AI tools your employees are actually using and what company data is flowing through them?', options:[
+  // D4 — Governance & Security
+  { id:'q10', dim:'D4', type:'scenario', text:'How much visibility do you have into which AI tools your employees are actually using and what company data is flowing through them?', options:[
     {text:'Complete \u2014 every tool, every user, every data flow, on platforms we control',score:4},
     {text:'Partial \u2014 we track the tools we\u2019ve approved, but I\u2019d bet there\u2019s usage we can\u2019t see',score:2},
     {text:'Minimal \u2014 I know people are using AI, I just don\u2019t know what or how',score:0}
   ]},
-  { id:'q8', dim:'D3', type:'likert', text:'Our organization has a written, documented policy governing how employees can and cannot use AI tools.' },
-  { id:'q9', dim:'D3', type:'likert', text:'When someone in our organization uses AI in a way that creates risk \u2014 feeding in sensitive data, publishing unreviewed outputs \u2014 we find out before it becomes a problem.' },
-
-  // D4 — AI Spend & ROI
-  { id:'q10', dim:'D4', type:'scenario', text:'Do you know what your organization is spending on AI \u2014 across licenses, compute, embedded platform features, and consulting \u2014 and whether it\u2019s producing a return?', options:[
-    {text:'Yes \u2014 we track AI spend by category and tie it to measurable outcomes',score:4},
-    {text:'We know the big line items, but AI is bundled into platforms we can\u2019t fully break out',score:2},
-    {text:'It\u2019s scattered \u2014 different budgets, different owners, no unified view',score:1},
-    {text:'We\u2019re not spending enough on AI yet for this to be a meaningful question',score:0}
-  ]},
-  { id:'q11', dim:'D4', type:'likert', text:'When we evaluate a new AI tool or platform, the decision is based on a defined business case \u2014 not just a vendor demo or a team\u2019s enthusiasm.' },
-  { id:'q12', dim:'D4', type:'scenario', text:'For the AI tools and platforms you\u2019re paying for today \u2014 do you know which ones are actually being used and which are sitting idle?', options:[
-    {text:'Yes \u2014 we track adoption and utilization, and we\u2019ve already cut what wasn\u2019t being used',score:4},
-    {text:'We have a sense, but no systematic way to measure adoption vs. spend',score:2},
-    {text:'No \u2014 we\u2019re paying for things we\u2019ve never audited',score:0}
-  ]},
+  { id:'q11', dim:'D4', type:'likert', text:'Our organization has a written, documented policy governing how employees can and cannot use AI tools.' },
+  { id:'q12', dim:'D4', type:'likert', text:'When AI generates a recommendation, a document, or a customer-facing output in our organization \u2014 there\u2019s a verification step before it goes out the door.' },
 
   // D5 — Experience Layer
   { id:'q13', dim:'D5', type:'scenario', cxGate:true, text:'When a customer moves between channels \u2014 chat to phone to email \u2014 what happens to their context?', options:[
@@ -338,7 +339,11 @@ const UNIFIED_QUESTIONS = [
     {text:'It spreads informally within their team, but there\u2019s no path to scale it',score:2},
     {text:'We\u2019re not there yet \u2014 people are experimenting, but nothing has reached the point of being reusable',score:0}
   ]},
-  { id:'q17', dim:'D6', type:'likert', text:'Our leadership team isn\u2019t just endorsing AI \u2014 they\u2019re personally using it, visibly championing it, and modeling the behavior they\u2019re asking for.' },
+  { id:'q17', dim:'D6', type:'scenario', text:'Are your critical business workflows documented \u2014 the actual steps, decisions, and handoffs in how work gets done \u2014 or does most of it live in people\u2019s heads?', options:[
+    {text:'Documented and maintained \u2014 we\u2019ve already identified where AI could improve them',score:4},
+    {text:'Some are documented, but most of how work actually happens is tribal knowledge',score:2},
+    {text:'We haven\u2019t mapped our workflows \u2014 people just know how things work here',score:0}
+  ]},
   { id:'q18', dim:'D6', type:'likert', text:'We have structured AI training \u2014 not a one-time webinar, but ongoing enablement that builds real capability across roles.' }
 ];
 
@@ -364,22 +369,22 @@ const DIM_INTERP = {
     Leading:'AI strategy is owned at the executive level, funded with clear KPIs, and connected to measurable business outcomes. Your organization is positioned to scale what\u2019s working and expand with confidence. At this level, the work shifts \u2014 capturing the intelligence your people generate, optimizing where you spend, and ensuring the architecture can support what the strategy demands next.'
   },
   D2:{
-    Foundational:'Your data lives in systems across the business that don\u2019t share with each other, and assembling a cross-functional view takes weeks when it should take hours. Infrastructure may not handle what AI workloads demand in compute, bandwidth, or latency. Integration speed is too slow for real-time AI use cases. Every AI tool deployed on this foundation will underperform and erode trust in the technology. The fix starts here \u2014 consolidate data access, build governed APIs, modernize infrastructure. The layers above can\u2019t work until this one does.',
-    Developing:'Some data practices are in place, but accessibility and integration speed are limiting what AI can do. Teams are likely working from different versions of the same metrics. Infrastructure handles current workloads but has gaps for AI-scale demands \u2014 compute headroom, storage throughput, or network capacity may be stretched. Getting data connected and infrastructure modernized will move the needle more than anything else on this list.',
-    Advancing:'Your data environment is reasonably accessible and infrastructure supports current AI workloads. The remaining gaps are likely integration speed between systems, consistency across business units, or headroom for what\u2019s coming next. These are solvable \u2014 governed APIs, data quality standards, capacity planning \u2014 and solving them unlocks the higher-value use cases that depend on clean, connected, real-time data.',
-    Leading:'Data is accessible across the organization, infrastructure handles AI workloads at scale, and new tools can connect to core systems in hours, not months. This is the foundation that makes every other AI investment work harder. You\u2019re positioned for the use cases that require cross-functional data \u2014 predictive analytics, intelligent automation, and the kind of organizational intelligence that builds on itself.'
+    Foundational:'Your data isn\u2019t ready for AI. Ownership is unclear \u2014 nobody\u2019s accountable for quality or access across systems. Information lives in silos that weren\u2019t built to share, and connecting it for AI use would take months, not days. Every AI tool deployed on this fragmented foundation will underperform. The fix starts here: establish data ownership, build governance around what goes in, create the integration layer that makes your data accessible. Without clean, governed, connected data, every other AI investment is a guess.',
+    Developing:'Some data practices exist, but ownership is inconsistent and accessibility is slow. Teams are probably working from different versions of the same information. Connecting new AI tools to your data requires custom work every time instead of governed pipelines. The gap between what your data could do for AI and what it actually does right now is where value is trapped. Establishing clear ownership and building integration paths will move the needle more than anything else on this list.',
+    Advancing:'Your data environment has real structure \u2014 ownership is defined, quality is monitored, and integration paths exist. The remaining work is speed and coverage. Can a new AI tool connect to what it needs in days, not weeks? Are data governance practices consistent across every business unit? Closing these gaps unlocks the use cases that depend on clean, connected, real-time data \u2014 and gives you confidence that what feeds your AI is verified and controlled.',
+    Leading:'Data is owned, governed, and accessible across the organization. New AI tools can connect to core systems quickly because the pipelines, standards, and ownership are already in place. This is the input layer that makes everything else work. Your data governance gives you confidence that what feeds your AI is clean, verified, and controlled \u2014 the foundation that separates organizations scaling AI from organizations still fighting their own data.'
   },
   D3:{
-    Foundational:'There is no meaningful governance framework for AI use in your organization. Your employees are almost certainly using unsanctioned tools, feeding in unclassified data, and generating outputs nobody checks. Shadow AI is present and untracked. Every prompt carries organizational intelligence that disappears the moment it\u2019s created. AI governance legislation is already taking effect, with major deadlines in 2026 and 2027. The fix: classify your data, publish an acceptable use policy, detect shadow AI, build output verification into the workflow, and deploy a governed platform that captures intelligence. The visibility and guardrails need to go in now \u2014 and they\u2019re also what make it possible to move faster.',
-    Developing:'Some governance awareness exists, but policies are either incomplete or inconsistently enforced. Shadow AI is probably present and partially visible. The intelligence your people generate through AI interactions \u2014 prompts, workflows, problem-solving patterns \u2014 is not being systematically captured. Tightening governance is the precondition for everything you want to do next \u2014 and the difference between managed AI adoption and unmanaged risk.',
-    Advancing:'Governance policies are in place and leadership takes AI oversight seriously. The remaining work is enforcement consistency, documentation depth, or extending coverage to new AI use cases as they emerge. The deeper question: are you capturing the intelligence? Governing the risk is one side. Retaining the value your people create every time they use AI \u2014 on a governed platform the organization owns \u2014 is the other.',
-    Leading:'AI governance is formalized, documented, and actively enforced. You have visibility into what tools are in use, how data flows through them, and who\u2019s accountable. Intelligence from AI interactions is being captured and retained on platforms the organization controls. Most organizations haven\u2019t built this yet. It\u2019s the posture regulators are looking for \u2014 and what lets you build value instead of just managing risk.'
+    Foundational:'Your infrastructure wasn\u2019t built for what AI demands. Network capacity, compute availability, and storage throughput may already be stretched \u2014 and AI workloads will push harder. Worse, you may not have the visibility to know what your applications and workloads actually require. Infrastructure decisions are reactive \u2014 driven by vendor proposals or contract renewals rather than real data about demand, performance, and cost. The work is targeted: assess what you have, understand your workloads, and modernize where the gaps are sharpest. AI introduces non-linear demand, bursty workloads, and a much higher cost of being wrong.',
+    Developing:'Infrastructure handles current workloads but isn\u2019t positioned for AI-scale demand. You have some visibility into what\u2019s running, but most of your environment is undocumented. When something needs to scale, it takes planning and scrambling rather than provisioning. The gap between where your infrastructure is and where AI needs it to be is measurable \u2014 and closeable. SD-WAN, managed cloud, hybrid architecture, capacity planning \u2014 these are specific, scoped upgrades, not rip-and-replace.',
+    Advancing:'Your infrastructure supports current AI workloads and you can provision with reasonable speed. What\u2019s missing is the full picture \u2014 workload intelligence that tells you what each application actually costs to run, where performance matters most, and what should scale versus what shouldn\u2019t. At this level, infrastructure becomes a financial strategy for AI, not just a technical one. The organizations getting ahead aren\u2019t starting with cloud vs. on-prem. They\u2019re starting with application and workload intelligence.',
+    Leading:'Your infrastructure is built for AI. Network, compute, and storage handle current demand with headroom for what\u2019s next. You understand your workloads well enough to make infrastructure decisions based on real data \u2014 what drives demand, what should scale, and what each workload costs. New AI deployments land on infrastructure that\u2019s ready for them. This is the foundation that separates organizations that scale from organizations that stall.'
   },
   D4:{
-    Foundational:'You\u2019re spending on AI without the visibility to know what\u2019s producing. Licensed seats, embedded AI features, platform add-ons, compute costs \u2014 the line items exist but adoption against them likely hasn\u2019t been measured. Your employees are proving demand for AI through tools you aren\u2019t paying for and can\u2019t see. Budget goes to die in that space between what\u2019s purchased and what\u2019s actually used. Start with a full audit: every AI-related line item matched to actual usage. Reallocate what you find, and stop paying for what isn\u2019t producing.',
-    Developing:'There\u2019s some awareness of AI spending, but the organization can\u2019t draw a clean line from AI investment to business outcome. Adoption rates against purchased licenses are probably uneven \u2014 strong in some teams, absent in others. AI capabilities bundled in existing platforms are likely underutilized. Budget trapped in unused licenses can fund the foundation work that actually produces returns. The reallocation opportunity is real.',
-    Advancing:'Your organization has meaningful visibility into AI spending and some ability to measure returns. What\u2019s missing is precision \u2014 knowing exactly which investments are producing and having the discipline to reallocate based on the data. At this level, FinOps matters: real-time visibility into compute, storage, API calls, and AI platform costs so optimization is continuous, not quarterly.',
-    Leading:'AI spending is tracked, measured against outcomes, and actively optimized. Shelfware has been eliminated or minimized. The organization can articulate ROI by use case and project costs at scale. Few companies can say this \u2014 and it means every new AI investment you make builds on spend discipline most of your competitors haven\u2019t developed.'
+    Foundational:'Your organization has no meaningful governance framework for AI. Employees are using tools leadership can\u2019t see, feeding in data nobody has classified, and generating outputs nobody verifies before they ship. Shadow AI is present and untracked. Every ungoverned interaction carries risk \u2014 proprietary data flowing into public models, unverified outputs reaching customers, regulatory exposure accumulating invisibly. Governance has two sides: controlling what goes into AI and verifying what comes out. Right now, neither side has structure. The fix: classify your data, publish an acceptable use policy, detect shadow AI, build output verification into workflows, and deploy a governed platform that captures intelligence. This is also your fastest fix \u2014 and what makes it possible to move faster everywhere else.',
+    Developing:'Some governance awareness exists, but policies are incomplete or inconsistently enforced. Shadow AI is partially visible. The intelligence your people generate through AI \u2014 prompts, workflows, problem-solving patterns \u2014 isn\u2019t being captured. And output verification is probably informal at best \u2014 some teams check AI work before it ships, others don\u2019t. That inconsistency is where risk lives. Tightening both sides \u2014 governing what goes in and verifying what comes out \u2014 is the precondition for everything you want to do next.',
+    Advancing:'Governance policies are in place and leadership takes AI oversight seriously. The remaining work is enforcement consistency and extending coverage to the output side. Are AI-generated deliverables verified before they reach customers or regulators? Is there clear accountability when something breaks? The organizations that get governance right at this level don\u2019t just manage risk \u2014 they build trust that accelerates adoption. The deeper question: are you also capturing the intelligence your people create every time they use AI?',
+    Leading:'AI governance is formalized, documented, and actively enforced \u2014 on both sides. You have visibility into what tools are in use and what data flows through them. Outputs are verified before they ship. Intelligence from AI interactions is captured and retained on platforms the organization controls. This is the posture regulators are looking for \u2014 and what lets you build value instead of just managing risk. Most organizations haven\u2019t built this yet.'
   },
   D5:{
     Foundational:'AI hasn\u2019t reached your customer operations or your internal collaboration in any meaningful way. Your contact center \u2014 if you operate one \u2014 is the fastest path to measurable AI returns. Intelligent routing, sentiment analysis, automated QA, predictive analytics \u2014 all produce measurable returns within quarters. Internally, meeting intelligence, knowledge management, collaboration AI \u2014 most of it is bundled in platforms you\u2019re already paying for. Your CX, UCaaS, and collaboration platforms almost certainly do more than your teams use them for. It just hasn\u2019t been turned on.',
@@ -389,10 +394,10 @@ const DIM_INTERP = {
     Leading:'AI is embedded in how you serve customers and how your teams collaborate. Intelligence from interactions is being captured and built on. Your platforms share data across the experience layer, not just within each tool. You\u2019re seeing patterns in your data that competitors are missing. The focus now is optimization and scaling what works across the organization.'
   },
   D6:{
-    Foundational:'Your workforce isn\u2019t prepared for AI adoption, and leadership isn\u2019t visibly driving it. This is the lowest-scoring dimension we see, regardless of industry, and it determines whether everything else on this report actually gets used. Without training, visible leadership commitment, and a way to find and elevate your internal innovators, AI investments underperform regardless of how good the technology is. IT is often positioned as a gatekeeper rather than an enabler \u2014 teams wait months for approval instead of experimenting within guardrails.',
-    Developing:'Some awareness of AI exists across the organization, but adoption is uneven and training is limited. A few enthusiasts carry the load while the broader workforce either ignores AI or uses it without guidance. That gap widens over time. Somewhere in your organization, people are using AI in creative, high-impact ways that nobody in leadership can name. Finding them changes the trajectory. Building a path from their experiments to sanctioned, scalable workflows is the work.',
-    Advancing:'Your organization is investing in AI literacy and there\u2019s meaningful adoption happening. Leadership is engaged. IT is enabling rather than gatekeeping. The remaining work is consistency \u2014 moving from pockets of excellence to organization-wide capability. Structured training, sanctioned workflows, and visibility into who\u2019s doing the best work so others can learn from them.',
-    Leading:'AI adoption is widespread, supported by training, and reinforced by leadership who use AI themselves. IT operates as an enabler \u2014 teams experiment within guardrails without waiting months for approval. Your workforce sees AI as leverage. Internal innovators are identified and their work is scaling. This cultural foundation is what separates organizations that scale AI from organizations that stay stuck in pilot mode.'
+    Foundational:'Your workforce isn\u2019t prepared for AI adoption, and the workflows AI would improve haven\u2019t been mapped. Most of how work gets done lives in people\u2019s heads \u2014 tribal knowledge, undocumented processes, handoffs that happen because someone just knows. Without documented workflows, AI can\u2019t optimize what nobody\u2019s defined. Without training, your people can\u2019t use the tools you give them. Without a system for scaling what works, every innovation dies on one person\u2019s laptop. This is the dimension that determines whether everything else on this report actually gets used.',
+    Developing:'Some awareness of AI exists across the organization, but adoption is uneven and training is limited. A few enthusiasts carry the load while the broader workforce either ignores AI or uses it without guidance. Critical workflows are mostly undocumented \u2014 people know how things work, but it\u2019s not written down in a way that AI could act on. Somewhere in your organization, people are using AI in creative, high-impact ways that nobody in leadership can name. Finding them changes the trajectory. Building a path from their experiments to sanctioned, scalable workflows is the work.',
+    Advancing:'Your organization is investing in AI literacy and there\u2019s meaningful adoption happening. IT is enabling rather than gatekeeping. Some workflows are documented and identified for AI improvement. The remaining work is consistency \u2014 moving from pockets of excellence to organization-wide capability. Structured training, documented workflows, and visibility into who\u2019s doing the best work so others can learn from them.',
+    Leading:'AI adoption is widespread, supported by training, and built on documented workflows that the organization understands and continuously improves. IT operates as an enabler \u2014 teams experiment within guardrails without waiting months for approval. Internal innovators are identified and their work is scaling into repeatable processes. Your workforce sees AI as leverage, and the workflows it operates on are visible, maintained, and evolving. This is what separates organizations that scale AI from organizations that stay stuck in pilot mode.'
   }
 };
 
@@ -401,11 +406,11 @@ const DIM_INTERP = {
 // ============================================================
 const LOWEST_CALLOUT = {
   D1:'AI hasn\u2019t been formalized as a strategic priority with ownership, budget, and accountability for measurable outcomes. Without strategy, every other investment \u2014 infrastructure, platforms, governance \u2014 is uncoordinated.',
-  D2:'Data accessibility, integration speed, and infrastructure capacity are the constraints. Information is siloed, cross-functional views take too long to assemble, and the environment may not handle what AI workloads demand. This is the foundation layer. Everything else sits on top of it.',
-  D3:'Your employees are generating intelligence through AI tools every day. Shadow AI is likely present and untracked. Right now that intelligence isn\u2019t being captured, governed, or protected \u2014 and regulatory deadlines are approaching. This is your most time-sensitive exposure.',
-  D4:'You\u2019re paying for AI that isn\u2019t producing. Adoption rates against licensed seats likely reveal significant reallocation opportunity. The delta between what\u2019s purchased and what\u2019s actually used could fund the foundation work that delivers outcomes.',
+  D2:'Data is your constraint. Information lives in systems that don\u2019t share, ownership is unclear, and connecting your data for AI use takes too long. Every AI tool deployed on this fragmented foundation will underperform. The fix starts here \u2014 establish ownership, build governed access, and create the integration layer that makes your data usable.',
+  D3:'Your infrastructure isn\u2019t ready for what AI demands \u2014 and you may not have the visibility to know where the gaps are. Network capacity, compute availability, workload intelligence \u2014 these are the layers everything else sits on. Infrastructure decisions made without understanding your applications and their actual demands lead to overspending in some places and underbuilding in others.',
+  D4:'Your employees are using AI tools right now and nobody has clear visibility into which ones, what data flows through them, or whether outputs are being verified before they reach customers. Shadow AI is present and untracked. Governance \u2014 both input and output \u2014 is your most urgent gap and your fastest fix.',
   D5:'Your customer operations and internal collaboration represent the fastest path to visible AI ROI. Contact center intelligence, meeting capture, collaboration AI \u2014 much of it is bundled in platforms you already pay for. Right now that potential is untapped.',
-  D6:'The technology is ready but your organization\u2019s ability to adopt, champion, and build on AI tools is the constraint. AI literacy, leadership engagement, and adoption velocity are the limiting factors. Every other investment on this report either lands or stalls based on this dimension.'
+  D6:'The technology is ready but your organization\u2019s ability to adopt, champion, and build on AI tools is the constraint. Critical workflows haven\u2019t been documented, AI literacy is limited, and there\u2019s no system for scaling what works. Every other investment on this report either lands or stalls based on this dimension.'
 };
 
 // ============================================================
@@ -414,22 +419,22 @@ const LOWEST_CALLOUT = {
 function getSkipDiagnosis(scores) {
   // Pattern 1: Tools Without Foundation
   if (scores.D4 <= 40 && (scores.D2 <= 50 || scores.D3 <= 50)) {
-    return { name:'Tools Without Foundation', copy:'Your organization invested in AI tools before the layers beneath them were ready. It\u2019s the pattern we see most often \u2014 and it explains why the spending hasn\u2019t produced results. The tools work. They just can\u2019t reach the data they need, operate under governance that doesn\u2019t exist yet, or run on infrastructure that was built for a different era. Data integration is too slow for AI workloads that need real-time access. Ungoverned usage means intelligence leaves the organization with every interaction. The spend keeps flowing. The outcomes don\u2019t follow. Fixing it means going back to what was skipped: consolidating data access, standing up governance, modernizing infrastructure. Once those layers are in, the tools you\u2019ve already paid for start earning their keep.' };
+    return { name:'Tools Without Foundation', copy:'Your organization is using AI without the foundation beneath it. Governance is thin or missing \u2014 shadow AI is likely present, policies are incomplete, and outputs aren\u2019t being verified. At the same time, either your data isn\u2019t accessible or your infrastructure can\u2019t support what AI workloads demand. The tools work. They just can\u2019t reach the data they need, operate under governance that doesn\u2019t exist yet, or run on infrastructure that was built for a different era. Fixing it means going back to what was skipped: stand up governance, consolidate data access, modernize infrastructure. Once those layers are in, the tools you\u2019ve already deployed start earning their keep.' };
   }
   // Pattern 2: Governance Gap
-  if (scores.D3 <= 45 && scores.D3 <= Math.min(scores.D1,scores.D2,scores.D4,scores.D5||100,scores.D6)) {
-    return { name:'Governance Gap', copy:'Your biggest exposure is governance. Your employees are using AI tools right now \u2014 and most likely, nobody knows exactly which ones, what data flows through them, or what intelligence is being created. Shadow AI is present and untracked. There\u2019s no comprehensive policy governing what tools are sanctioned, what data can flow where, or how outputs are verified. Every ungoverned interaction carries risk: proprietary data flowing into public models, regulatory exposure accumulating, organizational intelligence leaving the building permanently. Governance is also the fastest fix on this list. Classify your data, publish an acceptable use policy, detect shadow AI, build output verification into the workflow, and deploy a governed platform that captures intelligence.' };
+  if (scores.D4 <= 45 && scores.D4 <= Math.min(scores.D1,scores.D2,scores.D3,scores.D5||100,scores.D6)) {
+    return { name:'Governance Gap', copy:'Your biggest exposure is governance. Your employees are using AI tools right now \u2014 and most likely, nobody knows exactly which ones, what data flows through them, or what outputs are being verified before they reach customers. Shadow AI is present and untracked. There\u2019s no comprehensive policy governing what tools are sanctioned, what data can flow where, or how outputs are checked. Every ungoverned interaction carries risk: proprietary data flowing into public models, unverified outputs reaching customers, regulatory exposure accumulating. Governance is also the fastest fix on this list \u2014 and it has two sides. Classify your data and control what goes into AI. Build verification workflows and control what comes out. Deploy a governed platform that captures the intelligence your people create.' };
   }
   // Pattern 3: Data Bottleneck
   if (scores.D2 <= 45 && scores.D2 <= Math.min(scores.D1,scores.D3,scores.D4,scores.D5||100,scores.D6)) {
-    return { name:'Data Bottleneck', copy:'Data is your constraint. Information lives in systems across the business that don\u2019t talk to each other, and assembling a cross-functional view takes weeks when it should take hours. Integration speed is too slow for AI workloads that need real-time or near-real-time data access. Quality and consistency likely vary across departments. AI tools deployed on fragmented data produce fragmented results \u2014 and that\u2019s why adoption stalls. People try the tools, get inconsistent outputs, and stop trusting them. The work is targeted: build the integration layer, lock down data quality standards, implement governed APIs, and create pipelines that connect fragmented information into a single usable foundation. When the data layer works, everything above it starts working too.' };
+    return { name:'Data Bottleneck', copy:'Data is your constraint. Information lives in systems across the business that don\u2019t talk to each other, ownership is unclear, and assembling a cross-functional view takes weeks when it should take hours. Connecting AI tools to your data would take months, not days. Quality and consistency likely vary across departments. AI tools deployed on fragmented data produce fragmented results \u2014 and that\u2019s why adoption stalls. People try the tools, get inconsistent outputs, and stop trusting them. The work is targeted: establish data ownership, build the integration layer, lock down quality standards, and create governed pipelines that connect fragmented information into a single usable foundation. When the data layer works, everything above it starts working too.' };
   }
-  // Pattern 4: Spending Blind
-  if (scores.D4 <= 40) {
+  // Pattern 4: Infrastructure Blind
+  if (scores.D3 <= 40) {
     const sorted = Object.entries(scores).filter(([k])=>scores[k]!==null).sort((a,b)=>a[1]-b[1]);
     const bottom2 = sorted.slice(0,2).map(s=>s[0]);
-    if (bottom2.includes('D4')) {
-      return { name:'Spending Blind', copy:'You\u2019re spending on AI without the architecture to know what\u2019s producing. AI capabilities are embedded across enterprise platforms, bundled into licenses, layered into cloud costs \u2014 and nobody has pulled the full picture together. Invoices are paid, but adoption against purchased seats likely tells a different story than the budget line suggests. Meanwhile, your employees are proving demand for AI through tools you aren\u2019t paying for and can\u2019t see. Closing this gap means a full audit: every AI-related line item matched to actual usage. The delta between what\u2019s purchased and what\u2019s active typically reveals real reallocation room \u2014 budget that can move to data integration, governance, or infrastructure work where it will actually produce.' };
+    if (bottom2.includes('D3')) {
+      return { name:'Infrastructure Blind', copy:'You\u2019re making infrastructure decisions without understanding what your environment actually needs. Applications and workloads haven\u2019t been mapped. Network capacity, compute readiness, and storage throughput may already be stretched \u2014 and AI will push harder. Infrastructure isn\u2019t just a technical decision anymore \u2014 it\u2019s a financial strategy for AI. The organizations getting ahead of this aren\u2019t starting with cloud vs. on-prem or hyperscaler vs. private. They\u2019re starting with workload intelligence: what drives demand, where performance matters, what should scale, and what each workload costs to run. That visibility changes every decision that follows.' };
     }
   }
   // Pattern 5: Experience Untapped
@@ -457,9 +462,9 @@ function getSkipDiagnosis(scores) {
 function getContinuumPhase(scores) {
   const overall = getOverallScore();
   if (overall <= 30) return { phase:1, name:'Visibility', desc:'You don\u2019t yet know what\u2019s happening in your environment' };
-  if (scores.D3 <= 40 || scores.D2 <= 40) return { phase:2, name:'Foundation', desc:'You can see the gaps but the layers aren\u2019t built yet' };
+  if (scores.D2 <= 40 || scores.D3 <= 40 || scores.D4 <= 40) return { phase:2, name:'Foundation', desc:'You can see the gaps but the layers aren\u2019t built yet' };
   const d5 = scores.D5 !== null ? scores.D5 : 100;
-  if (d5 <= 40 || scores.D4 <= 40) return { phase:3, name:'Activation', desc:'Foundation is in place, deployment is underway' };
+  if (d5 <= 40) return { phase:3, name:'Activation', desc:'Foundation is in place, deployment is underway' };
   if (overall >= 65) return { phase:4, name:'Compound', desc:'AI is producing returns and the intelligence is being captured' };
   return { phase:2, name:'Foundation', desc:'You can see the gaps but the layers aren\u2019t built yet' };
 }
@@ -549,11 +554,11 @@ function buildScreens() {
 
   // Urgency context (multi-select)
   s.push({type:'profile-checkbox', id:'urgency', text:'What\u2019s driving the urgency right now?', hint:'Select all that apply', options:[
-    'Board or investor pressure to show AI ROI',
+    'We know we need to do something with AI \u2014 we\u2019re just not clear on where it actually fits our business',
     'Competitors are moving faster',
     'We\u2019re spending on AI but can\u2019t measure what it\u2019s returning',
-    'AI is being used without governance \u2014 and it\u2019s a liability',
-    'We need a strategy before the next planning cycle',
+    'Our people are using AI tools we didn\u2019t approve \u2014 and we don\u2019t know what data is going where',
+    'We don\u2019t know if our infrastructure can handle what AI demands next',
     'A specific initiative is stalled and needs to get unstuck'
   ]});
 
