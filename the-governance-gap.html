@@ -130,7 +130,8 @@
   .reg-date-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 20px; font-weight: 700; color: #C88A50; }
   .reg-date-what { font-size: 12px; color: #9A8C74; font-weight: 500; }
   .reg-text h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #1C1914; margin-bottom: 10px; letter-spacing: -0.01em; }
-  .reg-text p { font-size: 15px; color: #6A5A48; line-height: 1.7; }
+  .reg-text p { font-size: 15px; color: #6A5A48; line-height: 1.7; margin-bottom: 16px; }
+  .reg-text p:last-child { margin-bottom: 0; }
   @media (max-width: 768px) { .reg-callout-inner { flex-direction: column; gap: 24px; } .reg-dates { flex-direction: row; gap: 24px; } }
 
   .download-section { background: #F1EDE8; padding: 80px 8vw; }
@@ -396,8 +397,8 @@
   <h2 class="reveal">The five capabilities that separate AI adoption from AI exposure.</h2>
   <div class="gov-checklist">
       <div class="gov-check-item reveal" onclick="toggleGov(this)">
-        <div class="gov-header"><span class="gov-num">01</span><span class="gov-title">Data classification</span><span class="gov-toggle">+</span></div>
-        <div class="gov-detail"><div class="gov-detail-inner"><p>Which data can AI tools touch and which can't? Without clear classification, proprietary information flows into public models every time someone writes a prompt.</p></div></div>
+        <div class="gov-header"><span class="gov-num">01</span><span class="gov-title">Data discovery and classification</span><span class="gov-toggle">+</span></div>
+        <div class="gov-detail"><div class="gov-detail-inner"><p>You cannot govern what you have not discovered, and you cannot apply policy to data you have not classified. Most companies are protecting a subset because they never mapped the whole. Discovery first. Classification second. Everything else after.</p></div></div>
       </div>
       <div class="gov-check-item reveal reveal-delay-1" onclick="toggleGov(this)">
         <div class="gov-header"><span class="gov-num">02</span><span class="gov-title">Acceptable use policies</span><span class="gov-toggle">+</span></div>
@@ -485,7 +486,9 @@
     </div>
     <div class="reg-text">
       <h3>The companies already governing AI won't have to scramble when regulation arrives.</h3>
-      <p>More than 1,500 AI-related bills have been introduced across all 50 states. Two major compliance deadlines hit this year. The governance capabilities above aren't just good practice — they're what regulators are about to require. That includes data subject rights (<abbr title="Data Subject Access Request">DSAR</abbr>) — the ability for any customer or employee to request what data you hold on them, and to have it corrected or deleted. Organizations without automated <abbr title="Data Subject Request">DSR</abbr> fulfillment and consent management will face an expensive, manual scramble.</p>
+      <p>More than 1,500 AI-related bills have been introduced across all 50 states. Two major compliance deadlines hit this year. The governance capabilities above are not just good practice. They are what regulators are about to require.</p>
+      <p>Regulators are one source of pressure. The EU AI Act, DORA, and NIST push obligations through every layer of the supply chain. Your customer's auditor is now asking you to prove what they are proving. Data protection has shifted from a cost center to the cost of doing business.</p>
+      <p>That includes data subject rights (<abbr title="Data Subject Access Request">DSAR</abbr>), the ability for any customer or employee to request what data you hold on them, and to have it corrected or deleted. Organizations without automated <abbr title="Data Subject Request">DSR</abbr> fulfillment and consent management will face an expensive, manual scramble.</p>
     </div>
   </div>
 </section>
@@ -500,8 +503,8 @@
       <form id="govKitForm">
         <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
         <div class="form-group"><label for="email">Work Email</label><input type="email" id="email" name="email" placeholder="your@company.com" required><span id="emailError" style="display:none;color:#c0392b;font-size:13px;margin-top:4px;">Please enter a work email address.</span></div>
-        <button type="submit" class="btn-download reveal reveal-delay-2">Download the Policy</button>
-        <p class="form-note">Your PDF will download immediately.</p>
+        <button type="submit" class="btn-download reveal reveal-delay-2">Send Me the Policy</button>
+        <p class="form-note">We'll email the PDF to your work address.</p>
       </form>
     </div>
   </div>
@@ -587,7 +590,7 @@ function toggleGov(item) {
   const nav = document.querySelector('.site-nav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 })();
-// Work-email validation + direct PDF download
+// Work-email validation + email PDF delivery
 (function() {
   var blockedDomains = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','outlook.com','live.com','aol.com','icloud.com','me.com','mac.com','mail.com','protonmail.com','proton.me','zoho.com','yandex.com','gmx.com','gmx.net','inbox.com','fastmail.com','hushmail.com','tutanota.com','msn.com','comcast.net','att.net','verizon.net','cox.net','charter.net','earthlink.net','sbcglobal.net','optonline.net','frontier.com','windstream.net'];
   var form = document.getElementById('govKitForm');
@@ -606,14 +609,31 @@ function toggleGov(item) {
     emailError.style.display = 'none';
     emailInput.style.borderColor = '#D4C8B0';
     var name = document.getElementById('name').value;
-    console.log('AUP lead:', { name: name, email: email, source: window.location.pathname, timestamp: new Date().toISOString() });
-    var link = document.createElement('a');
-    link.href = '/assets/AIR-AI-Acceptable-Use-Policy.pdf';
-    link.download = 'AIR-AI-Acceptable-Use-Policy.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Your download has started.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">Check your downloads folder for the AI Acceptable Use Policy.</p></div>';
+    var btn = form.querySelector('.btn-download');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch('/api/send-governance-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email })
+    })
+    .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
+    .then(function(result) {
+      if (result.ok) {
+        form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Check your inbox.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">The AI Acceptable Use Policy has been sent to <strong>' + email + '</strong>.</p></div>';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Me the Policy';
+        emailError.textContent = result.data.error || 'Something went wrong. Please try again.';
+        emailError.style.display = 'block';
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Send Me the Policy';
+      emailError.textContent = 'Network error. Please try again.';
+      emailError.style.display = 'block';
+    });
   });
   var emailInput = document.getElementById('email');
   if (emailInput) {
