@@ -54,6 +54,14 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 @font-face{font-family:'Trebuchet MS';src:local('Trebuchet MS');}
 body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.shift{padding:90px 8vw;background:#F1EDE8;}
+.shift-inner{max-width:820px;margin:0 auto;}
+.shift h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(26px,3.6vw,44px);font-weight:700;color:#1C1914;line-height:1.15;letter-spacing:-0.02em;margin-bottom:18px;}
+.shift-body{font-size:17px;color:#6A5A48;line-height:1.7;max-width:680px;margin-bottom:20px;}
+.shift-visual{display:block;margin:16px auto 28px;max-width:620px;width:100%;}
+.shift-pull{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(20px,2.6vw,30px);font-weight:700;color:#1C1914;line-height:1.3;letter-spacing:-0.01em;max-width:760px;margin:8px 0 24px;}
+.shift-pull span{color:#C88A50;}
+.shift-close{font-size:18px;color:#C88A50;font-weight:600;line-height:1.5;margin-top:8px;}
 
 /* NAV */
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 8vw;transition:all 0.4s ease;background:rgba(248,246,242,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
@@ -136,6 +144,7 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
 .uc-card h4{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;color:#1C1914;margin-bottom:10px;line-height:1.35;}
 .uc-card p{font-size:14px;color:#6A5A48;line-height:1.6;}
 .uc-card .uc-impact{margin-top:14px;padding-top:12px;border-top:1px solid #F1EDE8;font-size:13px;font-weight:600;color:#C88A50;}
+.uc-card .uc-source{margin-top:6px;font-size:11px;color:#9A8C74;font-style:italic;letter-spacing:0.01em;}
 
 /* IMAGINATION BRIDGE */
 .imagination-bridge{background:#1C1914;padding:80px 8vw;text-align:center;color:#F8F6F2;}
@@ -240,13 +249,51 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
 
 <section class="uc-hero">
   <h1>Close the gaps. Then <strong style="color:#C88A50;">open the possibilities.</strong></h1>
-  <p class="hero-sub">Data, governance, infrastructure, experience — when those foundations work together, AI stops being a slide deck and starts <strong style="color:#C88A50;">producing results.</strong> These are the use cases your competitors haven't unlocked yet.</p>
+  <p class="hero-sub">Data, governance, infrastructure, experience — when those foundations work together, AI stops being a slide deck and starts <strong style="color:#C88A50;">producing results.</strong></p>
 </section>
 
 
+<section class="shift">
+  <div class="shift-inner">
+    <h2 class="reveal">AI reaches far beyond the chat window.</h2>
+    <p class="shift-body reveal">You open Copilot or ChatGPT, ask it something, it answers. That's where almost everyone is right now, and it's the right place to start. People get comfortable, the work speeds up, trust builds.</p>
+    <svg class="shift-visual reveal" viewBox="0 0 620 190" role="img" aria-label="A chat window transforming into a mesh of agents around a central you node">
+      <rect x="14" y="52" width="172" height="92" rx="10" fill="none" stroke="#C0B19A" stroke-width="1.5"/>
+      <line x1="34" y1="78" x2="150" y2="78" stroke="#C0B19A" stroke-width="3" stroke-linecap="round"/>
+      <line x1="34" y1="98" x2="120" y2="98" stroke="#C0B19A" stroke-width="3" stroke-linecap="round"/>
+      <rect x="34" y="116" width="3" height="16" fill="#C88A50"/>
+      <text x="100" y="170" text-anchor="middle" fill="#6A5A48" font-family="'DM Sans',sans-serif" font-size="12.5">The window you type into</text>
+      <path d="M214 98 L286 98" stroke="#C88A50" stroke-width="1.5"/>
+      <path d="M278 91 L287 98 L278 105" fill="none" stroke="#C88A50" stroke-width="1.5" stroke-linejoin="round"/>
+      <line x1="470" y1="98" x2="470" y2="40" stroke="#C88A50" stroke-width="1" opacity="0.55"/>
+      <line x1="470" y1="98" x2="527" y2="80" stroke="#C88A50" stroke-width="1" opacity="0.55"/>
+      <line x1="470" y1="98" x2="505" y2="140" stroke="#C88A50" stroke-width="1" opacity="0.55"/>
+      <line x1="470" y1="98" x2="435" y2="140" stroke="#C88A50" stroke-width="1" opacity="0.55"/>
+      <line x1="470" y1="98" x2="413" y2="80" stroke="#C88A50" stroke-width="1" opacity="0.55"/>
+      <line x1="470" y1="40" x2="527" y2="80" stroke="#C88A50" stroke-width="0.75" opacity="0.3"/>
+      <line x1="527" y1="80" x2="505" y2="140" stroke="#C88A50" stroke-width="0.75" opacity="0.3"/>
+      <line x1="505" y1="140" x2="435" y2="140" stroke="#C88A50" stroke-width="0.75" opacity="0.3"/>
+      <line x1="435" y1="140" x2="413" y2="80" stroke="#C88A50" stroke-width="0.75" opacity="0.3"/>
+      <line x1="413" y1="80" x2="470" y2="40" stroke="#C88A50" stroke-width="0.75" opacity="0.3"/>
+      <circle cx="470" cy="40" r="9" fill="#F8F6F2" stroke="#C88A50" stroke-width="1.5"/>
+      <circle cx="527" cy="80" r="9" fill="#F8F6F2" stroke="#C88A50" stroke-width="1.5"/>
+      <circle cx="505" cy="140" r="9" fill="#F8F6F2" stroke="#C88A50" stroke-width="1.5"/>
+      <circle cx="435" cy="140" r="9" fill="#F8F6F2" stroke="#C88A50" stroke-width="1.5"/>
+      <circle cx="413" cy="80" r="9" fill="#F8F6F2" stroke="#C88A50" stroke-width="1.5"/>
+      <circle cx="470" cy="98" r="22" fill="rgba(200,138,80,0.18)" stroke="#C88A50" stroke-width="1.5"/>
+      <text x="470" y="102" text-anchor="middle" fill="#1C1914" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600">You</text>
+      <text x="470" y="170" text-anchor="middle" fill="#6A5A48" font-family="'DM Sans',sans-serif" font-size="12.5">Agents you direct</text>
+    </svg>
+    <p class="shift-pull reveal">But answering questions is the smallest thing AI does. What's coming is AI that <span>does the work</span> - it runs the customer service process, closes the books, moves data across the eight systems that used to need a person in the middle. You stop operating a tool and start directing it.</p>
+    <p class="shift-body reveal">That doesn't arrive all at once. It comes in order. You start in the chat. You connect your own data so it knows your business and not just the internet. Then you build agents on top that run real work. Skip a step and you get generic answers, or an agent loose in your systems with nothing keeping it in bounds.</p>
+    <p class="shift-body reveal">The chat window is the doorway, not the room. The companies that pull ahead over the next few years are the ones building that foundation now, while everyone else is still typing questions into a box.</p>
+    <p class="shift-close reveal">That's the imagination gap, and it's the expensive one to miss.</p>
+  </div>
+</section>
+
 <section class="industry-section">
-  <h2 class="reveal">Real use cases. Real results.</h2>
-  <p class="section-sub reveal reveal-delay-1">Each industry. 2–3 spotlighted examples. The strongest outcomes.</p>
+  <h2 class="reveal">What becomes possible, by industry.</h2>
+  <p class="section-sub reveal reveal-delay-1">Find your industry. Not a faster version of today - the work reimagined for what's coming.</p>
 
   <div class="industry-tabs" id="industryTabs">
     <button class="industry-tab active" data-industry="healthcare">Healthcare</button>
@@ -254,33 +301,31 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
     <button class="industry-tab" data-industry="realestate">Real Estate</button>
     <button class="industry-tab" data-industry="manufacturing">Manufacturing</button>
     <button class="industry-tab" data-industry="professional">Professional Services</button>
+    <button class="industry-tab" data-industry="legal">Legal</button>
     <button class="industry-tab" data-industry="retail">Retail</button>
   </div>
 
-  <!-- HEALTHCARE -->
+    <!-- HEALTHCARE -->
   <div class="uc-panel active" id="panel-healthcare">
     <div class="uc-panel-header">
       <h3>Healthcare</h3>
-      <p>The biggest opportunities are in the operational layers most systems haven't touched.</p>
+      <p>The biggest wins aren't in the exam room. They're hiding in the revenue cycle nobody's watching.</p>
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <span class="dim-tag workforce">Workforce</span>
-        <h4>Ambient clinical documentation that gives physicians back 2 hours a day</h4>
-        <p>AI listens to patient-provider conversations and generates structured clinical notes in real time. Physicians review and sign instead of typing from memory at midnight.</p>
-        <div class="uc-impact">2+ hours returned to patient care per clinician per day</div>
+        <span class="dim-tag strategy">The money you wrote off</span>
+        <h4>Revenue hiding in accounts you marked closed.</h4>
+        <p>Zero-balance accounts look resolved. Inside them, underpayments go unnoticed at scale. AI re-reads what's already been filed and surfaces the dollars the system called done.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag data">Data Readiness</span>
-        <h4>Automated prior authorization that resolves in minutes, not days</h4>
-        <p>AI cross-references patient records, payer requirements, and clinical guidelines to auto-generate auth requests — and auto-approves the ones that clearly qualify.</p>
-        <div class="uc-impact">85% of authorizations resolved same-day</div>
+        <span class="dim-tag data">The denial you saw coming</span>
+        <h4>Claims that never get denied in the first place.</h4>
+        <p>Instead of fighting denials after the fact, AI reads each claim before it goes out, flags the ones headed for rejection, and fixes them while there's still time.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag strategy">Strategy</span>
-        <h4>Predictive readmission scoring that triggers intervention before discharge</h4>
-        <p>AI identifies high-risk patients 48 hours before discharge and auto-generates care coordination plans — social work referrals, follow-up scheduling, medication reconciliation — while they're still in-house.</p>
-        <div class="uc-impact">23% reduction in 30-day readmissions</div>
+        <span class="dim-tag cx">The bill they can read</span>
+        <h4>A bill the patient actually understands.</h4>
+        <p>Clear charges, a real estimate of what they'll owe, answers when they ask. The financial experience stops being the thing that erodes trust after good care.</p>
       </div>
     </div>
   </div>
@@ -289,26 +334,23 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
   <div class="uc-panel" id="panel-financial">
     <div class="uc-panel-header">
       <h3>Financial Services</h3>
-      <p>The firms pulling ahead are using AI to make data work across silos.</p>
+      <p>The flashy demo is the chatbot. The real money is in the back office no one shows you.</p>
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <span class="dim-tag data">Data Readiness</span>
-        <h4>Real-time fraud detection that learns your customers' patterns</h4>
-        <p>AI models trained on your specific transaction data catch anomalies that generic rule-based systems miss — and reduce false positives that frustrate legitimate customers.</p>
-        <div class="uc-impact">60% fewer false positives, 40% more true fraud caught</div>
+        <span class="dim-tag data">The close</span>
+        <h4>A month-end that reconciles itself.</h4>
+        <p>AI matches transactions, clears the exceptions, and flags the few that genuinely need a human, so the close stops eating the first week of every month.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag cx">Customer Experience</span>
-        <h4>Claims processing that closes in hours, not weeks</h4>
-        <p>AI reads claim documents, cross-references policy terms, pulls comparable historical claims, and generates a recommended payout — routing only the edge cases to human adjusters.</p>
-        <div class="uc-impact">80% of straightforward claims auto-resolved</div>
+        <span class="dim-tag workforce">The loan file</span>
+        <h4>The file reads itself before the underwriter opens it.</h4>
+        <p>Income statements, tax filings, bank records, extracted and checked the moment they land. Underwriters spend their judgment on the edge cases, not on data entry.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag workforce">Workforce</span>
-        <h4>Relationship managers who walk in knowing everything</h4>
-        <p>AI assembles a real-time client brief before every meeting — recent transactions, life events, product gaps, competitor moves, and next-best-action recommendations.</p>
-        <div class="uc-impact">28% increase in cross-sell conversion</div>
+        <span class="dim-tag governance">The audit trail</span>
+        <h4>Every decision, already documented.</h4>
+        <p>When AI runs on governed data, every step is logged and explainable. The answer to a regulator or an auditor is already on file, not a fire drill.</p>
       </div>
     </div>
   </div>
@@ -317,26 +359,23 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
   <div class="uc-panel" id="panel-realestate">
     <div class="uc-panel-header">
       <h3>Real Estate</h3>
-      <p>Agentic AI is reshaping how properties are managed, leased, and valued — turning a dozen manual handoffs into orchestrated workflows.</p>
+      <p>Picture every lease, every property, and every risk in the portfolio readable at once.</p>
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <span class="dim-tag tech">Technology</span>
-        <h4>Maintenance orchestration that resolves issues before tenants wake up</h4>
-        <p>A sensor flags a leak at 6 a.m. An AI agent identifies the unit, alerts maintenance, grants smart-lock access, dispatches a vendor, and drafts resident notices with arrival windows — replacing a dozen manual calls with an automated chain.</p>
-        <div class="uc-impact">30%+ time savings on maintenance workflows</div>
+        <span class="dim-tag data">The lease</span>
+        <h4>Leases that read themselves into your model.</h4>
+        <p>AI pulls the terms out of every lease and feeds them straight into underwriting and a portfolio view that flags renewals and deadlines before they sneak up.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag cx">Customer Experience</span>
-        <h4>Lead-to-lease automation that catches churn before it starts</h4>
-        <p>AI handles the full journey from lead to signed lease — timely communication, document capture, follow-through. Then it monitors for churn signals: repeated unresolved issues, complaint patterns, slower response behavior. Intervention happens before the renewal window closes.</p>
-        <div class="uc-impact">Higher conversion rates, measurably lower tenant churn</div>
+        <span class="dim-tag strategy">The risk</span>
+        <h4>The risk you can see coming.</h4>
+        <p>Overlay flood zones, climate forecasts, and tenant credit across the whole portfolio, and the assets headed for trouble flag themselves while you can still act.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag data">Data Readiness</span>
-        <h4>Investment analysis that assembles itself from live portfolio data</h4>
-        <p>AI agents search structured lease and operating data, draft investment committee materials with clear sourcing, detect early warning signals across the portfolio, and auto-update when numbers change — speed, consistency, and auditability in every decision.</p>
-        <div class="uc-impact">$430–550B in annual value potential across real estate globally</div>
+        <span class="dim-tag tech">The deal</span>
+        <h4>Underwrite in a day what used to take a week.</h4>
+        <p>AI reads the rent roll, the financials, even the photos and the demographics, and builds the first underwriting pass, so your team argues about the deal instead of assembling the model.</p>
       </div>
     </div>
   </div>
@@ -345,26 +384,23 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
   <div class="uc-panel" id="panel-manufacturing">
     <div class="uc-panel-header">
       <h3>Manufacturing</h3>
-      <p>AI turns sensor data from noise into operational advantage — stopping failures, catching defects, and preventing supply chain surprises.</p>
+      <p>The advantage isn't another robot. It's the expertise and the early warning you aren't capturing yet.</p>
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <span class="dim-tag tech">Technology</span>
-        <h4>Predictive maintenance that schedules itself</h4>
-        <p>AI analyzes vibration, temperature, and performance data from equipment sensors to predict failures 2–4 weeks out — and auto-schedules maintenance during planned downtime windows.</p>
-        <div class="uc-impact">45% reduction in unplanned downtime</div>
+        <span class="dim-tag workforce">The expert who's retiring</span>
+        <h4>The knowledge that walks out the door, kept.</h4>
+        <p>The person who knows which machine sounds off before it jams, which material needs an extra degree, how to coax the line back up at 2am. AI captures that while they're still here, so it doesn't leave when they do.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag data">Data Readiness</span>
-        <h4>Quality control that catches defects humans can't see</h4>
-        <p>Computer vision systems inspect products at line speed, catching micro-defects, dimensional drift, and surface anomalies that escape manual inspection — and learning from every miss.</p>
-        <div class="uc-impact">90%+ defect detection rate at full line speed</div>
+        <span class="dim-tag strategy">The disruption you dodge</span>
+        <h4>See the supply shock before it hits the line.</h4>
+        <p>AI watches supplier health, lead-time drift, weather, and port congestion, and flags the disruption forming upstream, with a contingency ready before production ever feels it.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag cx">Customer Experience</span>
-        <h4>Custom configuration quoting in minutes instead of days</h4>
-        <p>AI translates customer specs into manufacturing BOMs, checks feasibility against current capacity, and generates accurate quotes — including lead times — while the sales call is still happening.</p>
-        <div class="uc-impact">Quote turnaround from 5 days to 15 minutes</div>
+        <span class="dim-tag tech">The defect you can't see</span>
+        <h4>Quality that catches what the eye misses.</h4>
+        <p>Vision systems inspect at line speed, catching the micro-defects and drift a person reviewing thousands of units never could, and learning from every one they find.</p>
       </div>
     </div>
   </div>
@@ -373,61 +409,78 @@ body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#1C1914;overflow-
   <div class="uc-panel" id="panel-professional">
     <div class="uc-panel-header">
       <h3>Professional Services</h3>
-      <p>AI multiplies expertise and reclaims the time that gets lost to administration.</p>
+      <p>The margin doesn't leak in the work. It leaks in what you scoped, who you staffed, and what you forgot you knew.</p>
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <span class="dim-tag workforce">Workforce</span>
-        <h4>Proposal generation that pulls from every past engagement</h4>
-        <p>AI searches your entire proposal history, case studies, and engagement records to auto-generate first drafts — with relevant past work, team bios, and pricing frameworks pre-populated.</p>
-        <div class="uc-impact">70% reduction in proposal writing time</div>
+        <span class="dim-tag strategy">The scope</span>
+        <h4>Know what the work will really cost before you quote it.</h4>
+        <p>AI reads your history of similar engagements and tells you where this one actually lands, so you stop pricing on optimism and watching margin bleed on the jobs you underscoped.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag data">Data Readiness</span>
-        <h4>Knowledge management that actually works</h4>
-        <p>AI indexes every deliverable, email thread, Slack conversation, and meeting recording to create a searchable institutional memory — so the answer to "have we done this before?" is always one query away.</p>
-        <div class="uc-impact">Institutional knowledge accessible in seconds, not days of asking around</div>
+        <span class="dim-tag workforce">The bench</span>
+        <h4>The right people on the right work, before the crunch.</h4>
+        <p>AI reads utilization, skills, and pipeline confidence and staffs ahead of the scramble, so you stop choosing between burning out the A-team and benching everyone else.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag tech">Technology</span>
-        <h4>Automated time tracking from calendar and work product</h4>
-        <p>AI reconstructs billable time from calendar events, document edits, email threads, and system access logs — generating time entries that professionals review rather than create from scratch.</p>
-        <div class="uc-impact">15–20% increase in captured billable time</div>
+        <span class="dim-tag data">The expertise</span>
+        <h4>Your best people's judgment, available to everyone.</h4>
+        <p>Every engagement, deliverable, and decision indexed, so “have we done this before?” is answered in seconds, and the senior partner's playbook doesn't retire when they do.</p>
       </div>
     </div>
   </div>
 
-  <!-- RETAIL -->
-  <div class="uc-panel" id="panel-retail">
+  <!-- LEGAL -->
+  <div class="uc-panel" id="panel-legal">
     <div class="uc-panel-header">
-      <h3>Retail</h3>
-      <p>Small improvements in efficiency, personalization, and inventory accuracy compound into significant competitive advantage on razor-thin margins.</p>
+      <h3>Legal</h3>
+      <p>Privileged data, strict rules, zero tolerance for a leak - which is exactly why legal AI has to run where you control it.</p>
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <span class="dim-tag cx">Customer Experience</span>
-        <h4>Hyper-personalized recommendations that know your customer better than their sales associate</h4>
-        <p>AI combines purchase history, browsing behavior, return patterns, and seasonal preferences to surface recommendations that feel curated, not algorithmic — across every channel.</p>
-        <div class="uc-impact">15–25% increase in average order value</div>
+        <span class="dim-tag data">The obligation you missed</span>
+        <h4>The contract doesn't stop mattering once it's signed.</h4>
+        <p>Renewal dates, SLAs, the clause that just got triggered. AI tracks the obligations buried in every agreement, so value stops leaking out of contracts no one reads after signing.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag data">Data Readiness</span>
-        <h4>Inventory optimization that eliminates overstock and stockouts simultaneously</h4>
-        <p>AI predicts demand at the SKU-location level by combining POS data, weather, local events, social trends, and competitor actions — auto-adjusting reorder points in real time.</p>
-        <div class="uc-impact">30% reduction in excess inventory, 40% fewer stockouts</div>
+        <span class="dim-tag strategy">The case you can read</span>
+        <h4>Walk in knowing how the judge tends to rule.</h4>
+        <p>AI reads the docket history, the ruling patterns, and opposing counsel's record, so strategy is grounded in how this court actually behaves, not a gut call.</p>
       </div>
       <div class="uc-card">
-        <span class="dim-tag strategy">Strategy</span>
-        <h4>Dynamic pricing that maximizes margin without losing customers</h4>
-        <p>AI adjusts pricing in real time based on demand elasticity, competitor pricing, inventory levels, and margin targets — different by channel, location, and customer segment.</p>
-        <div class="uc-impact">5–12% margin improvement on optimized categories</div>
+        <span class="dim-tag governance">The privilege you protect</span>
+        <h4>Research and drafting on data that never leaves your control.</h4>
+        <p>Privileged matter and client files can't go to a public model. The legal AI that holds up runs in a governed, private environment, with answers grounded in real authority, not invented ones.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- RETAIL -->
+  <div class="uc-panel" id="panel-retail">
+    <div class="uc-panel-header">
+      <h3>Retail</h3>
+      <p>Picture the business reorganized around three things AI changes for good: what you stock, who you know, and what you charge.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <span class="dim-tag data">What you stock</span>
+        <h4>Inventory stops being a guess.</h4>
+        <p>Demand, weather, local events, and what's trending feed one live forecast. Shelves reorder before they empty, and the markdown rack stops being where margin quietly goes to die.</p>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag cx">Who you know</span>
+        <h4>One customer, every channel.</h4>
+        <p>Online, in-store, and on the phone collapse into a single conversation. Every shopper is recognized everywhere they touch you, so the experience feels like a regular who's remembered, not an algorithm guessing.</p>
+      </div>
+      <div class="uc-card">
+        <span class="dim-tag strategy">What you charge</span>
+        <h4>Price that moves at the speed of the market.</h4>
+        <p>Pricing reflects demand, inventory, and the competitor down the street, tuned by channel and location, protecting margin without chasing people away.</p>
       </div>
     </div>
   </div>
 
 </section>
-
-<p style="font-size:12px;color:#9A8C74;padding:0 8vw 20px;font-style:italic;">Impact metrics represent published industry benchmarks and early adopter results.</p>
 
 <section class="footer-cta">
   <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
