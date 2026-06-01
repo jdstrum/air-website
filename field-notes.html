@@ -574,6 +574,12 @@
     .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:transparent;box-shadow:none;padding:4px 0 4px 16px;min-width:auto;}
     .nav-dropdown-label svg{display:none;}
 
+    #compactRow { grid-template-columns: repeat(2,1fr) !important; }
+    #compactRow a { border-right: none !important; border-bottom: 1px solid #D4C8B0; padding: 24px 0 !important; }
+    #compactRow a:nth-child(odd) { padding-right: 16px !important; border-right: 1px solid #D4C8B0 !important; }
+    #compactRow a:nth-child(even) { padding-left: 16px !important; }
+    #compactRow a:nth-last-child(-n+2) { border-bottom: none; }
+
     .featured-card {
       padding: 40px 24px;
     }
@@ -655,137 +661,12 @@
   </div>
 </nav>
 
-<!-- FEATURED HERO — Zapier-style split layout -->
-<section style="background:#F8F6F2;padding:140px 8vw 80px;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-    <div>
-      <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:20px;">Featured</span>
-      <a href="/field-note-entertainment.html" style="text-decoration:none;">
-        <h1 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:#1C1914;line-height:1.12;letter-spacing:-0.02em;margin-bottom:24px;">For Entertainment Purposes Only</h1>
-      </a>
-      <p style="font-size:17px;color:#1C1914;line-height:1.7;margin-bottom:28px;max-width:520px;">Ryan Serhant almost lost a $50 million deal because both sides asked ChatGPT. Microsoft's own terms classify Copilot as "for entertainment purposes only." The technology works. The foundation doesn't.</p>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:#C88A50;display:flex;align-items:center;justify-content:center;font-family:'Trebuchet MS',sans-serif;font-size:14px;font-weight:700;color:#F8F6F2;">JS</div>
-        <div>
-          <span style="font-size:14px;font-weight:600;color:#1C1914;">Jen Strum</span>
-          <span style="font-size:13px;color:#9A8C74;margin-left:8px;">4 min read</span>
-        </div>
-      </div>
-    </div>
-    <a href="/field-note-entertainment.html" style="text-decoration:none;display:block;">
-      <div style="background:#1C1914;border-radius:12px;padding:60px 48px;position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform 0.3s ease;cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="position:absolute;top:24px;right:24px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;background:rgba(200,138,80,0.12);padding:6px 12px;border-radius:4px;">Field Note</div>
-        <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(56px,6vw,80px);font-weight:700;color:rgba(200,138,80,0.08);line-height:0.9;letter-spacing:-0.03em;position:absolute;top:40px;left:48px;">"</div>
-        <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:600;color:#F8F6F2;line-height:1.4;margin-bottom:16px;">Same deal. Same price.<br>The tool told both of them to walk away.</p>
-        <span style="font-size:14px;color:#C88A50;font-weight:600;">Read &rarr;</span>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- COMPACT ROW — recent notes -->
-<section style="background:#F8F6F2;padding:0 8vw 80px;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #D4C8B0;border-bottom:1px solid #D4C8B0;">
-    <a href="/field-note-01.html" style="text-decoration:none;padding:32px 32px 32px 0;border-right:1px solid #D4C8B0;transition:all 0.3s;" onmouseover="this.querySelector('h3').style.color='#C88A50'" onmouseout="this.querySelector('h3').style.color='#1C1914'">
-      <span style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-      <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:18px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;transition:color 0.3s;">Your AI Strategy Shouldn't Start with AI</h3>
-      <span style="font-size:13px;color:#9A8C74;">April 2026 &nbsp;|&nbsp; 4 min read</span>
-    </a>
-    <a href="/field-note-02.html" style="text-decoration:none;padding:32px;border-right:1px solid #D4C8B0;transition:all 0.3s;" onmouseover="this.querySelector('h3').style.color='#C88A50'" onmouseout="this.querySelector('h3').style.color='#1C1914'">
-      <span style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-      <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:18px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;transition:color 0.3s;">The Smartest Person at Your Company Is Terrified You'll Find Out What She's Building</h3>
-      <span style="font-size:13px;color:#9A8C74;">April 2026 &nbsp;|&nbsp; 4 min read</span>
-    </a>
-    <a href="/field-note-03.html" style="text-decoration:none;padding:32px 0 32px 32px;transition:all 0.3s;" onmouseover="this.querySelector('h3').style.color='#C88A50'" onmouseout="this.querySelector('h3').style.color='#1C1914'">
-      <span style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-      <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:18px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;transition:color 0.3s;">They Cut Your Bonus to Pay for Software Nobody Uses</h3>
-      <span style="font-size:13px;color:#9A8C74;">April 2026 &nbsp;|&nbsp; 4 min read</span>
-    </a>
-  </div>
-</section>
-
-<!-- NEWSLETTER / ASSESSMENT CTA — mid-page break -->
-<section style="background:#F1EDE8;padding:72px 8vw;text-align:center;">
-  <h2 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:#1C1914;line-height:1.25;margin-bottom:12px;letter-spacing:-0.02em;">Get observations delivered to your inbox</h2>
-  <p style="font-size:16px;color:#9A8C74;margin-bottom:32px;">New field notes as we publish them. No spam. No sequences. Just the writing.</p>
-  <form style="display:flex;gap:12px;justify-content:center;max-width:480px;margin:0 auto;" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-size:15px;color:#C88A50;font-weight:600;padding:14px 0;\'>You\'re in. We\'ll be in touch.</p>';">
-    <input type="email" placeholder="Email address" required style="flex:1;padding:14px 20px;border:1px solid #D4C8B0;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:15px;color:#1C1914;background:#F8F6F2;outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='#C88A50'" onblur="this.style.borderColor='#D4C8B0'">
-    <button type="submit" style="background:#C88A50;color:#F8F6F2;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:14px 28px;border:none;border-radius:6px;cursor:pointer;transition:background 0.3s;white-space:nowrap;" onmouseover="this.style.background='#A06830'" onmouseout="this.style.background='#C88A50'">Subscribe</button>
-  </form>
-</section>
-
-<!-- DEEP CUTS — card grid with visual blocks -->
-<section style="background:#F8F6F2;padding:100px 8vw;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <h2 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;color:#1C1914;margin-bottom:16px;letter-spacing:-0.02em;">All Field Notes</h2>
-    <p style="font-size:17px;color:#9A8C74;line-height:1.7;max-width:600px;margin-bottom:56px;">What's working, what's failing, and what nobody talks about in the vendor demo.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;">
-
-      <!-- Card: Entertainment -->
-      <a href="/field-note-entertainment.html" style="text-decoration:none;display:block;">
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
-          <div style="background:#1C1914;padding:48px 32px;position:relative;">
-            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
-            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">Copilot is for entertainment purposes only.</p>
-          </div>
-          <div style="padding:28px 32px;">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">For Entertainment Purposes Only</h3>
-            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">Ryan Serhant almost lost a $50 million deal because both sides asked ChatGPT. The technology works. The foundation doesn't.</p>
-            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card: AI Strategy -->
-      <a href="/field-note-01.html" style="text-decoration:none;display:block;">
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
-          <div style="background:#1C1914;padding:48px 32px;position:relative;">
-            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
-            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">Those are the only questions that matter.</p>
-          </div>
-          <div style="padding:28px 32px;">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">Your AI Strategy Shouldn't Start with AI</h3>
-            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">You used to leave the office. Three decades of "efficiency" and you're working more hours than 1995.</p>
-            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card: Smartest Person -->
-      <a href="/field-note-02.html" style="text-decoration:none;display:block;">
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
-          <div style="background:#1C1914;padding:48px 32px;position:relative;">
-            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
-            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">She hasn't told anyone.</p>
-          </div>
-          <div style="padding:28px 32px;">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">The Smartest Person at Your Company Is Terrified You'll Find Out What She's Building</h3>
-            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">68% of employees are using unauthorized AI tools at work. The real question is why they felt they had to hide.</p>
-            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card: Cut Your Bonus -->
-      <a href="/field-note-03.html" style="text-decoration:none;display:block;">
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #D4C8B0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.borderColor='#C88A50';this.style.boxShadow='0 12px 40px rgba(200,138,80,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#D4C8B0';this.style.boxShadow='none';this.style.transform='translateY(0)'">
-          <div style="background:#1C1914;padding:48px 32px;position:relative;">
-            <div style="font-family:'Trebuchet MS',Georgia,serif;font-size:64px;font-weight:700;color:rgba(200,138,80,0.1);line-height:0.8;position:absolute;top:20px;left:32px;">"</div>
-            <p style="font-family:'Trebuchet MS',Georgia,serif;font-size:16px;color:#D4C8B0;line-height:1.4;font-weight:600;position:relative;">The mid-market doesn't have Meta's runway.</p>
-          </div>
-          <div style="padding:28px 32px;">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#C88A50;display:block;margin-bottom:12px;">Field Note</span>
-            <h3 style="font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:#1C1914;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;">They Cut Your Bonus to Pay for Software Nobody Uses</h3>
-            <p style="font-size:15px;color:#9A8C74;line-height:1.6;margin-bottom:16px;">54% of companies are cutting employee compensation to fund AI investments. 95% of AI pilots fail.</p>
-            <span style="font-size:13px;color:#9A8C74;">Jen Strum &nbsp;&middot;&nbsp; 4 min read</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
+<!-- COMING SOON -->
+<section style="background:#F8F6F2;padding:170px 8vw 120px;text-align:center;">
+  <div style="max-width:640px;margin:0 auto;">
+    <h1 style="font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(32px,4.5vw,56px);font-weight:700;color:#1C1914;line-height:1.12;letter-spacing:-0.02em;margin-bottom:22px;">Field Notes is on the way.</h1>
+    <p style="font-family:'DM Sans',sans-serif;font-size:18px;color:#4A4036;line-height:1.65;margin-bottom:36px;">Short, honest reads on what's actually happening with AI inside organizations - what's working, what's theater, and what it means for how you build. It's being written now. While you wait, the fastest way to see where you stand is the assessment.</p>
+    <a href="assessment.html" style="display:inline-block;background:#C88A50;color:#F8F6F2;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;">Take the Assessment</a>
   </div>
 </section>
 
