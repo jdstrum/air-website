@@ -120,6 +120,8 @@
   .hero-label { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(32px, 4.2vw, 50px); font-weight: 700; color: #1C1914; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 24px; }
   .hero-label em { color: #C88A50; font-style: normal; }
   .hero-sub { font-size: clamp(15px, 1.6vw, 18px); color: #6A5A48; line-height: 1.7; max-width: 560px; }
+  .exp-flow { margin-top: 46px; max-width: 720px; }
+  .exp-flow svg { display: block; width: 100%; height: auto; }
 
   /* CHANNEL FRAGMENTATION */
   .channels { padding: 100px 8vw; background: #F8F6F2; }
@@ -142,12 +144,13 @@
   .cx-inner { max-width: 960px; margin: 0 auto; }
   .cx-inner h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #F8F6F2; margin-bottom: 16px; letter-spacing: -0.01em; }
   .cx-lede { font-size: 16px; color: #D4C8B0; opacity: 0.7; line-height: 1.7; max-width: 600px; margin-bottom: 48px; }
-  .cx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .cx-card { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 32px; }
-  .cx-card h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #F8F6F2; margin-bottom: 8px; }
-  .cx-card p { font-size: 14px; line-height: 1.7; color: #D4C8B0; opacity: 0.6; }
+  .cx-grid { display: block; max-width: 900px; }
+  .cx-card { display: grid; grid-template-columns: 230px 1fr; gap: 40px; align-items: start; padding: 24px 0; }
+  .cx-card + .cx-card { border-top: 1px solid rgba(206,190,164,0.13); }
+  .cx-card h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #C88A50; margin: 0; letter-spacing: 0.01em; }
+  .cx-card p { font-size: 15px; line-height: 1.65; color: #CEBEA4; margin: 0; }
   .cx-card .cx-metric { display: block; font-family: 'Trebuchet MS', Georgia, serif; font-size: 13px; font-weight: 700; color: #C88A50; margin-top: 12px; letter-spacing: -0.01em; }
-  @media(max-width:768px) { .cx-grid { grid-template-columns: 1fr; } }
+  @media(max-width:768px) { .cx-card { grid-template-columns: 1fr; gap: 8px; } }
 
   /* BIG STAT */
   .big-stat { padding: 80px 8vw; text-align: center; background: #F8F6F2; }
@@ -260,6 +263,41 @@
   <div class="hero-inner">
     <h1 class="hero-label reveal">Five channels. <em>One fractured experience.</em><br>Every conversation your teams create disappears by morning.</h1>
     <p class="hero-sub reveal">AI unifies both sides — the channels people use to reach you and the knowledge your organization creates every day.</p>
+    <div class="exp-flow reveal reveal-delay-1">
+      <svg viewBox="0 0 860 300" role="img" aria-label="Five channels converge to one experience; captured, the intelligence compounds, unconnected it evaporates">
+        <g stroke="#C88A50" stroke-width="1.5" fill="none" opacity="0.5">
+          <path d="M178 30 C 290 30, 300 150, 400 150"/>
+          <path d="M178 90 C 290 90, 320 150, 400 150"/>
+          <path d="M178 150 L 400 150"/>
+          <path d="M178 210 C 290 210, 320 150, 400 150"/>
+          <path d="M178 270 C 290 270, 300 150, 400 150"/>
+        </g>
+        <g fill="#C88A50">
+          <circle cx="172" cy="30" r="4"/><circle cx="172" cy="90" r="4"/><circle cx="172" cy="150" r="4"/><circle cx="172" cy="210" r="4"/><circle cx="172" cy="270" r="4"/>
+        </g>
+        <g fill="#6A5A48" font-family="'DM Sans',sans-serif" font-size="14" text-anchor="end">
+          <text x="156" y="34">Phone</text>
+          <text x="156" y="94">Chat</text>
+          <text x="156" y="154">Email</text>
+          <text x="156" y="214">Social</text>
+          <text x="156" y="274">Self-service</text>
+        </g>
+        <circle cx="400" cy="150" r="19" fill="none" stroke="#C88A50" stroke-width="1" opacity="0.4"/>
+        <circle cx="400" cy="150" r="10" fill="#C88A50"/>
+        <path d="M409 145 C 500 118, 542 80, 582 58" stroke="#C88A50" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="2 5"/>
+        <circle cx="582" cy="58" r="5" fill="#C88A50" opacity="0.5"/>
+        <circle cx="620" cy="44" r="4" fill="#C88A50" opacity="0.34"/>
+        <circle cx="658" cy="34" r="3.5" fill="#C88A50" opacity="0.22"/>
+        <circle cx="696" cy="27" r="3" fill="#C88A50" opacity="0.13"/>
+        <circle cx="732" cy="22" r="2.5" fill="#C88A50" opacity="0.07"/>
+        <text x="470" y="120" fill="#9A8C74" font-family="'DM Sans',sans-serif" font-size="13.5">Unconnected, it evaporates</text>
+        <path d="M409 155 C 500 182, 560 206, 612 224" stroke="#C88A50" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <circle cx="666" cy="224" r="32" fill="rgba(200,138,80,0.13)" stroke="#C88A50" stroke-width="1.5"/>
+        <circle cx="666" cy="224" r="20" fill="rgba(200,138,80,0.28)"/>
+        <circle cx="666" cy="224" r="10" fill="#C88A50"/>
+        <text x="666" y="284" fill="#1C1914" font-family="'DM Sans',sans-serif" font-size="13.5" font-weight="600" text-anchor="middle">Captured, it compounds</text>
+      </svg>
+    </div>
   </div>
 </section>
 
