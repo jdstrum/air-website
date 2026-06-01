@@ -171,6 +171,27 @@
 
   /* INFRASTRUCTURE CAPABILITIES — horizontal stats */
   .infra { padding: 80px 8vw; background: #1C1914; color: #F8F6F2; }
+  .fork { padding: 80px 8vw; background: #F8F6F2; }
+  .fork-inner { max-width: 1040px; margin: 0 auto; }
+  .fork h2 { font-family:'Trebuchet MS', Georgia, serif; font-size:clamp(24px,3vw,40px); font-weight:700; color:#1C1914; letter-spacing:-0.02em; line-height:1.2; max-width:760px; margin-bottom:14px; }
+  .fork-lede { font-size:18px; color:#6A5A48; line-height:1.6; max-width:620px; margin-bottom:44px; }
+  .fork-paths { display:flex; align-items:stretch; gap:0; margin-bottom:56px; }
+  .fork-path { flex:1; padding:32px 30px; border-radius:12px; }
+  .fork-path.consume { background:#F1EDE8; }
+  .fork-path.own { background:#1C1914; color:#F8F6F2; }
+  .fork-path-tag { display:block; font-family:'Trebuchet MS', Georgia, serif; font-size:22px; font-weight:700; color:#C88A50; margin-bottom:12px; letter-spacing:-0.01em; }
+  .fork-path p { font-size:15.5px; line-height:1.65; margin:0; }
+  .fork-path.consume p { color:#4A4036; }
+  .fork-path.own p { color:#CEBEA4; }
+  .fork-or { display:flex; align-items:center; justify-content:center; font-family:'Trebuchet MS', Georgia, serif; font-size:16px; font-weight:700; color:#9A8C74; padding:0 22px; }
+  .fork-why-head { font-family:'Trebuchet MS', Georgia, serif; font-size:clamp(19px,2.2vw,26px); font-weight:700; color:#1C1914; letter-spacing:-0.01em; max-width:700px; margin-bottom:28px; }
+  .fork-why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:40px; }
+  .fork-why-item { border-top:2px solid #C88A50; padding-top:16px; }
+  .fork-why-item strong { display:block; font-family:'DM Sans', sans-serif; font-size:16px; font-weight:700; color:#1C1914; margin-bottom:8px; }
+  .fork-why-item span { font-size:14.5px; color:#6A5A48; line-height:1.6; }
+  .fork-close { font-family:'Trebuchet MS', Georgia, serif; font-size:clamp(20px,2.4vw,28px); font-weight:700; color:#1C1914; line-height:1.35; letter-spacing:-0.01em; max-width:780px; }
+  .fork-close span { color:#C88A50; }
+  @media (max-width:760px){ .fork-paths{ flex-direction:column; gap:16px; } .fork-or{ padding:8px 0; } .fork-why-grid{ grid-template-columns:1fr; gap:18px; } }
   .infra-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #C88A50; margin-bottom: 24px; display: block; text-align: center; }
   .infra h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
   .infra-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: left; }
@@ -323,7 +344,7 @@
   <div class="hero-inner">
     <span class="hero-label">The Infrastructure Gap</span>
     <h1>Your network wasn't built for what <em>AI demands.</em></h1>
-    <p class="hero-sub">AI workloads move massive data in real time. Most mid-market infrastructure was designed for email and file sharing. The gap between what you have and what AI requires is measurable — in latency, in bandwidth, in compute density.</p>
+    <p class="hero-sub">AI workloads move massive data in real time. Most mid-market infrastructure was designed for email and file sharing. The gap between what you have and what AI requires is measurable, in latency, in bandwidth, in compute density.</p>
     <a href="assessment.html" class="btn-primary">Find Your Gaps</a>
   </div>
 </section>
@@ -369,14 +390,14 @@
   <div class="reveal">
     <div class="number">10x</div>
     <div class="stat-line">more compute density than traditional workloads.</div>
-    <div class="stat-sub">AI inference and training require GPU-accelerated environments that most on-premises data centers were never designed to support. The infrastructure gap isn't incremental — it's exponential.</div>
+    <div class="stat-sub">AI inference and training require GPU-accelerated environments that most on-premises data centers were never designed to support. The infrastructure gap isn't incremental. It's exponential.</div>
   </div>
 </section>
 
 <!-- INFRASTRUCTURE JOURNEY — visual progression -->
 <section class="flow-visual">
   <h2 class="reveal">Where are you on the infrastructure journey?</h2>
-  <p class="flow-sub reveal reveal-delay-1">Most organizations are somewhere between legacy and hybrid. AI-ready is a destination that requires deliberate architecture — not just a cloud migration.</p>
+  <p class="flow-sub reveal reveal-delay-1">Most organizations are somewhere between legacy and hybrid. AI-ready is a destination that requires deliberate architecture, not just a cloud migration.</p>
   <div class="flow-diagram reveal reveal-delay-2">
     <div class="flow-stage">
       <div class="flow-stage-icon red">
@@ -415,11 +436,11 @@
 <!-- FOUR CAPABILITIES -->
 <section class="infra">
   <span class="infra-label reveal">What AI-ready infrastructure looks like</span>
-  <h2 class="reveal reveal-delay-1">Four capabilities. One foundation.</h2>
+  <h2 class="reveal reveal-delay-1">Four capabilities that have to hold together.</h2>
   <div class="infra-row">
     <div class="infra-item reveal">
       <h3>Cloud(s) that scale</h3>
-      <p>Managed environments built for AI compute intensity — not just file storage. Auto-provisioned, auto-scaled, compliance-ready.</p>
+      <p>Managed environments built for AI compute intensity, not just file storage. Auto-provisioned, auto-scaled, compliance-ready.</p>
     </div>
     <div class="infra-item reveal reveal-delay-1">
       <h3>Network built for AI traffic</h3>
@@ -445,40 +466,29 @@
   </div>
 </section>
 
-<!-- SOLUTIONS -->
-<section class="solutions">
-  <h2 class="reveal">What closing the infrastructure gap looks like.</h2>
-  <div class="solution-strip">
-    <div class="sol-item reveal">
-      <span class="sol-icon">&#9729;</span>
-      <h3>Managed Cloud</h3>
-      <p>Environments built for AI throughput, security, and compliance — provisioned in weeks, not quarters.</p>
+<!-- THE ARCHITECTURE FORK (consume vs own) -->
+<section class="fork">
+  <div class="fork-inner">
+    <h2 class="reveal">Once the foundation is there, AI runs one of two ways.</h2>
+    <p class="fork-lede reveal reveal-delay-1">Most companies will rent the intelligence. Some can't. Your data decides which.</p>
+    <div class="fork-paths reveal reveal-delay-2">
+      <div class="fork-path consume">
+        <span class="fork-path-tag">Consume it</span>
+        <p>Interconnect into the clouds and the model providers and rent the intelligence. No GPUs to buy, no racks to run. For most companies this is the right answer, and the fastest one.</p>
+      </div>
+      <div class="fork-or" aria-hidden="true">or</div>
+      <div class="fork-path own">
+        <span class="fork-path-tag">Own it</span>
+        <p>Stand up your own GPU environment in colocation. You hold the hardware, the data, and the control. Heavier to build, but for some workloads it's the only way the data is allowed to move.</p>
+      </div>
     </div>
-    <div class="sol-item reveal reveal-delay-1">
-      <span class="sol-icon">&#8651;</span>
-      <h3>SD-WAN</h3>
-      <p>Software-defined networking that routes AI traffic intelligently and scales bandwidth on demand.</p>
+    <p class="fork-why-head reveal">What forces the second path is almost always the data.</p>
+    <div class="fork-why-grid reveal">
+      <div class="fork-why-item"><strong>Healthcare</strong><span>HIPAA. Protected health information can't go to a public model, so it runs somewhere you control.</span></div>
+      <div class="fork-why-item"><strong>Legal</strong><span>Residency and sovereignty rules pin privileged data to one jurisdiction. Public neoclouds can't promise that.</span></div>
+      <div class="fork-why-item"><strong>Financial services</strong><span>Fraud exposure and regulatory liability put this data in an environment you own, monitor, and can audit.</span></div>
     </div>
-    <div class="sol-item reveal reveal-delay-2">
-      <span class="sol-icon">&#9878;</span>
-      <h3>High-Density Colocation</h3>
-      <p>50–80+ kW per cabinet. Purpose-built for GPU-accelerated AI workloads and real-time inference.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-1">
-      <span class="sol-icon">&#9671;</span>
-      <h3>Hybrid Architecture</h3>
-      <p>Sensitive data stays on-prem. Compute scales in the cloud. Connected by a network that knows the difference.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-2">
-      <span class="sol-icon">&#9673;</span>
-      <h3>FinOps</h3>
-      <p>Real-time visibility into cloud and compute spend. Optimize before you add — and know exactly where AI ROI is landing.</p>
-    </div>
-    <div class="sol-item reveal reveal-delay-3">
-      <span class="sol-icon">&#9740;</span>
-      <h3>Managed Networking</h3>
-      <p>Enterprise-grade LAN and WAN delivered as a service. One dashboard. One partner. No hardware refresh cycles.</p>
-    </div>
+    <p class="fork-close reveal">Most companies never make this call. They default into the cloud and meet the bill later: 4 in 5 overshoot their AI infrastructure budget by 25% or more. Consume it, own it, or blend the two on purpose. What you can't afford is to <span>back into the architecture by accident</span>.</p>
   </div>
 </section>
 
