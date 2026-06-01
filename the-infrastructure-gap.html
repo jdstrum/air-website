@@ -191,6 +191,13 @@
   .fork-why-item span { font-size:14.5px; color:#6A5A48; line-height:1.6; }
   .fork-close { font-family:'Trebuchet MS', Georgia, serif; font-size:clamp(20px,2.4vw,28px); font-weight:700; color:#1C1914; line-height:1.35; letter-spacing:-0.01em; max-width:780px; }
   .fork-close span { color:#C88A50; }
+  .fork-diag { font-family:'DM Sans', sans-serif; font-size:clamp(17px,1.8vw,20px); color:#6A5A48; line-height:1.6; max-width:680px; margin-bottom:14px; }
+  .fork-stat { display:flex; align-items:center; gap:34px; margin:0 0 38px; padding-top:30px; border-top:1px solid #E3DACC; }
+  .fork-stat-fig { font-family:'Trebuchet MS', Georgia, serif; font-weight:700; color:#C88A50; line-height:0.82; letter-spacing:-0.03em; font-size:clamp(76px,10.5vw,132px); flex-shrink:0; white-space:nowrap; }
+  .fork-stat-fig .in { font-size:0.3em; color:#9A8C74; font-weight:600; letter-spacing:0; margin:0 0.14em; vertical-align:middle; }
+  .fork-stat-cap { max-width:440px; }
+  .fork-stat-cap p { font-family:'Trebuchet MS', Georgia, serif; font-size:clamp(19px,2vw,24px); font-weight:700; color:#1C1914; line-height:1.35; letter-spacing:-0.01em; margin:0 0 8px; }
+  .fork-stat-src { font-size:12.5px; color:#9A8C74; letter-spacing:0.02em; }
   @media (max-width:760px){ .fork-paths{ flex-direction:column; gap:16px; } .fork-or{ padding:8px 0; } .fork-why-grid{ grid-template-columns:1fr; gap:18px; } }
   .infra-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #C88A50; margin-bottom: 24px; display: block; text-align: center; }
   .infra h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; text-align: center; margin-bottom: 56px; letter-spacing: -0.02em; }
@@ -488,7 +495,17 @@
       <div class="fork-why-item"><strong>Legal</strong><span>Residency and sovereignty rules pin privileged data to one jurisdiction. Public neoclouds can't promise that.</span></div>
       <div class="fork-why-item"><strong>Financial services</strong><span>Fraud exposure and regulatory liability put this data in an environment you own, monitor, and can audit.</span></div>
     </div>
-    <p class="fork-close reveal">Most companies never make this call. They default into the cloud and meet the bill later: 4 in 5 overshoot their AI infrastructure budget by 25% or more. Consume it, own it, or blend the two on purpose. What you can't afford is to <span>back into the architecture by accident</span>.</p>
+    <div class="fork-close-block reveal">
+      <p class="fork-diag">Most companies never make this call. They default into the cloud and meet the bill later.</p>
+      <div class="fork-stat">
+        <div class="fork-stat-fig">4<span class="in">in</span>5</div>
+        <div class="fork-stat-cap">
+          <p>overshoot their AI infrastructure budget by 25% or more.</p>
+          <span class="fork-stat-src">2025 State of AI Cost Management report</span>
+        </div>
+      </div>
+      <p class="fork-close">Consume it, own it, or blend the two on purpose. What you can't afford is to <span>back into the architecture by accident</span>.</p>
+    </div>
   </div>
 </section>
 
