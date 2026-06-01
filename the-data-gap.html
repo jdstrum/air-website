@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- SEO / OG / AEO -->
-<meta name="description" content="Data scattered across dozens of systems that don't talk to each other is the norm. 73% of enterprise data goes unused. That's the data gap — and it's why AI pilots fail.">
+<meta name="description" content="Data scattered across dozens of systems that don't talk to each other is the norm. Up to 73% of enterprise data goes unused. That's the data gap — and it's why AI pilots fail.">
 <link rel="canonical" href="https://airesulting.vercel.app/the-data-gap.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://airesulting.vercel.app/the-data-gap.html">
 <meta property="og:title" content="The Data Gap — AI Resulting">
-<meta property="og:description" content="73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and accessible to the people who need it.">
+<meta property="og:description" content="Up to 73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and accessible to the people who need it.">
 <meta property="og:site_name" content="AI Resulting">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Data Gap — AI Resulting">
-<meta name="twitter:description" content="73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and accessible to the people who need it.">
+<meta name="twitter:description" content="Up to 73% of enterprise data goes unused. AI makes it possible to activate it — but only if it's consolidated, clean, and accessible to the people who need it.">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">
 {
@@ -23,7 +23,7 @@
   "@type": "Article",
   "@id": "https://airesulting.vercel.app/the-data-gap.html",
   "headline": "The Data Gap: Your AI Is Only as Good as What Feeds It",
-  "description": "Data scattered across dozens of systems is the norm. 73% of enterprise data goes unused. Here's what closing the data gap looks like.",
+  "description": "Data scattered across dozens of systems is the norm. Up to 73% of enterprise data goes unused. Here's what closing the data gap looks like.",
   "author": {
     "@id": "https://airesulting.vercel.app/#organization"
   },
@@ -89,7 +89,7 @@
   .hero .btn-primary:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
 
   /* SCATTERED NODES VISUAL — hero background */
-  .hero-visual { position: relative; width: 100%; max-width: 680px; height: 220px; margin: 0 auto 48px; }
+  .hero-visual { position: relative; width: 100%; max-width: 680px; height: 240px; margin: 0 auto 48px; }
   .hero-visual svg { width: 100%; height: 100%; filter: drop-shadow(0 2px 8px rgba(200,138,80,0.08)); }
 
   /* BIG STAT SECTION */
@@ -101,20 +101,36 @@
   .big-stat .stat-line { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: #F8F6F2; margin-top: 8px; letter-spacing: -0.02em; }
   .big-stat .stat-sub { font-size: 16px; color: #CEBEA4; margin-top: 16px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
-  /* FOUR PROBLEMS — icon-driven, minimal text */
+  /* SIX TERRITORIES (icon grid) — was Four Problems, expanded to six */
   .problems { padding: 80px 8vw; background: #16130F; color: #F8F6F2; }
   .problems h2 { color: #F8F6F2; }
   .problem-item h3 { color: #F8F6F2; }
   .problem-item p { color: #CEBEA4; }
-  .problems h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; text-align: center; margin-bottom: 64px; letter-spacing: -0.02em; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 960px; margin: 0 auto; text-align: center; align-items: start; }
+  .problems h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; text-align: center; margin-bottom: 64px; letter-spacing: -0.02em; max-width: 680px; margin-left: auto; margin-right: auto; }
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; max-width: 1040px; margin: 0 auto; text-align: center; align-items: start; }
   .problem-item { display: flex; flex-direction: column; align-items: center; }
   .problem-icon { width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%; background: rgba(200,138,80,0.08); display: flex; align-items: center; justify-content: center; }
   .problem-icon svg { width: 36px; height: 36px; }
   .problem-item h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #F8F6F2; margin-bottom: 8px; }
   .problem-item p { font-size: 14px; color: #CEBEA4; line-height: 1.55; }
-  @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  .problem-move { font-size: 13px; color: #9A8C74; line-height: 1.55; margin-top: 12px; }
+  .problem-move span { color: #C88A50; font-weight: 700; }
+  @media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr 1fr; gap: 36px 32px; } }
   @media (max-width: 480px) { .problem-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (min-width: 901px) { .problem-grid > .problem-item:nth-child(7) { grid-column: 2; } }
+
+  /* SIX TERRITORIES (detail rows) — what each one actually means */
+  .problems-detail { padding: 80px 8vw; background: #F8F6F2; }
+  .problems-detail-head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
+  .problems-detail-eyebrow { font-family: 'Trebuchet MS', Georgia, serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #C88A50; margin-bottom: 14px; }
+  .problems-detail-intro { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(20px, 2.4vw, 28px); font-weight: 700; color: #1C1914; margin-bottom: 10px; letter-spacing: -0.02em; line-height: 1.3; }
+  .problems-detail-sub { font-size: 15px; color: #6A5A48; line-height: 1.65; }
+  .problems-rows { max-width: 1040px; margin: 0 auto; border-top: 1px solid #E5DCCC; }
+  .problems-row { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding: 30px 0; border-bottom: 1px solid #E5DCCC; }
+  @media (max-width: 800px) { .problems-row { grid-template-columns: 1fr; gap: 10px; } }
+  .problems-row-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 11px; color: #C88A50; letter-spacing: 0.16em; font-weight: 700; margin-bottom: 6px; display: block; }
+  .problems-row h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #1C1914; margin: 0; line-height: 1.35; }
+  .problems-row p { font-size: 15px; color: #6A5A48; line-height: 1.7; margin: 0; }
 
   /* DATA JOURNEY — interactive accordion (distinct from Infrastructure's flow diagram) */
   .data-journey { padding: 80px 8vw; background: #F8F6F2; }
@@ -167,14 +183,20 @@
 
   /* DATA CLOSER — numbered narrative points */
   .data-closer { padding: 80px 8vw; background: #1C1914; color: #F8F6F2; }
-  .closer-inner { max-width: 720px; }
-  .data-closer h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; margin-bottom: 48px; letter-spacing: -0.02em; line-height: 1.2; }
+  .closer-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .data-closer h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8F6F2; margin-bottom: 22px; letter-spacing: -0.02em; line-height: 1.2; }
   .closer-points { display: flex; flex-direction: column; gap: 0; }
   .closer-point { display: flex; gap: 24px; padding: 28px 0; border-top: 1px solid rgba(221,215,208,0.12); }
   .closer-point:first-child { border-top: none; }
   .closer-num { font-family: 'Trebuchet MS', Georgia, serif; font-size: 28px; font-weight: 700; color: #C88A50; line-height: 1; min-width: 36px; flex-shrink: 0; }
   .closer-point h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; color: #F8F6F2; margin-bottom: 8px; line-height: 1.4; }
   .closer-point p { font-size: 15px; color: #9A8C74; line-height: 1.65; }
+  .closer-lead { font-size: 17px; line-height: 1.7; color: #CEBEA4; max-width: 600px; margin: 0 auto; }
+  .closer-cta { display: flex; align-items: center; gap: 24px; margin-top: 36px; flex-wrap: wrap; }
+  .closer-talk { color: #C88A50; text-decoration: none; font-size: 14px; font-weight: 600; }
+  .closer-talk:hover { text-decoration: underline; }
+  .closer-punch { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(26px, 3.4vw, 42px); font-weight: 700; color: #F8F6F2; line-height: 1.2; letter-spacing: -0.025em; max-width: 680px; margin: 30px auto 0; }
+  .closer-punch span { color: #C88A50; }
 
   /* RESULTANT BRIDGE */
   .resultant-bridge { padding: 48px 8vw 64px; background: #F1EDE8; text-align: center; }
@@ -280,7 +302,7 @@
       "name": "What is the AI data gap?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The AI data gap is the disconnect between the data companies have and the data AI needs to deliver value. Data scattered across dozens of systems that were never designed to share is the norm, with 73% of enterprise data going unused according to Forrester Research."
+        "text": "The AI data gap is the disconnect between the data companies have and the data AI needs to deliver value. Data scattered across dozens of systems that were never designed to share is the norm, with up to 73% of enterprise data going unused according to Forrester Research."
       }
     },
     {
@@ -334,7 +356,7 @@
 <!-- HERO — centered, visual-first, distinct from governance's 2-column layout -->
 <section class="hero">
   <div class="hero-visual reveal">
-    <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="camelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C88A50"/><stop offset="100%" stop-color="#A06830"/></linearGradient>
         <linearGradient id="sageGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C88A50"/><stop offset="100%" stop-color="#A06830"/></linearGradient>
@@ -352,6 +374,7 @@
         <line x1="510" y1="165" x2="390" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.15"/>
         <line x1="170" y1="165" x2="340" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.1"/>
         <line x1="510" y1="165" x2="340" y2="100" stroke="#C88A50" stroke-width="1.2" opacity="0.1"/>
+        <line x1="340" y1="136" x2="340" y2="192" stroke="#C88A50" stroke-width="1.2" opacity="0.15"/>
       </g>
 
       <!-- Data particles drifting between nodes -->
@@ -359,6 +382,7 @@
       <circle r="2" fill="#C88A50" opacity="0.4" filter="url(#glow)"><animateMotion dur="7s" repeatCount="indefinite" path="M585,50 Q460,70 340,100 Q460,70 585,50"/></circle>
       <circle r="2" fill="#C88A50" opacity="0.35" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" path="M170,165 Q250,130 340,100 Q250,130 170,165"/></circle>
       <circle r="1.8" fill="#C88A50" opacity="0.3" filter="url(#glow)"><animateMotion dur="8s" repeatCount="indefinite" path="M510,165 Q430,130 340,100 Q430,130 510,165"/></circle>
+      <circle r="2" fill="#C88A50" opacity="0.35" filter="url(#glow)"><animateMotion dur="6.5s" repeatCount="indefinite" path="M340,192 Q340,164 340,136 Q340,164 340,192"/></circle>
 
       <!-- System nodes — rounded pill shapes with glow halos -->
       <!-- CRM (top-left) -->
@@ -389,6 +413,13 @@
         <text x="510" y="170" text-anchor="middle" fill="#C88A50" font-size="11" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.03em">Contact Center</text>
       </g>
 
+      <!-- Documents / unstructured (bottom-center) -->
+      <g filter="url(#softShadow)">
+        <circle cx="340" cy="212" r="38" fill="#C88A50" opacity="0.06"><animate attributeName="r" values="36;42;36" dur="5.2s" repeatCount="indefinite"/></circle>
+        <rect x="280" y="192" width="120" height="40" rx="20" fill="#F8F6F2" stroke="#C88A50" stroke-width="1.5"/>
+        <text x="340" y="217" text-anchor="middle" fill="#C88A50" font-size="12" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="0.03em">Documents</text>
+      </g>
+
       <!-- Center hub — larger, more visible, pulsing -->
       <circle cx="340" cy="100" r="52" fill="#C88A50" opacity="0.05"><animate attributeName="r" values="48;56;48" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.1;0.04" dur="4s" repeatCount="indefinite"/></circle>
       <circle cx="340" cy="100" r="36" fill="rgba(200,138,80,0.04)" stroke="#C88A50" stroke-width="1.5" stroke-opacity="0.35"/>
@@ -404,17 +435,32 @@
 <!-- BIG STAT — Apple-style massive number -->
 <section class="big-stat">
   <div class="reveal">
-    <div class="number">80+</div>
+    <div class="number">100+</div>
     <div class="stat-line">applications in the average company.</div>
-    <div class="stat-sub">Almost none of them share data natively. Your CRM doesn't talk to your ERP. Your contact center doesn't talk to your cloud. AI built on fragments produces fragments.</div>
+    <div class="stat-sub">Almost none of them share data natively. Your CRM doesn't talk to your ERP. Your contact center doesn't talk to your cloud. AI built on disconnected data produces unreliable answers.</div>
   </div>
 </section>
 
-<!-- FOUR PROBLEMS — icon + short text, no paragraphs -->
+<!-- TERRITORIES (icon grid) — expanded to seven -->
 <section class="problems">
-  <h2 class="reveal">Four ways fragmented data undermines AI.</h2>
+  <h2 class="reveal">How fragmented data undermines AI &mdash; and where to start fixing it.</h2>
   <div class="problem-grid">
+
+    <!-- 01 Ownership (new) -->
     <div class="problem-item reveal">
+      <div class="problem-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="11" r="4" stroke="#C88A50" stroke-width="2"/>
+          <path d="M8 26 C8 20 12 18 16 18 C20 18 24 20 24 26" stroke="#C88A50" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Ownership</h3>
+      <p>When AI produces an output and someone asks who's accountable for it, the honest answer is usually no one.</p>
+      <p class="problem-move"><span>First move:</span> name the business owner for your highest-stakes data set. Not a committee &mdash; a name.</p>
+    </div>
+
+    <!-- 02 Silos (existing) -->
+    <div class="problem-item reveal reveal-delay-1">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="2" width="12" height="12" rx="2" stroke="#C88A50" stroke-width="2"/>
@@ -425,8 +471,11 @@
       </div>
       <h3>Silos</h3>
       <p>Every department has its own version of the truth. AI trained on one silo misses context from all the others.</p>
+      <p class="problem-move"><span>First move:</span> name one authoritative system of record for the entity costing you most in conflicting numbers.</p>
     </div>
-    <div class="problem-item reveal reveal-delay-1">
+
+    <!-- 03 Quality (existing) -->
+    <div class="problem-item reveal reveal-delay-2">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="16" r="12" stroke="#C88A50" stroke-width="2"/>
@@ -434,9 +483,12 @@
         </svg>
       </div>
       <h3>Quality</h3>
-      <p>Incomplete, duplicated, stale. AI doesn't fix bad data — it scales it, faster and with more confidence.</p>
+      <p>Incomplete, duplicated, stale. AI doesn't fix bad data &mdash; it scales it, faster and with more confidence.</p>
+      <p class="problem-move"><span>First move:</span> profile the data feeding your top use case &mdash; accuracy, completeness, consistency &mdash; before you build on it.</p>
     </div>
-    <div class="problem-item reveal reveal-delay-2">
+
+    <!-- 04 Access (existing) -->
+    <div class="problem-item reveal reveal-delay-1">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="8" width="24" height="16" rx="3" stroke="#C88A50" stroke-width="2"/>
@@ -445,9 +497,12 @@
         </svg>
       </div>
       <h3>Access</h3>
-      <p>The data exists. But only two people on the team know how to pull it — and they're backlogged until next quarter.</p>
+      <p>The data exists. But only two people on the team know how to pull it &mdash; and they're backlogged until next quarter.</p>
+      <p class="problem-move"><span>First move:</span> put plain-language self-service behind the one decision that keeps stalling on the data team.</p>
     </div>
-    <div class="problem-item reveal reveal-delay-3">
+
+    <!-- 05 Governance (existing) -->
+    <div class="problem-item reveal reveal-delay-2">
       <div class="problem-icon">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 4 L16 12 M16 20 L16 28" stroke="#C88A50" stroke-width="2" stroke-linecap="round"/>
@@ -457,7 +512,38 @@
       </div>
       <h3>Governance</h3>
       <p>Without classification, proprietary data flows into public AI models every time someone writes a prompt.</p>
+      <p class="problem-move"><span>First move:</span> classify what's sensitive and set an acceptable-use policy at the gateway.</p>
     </div>
+
+    <!-- 06 Intelligence Capture (new) -->
+    <div class="problem-item reveal reveal-delay-3">
+      <div class="problem-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26 16 A10 10 0 1 1 16 6" stroke="#C88A50" stroke-width="2" stroke-linecap="round"/>
+          <path d="M13 4 L16 6 L14 9" stroke="#C88A50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="16" cy="16" r="2.5" fill="#C88A50" opacity="0.4"/>
+        </svg>
+      </div>
+      <h3>Intelligence capture</h3>
+      <p>Every prompt and output is institutional learning &mdash; or it would be, if anyone were saving it. Right now it evaporates.</p>
+      <p class="problem-move"><span>First move:</span> capture the prompts that work for one workflow, so you don't buy the same lesson twice.</p>
+    </div>
+
+    <!-- 07 Unstructured data (new) -->
+    <div class="problem-item reveal">
+      <div class="problem-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 5 H20 L24 9 V27 H9 Z" stroke="#C88A50" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M20 5 V9 H24" stroke="#C88A50" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="12" y1="14" x2="20" y2="14" stroke="#C88A50" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <line x1="12" y1="19" x2="20" y2="19" stroke="#C88A50" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+      </div>
+      <h3>Unstructured data</h3>
+      <p>Most of what your business knows lives in documents, email, and transcripts &mdash; not in any system AI can query.</p>
+      <p class="problem-move"><span>First move:</span> take the one document set behind a real decision &mdash; contracts, policies, support history &mdash; and make it searchable by AI.</p>
+    </div>
+
   </div>
 </section>
 
@@ -474,7 +560,7 @@
       </div>
       <div class="journey-detail">
         <div class="journey-detail-inner">
-          <p>Your CRM, ERP, contact center, and operations systems each hold a piece of the picture. None of them share data natively. Getting a cross-functional report takes weeks. AI built on one silo misses context from all the others.</p>
+          <p>Your CRM, ERP, contact center, and operations systems each hold a piece of the picture. None of them share data natively, so any cross-functional view has to be stitched together by hand.</p>
         </div>
       </div>
     </div>
@@ -498,65 +584,20 @@
       </div>
       <div class="journey-detail">
         <div class="journey-detail-inner">
-          <p>Natural language queries replace SQL and spreadsheet requests. A VP of sales asks "what's our fastest-growing segment this quarter?" and gets an answer in seconds — not a ticket to the data team. The three-week report cycle disappears.</p>
+          <p>Natural language queries replace SQL and spreadsheet requests. A VP of sales asks "what's our fastest-growing segment this quarter?" and gets an answer in seconds — not a ticket to the data team.</p>
         </div>
       </div>
     </div>
     <div class="journey-step reveal reveal-delay-3">
       <div class="journey-header" onclick="this.parentElement.classList.toggle('open')">
         <span class="journey-num">4</span>
-        <span class="journey-title">Intelligent — predictive, self-learning, continuous</span>
+        <span class="journey-title">Intelligent — predictive, continuous, compounding</span>
         <span class="journey-toggle">+</span>
       </div>
       <div class="journey-detail">
         <div class="journey-detail-inner">
-          <p>Self-learning models monitor processes across finance, supply chain, sales, and operations. They forecast demand, flag risk, and optimize spend — getting smarter as conditions change. Your domain experts build and iterate on models without writing code.</p>
+          <p>With a connected, trustworthy foundation, AI shifts from answering questions to anticipating them — forecasting demand, flagging risk, surfacing patterns no one thought to look for. It compounds: the more the system sees, the sharper it gets. What you build on top is a choice — the foundation is what makes any of it work.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BEFORE / AFTER — data intelligence comparison -->
-<section class="before-after">
-  <h2 class="reveal">What data intelligence changes.</h2>
-  <div class="ba-grid">
-    <div class="ba-col before reveal">
-      <span class="ba-label">Without data intelligence</span>
-      <div class="ba-item">
-        <h4>Cross-functional reporting</h4>
-        <p>Three-week wait. Manual exports. Conflicting numbers between departments.</p>
-      </div>
-      <div class="ba-item">
-        <h4>Who can access insights</h4>
-        <p>Only analysts with SQL. Business leaders wait in a queue.</p>
-      </div>
-      <div class="ba-item">
-        <h4>Forecasting</h4>
-        <p>Backward-looking spreadsheets updated monthly. Stale by the time they ship.</p>
-      </div>
-      <div class="ba-item">
-        <h4>Innovation</h4>
-        <p>Requires a data science team you don't have and a six-month project timeline.</p>
-      </div>
-    </div>
-    <div class="ba-col after reveal reveal-delay-1">
-      <span class="ba-label">With data intelligence</span>
-      <div class="ba-item">
-        <h4>Cross-functional reporting</h4>
-        <p>Ask a question in plain language. Get a unified answer in seconds.</p>
-      </div>
-      <div class="ba-item">
-        <h4>Who can access insights</h4>
-        <p>Anyone. Natural language interface turns every business leader into a data user.</p>
-      </div>
-      <div class="ba-item">
-        <h4>Forecasting</h4>
-        <p>Self-learning models that update continuously as new data arrives. Always current.</p>
-      </div>
-      <div class="ba-item">
-        <h4>Innovation</h4>
-        <p>No-code environment. Domain experts build models in days. Knowledge becomes capability.</p>
       </div>
     </div>
   </div>
@@ -565,7 +606,7 @@
 <!-- SECOND STAT -->
 <section class="stat-two">
   <div class="reveal">
-    <div class="number">73%</div>
+    <div class="number"><span style="font-size:0.34em;letter-spacing:0;">Up to </span>73%</div>
     <div class="stat-line">of enterprise data goes unused.</div>
     <div class="stat-sub">AI makes it possible to activate the data you've been sitting on — but only if it's consolidated, clean, and accessible to every person in the organization who needs it.</div>
   </div>
@@ -575,29 +616,8 @@
 <section class="data-closer">
   <div class="closer-inner reveal">
     <h2>Close the data gap and everything above it accelerates.</h2>
-    <div class="closer-points">
-      <div class="closer-point reveal reveal-delay-1">
-        <span class="closer-num">01</span>
-        <div>
-          <h3>One intelligence layer replaces the spreadsheet scramble.</h3>
-          <p>CRM, ERP, operations, and every other system connected into a unified foundation AI can actually use.</p>
-        </div>
-      </div>
-      <div class="closer-point reveal reveal-delay-2">
-        <span class="closer-num">02</span>
-        <div>
-          <h3>Your business leaders become data users overnight.</h3>
-          <p>Natural language access means anyone can ask a question and get an answer — no SQL, no ticket, no waiting.</p>
-        </div>
-      </div>
-      <div class="closer-point reveal reveal-delay-3">
-        <span class="closer-num">03</span>
-        <div>
-          <h3>AI stops being a pilot and starts being a business tool.</h3>
-          <p>Predictive models, no-code innovation, and continuous optimization — built by the people who know the business best.</p>
-        </div>
-      </div>
-    </div>
+    <p class="closer-lead">Connect the systems, govern the data, open up access &mdash; in the right order &mdash; and the gains compound on each other.</p>
+    <p class="closer-punch">AI stops being a pilot and starts being a <span>business tool</span>.</p>
   </div>
 </section>
 
