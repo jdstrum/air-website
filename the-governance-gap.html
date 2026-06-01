@@ -122,14 +122,18 @@
   .gateway-point p { font-size: 15px; color: #D4C8B0; line-height: 1.65; }
   @media (max-width: 768px) { .gateway-points { grid-template-columns: 1fr; gap: 24px; } }
   .gateway-flag { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(28px, 4.2vw, 52px); font-weight: 700; color: #F8F6F2; line-height: 1.12; letter-spacing: -0.02em; max-width: 900px; margin-bottom: 34px; }
+  .gateway-flag span { color: #C88A50; }
   .gateway-body { max-width: 600px; margin-bottom: 8px; }
   .gateway-body p { font-size: 16px; color: #B9AC97; line-height: 1.7; margin-bottom: 16px; }
   .gateway-pull { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3.4vw, 40px); font-weight: 700; color: #F8F6F2; line-height: 1.2; letter-spacing: -0.02em; max-width: 820px; margin: 44px 0 34px; padding-left: 26px; border-left: 3px solid #C88A50; }
   .gateway-pull span { color: #C88A50; }
   .gateway-close { font-size: 18px; color: #D4C8B0; line-height: 1.6; max-width: 600px; }
   .exposure-head { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(24px, 3.2vw, 38px); font-weight: 700; color: #F8F6F2; line-height: 1.2; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 40px; }
-  .exposure-list { max-width: 760px; margin-bottom: 36px; }
-  .exposure { font-size: 17px; color: #B9AC97; line-height: 1.6; padding: 14px 0 14px 22px; border-left: 2px solid rgba(200,138,80,0.4); margin-bottom: 6px; }
+  .exposure-section { background: radial-gradient(130% 110% at 0% 0%, #241D14 0%, #1C1914 48%, #16130F 100%) !important; }
+  .exposure-list { position: relative; max-width: 760px; margin-bottom: 36px; padding-left: 30px; border-left: 2px solid rgba(200,138,80,0.5); }
+  .exposure { position: relative; font-size: 17px; color: #CEBEA4; line-height: 1.6; padding: 18px 0; margin: 0; }
+  .exposure:not(:first-child) { border-top: 1px solid rgba(206,190,164,0.09); }
+  .exposure::before { content: ''; position: absolute; left: -35px; top: 50%; transform: translateY(-50%); width: 9px; height: 9px; border-radius: 50%; background: #C88A50; box-shadow: 0 0 0 4px rgba(200,138,80,0.14); }
   .exposure span { color: #F8F6F2; font-weight: 600; }
   .exposure-close { font-size: 18px; color: #D4C8B0; line-height: 1.65; max-width: 700px; }
   .question-stack { max-width: 820px; }
@@ -137,18 +141,19 @@
   .q-item:first-child { border-top: none; }
   .q { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(19px, 2.2vw, 26px); font-weight: 700; color: #1C1914; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 8px; }
   .q-note { font-size: 16px; color: #6A5A48; line-height: 1.6; max-width: 660px; }
-  .gov-wheel { position: relative; width: 480px; height: 480px; margin: 8px auto 0; }
-  .wheel-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:250px; height:250px; border-radius:50%; background:#1C1914; color:#F8F6F2; display:flex; align-items:center; justify-content:center; text-align:center; padding:30px; box-sizing:border-box; }
+  .gov-wheel { position: relative; width: 560px; height: 560px; margin: 8px auto 0; }
+  .wheel-spokes { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+  .wheel-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:240px; height:240px; border-radius:50%; background:#1C1914; color:#F8F6F2; display:flex; align-items:center; justify-content:center; text-align:center; padding:30px; box-sizing:border-box; z-index:1; }
   .wheel-center p { font-family:'Trebuchet MS', Georgia, serif; font-size:18px; line-height:1.35; font-weight:700; margin:0; }
-  .wheel-node { position:absolute; width:104px; height:104px; border-radius:50%; border:1.5px solid #C88A50; background:#FFFFFF; color:#1C1914; font-family:'DM Sans', sans-serif; font-size:14px; font-weight:700; letter-spacing:0.01em; cursor:pointer; transition:all 0.25s cubic-bezier(0.16,1,0.3,1); box-shadow:0 2px 10px rgba(28,25,20,0.06); }
+  .wheel-node { position:absolute; width:118px; height:118px; border-radius:50%; border:1.5px solid #C88A50; background:#FFFFFF; color:#1C1914; font-family:'DM Sans', sans-serif; font-size:15px; font-weight:700; letter-spacing:0.01em; cursor:pointer; transition:all 0.25s cubic-bezier(0.16,1,0.3,1); box-shadow:0 2px 10px rgba(28,25,20,0.06); z-index:1; }
   .wheel-node:hover, .wheel-node.active { background:#C88A50; color:#F8F6F2; transform:scale(1.07); box-shadow:0 8px 22px rgba(200,138,80,0.28); }
-  .wheel-node.n1{ top:13px; left:188px; }
-  .wheel-node.n2{ top:134px; left:354px; }
-  .wheel-node.n3{ top:330px; left:291px; }
-  .wheel-node.n4{ top:330px; left:85px; }
-  .wheel-node.n5{ top:134px; left:22px; }
+  .wheel-node.n1{ top:11px; left:221px; }
+  .wheel-node.n2{ top:156px; left:421px; }
+  .wheel-node.n3{ top:391px; left:345px; }
+  .wheel-node.n4{ top:391px; left:98px; }
+  .wheel-node.n5{ top:156px; left:21px; }
   .wheel-fallback { display:none; }
-  @media (max-width: 620px){
+  @media (max-width: 700px){
     .gov-wheel { display:none; }
     .wheel-fallback { display:block; list-style:none; padding:0; max-width:520px; margin:0 auto; }
     .wheel-fallback li { font-family:'Trebuchet MS', Georgia, serif; font-size:19px; font-weight:700; color:#1C1914; line-height:1.3; padding:18px 0; border-top:1px solid #F1EDE8; }
@@ -434,7 +439,7 @@
 <section class="gateway-section">
   <div class="gateway-particles" id="gatewayParticles"></div>
   <div class="gateway-inner">
-    <h2 class="reveal gateway-flag">Everyone treats governance like the brakes. Done right, it's what lets you put your foot down.</h2>
+    <h2 class="reveal gateway-flag">Everyone treats governance like the brakes. Done right, it's what lets you <span>put your foot down</span>.</h2>
     <div class="gateway-body reveal reveal-delay-1">
       <p>The reflex, once you see how much is walking out the door, is to clamp down - lock the tools, send the memo, slow everyone to a crawl. That's governance as a permission slip, and it's why most leaders quietly can't stand the word.</p>
       <p>The version worth building does the opposite. When you know what data you hold, who's using which tools, and what's coming back, you stop guessing and start steering. Leadership stops blocking AI and starts greenlighting it, because the guardrails are real.</p>
@@ -445,8 +450,15 @@
 </section>
 
 <section class="governance-grid">
-  <h2 class="reveal" style="text-align:center;max-width:780px;margin-left:auto;margin-right:auto;">Governance comes down to questions most companies are still struggling to answer.</h2>
+  <h2 class="reveal" style="text-align:center;max-width:780px;margin-left:auto;margin-right:auto;">Governance comes down to questions most companies are <span style="color:#C88A50;">still struggling to answer</span>.</h2>
   <div class="gov-wheel reveal" id="govWheel" role="group" aria-label="The governance wheel">
+    <svg class="wheel-spokes" viewBox="0 0 560 560" aria-hidden="true">
+      <line x1="280" y1="280" x2="280" y2="70"  stroke="#C88A50" stroke-width="2" opacity="0.4"/>
+      <line x1="280" y1="280" x2="480" y2="215" stroke="#C88A50" stroke-width="2" opacity="0.4"/>
+      <line x1="280" y1="280" x2="404" y2="450" stroke="#C88A50" stroke-width="2" opacity="0.4"/>
+      <line x1="280" y1="280" x2="157" y2="450" stroke="#C88A50" stroke-width="2" opacity="0.4"/>
+      <line x1="280" y1="280" x2="80"  y2="215" stroke="#C88A50" stroke-width="2" opacity="0.4"/>
+    </svg>
     <div class="wheel-center"><p id="wheelQ">Five questions.<br>Touch one. Can you answer it?</p></div>
     <button class="wheel-node n1" type="button" data-q="Do you know which of your data can never touch a public model?">Your data</button>
     <button class="wheel-node n2" type="button" data-q="Would ten of your people give the same answer for what's allowed with AI?">The rules</button>
@@ -463,7 +475,7 @@
   </ul>
 </section>
 
-<section class="governance-grid gov-dark">
+<section class="governance-grid gov-dark exposure-section">
   <h2 class="reveal exposure-head">This is happening as we speak.</h2>
   <div class="exposure-list">
     <p class="exposure reveal"><span>Someone pasted the customer list into a public chatbot</span> to clean it up. It's training data now, and it isn't coming back.</p>
