@@ -17,7 +17,9 @@ module.exports = async function handler(req, res) {
     phase,         // { phase, name, desc }
     dimScores,     // [{ id, name, score }]
     lowest,        // { id, name, score }
-    answers,       // { s1: 3, s2: 2, ... }
+    answers,       // array of scores
+    pattern,       // pattern read id
+    responsesText, // readable per-statement answers
     ref,           // source/agent tracking code
     urgency,       // urgency selections
     openText,      // free-text responses
@@ -57,6 +59,12 @@ module.exports = async function handler(req, res) {
   const urgencyList = (urgency || []).join(', ') || 'None selected';
 
   const refTag = ref ? `<tr><td style="padding:8px 12px;font-size:14px;color:#2F2F2F;font-weight:600;">Referred By</td><td colspan="2" style="padding:8px 12px;font-size:14px;color:#C4956A;font-weight:700;">${ref}</td></tr>` : '';
+
+  const responsesBlock = responsesText ? `
+      <div style="background:#fff;padding:20px 32px;border:1px solid #E8E2DC;border-top:none;">
+        <p style="font-size:12px;font-weight:600;color:#8A8279;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 10px;">Their Answers${pattern ? ' &middot; Pattern: ' + pattern : ''}</p>
+        <pre style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:#1C1914;line-height:1.7;white-space:pre-wrap;margin:0;">${String(responsesText).replace(/</g,'&lt;')}</pre>
+      </div>` : '';
 
   const emailHTML = `
     <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:640px;margin:0 auto;color:#2F2F2F;">
@@ -104,6 +112,8 @@ module.exports = async function handler(req, res) {
         <p style="font-size:16px;font-weight:700;color:#1C1914;margin:0;">${lowest.name} — ${lowest.score}%</p>
       </div>` : ''}
 
+      ${responsesBlock}
+
       <!-- Profile Details -->
       <div style="background:#fff;padding:20px 32px;border:1px solid #E8E2DC;border-top:none;">
         <p style="font-size:12px;font-weight:600;color:#8A8279;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 12px;">Profile</p>
@@ -118,11 +128,11 @@ module.exports = async function handler(req, res) {
         </table>
       </div>
 
-      ${(openText && openText.ot1) ? `
+      ${(openText && (openText.ot1 || openText.comments)) ? `
       <!-- Open Text -->
       <div style="background:#fff;padding:20px 32px;border:1px solid #E8E2DC;border-top:none;">
         <p style="font-size:12px;font-weight:600;color:#8A8279;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 8px;">In Their Own Words</p>
-        <p style="font-size:14px;color:#1C1914;line-height:1.6;margin:0;font-style:italic;">"${openText.ot1}"</p>
+        <p style="font-size:14px;color:#1C1914;line-height:1.6;margin:0;font-style:italic;">"${openText.ot1 || openText.comments}"</p>
       </div>` : ''}
 
       <!-- Footer -->

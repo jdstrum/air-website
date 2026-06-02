@@ -83,6 +83,7 @@
   .capture .btn-c{background:var(--copper);color:var(--ink);border:none;border-radius:8px;padding:15px 30px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .25s;}
   .capture .btn-c:hover{background:var(--copper-deep);color:var(--linen);}
   .capture .micro{font-size:13.5px;color:var(--muted-tan);margin-top:18px;}
+  .capture .cf-err{display:none;color:#E0A07A;font-size:13.5px;margin:4px 0 12px;}
   .capture .fine{font-size:12.5px;color:var(--gray);margin-top:10px;}
   .capture-success{display:none;}
   .capture-success h2{margin-bottom:10px;}
@@ -143,7 +144,7 @@
 
     <p class="read-pull serif" id="read-pull"></p>
     <p class="read-body" id="read-body"></p>
-    <p class="read-handoff" id="read-handoff">A few minutes shows the shape. Building the roadmap is what the conversation unfolds.</p>
+    <p class="read-handoff" id="read-handoff">A few minutes shows the shape. Building the roadmap is what the conversation unfolds. <em>Clarity is the starting line.</em></p>
 
     <div class="resultant">
       <h3>What's a Resultant?</h3>
@@ -164,6 +165,7 @@
             <input type="text" id="cf-title" name="title" placeholder="Your title" autocomplete="organization-title" required>
           </div>
           <textarea id="cf-notes" name="comments" rows="2" placeholder="Anything you'd like us to know before we talk? (optional)"></textarea>
+          <p class="cf-err" id="cf-error"></p>
           <button type="submit" class="btn-c" id="cf-submit">Start the conversation</button>
           <p class="micro">A Resultant reaches out within a business day.</p>
         </form>
@@ -359,6 +361,12 @@ function finish(){
   show('screen-results');
 }
 
+function scoreLabel(sc){ for(var i=0;i<SCALE.length;i++){ if(SCALE[i][1]===sc) return SCALE[i][0]; } return ''; }
+function isWorkEmail(email){
+  var d=(String(email).split('@')[1]||'').toLowerCase();
+  var free=['gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','ymail.com','hotmail.com','hotmail.co.uk','outlook.com','live.com','msn.com','icloud.com','me.com','mac.com','aol.com','proton.me','protonmail.com','pm.me','gmx.com','gmx.net','mail.com','yandex.com','zoho.com','hey.com','comcast.net','att.net','verizon.net','sbcglobal.net','cox.net','duck.com'];
+  return d.length>0 && free.indexOf(d)===-1;
+}
 function submitCapture(e){
   e.preventDefault();
   if (state.captured) return false;
@@ -368,6 +376,14 @@ function submitCapture(e){
   var email = document.getElementById('cf-email').value.trim();
   var title = document.getElementById('cf-title').value.trim();
   var notes = document.getElementById('cf-notes').value.trim();
+  var err = document.getElementById('cf-error');
+  if (!isWorkEmail(email)) {
+    err.textContent = 'Please use your work email, not a personal address.';
+    err.style.display = 'block';
+    document.getElementById('cf-email').focus();
+    return false;
+  }
+  err.style.display = 'none';
   btn.disabled = true; btn.textContent = 'Sending…';
   // Primary: formatted lead email via Resend (/api/capture-assessment) -> your inbox
   try {
@@ -382,6 +398,7 @@ function submitCapture(e){
         dimScores: state.dimArr || [],
         lowest: state.lowest || null,
         answers: state.answers.map(function(a){ return a.score; }),
+        responsesText: (state.answers||[]).map(function(a,i){ return (i+1)+'. '+QUESTIONS[i].s+' \u2014 '+scoreLabel(a.score)+' ('+a.score+'/3)'; }).join('\n'),
         openText: { comments: notes },
         timestamp: new Date().toISOString()
       })
@@ -393,6 +410,9 @@ function submitCapture(e){
   fd.append('email', email);
   fd.append('title', title);
   fd.append('comments', notes);
+  fd.append('responses', (state.answers||[]).map(function(a,i){ return (i+1)+'. '+QUESTIONS[i].s+' \u2014 '+scoreLabel(a.score)+' ('+a.score+'/3)'; }).join('\n'));
+  fd.append('dimensionScores', (state.dimArr||[]).map(function(d){ return d.name+': '+d.score+'%'; }).join('  |  '));
+  fd.append('summary', 'Stage: '+(state.stage||'')+' ('+(state.scores?state.scores.overall:'')+'%)  ·  Pattern: '+(state.pattern||''));
   fd.append('source', 'assessment-v4-results');
   fd.append('ref', leadRef || '');
   fd.append('overall', state.scores ? state.scores.overall : '');
