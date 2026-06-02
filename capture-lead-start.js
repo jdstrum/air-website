@@ -14,7 +14,7 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Missing contact information.' });
   }
 
-  const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || 'jstrum68@gmail.com';
+  const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || 'jennifer@airesulting.com';
 
   const refTag = ref
     ? `<p style="font-size:14px;color:#C88A50;margin:0 0 8px;"><strong>Referred by:</strong> ${ref}</p>`

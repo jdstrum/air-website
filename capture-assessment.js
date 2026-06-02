@@ -29,7 +29,7 @@ module.exports = async function handler(req, res) {
   }
 
   // ── Notification recipient(s) ──
-  const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || 'jstrum68@gmail.com';
+  const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || 'jennifer@airesulting.com';
 
   // ── Build the lead email ──
   const tierColors = {

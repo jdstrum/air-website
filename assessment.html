@@ -3,1170 +3,421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<!-- SEO / OG / AEO -->
-<meta name="description" content="Take the free AI Readiness Diagnostic. Get scored across six dimensions — strategy, data, governance, investment visibility, experience, and workforce — with a personalized readiness profile and Continuum positioning.">
+<title>AI Readiness Assessment — AI Resulting</title>
+<meta name="description" content="A four-minute read of where your organization actually stands on AI readiness — and what to do about it.">
 <link rel="canonical" href="https://airesulting.vercel.app/assessment.html">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://airesulting.vercel.app/assessment.html">
-<meta property="og:title" content="AI Readiness Assessment — AI Resulting">
-<meta property="og:description" content="Find out where your organization stands on AI readiness. Scored across six dimensions with a personalized report. Takes about 6 minutes.">
-<meta property="og:site_name" content="AI Resulting">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Readiness Assessment — AI Resulting">
-<meta name="twitter:description" content="Find out where your organization stands on AI readiness. Scored across six dimensions with a personalized report. Takes about 6 minutes.">
-<meta name="robots" content="index, follow">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "@id": "https://airesulting.vercel.app/assessment.html",
-  "name": "AI Readiness Assessment",
-  "description": "A focused diagnostic that maps your organization across six dimensions of AI readiness — strategy, data, governance, investment visibility, experience, and workforce.",
-  "url": "https://airesulting.vercel.app/assessment.html",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "provider": {
-    "@id": "https://airesulting.vercel.app/#organization"
-  }
-}
-</script>
-<title>AI Readiness Assessment | AI Resulting</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #F8F6F2; --ink: #1C1914; --gold: #C88A50; --teal: #A06830;
-  --pounamu: #C88A50; --amber: #C88A50; --clay: #B85C4F; --mist: #F1EDE8;
-  --gray: #9A8C74; --gray-light: #B8AD9A; --white: #FFFFFF;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--ink); font-family:'DM Sans',sans-serif; -webkit-font-smoothing:antialiased; }
-h1,h2,h3 { font-family:'Trebuchet MS',sans-serif; }
+  @font-face { font-family: 'Trebuchet MS'; src: local('Trebuchet MS'); }
+  :root{
+    --sand:#F1EDE8; --linen:#F8F6F2; --ink:#1C1914; --body-dark:#16130F;
+    --copper:#C88A50; --copper-deep:#A06830; --muted:#6A5A48; --gray:#9A8C74;
+    --muted-tan:#CEBEA4; --border-tan:#D4C8B0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .serif{font-family:'Trebuchet MS',Georgia,serif;}
+  a{color:var(--copper);text-decoration:none;}
 
-/* Progress Bar */
-#progressBar { position:fixed; top:0; left:0; right:0; height:5px; background:var(--mist); z-index:1000; display:none; }
-#progressFill { height:100%; background:var(--gold); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); width:0%; }
-#progressPct { position:absolute; right:12px; top:10px; font-size:11px; font-weight:600; color:var(--gray); letter-spacing:0.03em; }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 7vw;border-bottom:1px solid var(--border-tan);}
+  .logo{display:inline-flex;align-items:center;}
+  .logo .pill{background:var(--linen);color:var(--copper);font-size:11px;font-weight:700;padding:5px 8px;border-radius:5px;letter-spacing:0.08em;margin-right:5px;border:1px solid rgba(200,138,80,0.3);}
+  .logo .r{font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;color:var(--copper);letter-spacing:-0.02em;}
+  .logo .rest{font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:600;color:var(--ink);margin-left:-1px;}
+  .nav-back{font-size:13px;color:var(--gray);}
 
-/* Layout & Transitions */
-#screenWrap { position:relative; overflow:hidden; }
-.screen { min-height:100vh; padding:60px 24px 80px; }
-.screen-inner { max-width:700px; margin:0 auto; }
-#app.slide-in-right { animation: slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
-#app.slide-in-left { animation: slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
-#app.slide-out-left { animation: slideOutLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
-#app.slide-out-right { animation: slideOutRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
-@keyframes slideInRight { from { transform:translateX(60px); opacity:0; } to { transform:translateX(0); opacity:1; } }
-@keyframes slideOutLeft { from { transform:translateX(0); opacity:1; } to { transform:translateX(-60px); opacity:0; } }
-@keyframes slideInLeft { from { transform:translateX(-60px); opacity:0; } to { transform:translateX(0); opacity:1; } }
-@keyframes slideOutRight { from { transform:translateX(0); opacity:1; } to { transform:translateX(60px); opacity:0; } }
+  .wrap{max-width:880px;margin:0 auto;padding:0 7vw;}
 
-/* Logo */
-.logo { display:inline-flex; align-items:center; margin-bottom:32px; }
-.logo-mark { background:var(--ink); color:var(--gold); font-size:10px; font-weight:700; padding:5px 7px; border-radius:5px; letter-spacing:0.08em; margin-right:4px; }
-.logo-r { font-family:'Trebuchet MS',sans-serif; font-size:18px; font-weight:700; color:var(--gold); }
-.logo-name { font-family:'Trebuchet MS',sans-serif; font-size:18px; font-weight:600; color:var(--ink); }
+  .screen{display:none;padding:64px 0 80px;}
+  .screen.active{display:block;}
 
-/* Typography */
-.screen-title { font-size:clamp(24px,4vw,36px); font-weight:700; color:var(--ink); margin-bottom:12px; letter-spacing:-0.02em; }
-.screen-sub { font-size:15px; color:var(--gray); line-height:1.7; margin-bottom:32px; }
-.q-number { font-size:12px; font-weight:600; color:var(--gray-light); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
-.q-text { font-size:18px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:28px; }
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--copper);}
+  .intro h1{font-size:clamp(30px,4.4vw,52px);font-weight:700;line-height:1.12;letter-spacing:-0.02em;margin:16px 0 18px;max-width:740px;}
+  .intro h1 span{color:var(--copper);}
+  .intro p{font-size:18px;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:14px;}
+  .intro .meta{font-size:14px;color:var(--gray);margin-bottom:36px;}
+  .btn{display:inline-block;background:var(--copper);color:var(--ink);border:none;border-radius:8px;padding:16px 34px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .25s;}
+  .btn:hover{background:var(--copper-deep);color:var(--linen);transform:translateY(-2px);}
 
-/* Options */
-.option-btn { display:block; width:100%; text-align:left; background:var(--white); border:1.5px solid var(--mist); border-radius:8px; padding:16px 20px; margin-bottom:10px; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.5; color:var(--ink); cursor:pointer; transition:all 0.2s; }
-.option-btn:hover { border-color:rgba(200,138,80,0.5); background:rgba(200,138,80,0.03); }
-.option-btn.selected { border-color:var(--gold); background:rgba(200,138,80,0.08); font-weight:500; }
+  .progress-wrap{margin-bottom:40px;}
+  .progress-meta{font-size:13px;color:var(--gray);margin-bottom:10px;letter-spacing:0.02em;}
+  .progress-track{height:3px;background:var(--border-tan);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--copper);width:0;transition:width .35s cubic-bezier(.16,1,.3,1);}
+  .q-text{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(23px,3.3vw,36px);font-weight:700;line-height:1.22;letter-spacing:-0.02em;max-width:780px;margin-bottom:34px;}
+  .options{display:flex;flex-direction:column;gap:11px;max-width:560px;}
+  .option{position:relative;text-align:left;background:var(--linen);border:1px solid var(--border-tan);border-radius:10px;padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:16px;color:var(--ink);line-height:1.4;cursor:pointer;transition:all .16s;}
+  .option:hover{border-color:var(--copper);background:#fff;transform:translateX(3px);}
+  .option.selected{border-color:var(--copper);background:#fff;font-weight:600;box-shadow:0 4px 16px rgba(200,138,80,0.18);}
+  .option.selected::after{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--copper);border-radius:10px 0 0 10px;}
+  .q-back{margin-top:30px;font-size:14px;color:var(--gray);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+  .q-back:hover{color:var(--copper);}
 
-/* Likert */
-.likert-row { display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
-.likert-btn { flex:1; min-width:100px; text-align:center; background:var(--white); border:1.5px solid var(--mist); border-radius:8px; padding:14px 8px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--ink); cursor:pointer; transition:all 0.2s; }
-.likert-btn:hover { border-color:rgba(200,138,80,0.5); }
-.likert-btn.selected { border-color:var(--gold); background:rgba(200,138,80,0.08); font-weight:600; }
+  .res-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--copper);}
+  .res-truth{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.14;letter-spacing:-0.02em;margin:16px 0 14px;max-width:760px;}
+  .res-truth span{color:var(--copper);}
+  .res-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:40px;}
+  .shape-row{display:flex;gap:48px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--border-tan);padding-top:36px;margin-bottom:36px;}
+  .shape-svg{width:320px;max-width:100%;flex-shrink:0;}
+  .stage-block{flex:1;min-width:240px;}
+  .stage-label{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);}
+  .stage-name{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-0.02em;margin:8px 0 6px;}
+  .stage-desc{font-size:15px;color:var(--muted);line-height:1.6;}
+  .read-pull{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;line-height:1.32;letter-spacing:-0.01em;max-width:780px;margin-bottom:18px;}
+  .read-body{font-size:17px;color:var(--muted);line-height:1.7;max-width:680px;margin-bottom:10px;}
+  .read-handoff{font-size:17px;color:var(--ink);line-height:1.7;max-width:680px;margin-bottom:44px;}
+  .read-handoff em{font-style:italic;}
 
-/* Checkboxes */
-.checkbox-group { margin-bottom:24px; }
-.checkbox-group h4 { font-size:13px; font-weight:600; color:var(--gray); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.05em; }
-.checkbox-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
-.chip { display:inline-block; padding:8px 16px; border:1.5px solid var(--mist); border-radius:20px; font-size:13px; color:var(--ink); cursor:pointer; transition:all 0.2s; user-select:none; }
-.chip:hover { border-color:rgba(200,138,80,0.5); }
-.chip.selected { border-color:var(--gold); background:rgba(200,138,80,0.08); font-weight:500; }
+  .resultant{border-top:1px solid var(--border-tan);padding-top:30px;margin-bottom:40px;max-width:720px;}
+  .resultant h3{font-family:'Trebuchet MS',Georgia,serif;font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px;}
+  .resultant p{font-size:15.5px;color:var(--muted);line-height:1.65;}
 
-/* Buttons */
-.btn-primary { display:inline-block; background:var(--gold); color:var(--white); border:none; border-radius:8px; padding:14px 36px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all 0.2s; }
-.btn-primary:hover { background:#A06830; }
-.btn-primary:disabled { opacity:0.4; cursor:not-allowed; }
-.btn-secondary { display:inline-block; background:transparent; color:var(--gold); border:1.5px solid var(--gold); border-radius:8px; padding:12px 28px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:all 0.2s; }
-.btn-secondary:hover { background:rgba(200,138,80,0.06); }
-.btn-row { display:flex; justify-content:space-between; align-items:center; margin-top:32px; }
-.back-link { font-size:14px; color:var(--gray); cursor:pointer; text-decoration:none; transition:color 0.2s; }
-.back-link:hover { color:var(--ink); }
-.skip-link { font-size:13px; color:var(--gray-light); cursor:pointer; text-decoration:underline; margin-top:12px; display:inline-block; }
+  .capture{background:var(--ink);border-radius:16px;padding:38px 36px;color:var(--linen);max-width:720px;}
+  .capture h2{font-family:'Trebuchet MS',Georgia,serif;font-size:clamp(21px,2.6vw,30px);font-weight:700;line-height:1.25;letter-spacing:-0.01em;margin-bottom:12px;}
+  .capture p.lead{font-size:16px;color:var(--muted-tan);line-height:1.65;margin-bottom:26px;max-width:580px;}
+  .capture .fields{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+  .capture input{flex:1;min-width:160px;background:var(--body-dark);border:1px solid #4a4035;border-radius:8px;padding:14px 16px;color:var(--linen);font-family:'DM Sans',sans-serif;font-size:15px;}
+  .capture input.email{flex:1.4;min-width:200px;}
+  .capture input::placeholder{color:#8a7d6b;}
+  .capture textarea{width:100%;background:var(--body-dark);border:1px solid #4a4035;border-radius:8px;padding:14px 16px;color:var(--linen);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.5;resize:vertical;margin-bottom:16px;}
+  .capture textarea::placeholder{color:#8a7d6b;}
+  .capture .btn-c{background:var(--copper);color:var(--ink);border:none;border-radius:8px;padding:15px 30px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .25s;}
+  .capture .btn-c:hover{background:var(--copper-deep);color:var(--linen);}
+  .capture .micro{font-size:13.5px;color:var(--muted-tan);margin-top:18px;}
+  .capture .fine{font-size:12.5px;color:var(--gray);margin-top:10px;}
+  .capture-success{display:none;}
+  .capture-success h2{margin-bottom:10px;}
+  .capture-success p{font-size:16px;color:var(--muted-tan);line-height:1.65;}
 
-/* Text inputs */
-.form-group { margin-bottom:20px; }
-.form-group label { display:block; font-size:13px; font-weight:600; color:var(--gray); margin-bottom:6px; }
-.form-input { width:100%; padding:12px 16px; border:1.5px solid var(--mist); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; color:var(--ink); background:var(--white); transition:border-color 0.2s; }
-.form-input:focus { outline:none; border-color:var(--gold); }
-textarea.form-input { min-height:100px; resize:vertical; }
-.char-count { font-size:11px; color:var(--gray-light); text-align:right; margin-top:4px; }
-.form-error { font-size:12px; color:var(--clay); margin-top:4px; display:none; }
-.form-input.invalid { border-color:var(--clay); }
+  .footnote{font-size:12.5px;color:var(--gray);margin-top:32px;max-width:680px;}
 
-/* Horizontal bar chart (results) */
-.dim-bar-wrap { margin-bottom:20px; }
-.dim-bar-label { font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px; }
-.dim-bar-track { height:28px; background:var(--mist); border-radius:6px; overflow:hidden; position:relative; }
-.dim-bar-fill { height:100%; border-radius:6px; transition:width 1s cubic-bezier(0.4,0,0.2,1); display:flex; align-items:center; justify-content:flex-end; padding-right:10px; min-width:40px; }
-.dim-bar-fill span { font-size:12px; font-weight:700; color:#fff; }
-.dim-bar-tier { font-size:11px; font-weight:600; color:var(--gray); margin-top:3px; }
-
-/* Section intro (IT track) */
-.section-intro { text-align:center; padding:40px 0; }
-.section-intro .dim-label { font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:12px; }
-.section-intro h2 { font-size:24px; margin-bottom:16px; }
-.section-intro p { font-size:15px; color:var(--gray); line-height:1.7; max-width:560px; margin:0 auto; }
-
-/* Section feedback (IT track) */
-.section-feedback { padding:32px; background:rgba(200,138,80,0.04); border-radius:12px; border:1px solid var(--mist); margin:20px 0; }
-.section-feedback .feedback-label { font-size:12px; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
-.section-feedback .feedback-level { font-size:18px; font-weight:700; color:var(--ink); margin-bottom:12px; }
-.section-feedback p { font-size:14px; color:var(--gray); line-height:1.7; }
-
-/* Results page */
-.results-header { background:var(--ink); padding:48px 24px; text-align:center; }
-.results-header .logo-mark { background:var(--bg); color:var(--gold); }
-.results-header .logo-name { color:var(--bg); }
-.results-header h1 { color:var(--bg); font-size:clamp(24px,3.5vw,36px); margin:24px 0 8px; }
-.results-header .respondent { font-size:15px; color:var(--gray-light); }
-.results-body { max-width:800px; margin:0 auto; padding:0 24px 80px; }
-.tier-display { text-align:center; padding:0 0 40px; border-bottom:1px solid var(--mist); }
-.tier-label { display:inline-block; padding:8px 24px; border-radius:6px; font-family:'Trebuchet MS',sans-serif; font-size:14px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:8px; }
-.tier-score { font-size:48px; font-weight:700; font-family:'Trebuchet MS',sans-serif; margin-bottom:4px; }
-.tier-interp { font-size:15px; color:var(--gray); line-height:1.7; max-width:640px; margin:24px auto 0; text-align:left; }
-.phase-badge { display:inline-block; padding:6px 16px; border-radius:6px; font-family:'Trebuchet MS',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; background:rgba(200,138,80,0.12); color:var(--gold); margin-bottom:12px; }
-.phase-desc { font-size:14px; color:var(--gray); line-height:1.6; margin-bottom:16px; }
-.skip-diagnosis { padding:32px; background:rgba(200,138,80,0.04); border-radius:12px; border:1px solid var(--mist); margin:32px 0; }
-.skip-diagnosis h3 { font-size:16px; font-weight:700; margin-bottom:12px; color:var(--ink); }
-.skip-diagnosis p { font-size:14px; color:var(--gray); line-height:1.7; }
-.dim-section { padding:32px 0; border-bottom:1px solid var(--mist); }
-.dim-section h3 { font-size:16px; font-weight:700; margin-bottom:6px; }
-.dim-score-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-.dim-score-pct { font-size:24px; font-weight:700; font-family:'Trebuchet MS',sans-serif; }
-.dim-tier-badge { font-size:11px; font-weight:700; padding:4px 12px; border-radius:4px; text-transform:uppercase; letter-spacing:0.06em; }
-.dim-interp { font-size:14px; color:var(--gray); line-height:1.7; }
-.callout-box { background:rgba(200,138,80,0.06); border-left:3px solid var(--gold); padding:20px 24px; border-radius:0 8px 8px 0; margin:32px 0; }
-.callout-box h3 { font-size:15px; margin-bottom:8px; }
-.callout-box p { font-size:14px; color:var(--gray); line-height:1.7; }
-.cta-section { text-align:center; padding:48px 0; }
-.cta-section .cta-personal { font-size:15px; color:var(--gray); margin-bottom:16px; font-style:italic; }
-.cta-section .cta-framing { font-size:17px; font-weight:600; color:var(--ink); margin-bottom:16px; }
-.cta-section .cta-body { font-size:14px; color:var(--gray); line-height:1.7; max-width:600px; margin:0 auto 28px; text-align:left; }
-.cross-track { text-align:center; padding:32px 0; border-top:1px solid var(--mist); }
-.cross-track p { font-size:14px; color:var(--gray); line-height:1.6; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto; }
-.action-row { display:flex; gap:12px; justify-content:center; padding:24px 0; }
-.results-footer { text-align:center; padding:40px 24px; border-top:1px solid var(--mist); }
-.results-footer p { font-size:11px; color:var(--gray-light); }
-
-/* Responsive */
-@media(max-width:768px) {
-  .form-flex { flex-direction:column !important; }
-}
-@media(max-width:600px) {
-  .screen { padding:40px 16px 60px; }
-  .likert-row { flex-direction:column; }
-  .likert-btn { min-width:auto; padding:16px 12px; }
-  .chip { padding:12px 16px; }
-  .btn-row { flex-direction:column-reverse; gap:16px; align-items:stretch; text-align:center; }
-  .action-row { flex-direction:column; align-items:center; }
-  .results-header h1 { font-size:22px; }
-  .tier-score { font-size:36px; }
-}
-
-/* Print */
-@media print {
-  #progressBar,.btn-primary,.btn-secondary,.back-link,.skip-link,.action-row,.cross-track,.btn-row,.cta-section { display:none!important; }
-  .screen { padding:20px; }
-  .results-header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .dim-bar-fill { -webkit-print-color-adjust:exact; print-color-adjust:exact; transition:none!important; }
-  .dim-bar-track { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .tier-label,.dim-tier-badge,.phase-badge { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .results-body { padding:0 20px 40px; }
-  .results-footer { page-break-inside:avoid; margin-top:0; padding-top:12px; }
-  .action-row { display:none!important; height:0; overflow:hidden; margin:0; padding:0; }
-  .privacy-note { display:none!important; }
-}
-
-/* Contact overlay */
-.contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
-.contact-overlay.open { opacity: 1; visibility: visible; }
-.contact-modal { background: #1C1914; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
-.contact-overlay.open .contact-modal { transform: translateY(0); }
-.contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A8C74; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
-.contact-close:hover { color: #F8F6F2; }
-.contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #F8F6F2; margin-bottom: 8px; letter-spacing: -0.02em; }
-.contact-modal .contact-sub { font-size: 15px; color: #9A8C74; margin-bottom: 32px; line-height: 1.6; }
-.contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
-.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
-.contact-field { display: flex; flex-direction: column; }
-.contact-field label { font-size: 12px; font-weight: 600; color: #9A8C74; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-.contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,185,160,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #F8F6F2; transition: all 0.3s; resize: none; }
-.contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(200,185,160,0.35); }
-.contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #C88A50; background: rgba(255,255,255,0.1); }
-.contact-submit { display: inline-block; background: #C88A50; color: #F8F6F2; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
-.contact-submit:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,138,80,0.25); }
-.contact-note { font-size: 13px; color: #6A5A48; margin-top: 10px; text-align: center; }
-.contact-success { display: none; text-align: center; padding: 40px 0; }
-.contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #C88A50; margin-bottom: 12px; }
-.contact-success p { font-size: 16px; color: #D4C8B0; line-height: 1.6; }
-.privacy-note { font-size: 12px; color: #6A5A48; text-align: center; margin-top: 16px; letter-spacing: 0.01em; }
+  @media(max-width:620px){ .screen{padding:40px 0 60px;} .shape-row{gap:28px;} }
 </style>
 </head>
 <body>
 
-<div id="progressBar"><div id="progressFill"></div><span id="progressPct"></span></div>
+<div class="nav">
+  <a class="logo" href="/index.html" aria-label="AI Resulting home">
+    <span class="pill">AI</span><span class="r">R</span><span class="rest">esulting</span>
+  </a>
+  <a class="nav-back" href="/index.html">&larr; airesulting.com</a>
+</div>
 
-<div id="screenWrap"><div id="app"></div></div>
+<div class="wrap">
+
+  <!-- INTRO -->
+  <section class="screen active" id="screen-intro">
+    <div class="intro">
+      <span class="eyebrow">AI Readiness Assessment</span>
+      <h1>Where do you <span>actually</span> stand on AI?</h1>
+      <p>Seventeen statements. Tell us how true each one is of your organization, and we'll show you the shape of your readiness — strengths, thin spots, and where the weight is sitting right now.</p>
+      <p class="meta">About four minutes. No login. Your results appear the moment you finish.</p>
+      <button class="btn" onclick="startAssessment()">Start the assessment</button>
+    </div>
+  </section>
+
+  <!-- QUESTION -->
+  <section class="screen" id="screen-question">
+    <div class="progress-wrap">
+      <div class="progress-meta" id="q-counter">Question 1 of 17</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="q-text serif" id="q-text"></div>
+    <div class="options" id="q-options"></div>
+    <button class="q-back" id="q-back" onclick="goBack()">&larr; Back</button>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="screen" id="screen-results">
+    <span class="res-eyebrow">Your AI readiness read</span>
+    <h1 class="res-truth">AI doesn't fail because the model is wrong. It fails on the <span>foundation underneath</span>.</h1>
+    <p class="res-sub">Here's the shape your answers make against that. Strengths, thin spots, and where the weight is sitting right now.</p>
+
+    <div class="shape-row">
+      <svg class="shape-svg" id="radar" viewBox="-64 0 448 320" role="img" aria-label="Your readiness across six dimensions"></svg>
+      <div class="stage-block">
+        <span class="stage-label">Where you stand</span>
+        <p class="stage-name serif" id="stage-name"></p>
+        <p class="stage-desc" id="stage-desc"></p>
+      </div>
+    </div>
+
+    <p class="read-pull serif" id="read-pull"></p>
+    <p class="read-body" id="read-body"></p>
+    <p class="read-handoff" id="read-handoff">A few minutes shows the shape. Building the roadmap is what the conversation unfolds.</p>
+
+    <div class="resultant">
+      <h3>What's a Resultant?</h3>
+      <p>Not a consultant who hands you a deck and a bill. A Resultant reads your readiness, maps each gap to the right solution from a curated network of 300+ technology partners, and stays with you through deployment. One relationship, start to finish &mdash; you're never handed off or left to build it alone.</p>
+    </div>
+
+    <div class="capture" id="capture-card">
+      <div id="capture-form-wrap">
+        <h2>You've seen the shape. The sequence is a conversation.</h2>
+        <p class="lead">What to fix first, what to leave for later, what each move unlocks &mdash; that's thirty minutes with a Resultant who's already read your profile. No deck, no pitch. Just where to start.</p>
+        <form id="capture-form" onsubmit="return submitCapture(event)">
+          <div class="fields">
+            <input type="text" id="cf-name" name="firstName" placeholder="First name" autocomplete="given-name" required>
+            <input type="text" id="cf-last" name="lastName" placeholder="Last name" autocomplete="family-name" required>
+          </div>
+          <div class="fields">
+            <input type="email" class="email" id="cf-email" name="email" placeholder="Work email" autocomplete="email" required>
+            <input type="text" id="cf-title" name="title" placeholder="Your title" autocomplete="organization-title" required>
+          </div>
+          <textarea id="cf-notes" name="comments" rows="2" placeholder="Anything you'd like us to know before we talk? (optional)"></textarea>
+          <button type="submit" class="btn-c" id="cf-submit">Start the conversation</button>
+          <p class="micro">A Resultant reaches out within a business day.</p>
+        </form>
+      </div>
+      <div class="capture-success" id="capture-success">
+        <h2>We'll be in touch.</h2>
+        <p>Thanks &mdash; a Resultant has your profile and will reach out within a business day, already knowing your shape. In the meantime, your results stay right here.</p>
+      </div>
+    </div>
+
+    <p class="footnote">Based on the answers you gave today.</p>
+  </section>
+
+</div>
 
 <script>
 // ============================================================
-// STATE
+//  AI Resulting — Assessment v4  (Likert · interleaved)
 // ============================================================
-// Read agent ref from cookie (set by /a/slug redirect — invisible to user)
-const leadRef = (function() {
+
+var leadRef = (function(){
   var m = document.cookie.match(/(?:^|;\s*)_air_ref=([^;]*)/);
   return m ? decodeURIComponent(m[1]) : null;
 })();
 
-const state = {
-  track: null,       // set to 'strategic' at assessment start (unified assessment)
-  contact: { firstName:'', lastName:'', email:'', company:'', title:'' },
-  profile: { industry:null, size:null, revenue:null, platforms:[], aiTools:[] },
-  answers: {},
-  tags: {},
-  openText: { ot1:'' },
-  urgency: [],
-  screenIndex: 0,
-  screens: [],
-  preScreens: [],    // track pre-assessment screens for back navigation
-  captured: false    // prevent duplicate capture
+var DIMS = {
+  D1:{name:'Strategy & Vision', weight:0.20},
+  D2:{name:'Data Readiness',    weight:0.20},
+  D3:{name:'Infrastructure',    weight:0.15},
+  D4:{name:'Governance & Security', weight:0.15},
+  D5:{name:'Experience',        weight:0.15},
+  D6:{name:'People & Culture',  weight:0.15}
 };
-
-// ============================================================
-// DIMENSION NAMES (v3 — matches homepage cards)
-// ============================================================
-const DIM_NAMES = {
-  D1:'Strategic Vision & Leadership',
-  D2:'Data Readiness',
-  D3:'Technology Infrastructure',
-  D4:'Governance & Security',
-  D5:'Experience Layer',
-  D6:'Workforce & Adoption'
-};
-
-// ============================================================
-// UNIFIED ASSESSMENT QUESTIONS (12 questions, two per dimension)
-// ============================================================
-const UNIFIED_QUESTIONS = [
-  // D1 — Strategic Vision & Leadership
-  { id:'q1', dim:'D1', type:'scenario', text:'Who owns AI outcomes in your organization, and how clear is the mandate?', options:[
-    {text:'A clear owner — C-suite or functional leader (CIO, COO, CDO) — with budget, cross-functional authority, and accountability for measurable outcomes',score:4},
-    {text:'A designated owner exists, but the mandate is still forming. Budget, scope, or authority is incomplete',score:3},
-    {text:'A working group or steering committee, but no single person accountable for outcomes',score:2},
-    {text:'Someone got asked to “figure out AI” on top of their actual job',score:1},
-    {text:'Nobody. AI is happening around us, not because of us',score:0}
-  ]},
-  { id:'q2', dim:'D1', type:'likert', text:'We can point to a specific business outcome — revenue, cost savings, speed, customer impact — that AI has produced for our company in the last twelve months.' },
-
-  // D2 — Data Readiness
-  { id:'q3', dim:'D2', type:'scenario', text:'If you needed a cross-functional view today — sales, operations, finance, customer in one place — what would it actually take?', options:[
-    {text:'Same day. Our data is integrated and teams can self-serve',score:4},
-    {text:'A few days. We’d need to coordinate across teams and clean things up',score:3},
-    {text:'Weeks. Chase people, export from multiple systems, reconcile formats',score:1},
-    {text:'We couldn’t do it with what we have today',score:0}
-  ]},
-  { id:'q4', dim:'D2', type:'likert', text:'When a business leader needs to answer a data question — what’s driving the pipeline shift, where margin is compressing, which customers are at risk — they can get to a decision-ready answer without queuing behind a technical team or waiting on a custom report.' },
-
-  // D3 — Technology Infrastructure
-  { id:'q5', dim:'D3', type:'scenario', text:'Your network was sized for humans on Zoom and SaaS apps. AI agents work differently: continuous queries, real-time data calls, handoffs between tools all day. How ready is what you have for that?', options:[
-    {text:'AI-ready. Built for continuous, machine-to-machine traffic at scale',score:4},
-    {text:'Cloud-ready. Modernized for cloud workloads, but agent traffic at volume hasn’t been tested',score:3},
-    {text:'Hybrid. Some modern infrastructure, real bottlenecks when traffic spikes',score:2},
-    {text:'Legacy or near-legacy. Built for a different generation of workloads',score:1},
-    {text:'I don’t know, and that’s the answer',score:0}
-  ]},
-  { id:'q6', dim:'D3', type:'likert', text:'Our cloud and compute environment can scale on demand for AI workloads — bandwidth, GPU access, storage throughput — without a months-long upgrade cycle.' },
-
-  // D4 — Governance & Security
-  { id:'q7', dim:'D4', type:'scenario', text:'What’s your visibility into the AI tools your people are actually using day-to-day, including the ones nobody approved?', options:[
-    {text:'Strong. Continuous monitoring captures both sanctioned and unsanctioned AI use',score:4},
-    {text:'Detection runs against unsanctioned tools, but new ones still slip through and get found later',score:3},
-    {text:'No detection technology. Sanctioned tools are tracked; we learn about unsanctioned ones from people, not systems',score:2},
-    {text:'We haven’t asked the question — and that’s the answer',score:0}
-  ]},
-  { id:'q8', dim:'D4', type:'likert', text:'Our people do their AI work on a governed platform that captures the prompts, workflows, and outputs they create, not on public AI tools where the intelligence they generate is gone the moment it’s created.' },
-
-  // D5 — Experience Layer
-  { id:'q9', dim:'D5', type:'scenario', text:'When a customer interacts with your business across more than one touchpoint — different people, different channels, different time periods — how much of the context follows them?', options:[
-    {text:'All of it. Every touchpoint has access to the full history and what we know',score:4},
-    {text:'Most of it. Significant context follows them, with occasional gaps',score:3},
-    {text:'Some. Account managers or core teams know them; everyone else starts from scratch',score:2},
-    {text:'Little. The customer carries the context, not us. They tell us their story every time',score:0}
-  ]},
-  { id:'q10', dim:'D5', type:'likert', text:'When our meetings end, the discussions, decisions, and action items don’t disappear into someone’s notes or memory — they get captured automatically and become searchable across the team.' },
-
-  // D6 — Workforce & Adoption
-  { id:'q11', dim:'D6', type:'scenario', text:'When someone on your team builds something useful with AI — a workflow, a prompt, an automation — what happens to it?', options:[
-    {text:'Documented, shared, and adopted across the organization. We have a system for scaling what works',score:4},
-    {text:'It spreads informally within the team that built it, but there’s no path to scale beyond them',score:2},
-    {text:'We’re not there yet. People are experimenting, but nothing has reached the point of being reusable',score:0}
-  ]},
-  { id:'q12', dim:'D6', type:'likert', text:'Our leadership team is personally using AI, visibly championing it, and modeling the behavior they’re asking for.' }
+var RADAR_ORDER = [
+  {id:'D1', label:'Strategy',       ang:-90},
+  {id:'D2', label:'Data',           ang:-30},
+  {id:'D3', label:'Infrastructure', ang:30},
+  {id:'D4', label:'Governance',     ang:90},
+  {id:'D5', label:'Experience',     ang:150},
+  {id:'D6', label:'People',         ang:210}
 ];
 
-// Unified dimension map
-const UNIFIED_DIM_MAP = {
-  D1:['q1','q2'], D2:['q3','q4'], D3:['q5','q6'],
-  D4:['q7','q8'], D5:['q9','q10'], D6:['q11','q12']
-};
+// One scale, every question. Agreement = maturity.
+var SCALE = [["Strongly agree",3],["Agree",2],["Disagree",1],["Strongly disagree",0]];
 
-// Presentation order (mixed dimensions, no two consecutive from same dimension)
-// v3.1 — Q11 to position 2, Q3 to position 3, Q4 to position 5: opens with people-and-data
-// before IT, surfaces the UBIX-substrate questions early in the assessment.
-const UNIFIED_ORDER = ['q1','q11','q3','q5','q4','q7','q9','q8','q2','q6','q10','q12'];
+// 17 statements, interleaved so no two from the same dimension are adjacent.
+var QUESTIONS = [
+  {dim:'D1', s:"We have a funded AI roadmap tied to specific business outcomes — not just scattered pilots."},
+  {dim:'D4', s:"We have a continuous, accurate view of every AI tool our people use — including the ones we never approved."},
+  {dim:'D6', s:"Our team is broadly AI-fluent, and we're actively investing in training to keep it that way."},
+  {dim:'D5', s:"Our people reach AI through one secure, governed gateway — not whatever they each signed up for."},
+  {dim:'D1', s:"One person owns our AI outcomes, with the budget and authority to actually deliver them."},
+  {dim:'D2', s:"Our data is clean and organized enough to put to work in AI today, without a major cleanup first."},
+  {dim:'D4', s:"We know exactly which data can never go into a public AI tool, and that line is enforced."},
+  {dim:'D6', s:"When someone builds something useful with AI, we capture it and scale it across the org."},
+  {dim:'D3', s:"Our network and compute are built to handle continuous AI traffic at scale."},
+  {dim:'D5', s:"When a customer moves across our channels and comes back later, their full history follows them."},
+  {dim:'D1', s:"Finance can tell us exactly what we're spending on AI right now, and who's spending it."},
+  {dim:'D4', s:"When AI hands our team an answer, they can reliably tell whether it's wrong."},
+  {dim:'D6', s:"Our leadership uses AI visibly and regularly — they model it, they don't just talk about it."},
+  {dim:'D2', s:"Anyone who needs a cross-functional view of our data can get one the same day."},
+  {dim:'D5', s:"What gets decided in our meetings is captured automatically and searchable across the team."},
+  {dim:'D3', s:"We can scale compute, bandwidth, and storage for AI on demand, without a months-long project."},
+  {dim:'D1', s:"We can point to a measurable business result AI produced in the last year."}
+];
 
-// ============================================================
-// DIMENSIONAL INTERPRETATIONS (v3)
-// ============================================================
-const DIM_INTERP = {
-  D1:{
-    Foundational:'AI hasn’t become a strategic priority with clear ownership, measurable outcomes, or a sequenced plan. That’s not unusual. Most mid-market companies are here. But your employees are using AI whether leadership has engaged or not, and the distance between what’s actually happening and what’s being managed is where budget gets wasted and risk piles up. The fix isn’t a deck called “AI Strategy.” It’s an owner with budget and real authority, outcomes that get measured, and a sequence that puts foundation work — governance, data, infrastructure — before tools.',
-    Developing:'There’s strategic intent and some executive interest, but AI initiatives are running without a clear owner or measurable KPIs. Someone is probably “figuring out AI” without dedicated budget, headcount, or cross-functional authority. That’s a structure problem. It shows up as scattered pilots, duplicate tools, and nobody able to point to a specific outcome AI investments produced. IT and the business are likely moving at different speeds with different assumptions. Tightening ownership and building a measurable roadmap is the move that makes the rest of this list possible.',
-    Advancing:'You have executive sponsorship and direction. AI investments are starting to tie to business outcomes. What remains is cross-functional coordination. The plan needs to be sequenced correctly, with governance and data work ahead of tool deployment, and accountability that spans departments rather than living in one function. The strategic vision and the technical roadmap need to be the same document.',
-    Leading:'AI strategy is owned at the executive level, funded with clear KPIs, and connected to measurable business outcomes. You’re positioned to scale what’s working and expand with confidence. The work shifts at this level. You start capturing the intelligence your people generate every day, optimizing spend across the AI footprint, and making sure the architecture can support what the strategy demands next.'
-  },
-  D2:{
-    Foundational:'Your data lives in systems that don’t share with each other, and assembling a cross-functional view takes weeks when AI use cases need it in hours. Business leaders who need answers about pipeline, margin, or customer risk are queuing behind a technical team and waiting on custom reports. That’s the bottleneck. Every AI tool deployed on this foundation will underperform and erode trust in the technology. The fix starts here. Consolidate access. Build governed connections between core systems. Put no-code analytics in the hands of business leaders so the answers come back in the time the question deserves.',
-    Developing:'Some data practices are in place, but accessibility and self-service are limiting what AI can do. Teams are likely working from different versions of the same metrics, and the path from a business question to a decision-ready answer still runs through a custom-report queue. Getting data connected, and giving business leaders a way to ask their own questions, moves the needle on every other AI investment you make.',
-    Advancing:'Your data environment is reasonably accessible and most teams trust the numbers. The remaining gaps are likely speed of self-service for business leaders, consistency across business units, or headroom for what’s coming next. These are solvable. Governed APIs, data quality standards, and a no-code layer that lets non-technical leaders ask questions of their own data opens up the higher-value AI use cases that depend on clean, connected, real-time data.',
-    Leading:'Data is accessible across the organization, business leaders can self-serve answers without queuing behind a technical team, and new tools can connect to core systems quickly. This is the foundation that makes every other AI investment work harder. You’re positioned for the use cases that require cross-functional data — predictive analytics, intelligent automation, and the kind of organizational intelligence that compounds.'
-  },
-  D3:{
-    Foundational:'The network and compute environment underneath your business was sized for human users on email, video calls, and SaaS apps. The traffic that’s coming looks nothing like that. AI agents work continuously, querying systems every second, pulling data from internal sources all day, handing off to other agents in chains where every step is another network call. Bandwidth load becomes constant instead of bursty. Latency tolerance gets tighter than anything human users need. Your environment isn’t sized for it, and the bottlenecks are physical, not theoretical. Modernizing the network and the compute layer comes before any tool deployment that depends on them.',
-    Developing:'Some modernization is underway. The infrastructure handles current workloads but has visible gaps for AI-scale demand. Bandwidth is uneven across locations. Cloud is partially adopted but managed by exception rather than design. Compute capacity stretches under load. AI agents at volume haven’t been tested. The next layer of investment is targeted: software-defined networking that scales on demand, managed cloud that handles AI compute intensity, and FinOps visibility so cost doesn’t spiral as workloads grow.',
-    Advancing:'Your infrastructure handles current AI workloads and has been modernized in the right places. The remaining gaps are likely capacity headroom for the agent traffic that’s coming, edge compute for latency-sensitive use cases, and FinOps maturity to keep costs predictable as scale increases. The architecture is close to AI-ready. Closing the last meters is what enables the use cases that depend on real-time data movement and machine-to-machine traffic.',
-    Leading:'Your network and compute environment is built for what AI workloads actually demand: continuous traffic, machine-to-machine handoffs, real-time data movement at scale. Capacity scales on demand. FinOps visibility keeps cost predictable. New tools deploy in hours, not weeks. This is the foundation that makes the experience layer, the data platform, and the agent workflows perform as designed. Few mid-market companies have built it. The ones that have can move at speeds the rest can’t match.'
-  },
-  D4:{
-    Foundational:'There’s no meaningful governance framework for AI use in your organization. Your employees are almost certainly using unsanctioned tools, feeding in unclassified data, and generating outputs nobody checks. Shadow AI is present and untracked. Every prompt carries organizational intelligence that walks out the door the moment it’s created. AI governance legislation is already taking effect, with major deadlines in 2026 and 2027. The fix is sequenced. Classify your data. Publish an acceptable use policy. Deploy detection that captures both sanctioned and unsanctioned tool usage. Build output verification into the workflow. Put a governed platform in place that retains the intelligence your people are creating. Visibility and guardrails go in now. They’re also what makes it possible to move faster.',
-    Developing:'Some governance awareness exists, but policies are either incomplete or inconsistently enforced. Shadow AI is probably present and partially visible. The intelligence your people generate through AI interactions, the prompts, the workflows, the problem-solving patterns, isn’t being captured in any structured way. Tightening governance is the precondition for everything you want to do next. It’s also the difference between managed AI adoption and unmanaged risk.',
-    Advancing:'Governance policies are in place and leadership takes AI oversight seriously. The remaining work is enforcement consistency, documentation depth, or extending coverage to new AI use cases as they emerge. The deeper question is whether you’re capturing the intelligence. Governing the risk is one side. Retaining the value your people create every time they use AI, on a platform the organization owns, is the other.',
-    Leading:'AI governance is formalized, documented, and actively enforced. You have visibility into what tools are in use, how data flows through them, and who’s accountable. Intelligence from AI interactions is being captured and retained on platforms the organization controls. Most organizations haven’t built this yet. It’s the posture regulators are looking for, and what lets you build value instead of just managing risk.'
-  },
-  D5:{
-    Foundational:'AI hasn’t reached your customer experience or your internal collaboration in any meaningful way. On the customer side, context dies between channels. Whoever they reach starts from scratch. AI-assisted routing, real-time sentiment, omnichannel continuity, post-call intelligence — all produce measurable returns within quarters when the foundation supports them. Internally, the strategy session that ran two hours on Tuesday is already gone. The decisions are in someone’s head. The action items live in a deck nobody opens again. Most of what’s needed to fix both sides is already bundled in the platforms you’re paying for. The capture isn’t turned on.',
-    Developing:'AI is touching the experience layer in spots but isn’t systematic. Some customer-facing automation exists, or some internal collaboration tools are partially activated. What your platforms already offer and what your teams actually use are probably further apart than anyone realizes. This is high-impact activation work. Relatively small investments produce visible wins that build credibility for everything downstream.',
-    Advancing:'AI is playing a real role in customer experience or internal collaboration, sometimes both. The opportunity is integration and consistency. Connecting what works in one area across the full experience layer. Making sure CX, UCaaS, and collaboration platforms share data at the integration layer instead of within each tool. Moving from AI that assists to AI that surfaces insights your team couldn’t get any other way.',
-    Leading:'AI is embedded in how you serve customers and how your teams collaborate. Intelligence from interactions is captured and built on. Your platforms share data across the experience layer, not just within each tool. You’re seeing patterns competitors are missing. The focus now is optimization and scaling what works across the organization.'
-  },
-  D6:{
-    Foundational:'Your workforce isn’t prepared for AI adoption, and leadership isn’t visibly driving it. This is the lowest-scoring dimension we see, regardless of industry, and it determines whether everything else on this report actually gets used. Without ongoing enablement, visible leadership commitment, and a way to find and elevate your internal innovators, AI investments underperform regardless of how good the technology is. Whatever your team is building on its own, a useful prompt, a workflow, an automation, has nowhere to land. It dies in the team that built it.',
-    Developing:'Adoption is uneven. A handful of teams are running with AI; the rest are watching. Leadership has communicated direction but isn’t visibly modeling the behavior they’re asking for. The work that lands inside your organization isn’t being scaled outside the team that produced it. This is where structured enablement, role-specific training, and a system for elevating internal builders multiplies the return on every other investment on this list.',
-    Advancing:'Your workforce is engaging with AI, leadership is visibly involved, and at least some of what your people build is reaching the rest of the organization. The remaining work is consistency. Making sure enablement is ongoing rather than episodic, that adoption gets measured rather than assumed, and that the path from “someone built something useful” to “everyone has access to it” is short and reliable.',
-    Leading:'Your workforce is adopting AI fast, leadership is modeling the behavior, and the work that gets built inside one team scales to the rest of the organization. The intelligence compounds. People aren’t waiting for permission. They’re building, and the organization is keeping up. From here, the work is making sure the foundation under the workforce, governance, data, infrastructure, keeps pace with what they’re capable of using.'
-  }
-};
+var state = { idx:0, answers:[], captured:false };
 
-// ============================================================
-// LOWEST-DIMENSION CALLOUTS (v3)
-// ============================================================
-const LOWEST_CALLOUT = {
-  D1:'AI hasn’t been formalized as a strategic priority with ownership, budget, and accountability for measurable outcomes. Without strategy, every other investment is uncoordinated, and the spend that should be producing returns is instead producing pilots that go nowhere. Until ownership and outcome accountability land somewhere specific, the rest of the work doesn’t get sequenced or measured.',
-  D2:'Your data lives in systems that don’t share with each other, and the path from a business question to a decision-ready answer runs through a technical-team queue. Every AI tool you deploy on this foundation underperforms because the data underneath it is too slow, too fragmented, or too siloed to support what the tool can actually do. Closing this gap is what makes every other AI investment work harder.',
-  D3:'Your network and compute environment was sized for human users, not the continuous traffic AI agents generate. Bandwidth, latency, and compute density are physical bottlenecks. Whatever AI you deploy on this foundation will hit limits the technology itself didn’t create. Modernizing the layers underneath comes before any tool that depends on them.',
-  D4:'Your employees are generating intelligence through AI tools every day. Shadow AI is likely present and untracked. The intelligence isn’t being captured, governed, or protected, and regulatory deadlines are approaching. This is your most time-sensitive exposure. The fix is sequenced and the visibility piece can move first.',
-  D5:'Your customer experience and internal collaboration represent the fastest path to visible AI ROI. Customer context dies between channels. Internal intelligence dies the moment a meeting ends. Much of what would close both gaps is already bundled in the platforms you’re paying for. The capture isn’t turned on. This is where small activation work produces visible wins inside a quarter.',
-  D6:'Your workforce isn’t prepared for AI adoption and leadership isn’t visibly driving it. The technology investments on this list will land or stall based on this dimension. Without enablement, leadership modeling, and a way to elevate the people who are already building useful things, the rest of the foundation produces value that nobody actually uses.'
-};
-
-// ============================================================
-// SKIP DIAGNOSIS PATTERNS (v3)
-// ============================================================
-function getSkipDiagnosis(scores) {
-  var overall = getOverallScore();
-
-  // Pattern 1: Tools Without Foundation
-  if (scores.D2 <= 50 && (scores.D3 <= 50 || scores.D4 <= 50)) {
-    return { name:'Tools Without Foundation', copy:'Your organization is buying or deploying AI tools before the layers underneath them are ready. Tools work. They just can’t reach the data they need fast enough, run on infrastructure built for human-scale traffic, or operate inside a governance frame that doesn’t exist yet. Data integration is too slow for AI workloads that need real-time access. Network and compute capacity buckles under continuous agent traffic. Ungoverned usage means intelligence walks out the door with every interaction. The fix is sequenced: consolidate data access, modernize the network and compute layer, stand up governance and a capture mechanism. Once those layers are in, the tools you’ve already paid for start earning their keep.' };
-  }
-  // Pattern 2: Governance Gap
-  if (scores.D4 <= 45 && scores.D4 <= Math.min(scores.D1,scores.D2,scores.D3,scores.D5,scores.D6)) {
-    return { name:'Governance Gap', copy:'Your biggest exposure is governance. Your employees are using AI tools right now, and most likely, nobody knows exactly which ones, what data flows through them, or what intelligence is being created. Shadow AI is present and untracked. Your people’s prompts and workflows, the institutional intelligence being generated every day, are flowing into public models you can’t see, retain, or build on. Closing this gap is sequenced and fast: classify your data, deploy detection that captures sanctioned and unsanctioned tool usage, build output verification into the workflow, and put a governed AI platform in place that retains what your people create.' };
-  }
-  // Pattern 3: Data Bottleneck
-  if (scores.D2 <= 45 && scores.D2 <= Math.min(scores.D1,scores.D3,scores.D4,scores.D5,scores.D6)) {
-    return { name:'Data Bottleneck', copy:'Data is your constraint. Information lives in systems across the business that don’t share with each other, and assembling a cross-functional view takes weeks when it should take hours. Business leaders who need answers about pipeline, margin, or customer risk are queuing behind a technical team and waiting on custom reports. AI tools deployed on fragmented data produce fragmented results, and that’s why adoption stalls. People try the tools, get inconsistent outputs, and stop trusting them. The work is targeted: build the integration layer, lock down data quality standards, deploy governed APIs, and put a no-code analytics layer in front so business leaders can ask their own questions and get decision-ready answers in the time the question deserves.' };
-  }
-  // Pattern 4: Infrastructure Bottleneck
-  if (scores.D3 <= 45 && scores.D3 <= Math.min(scores.D1,scores.D2,scores.D4,scores.D5,scores.D6)) {
-    return { name:'Infrastructure Bottleneck', copy:'Your network and compute environment is the constraint. The traffic AI agents generate looks nothing like the traffic your environment was sized for: continuous queries, machine-to-machine handoffs, real-time data movement at scale. Bandwidth pressure is constant. Latency tolerance is tighter than human users need. Cloud and compute capacity hit ceilings under load. Whatever AI you deploy on this foundation hits limits the technology itself didn’t create. Modernizing the layers underneath — software-defined networking that scales on demand, managed cloud built for AI compute intensity, FinOps visibility on cost — comes before any tool that depends on them.' };
-  }
-  // Pattern 5: Experience Untapped
-  if (scores.D5 <= 40 && overall >= 45) {
-    return { name:'Experience Untapped', copy:'Your foundation is stronger than your activation. Strategy, data, infrastructure, and governance have some structure in place, but the experience layer where AI delivers the most visible return is barely touched. On the customer side: context dies between channels, intelligent routing isn’t happening, sentiment analysis isn’t running, post-call intelligence is manual. Internally: the strategy session that ran two hours on Tuesday is already gone. Meeting intelligence, knowledge management, collaboration AI — most of it is bundled in platforms you’re already paying for. The capture isn’t turned on. This is activation work, deploying what you already have on the foundation you’ve already built.' };
-  }
-  // Pattern 6: Leadership-Execution Gap
-  if (scores.D1 >= 55 && (scores.D6 <= 40 || scores.D2 <= 40 || scores.D3 <= 40)) {
-    return { name:'Leadership-Execution Gap', copy:'Leadership sees the value of AI. There’s directional commitment and strategic intent. But between the vision and the execution, something is stalling. The workforce may not be adopting at the pace the strategy requires. The data environment or infrastructure may not deliver on the commitments leadership has made. Strategic ambition outrunning operational readiness is something we see constantly. Closing that distance means connecting strategy to specific enablement paths: real training programs, approved tools tied to daily workflows, and infrastructure work that turns intent into capability.' };
-  }
-  // Pattern 7: Stronger Than You Think
-  var allAbove40 = scores.D1 >= 40 && scores.D2 >= 40 && scores.D3 >= 40 && scores.D4 >= 40 && scores.D5 >= 40 && scores.D6 >= 40;
-  if (overall >= 60 && allAbove40) {
-    return { name:'Stronger Than You Think', copy:'Your organization has built more foundation than most. No single dimension is critically weak, and the overall pattern shows intentional progress. The architecture supports AI workloads, governance has taken shape, and the workforce shows real adoption. What matters now is whether that foundation is compounding. Is the intelligence from AI interactions being captured and retained? Are the wins from early adopters scaling beyond the teams that created them? The organizations that pull ahead from here stop building foundation and start multiplying what they’ve built.' };
-  }
-  // Fallback
-  return { name:null, copy:'Your results reveal a specific readiness profile. Every mid-market company we assess falls somewhere on the continuum, from organizations just beginning to see what’s happening in their environment to those compounding returns from a fully governed AI operation. The dimensional breakdown below shows which layers need attention and in what order. Order matters. Governance and data work come before platform deployment. Infrastructure before scale.' };
+function show(id){
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
 }
+function startAssessment(){ state.idx=0; state.answers=[]; renderQuestion(); show('screen-question'); }
 
-// ============================================================
-// CONTINUUM PHASE ASSIGNMENT (v2)
-// ============================================================
-function getContinuumPhase(scores) {
-  var overall = getOverallScore();
-  if (overall <= 25) return { phase:1, name:'Discover', desc:'You’re seeing what’s in the environment for the first time' };
-  if (scores.D2 <= 40 || scores.D3 <= 40 || scores.D4 <= 40) return { phase:2, name:'Diagnose', desc:'Foundation gaps are visible. The order of operations is what matters now.' };
-  if (scores.D5 <= 40) return { phase:3, name:'Build', desc:'Foundation is in place. Activation is underway.' };
-  if (overall >= 65) return { phase:4, name:'Compound', desc:'AI is producing returns and the intelligence is being captured' };
-  return { phase:3, name:'Build', desc:'Foundation is in place. The work is sequenced.' };
-}
-
-// ============================================================
-// CTA FRAMING (v2)
-// ============================================================
-const CTA_HEADLINES = {
-  Foundational:'Your results point to real gaps \u2014 but they also point to a clear starting line.',
-  Developing:'The gaps are specific. The fixes are sequenced.',
-  Advancing:'You\u2019re further along than most. Now it\u2019s about what you do next.',
-  Leading:'You\u2019re in a strong position. The next move is what multiplies from here.'
-};
-
-const CTA_BODY = 'A Resultant is a senior technology advisor who works across 300+ technology suppliers. They\u2019ll have reviewed your results before you talk.';
-
-// ============================================================
-// SCORING
-// ============================================================
-function getDimScore(dimId) {
-  const qIds = UNIFIED_DIM_MAP[dimId];
-  let sum = 0, count = 0;
-  qIds.forEach(id => {
-    const a = state.answers[id];
-    if (a !== undefined && a !== null && a >= 0) { sum += a; count++; }
+function renderQuestion(){
+  var q = QUESTIONS[state.idx];
+  document.getElementById('q-counter').textContent = 'Question ' + (state.idx+1) + ' of ' + QUESTIONS.length;
+  document.getElementById('q-text').textContent = q.s;
+  document.getElementById('progress-fill').style.width = ((state.idx)/QUESTIONS.length*100) + '%';
+  document.getElementById('q-back').style.visibility = state.idx === 0 ? 'hidden' : 'visible';
+  var box = document.getElementById('q-options');
+  box.innerHTML = '';
+  var prior = state.answers[state.idx];
+  SCALE.forEach(function(opt){
+    var b = document.createElement('button');
+    b.className = 'option' + (prior && prior.score === opt[1] ? ' selected' : '');
+    b.textContent = opt[0];
+    b.onclick = function(){ selectOption(b, opt[1]); };
+    box.appendChild(b);
   });
-  if (count === 0) return 0;
-  return Math.round((sum / (count * 4)) * 100);
 }
-
-function getOverallScore() {
-  const dims = ['D1','D2','D3','D4','D5','D6'];
-  let total = 0, count = 0;
-  dims.forEach(d => {
-    total += getDimScore(d);
-    count++;
-  });
-  return count > 0 ? Math.round(total / count) : 0;
+function selectOption(btn, score){
+  var box = document.getElementById('q-options');
+  Array.prototype.forEach.call(box.children, function(c){ c.classList.remove('selected'); });
+  btn.classList.add('selected');
+  state.answers[state.idx] = { dim: QUESTIONS[state.idx].dim, score: score };
+  setTimeout(function(){
+    if (state.idx < QUESTIONS.length - 1){ state.idx++; renderQuestion(); }
+    else { finish(); }
+  }, 190);
 }
+function goBack(){ if (state.idx > 0){ state.idx--; renderQuestion(); } }
 
-function getDimScoreForResults(dimId) {
-  return getDimScore(dimId);
+// ---- scoring ----
+function computeScores(){
+  var sums = {}, counts = {};
+  Object.keys(DIMS).forEach(function(d){ sums[d]=0; counts[d]=0; });
+  state.answers.forEach(function(a){ sums[a.dim]+=a.score; counts[a.dim]++; });
+  var dim = {};
+  Object.keys(DIMS).forEach(function(d){ dim[d] = counts[d] ? Math.round((sums[d]/(counts[d]*3))*100) : 0; });
+  var overall = 0;
+  Object.keys(DIMS).forEach(function(d){ overall += dim[d]*DIMS[d].weight; });
+  return { dim:dim, overall:Math.round(overall) };
 }
-
-function getTier(score) {
-  if (score <= 25) return 'Foundational';
-  if (score <= 50) return 'Developing';
-  if (score <= 75) return 'Advancing';
+function stageFor(pct){
+  // calibrated to the 4-point scale: all-disagree (33%) = Foundational, all-agree (67%) = Advancing
+  if (pct <= 40) return 'Foundational';
+  if (pct <= 58) return 'Developing';
+  if (pct <= 82) return 'Advancing';
   return 'Leading';
 }
+var STAGE_DESC = {
+  'Foundational':"Significant gaps across the board — and the cheapest moment to get the order right, before the money's been spent.",
+  'Developing':"Some real pieces in place, critical gaps still open. Targeted moves accelerate from here — the order is what matters.",
+  'Advancing':"A solid foundation with room to optimize. You're ready to scale the right use cases.",
+  'Leading':"Strong across most dimensions. The work now is staying ahead, not catching up."
+};
 
-function getTierColor(tier) {
-  return {Foundational:'#B85C4F',Developing:'#C88A50',Advancing:'#A06830',Leading:'#C88A50'}[tier] || '#C88A50';
+function patternFor(s){
+  var found = (s.dim.D2 + s.dim.D3 + s.dim.D4) / 3;
+  var act   = (s.dim.D1 + s.dim.D5 + s.dim.D6) / 3;
+  if (s.overall >= 70) return 'leading';
+  if (s.overall <= 40) return 'early';
+  if (act - found >= 12) return 'thin';
+  if (found - act >= 12) return 'nodirection';
+  return 'mixed';
 }
-
-// ============================================================
-// PERSONAL EMAIL DOMAINS
-// ============================================================
-const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','hotmail.co.uk','outlook.com','live.com','msn.com','aol.com','icloud.com','me.com','mac.com','protonmail.com','proton.me','mail.com','zoho.com','yandex.com','gmx.com','gmx.net','inbox.com','fastmail.com','hushmail.com','tutanota.com','guerrillamail.com','mailinator.com','comcast.net','verizon.net','att.net','sbcglobal.net','cox.net','charter.net','earthlink.net','optonline.net','frontier.com','windstream.net'];
-
-// ============================================================
-// BUILD SCREEN LIST
-// ============================================================
-function buildScreens() {
-  const s = [];
-
-  // Questions — unified, mixed order across dimensions
-  const qMap = {};
-  UNIFIED_QUESTIONS.forEach(q => qMap[q.id] = q);
-  UNIFIED_ORDER.forEach((id, i) => {
-    s.push({type:'question', q:qMap[id], num:i+1, total:12});
-  });
-
-  // Urgency context (multi-select)
-  s.push({type:'profile-checkbox', id:'urgency', text:'What’s driving the urgency right now?', hint:'Select all that apply', options:[
-    'Board or investor pressure to show AI ROI',
-    'Competitors are moving faster',
-    'We’re spending on AI but can’t measure what it’s returning',
-    'We don’t have a written AI policy and AI use is spreading without guardrails',
-    'Our data isn’t clean or accessible enough to support what we’re trying to build',
-    'Our network or infrastructure can’t handle what we want to do',
-    'Our customer or internal experience is falling behind what should be possible',
-    'Our team isn’t ready for AI and we know it',
-    'We need a strategy before the next planning cycle',
-    'A specific initiative is stalled and needs to get unstuck'
-  ]});
-
-  // Bottleneck (single-select with dimension tag)
-  s.push({type:'tagMulti', tag:{id:'barrier', text:'If you could fix one thing tomorrow, what would unblock the most progress?', options:[
-    {text:'A clear roadmap. We have ambition but no sequenced plan.',tag:'Strategy'},
-    {text:'Governance and security. Risk is slowing us down, or shadow AI is in the building.',tag:'Governance'},
-    {text:'Data readiness. We have direction, but the data is too scattered or messy to support what we’re trying to do.',tag:'Data'},
-    {text:'Infrastructure. Our network or compute can’t handle what we’re trying to do.',tag:'Infrastructure'},
-    {text:'Experience layer. Customer or internal experience is falling behind what should be possible.',tag:'Experience'},
-    {text:'Adoption. Leadership and the workforce aren’t moving in sync.',tag:'Workforce'}
-  ]}});
-
-  // Open text
-  s.push({type:'open-text', id:'ot1', text:'What specific AI use case or business problem are you most interested in exploring?'});
-
-  // Results
-  s.push({type:'results'});
-
-  state.screens = s;
-}
-
-// ============================================================
-// PROGRESS BAR
-// ============================================================
-function updateProgress() {
-  const bar = document.getElementById('progressBar');
-  const fill = document.getElementById('progressFill');
-  const current = state.screens[state.screenIndex];
-  if (!current || current.type === 'results') {
-    bar.style.display = 'none';
-    return;
+var READS = {
+  early:{
+    pull:"You're at the beginning — and that's the cheapest, safest place to be.",
+    body:"The expensive mistake is buying AI before the foundation's there. You haven't made it yet, and that's worth protecting. Get the order right from here and you skip the stalled-pilot phase most companies pay for."
+  },
+  thin:{
+    pull:"You've started using AI, but the foundation underneath it hasn't caught up.",
+    body:"Your data, your plumbing, your guardrails are running behind what you're already asking AI to do — which is why it feels like it's almost working. It's the most common pattern we see, and the most fixable, once the order is right."
+  },
+  nodirection:{
+    pull:"The plumbing's better than most. What's missing is a decision about where to point it.",
+    body:"Your foundation can carry more than it's being asked to. The gap is up top — a strategy and the people to drive it. You're ready to build; you just haven't decided what."
+  },
+  leading:{
+    pull:"You're ahead of most companies. The risk just changed shape.",
+    body:"It's not readiness anymore — it's whether the one or two soft spots cap how far the rest can go, and whether you're moving fast enough to stay ahead. A different conversation than most, still worth having."
+  },
+  mixed:{
+    pull:"There's no single story here — strengths and soft spots scattered across the board.",
+    body:"That's its own kind of risk: when the gaps are spread out, the order you tackle them in is everything. Fix the wrong one first and the rest keep stalling. Sequence is the whole game from here."
   }
-  bar.style.display = 'block';
-  const total = state.screens.filter(s => s.type !== 'results').length;
-  const pct = Math.min(100, Math.round((state.screenIndex / total) * 100));
-  fill.style.width = pct + '%';
-  document.getElementById('progressPct').textContent = pct + '%';
+};
+
+function drawRadar(dim){
+  var cx=160, cy=150, maxR=120;
+  function pt(ang, r){ var rad=ang*Math.PI/180; return [(cx+r*Math.cos(rad)).toFixed(1),(cy+r*Math.sin(rad)).toFixed(1)]; }
+  function hex(r){ return RADAR_ORDER.map(function(d){ return pt(d.ang,r).join(','); }).join(' '); }
+  var poly = RADAR_ORDER.map(function(d){ return pt(d.ang, maxR*(dim[d.id]/100)).join(','); }).join(' ');
+  var dots = RADAR_ORDER.map(function(d){ var p=pt(d.ang, maxR*(dim[d.id]/100)); return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.5" fill="#C88A50"/>'; }).join('');
+  var labelPos = { 'D1':['160','18','middle'],'D2':['282','86','start'],'D3':['282','216','start'],'D4':['160','296','middle'],'D5':['38','216','end'],'D6':['38','86','end'] };
+  var labels = RADAR_ORDER.map(function(d){ var L=labelPos[d.id]; return '<text x="'+L[0]+'" y="'+L[1]+'" text-anchor="'+L[2]+'" font-family="\'DM Sans\',sans-serif" font-size="12.5" font-weight="600" fill="#6A5A48">'+d.label+'</text>'; }).join('');
+  var svg =
+    '<polygon points="'+hex(maxR)+'" fill="none" stroke="#D4C8B0" stroke-width="1"/>'+
+    '<polygon points="'+hex(maxR*0.5)+'" fill="none" stroke="#E3DACC" stroke-width="1"/>'+
+    '<g stroke="#E3DACC" stroke-width="1">'+ RADAR_ORDER.map(function(d){ var p=pt(d.ang,maxR); return '<line x1="160" y1="150" x2="'+p[0]+'" y2="'+p[1]+'"/>'; }).join('') +'</g>'+
+    '<polygon points="'+poly+'" fill="rgba(200,138,80,0.20)" stroke="#C88A50" stroke-width="2"/>'+
+    dots + labels;
+  document.getElementById('radar').innerHTML = svg;
 }
 
-// ============================================================
-// RENDER ENGINE
-// ============================================================
-const app = document.getElementById('app');
-let navDirection = 'forward';
-let isTransitioning = false;
-
-function showScreen(index, direction) {
-  if (isTransitioning) return;
-  const prevIndex = state.screenIndex;
-  if (direction) navDirection = direction;
-  else navDirection = index >= prevIndex ? 'forward' : 'back';
-
-  state.screenIndex = index;
-  updateProgress();
-
-  if (index < 0) return;
-
-  const screen = state.screens[index];
-  if (!screen) return;
-
-  // Animate transition
-  const slideOut = navDirection === 'forward' ? 'slide-out-left' : 'slide-out-right';
-  const slideIn = navDirection === 'forward' ? 'slide-in-right' : 'slide-in-left';
-
-  if (prevIndex !== index && app.innerHTML.trim()) {
-    isTransitioning = true;
-    app.classList.add(slideOut);
-    setTimeout(() => {
-      app.classList.remove(slideOut);
-      renderScreen(screen);
-      app.classList.add(slideIn);
-      window.scrollTo(0, 0);
-      setTimeout(() => { app.classList.remove(slideIn); isTransitioning = false; }, 350);
-    }, 200);
-  } else {
-    renderScreen(screen);
-    window.scrollTo(0, 0);
-  }
+function finish(){
+  document.getElementById('progress-fill').style.width = '100%';
+  var s = computeScores();
+  var stage = stageFor(s.overall);
+  var pat = patternFor(s);
+  drawRadar(s.dim);
+  document.getElementById('stage-name').textContent = stage;
+  document.getElementById('stage-desc').textContent = STAGE_DESC[stage];
+  document.getElementById('read-pull').textContent = READS[pat].pull;
+  document.getElementById('read-body').textContent = READS[pat].body;
+  var _order=['D1','D2','D3','D4','D5','D6'];
+  state.dimArr = _order.map(function(d){ return {id:d, name:DIMS[d].name, score:s.dim[d]}; });
+  state.lowest = state.dimArr.slice().sort(function(a,b){ return a.score-b.score; })[0];
+  state.scores = s; state.stage = stage; state.pattern = pat;
+  show('screen-results');
 }
 
-function renderScreen(screen) {
-  switch(screen.type) {
-    case 'profile-radio': renderProfileRadio(screen); break;
-    case 'profile-platforms': renderProfilePlatforms(); break;
-    case 'profile-checkbox': renderProfileCheckbox(screen); break;
-    case 'question': renderQuestion(screen); break;
-    case 'tag': renderTag(screen); break;
-    case 'tagMulti': renderTagMulti(screen); break;
-    case 'open-text': renderOpenText(screen); break;
-    case 'results': renderResults(); break;
-  }
-}
-
-function renderProfileRadio(screen) {
-  let selected = state.profile[screen.id] || null;
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="q-text">' + screen.text + '</div>' +
-    '<div id="options">' + screen.options.map(function(o) {
-      return '<button class="option-btn ' + (selected===o?'selected':'') + '" onclick="selectProfileRadio(\'' + screen.id + '\',\'' + o.replace(/'/g,"\\'") + '\',this)">' + o + '</button>';
-    }).join('') + '</div>' +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="goBack()">Back</a>' +
-    '<button class="btn-primary" id="nextBtn" ' + (selected?'':'disabled') + ' onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
-
-function selectProfileRadio(id, val, el) {
-  state.profile[id] = val;
-  document.querySelectorAll('#options .option-btn').forEach(function(b) { b.classList.remove('selected'); });
-  el.classList.add('selected');
-  document.getElementById('nextBtn').disabled = false;
-}
-
-function renderProfilePlatforms() {
-  var cats = [
-    {name:'Collaboration / Video', opts:['Zoom','Microsoft Teams','Webex','GoTo','Don\u2019t know','Other']},
-    {name:'Business Phone', opts:['Zoom Phone','RingCentral','Dialpad','8x8','Vonage','Teams Phone','Don\u2019t know','Other']},
-    {name:'CRM', opts:['Salesforce','HubSpot','Dynamics 365','Zoho','None','Don\u2019t know','Other']},
-    {name:'Contact Center', opts:['NICE CXone','Genesys','Five9','Talkdesk','Zoom Contact Center','None','Don\u2019t know','Other']},
-    {name:'HR / Payroll', opts:['ADP','Workday','BambooHR','Paychex','Don\u2019t know','Other']},
-    {name:'ERP / Finance', opts:['SAP','Oracle','NetSuite','Sage','Don\u2019t know','Other']},
-    {name:'Cloud Platform', opts:['Microsoft Azure','AWS','Google Cloud','Don\u2019t know','Other']}
-  ];
-  var selected = state.profile.platforms || [];
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="q-text">Which of these does your organization use today?</div>' +
-    '<p style="font-size:13px;color:var(--gray);margin-bottom:24px;">Select all that apply across categories.</p>' +
-    cats.map(function(c) {
-      return '<div class="checkbox-group"><h4>' + c.name + '</h4><div class="checkbox-row">' + c.opts.map(function(o) {
-        var key = c.name+'|'+o;
-        return '<span class="chip ' + (selected.includes(key)?'selected':'') + '" onclick="toggleChip(this,\'' + key.replace(/'/g,"\\'") + '\')">' + o + '</span>';
-      }).join('') + '</div></div>';
-    }).join('') +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="goBack()">Back</a>' +
-    '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
-
-function toggleChip(el, key) {
-  var idx = state.profile.platforms.indexOf(key);
-  if (idx >= 0) { state.profile.platforms.splice(idx,1); el.classList.remove('selected'); }
-  else { state.profile.platforms.push(key); el.classList.add('selected'); }
-}
-
-function renderProfileCheckbox(screen) {
-  var selected = state.profile[screen.id] || [];
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="q-text">' + screen.text + '</div>' +
-    '<p style="font-size:13px;color:var(--gray);margin-bottom:20px;">' + (screen.hint||'') + '</p>' +
-    '<div class="checkbox-row" style="flex-direction:column;gap:10px;">' +
-    screen.options.map(function(o) {
-      return '<span class="chip ' + (selected.includes(o)?'selected':'') + '" style="display:block;text-align:left;padding:14px 20px;" onclick="toggleCheckbox(\'' + screen.id + '\',\'' + o.replace(/'/g,"\\'") + '\',this)">' + o + '</span>';
-    }).join('') +
-    '</div>' +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="goBack()">Back</a>' +
-    '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
-
-function toggleCheckbox(id, val, el) {
-  if (!state.profile[id]) state.profile[id] = [];
-  var idx = state.profile[id].indexOf(val);
-  if (idx >= 0) { state.profile[id].splice(idx,1); el.classList.remove('selected'); }
-  else { state.profile[id].push(val); el.classList.add('selected'); }
-}
-
-function renderQuestion(screen) {
-  var q = screen.q;
-  var existing = state.answers[q.id];
-  var hasAnswer = existing !== undefined;
-  if (q.type === 'likert') {
-    var likertOpts = [{text:'Strongly Agree',score:4},{text:'Agree',score:3},{text:'Neutral',score:2},{text:'Disagree',score:1},{text:'Strongly Disagree',score:0}];
-    app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-      '<div class="q-number">Question ' + screen.num + ' of ' + screen.total + '</div>' +
-      '<div class="q-text">' + q.text + '</div>' +
-      '<div class="likert-row">' +
-      likertOpts.map(function(o) {
-        return '<button class="likert-btn ' + (existing===o.score?'selected':'') + '" onclick="selectAnswer(\'' + q.id + '\',' + o.score + ',this,\'likert\')">' + o.text + '</button>';
-      }).join('') +
-      '</div>' +
-      '<div class="btn-row">' +
-      '<a class="back-link" onclick="goBack()">Back</a>' +
-      '<button class="btn-primary" id="nextBtn" ' + (hasAnswer?'':'style="display:none"') + ' onclick="goNext()">Continue</button>' +
-      '</div></div></div>';
-  } else {
-    var routeBtn = '';
-    if (q.routeOption) {
-      routeBtn = '<button class="option-btn ' + (existing===null&&state.answers.hasOwnProperty(q.id)?'selected':'') + '" style="margin-top:8px;border-style:dashed;color:var(--gray);" onclick="selectRouteOption(\'' + q.id + '\',this)">Someone else in my organization would know this better</button>';
-    }
-    app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-      '<div class="q-number">Question ' + screen.num + ' of ' + screen.total + '</div>' +
-      '<div class="q-text">' + q.text + '</div>' +
-      '<div id="options">' +
-      q.options.map(function(o) {
-        return '<button class="option-btn ' + (existing===o.score?'selected':'') + '" onclick="selectAnswer(\'' + q.id + '\',' + o.score + ',this,\'scenario\')">' + o.text + '</button>';
-      }).join('') +
-      routeBtn +
-      '</div>' +
-      '<div class="btn-row">' +
-      '<a class="back-link" onclick="goBack()">Back</a>' +
-      '<button class="btn-primary" id="nextBtn" ' + (hasAnswer?'':'style="display:none"') + ' onclick="goNext()">Continue</button>' +
-      '</div></div></div>';
-  }
-}
-
-function selectAnswer(id, score, el, type) {
-  state.answers[id] = score;
-  var container = type === 'likert' ? document.querySelector('.likert-row') : document.getElementById('options');
-  var selector = type === 'likert' ? '.likert-btn' : '.option-btn';
-  container.querySelectorAll(selector).forEach(function(b) { b.classList.remove('selected'); });
-  el.classList.add('selected');
-  setTimeout(function() { goNext(); }, 600);
-}
-
-function selectRouteOption(id, el) {
-  state.answers[id] = null; // null = routed/delegated, excluded from scoring
-  document.querySelectorAll('#options .option-btn').forEach(function(b) { b.classList.remove('selected'); });
-  el.classList.add('selected');
-  setTimeout(function() { goNext(); }, 600);
-}
-
-function renderTag(screen) {
-  var tag = screen.tag;
-  var existing = state.tags[tag.id];
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="q-text">' + tag.text + '</div>' +
-    '<div id="options">' +
-    tag.options.map(function(o) {
-      return '<button class="option-btn ' + (existing===o.tag?'selected':'') + '" onclick="selectTag(\'' + tag.id + '\',\'' + o.tag + '\',this)">' + o.text + '</button>';
-    }).join('') +
-    '</div>' +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="goBack()">Back</a>' +
-    '<button class="btn-primary" id="nextBtn" ' + (existing?'':'disabled') + ' onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
-
-function selectTag(id, tag, el) {
-  state.tags[id] = tag;
-  document.querySelectorAll('#options .option-btn').forEach(function(b) { b.classList.remove('selected'); });
-  el.classList.add('selected');
-  document.getElementById('nextBtn').disabled = false;
-}
-
-function renderTagMulti(screen) {
-  var tag = screen.tag;
-  var existing = state.tags[tag.id] || [];
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="q-text">' + tag.text + '</div>' +
-    '<div id="options">' +
-    tag.options.map(function(o) {
-      return '<button class="option-btn ' + (existing.indexOf(o.tag)>-1?'selected':'') + '" onclick="toggleTag(\'' + tag.id + '\',\'' + o.tag + '\',this)">' + o.text + '</button>';
-    }).join('') +
-    '</div>' +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="goBack()">Back</a>' +
-    '<button class="btn-primary" id="nextBtn" ' + (existing.length?'':'disabled') + ' onclick="goNext()">Continue</button>' +
-    '</div></div></div>';
-}
-
-function toggleTag(id, tag, el) {
-  if (!state.tags[id] || !Array.isArray(state.tags[id])) state.tags[id] = [];
-  var idx = state.tags[id].indexOf(tag);
-  if (idx > -1) { state.tags[id].splice(idx, 1); el.classList.remove('selected'); }
-  else { state.tags[id].push(tag); el.classList.add('selected'); }
-  document.getElementById('nextBtn').disabled = state.tags[id].length === 0;
-}
-
-
-function renderOpenText(screen) {
-  var val = state.openText[screen.id] || '';
-  app.innerHTML = '<div class="screen active"><div class="screen-inner">' +
-    '<div class="q-text">' + screen.text + '</div>' +
-    '<textarea class="form-input" id="otInput" maxlength="500" placeholder="Optional" oninput="updateOT(\'' + screen.id + '\')">' + val + '</textarea>' +
-    '<div class="char-count"><span id="charCount">' + val.length + '</span> / 500</div>' +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="goBack()">Back</a>' +
-    '<div>' +
-    '<a class="skip-link" onclick="goNext()" style="margin-right:16px;">Skip</a>' +
-    '<button class="btn-primary" onclick="goNext()">Continue</button>' +
-    '</div></div></div></div>';
-}
-
-function updateOT(id) {
-  var input = document.getElementById('otInput');
-  state.openText[id] = input.value;
-  document.getElementById('charCount').textContent = input.value.length;
-}
-
-// ============================================================
-// RESULTS
-// ============================================================
-function renderResults() {
-  document.getElementById('progressBar').style.display = 'none';
-  var overall = getOverallScore();
-  var tier = getTier(overall);
-  var tierColor = getTierColor(tier);
-  var dims = ['D1','D2','D3','D4','D5','D6'];
-
-  // Collect dimension scores
-  var dimScores = dims.map(function(d) {
-    return {id:d, name:DIM_NAMES[d], score: getDimScore(d)};
-  });
-
-  // Build scores object for diagnosis
-  var scoresObj = {};
-  dimScores.forEach(function(d) { scoresObj[d.id] = d.score; });
-
-  // Continuum Phase
-  var phase = getContinuumPhase(scoresObj);
-
-  // Skip Diagnosis
-  var diagnosis = getSkipDiagnosis(scoresObj);
-
-  // Find lowest dimension
-  var lowest = null;
-  var priorityOrder = ['D4','D2','D3','D5','D6','D1'];
-  dimScores.forEach(function(d) {
-    if (!lowest || d.score < lowest.score) lowest = d;
-    else if (d.score === lowest.score) {
-      if (priorityOrder.indexOf(d.id) < priorityOrder.indexOf(lowest.id)) lowest = d;
-    }
-  });
-
-  // ── LEAD CAPTURE ──
-  if (!state.captured) {
-    state.captured = true;
-    try {
-      fetch('/api/capture-assessment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contact: state.contact,
-          track: state.track,
-          profile: state.profile,
-          overall: overall,
-          tier: tier,
-          phase: getContinuumPhase(scoresObj),
-          dimScores: dimScores,
-          lowest: lowest,
-          answers: state.answers,
-          ref: leadRef,
-          urgency: state.urgency,
-          openText: state.openText,
-          timestamp: new Date().toISOString()
-        })
-      }).catch(function() {}); // Silent — never block the user's results
-    } catch(e) {}
-  }
-
-  var callouts = LOWEST_CALLOUT;
-  var ctaHeadline = CTA_HEADLINES[tier];
-  var firstName = state.contact.firstName || '';
-
-  // Dimensional HTML
-  var dimHTML = '';
-  dimScores.forEach(function(d) {
-    var t = getTier(d.score);
-    var tc = getTierColor(t);
-    var interp = DIM_INTERP[d.id][t];
-    dimHTML += '<div class="dim-section"><h3>' + d.name + '</h3>' +
-      '<div class="dim-score-row"><span class="dim-score-pct" style="color:' + tc + '">' + d.score + '%</span>' +
-      '<span class="dim-tier-badge" style="background:' + tc + '15;color:' + tc + '">' + t + '</span></div>' +
-      '<p class="dim-interp">' + interp + '</p></div>';
-  });
-
-  // Bar chart HTML
-  var barHTML = '';
-  dimScores.forEach(function(d) {
-    var t = getTier(d.score);
-    var tc = getTierColor(t);
-    barHTML += '<div class="dim-bar-wrap"><div class="dim-bar-label">' + d.name + '</div>' +
-      '<div class="dim-bar-track"><div class="dim-bar-fill" data-width="' + d.score + '%" style="width:0;background:' + tc + ';"><span>' + d.score + '%</span></div></div>' +
-      '<div class="dim-bar-tier" style="color:' + tc + '">' + t + '</div></div>';
-  });
-
-  app.innerHTML =
-    '<div class="results-header">' +
-    '<div class="logo" style="justify-content:center;">' +
-    '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name" style="color:var(--bg)">esulting</span>' +
-    '</div>' +
-    '<h1>Your AI Readiness Results</h1>' +
-    '<div class="respondent">' + state.contact.firstName + ' ' + state.contact.lastName + ', ' + state.contact.company + '</div>' +
-    '</div>' +
-    '<div class="results-body">' +
-
-    // Bar chart
-    '<div style="padding:40px 0 32px;">' + barHTML + '</div>' +
-
-    // Overall score + Continuum Position
-    '<div class="tier-display">' +
-    '<div class="tier-score" style="color:' + tierColor + '">' + overall + '%</div>' +
-    '<div class="tier-label" style="background:' + tierColor + '15;color:' + tierColor + '">' + tier + '</div>' +
-    '<div style="margin-top:20px;"><span class="phase-badge">Phase ' + phase.phase + ': ' + phase.name + '</span></div>' +
-    '<div class="phase-desc">' + firstName + ', your organization is at Phase ' + phase.phase + ' of the AI Readiness Continuum. ' + phase.desc + '.</div>' +
-    '</div>' +
-
-    // Skip Diagnosis
-    '<div class="skip-diagnosis">' +
-    (diagnosis.name ? '<h3>' + diagnosis.name + '</h3>' : '') +
-    '<p>' + diagnosis.copy + '</p>' +
-    '</div>' +
-
-    // Dimensional breakdown
-    dimHTML +
-
-    // Lowest-dimension callout
-    (lowest ? '<div class="callout-box"><h3>Your ' + lowest.name + ' score is your most significant opportunity area.</h3><p>' + callouts[lowest.id] + '</p></div>' : '') +
-
-    // CTA Section
-    '<div class="cta-section">' +
-    '<div class="cta-framing">' + ctaHeadline + '</div>' +
-    '<div class="cta-body">' + CTA_BODY + '</div>' +
-    '<button class="btn-primary" onclick="document.getElementById(\'contactOverlay\').classList.add(\'open\')">Talk to a Resultant</button>' +
-    '</div>' +
-
-    // Routed questions note (if any were delegated)
-    getRoutedNote(firstName) +
-
-    // Action row
-    '<div class="action-row">' +
-    '<button class="btn-secondary" onclick="window.print()">Save as PDF</button>' +
-    '<button class="btn-secondary" onclick="emailResults()">Email My Results</button>' +
-    '</div>' +
-
-    // Footer
-    '<div class="results-footer">' +
-    '<div class="logo" style="justify-content:center;margin-bottom:12px;">' +
-    '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>' +
-    '</div>' +
-    '<p>&copy; 2026 AI Resulting. All rights reserved.</p>' +
-    '<p class="privacy-note">Your responses stay here. We don\u2019t sell your data, share it with third parties, or use it to train models.</p>' +
-    '</div>' +
-    '</div>';
-
-  // Animate bars
-  setTimeout(function() {
-    document.querySelectorAll('.dim-bar-fill[data-width]').forEach(function(bar) {
-      bar.style.width = bar.getAttribute('data-width');
-    });
-  }, 200);
-}
-
-function shareAssessment() {
-  var url = window.location.href;
-  var subject = encodeURIComponent('AI Readiness Assessment');
-  var body = encodeURIComponent('I just completed the AI Resulting readiness diagnostic. It takes about 6 minutes and maps where you stand across six dimensions of AI readiness.\n\n' + url);
-  window.open('mailto:?subject=' + subject + '&body=' + body);
-}
-
-function getRoutedNote(firstName) {
-  // Check if any questions were routed (answer === null)
-  var routed = UNIFIED_QUESTIONS.filter(function(q) { return q.routeOption && state.answers[q.id] === null; });
-  if (routed.length === 0) return '';
-  return '<div class="cross-track">' +
-    '<p>' + firstName + ', you indicated that someone else in your organization would be better positioned to answer ' + (routed.length === 1 ? 'one question' : routed.length + ' questions') + ' on this assessment. Consider sharing it with your technology leader \u2014 their perspective would complete the picture, and a Resultant will have both views when you talk.</p>' +
-    '<button class="btn-secondary" onclick="shareAssessment()">Share the Assessment</button>' +
-    '</div>';
-}
-
-function emailResults() {
-  var overall = getOverallScore();
-  var tier = getTier(overall);
-  var subject = encodeURIComponent('Your AI Readiness Results - ' + tier + ' (' + overall + '%)');
-  var body = encodeURIComponent('Your AI Readiness Assessment Results\n\nOverall: ' + tier + ' (' + overall + '%)\n\nView your full results at: ' + window.location.href);
-  window.open('mailto:' + state.contact.email + '?subject=' + subject + '&body=' + body);
-}
-
-// ============================================================
-// NAVIGATION
-// ============================================================
-function goNext() {
-  showScreen(state.screenIndex + 1, 'forward');
-}
-
-function goBack() {
-  if (state.screenIndex > 0) {
-    showScreen(state.screenIndex - 1, 'back');
-  } else {
-    // Go back to contact gate
-    renderContactGate();
-  }
-}
-
-// ============================================================
-// PRE-ASSESSMENT SCREENS
-// ============================================================
-function showWelcome() {
-  app.innerHTML =
-    '<div class="screen active"><div class="screen-inner" style="text-align:center;">' +
-    '<div class="logo" style="justify-content:center;margin-bottom:40px;">' +
-    '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>' +
-    '</div>' +
-    '<h1 class="screen-title">Know Where You Stand.</h1>' +
-    '<p class="screen-sub" style="max-width:600px;margin:0 auto 24px;">Six dimensions of AI readiness — from strategy and data to infrastructure, governance, and adoption. One diagnostic that scores every gap and maps your results to the AI Readiness Continuum with a personalized report and clear next steps.</p>' +
-    '<p style="font-size:13px;color:var(--gray);margin:0 auto 16px;letter-spacing:0.02em;">Takes about 6 minutes.</p>' +
-    '<p style="font-size:12px;color:var(--gray);margin:0 auto 32px;max-width:480px;line-height:1.6;opacity:0.7;">Your data stays yours. It won\'t be sold, shared, or used to train AI models. This assessment runs in a secure, private environment.</p>' +
-    '<button class="btn-primary" onclick="renderContactGate()" style="padding:16px 48px;font-size:16px;">Begin Diagnostic</button>' +
-    '</div></div>';
-}
-
-function renderContactGate() {
-  app.innerHTML =
-    '<div class="screen active"><div class="screen-inner">' +
-    '<div class="logo" style="margin-bottom:40px;">' +
-    '<span class="logo-mark">AI</span><span class="logo-r">R</span><span class="logo-name">esulting</span>' +
-    '</div>' +
-    '<h2 class="screen-title">Before we begin.</h2>' +
-    '<p class="screen-sub">So we can build your personalized readiness report.</p>' +
-    '<div class="form-flex" style="display:flex;gap:16px;">' +
-    '<div class="form-group" style="flex:1;">' +
-    '<label>First Name</label>' +
-    '<input class="form-input" type="text" id="contactFirstName" value="' + state.contact.firstName + '" placeholder="First name" oninput="state.contact.firstName=this.value;validateContact()">' +
-    '</div>' +
-    '<div class="form-group" style="flex:1;">' +
-    '<label>Last Name</label>' +
-    '<input class="form-input" type="text" id="contactLastName" value="' + state.contact.lastName + '" placeholder="Last name" oninput="state.contact.lastName=this.value;validateContact()">' +
-    '</div></div>' +
-    '<div class="form-group">' +
-    '<label>Work Email</label>' +
-    '<input class="form-input" type="email" id="contactEmail" value="' + state.contact.email + '" placeholder="you@company.com" oninput="state.contact.email=this.value;validateContact()" onblur="validateContact()">' +
-    '<div class="form-error" id="emailError">Please use your work email address.</div>' +
-    '</div>' +
-    '<div class="form-flex" style="display:flex;gap:16px;">' +
-    '<div class="form-group" style="flex:1;">' +
-    '<label>Company Name</label>' +
-    '<input class="form-input" type="text" id="contactCompany" value="' + state.contact.company + '" placeholder="Your company" oninput="state.contact.company=this.value;validateContact()">' +
-    '</div>' +
-    '<div class="form-group" style="flex:1;">' +
-    '<label>Title</label>' +
-    '<input class="form-input" type="text" id="contactTitle" value="' + state.contact.title + '" placeholder="Your title" oninput="state.contact.title=this.value;validateContact()">' +
-    '</div></div>' +
-    '<div class="btn-row">' +
-    '<a class="back-link" onclick="showWelcome()">Back</a>' +
-    '<button class="btn-primary" id="contactNext" disabled onclick="startAssessment()">Begin Diagnostic</button>' +
-    '</div></div></div>';
-  validateContact();
-}
-
-function validateContact() {
-  var btn = document.getElementById('contactNext');
-  var errEl = document.getElementById('emailError');
-  var emailInput = document.getElementById('contactEmail');
-  if (!btn) return;
-
-  var email = state.contact.email.trim().toLowerCase();
-  var domain = email.split('@')[1] || '';
-  var isPersonal = PERSONAL_DOMAINS.includes(domain);
-  var hasValidFormat = email.includes('@') && domain.includes('.');
-
-  if (errEl) {
-    if (email && hasValidFormat && isPersonal) {
-      errEl.style.display = 'block';
-      if (emailInput) emailInput.classList.add('invalid');
-    } else {
-      errEl.style.display = 'none';
-      if (emailInput) emailInput.classList.remove('invalid');
-    }
-  }
-
-  var valid = state.contact.firstName.trim() && state.contact.lastName.trim() && email && hasValidFormat && !isPersonal && state.contact.company.trim() && state.contact.title.trim();
-  btn.disabled = !valid;
-}
-
-function startAssessment() {
-  state.track = 'strategic'; // unified assessment, set for results engine compatibility
-
-  // ── LEAD START CAPTURE ──
-  // Fire-and-forget so it never blocks the user's flow
+function submitCapture(e){
+  e.preventDefault();
+  if (state.captured) return false;
+  var btn = document.getElementById('cf-submit');
+  var name = document.getElementById('cf-name').value.trim();
+  var last = document.getElementById('cf-last').value.trim();
+  var email = document.getElementById('cf-email').value.trim();
+  var title = document.getElementById('cf-title').value.trim();
+  var notes = document.getElementById('cf-notes').value.trim();
+  btn.disabled = true; btn.textContent = 'Sending…';
+  // Primary: formatted lead email via Resend (/api/capture-assessment) -> your inbox
   try {
-    fetch('/api/capture-lead-start', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    fetch('/api/capture-assessment', {
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
-        contact: state.contact,
-        ref: leadRef,
+        contact:{ firstName:name, lastName:last, email:email, company:'', title:title },
+        track:'strategic', ref:leadRef,
+        overall: state.scores ? state.scores.overall : null,
+        tier: state.stage || '',
+        pattern: state.pattern || '',
+        dimScores: state.dimArr || [],
+        lowest: state.lowest || null,
+        answers: state.answers.map(function(a){ return a.score; }),
+        openText: { comments: notes },
         timestamp: new Date().toISOString()
       })
-    }).catch(function() {}); // Silent — don't block the user
-  } catch(e) {}
-
-  buildScreens();
-  showScreen(0);
-}
-
-// ============================================================
-// INIT
-// ============================================================
-showWelcome();
-</script>
-
-<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="contact-modal">
-    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
-    <h2>Let's start with clarity.</h2>
-    <p class="contact-sub">A conversation about where you are and what's possible.</p>
-    <form class="contact-form" id="contactFormOverlay" onsubmit="handleOverlaySubmit(event)">
-      <div class="contact-row">
-        <div class="contact-field">
-          <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
-        </div>
-        <div class="contact-field">
-          <label for="cf-company">Company</label>
-          <input type="text" id="cf-company" name="company" placeholder="Company name">
-        </div>
-      </div>
-      <div class="contact-field">
-        <label for="cf-email">Work Email</label>
-        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
-      </div>
-      <div class="contact-field">
-        <label for="cf-interest">What's on your mind?</label>
-        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
-      </div>
-      <button type="submit" class="contact-submit">Let's Connect</button>
-      <p class="contact-note">We'll reach out within one business day.</p>
-    </form>
-    <div class="contact-success" id="contactSuccessOverlay">
-      <h3>We'll be in touch.</h3>
-      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
-    </div>
-  </div>
-</div>
-
-<script>
-function handleOverlaySubmit(e) {
-  e.preventDefault();
-  var form = document.getElementById('contactFormOverlay');
-  var success = document.getElementById('contactSuccessOverlay');
-  var data = { name: form.querySelector('#cf-name').value, email: form.querySelector('#cf-email').value, company: form.querySelector('#cf-company').value, interest: form.querySelector('#cf-interest').value, source: 'assessment-results' };
-  console.log('Lead captured:', data);
-  form.style.display = 'none';
-  success.style.display = 'block';
-  setTimeout(function() { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
+    }).catch(function(){});
+  } catch(e){}
+  var fd = new FormData();
+  fd.append('firstName', name);
+  fd.append('lastName', last);
+  fd.append('email', email);
+  fd.append('title', title);
+  fd.append('comments', notes);
+  fd.append('source', 'assessment-v4-results');
+  fd.append('ref', leadRef || '');
+  fd.append('overall', state.scores ? state.scores.overall : '');
+  fd.append('stage', state.stage || '');
+  fd.append('pattern', state.pattern || '');
+  fd.append('dimScores', state.scores ? JSON.stringify(state.scores.dim) : '');
+  fd.append('_subject', 'AIR — new assessment lead (' + ((name+' '+last).trim()||'unknown') + ')');
+  fetch('https://formspree.io/f/mojyzjkk', { method:'POST', body:fd, headers:{'Accept':'application/json'} })
+    .then(function(r){
+      if (r.ok){
+        state.captured = true;
+        document.getElementById('capture-form-wrap').style.display='none';
+        document.getElementById('capture-success').style.display='block';
+        document.getElementById('capture-card').scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        btn.disabled=false; btn.textContent='Start the conversation';
+        alert('Something went wrong sending that. Please try again, or email results@airesulting.com.');
+      }
+    })
+    .catch(function(){
+      btn.disabled=false; btn.textContent='Start the conversation';
+      alert('Something went wrong sending that. Please try again, or email results@airesulting.com.');
+    });
+  return false;
 }
 </script>
-
 </body>
 </html>
