@@ -515,8 +515,8 @@
       <form id="govKitForm">
         <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
         <div class="form-group"><label for="email">Work Email</label><input type="email" id="email" name="email" placeholder="your@company.com" required><span id="emailError" style="display:none;color:#c0392b;font-size:13px;margin-top:4px;">Please enter a work email address.</span></div>
-        <button type="submit" class="btn-download reveal reveal-delay-2">Send Me the Policy</button>
-        <p class="form-note">We'll email the PDF to your work address.</p>
+        <button type="submit" class="btn-download reveal reveal-delay-2">Download the Policy</button>
+        <p class="form-note">A free download &mdash; we just like to know who's reading.</p>
       </form>
     </div>
   </div>
@@ -623,29 +623,20 @@ function toggleGov(item) {
     var name = document.getElementById('name').value;
     var btn = form.querySelector('.btn-download');
     btn.disabled = true;
-    btn.textContent = 'Sending...';
-    fetch('/api/send-governance-pdf', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email })
-    })
-    .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
-    .then(function(result) {
-      if (result.ok) {
-        form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Check your inbox.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">The AI Acceptable Use Policy has been sent to <strong>' + email + '</strong>.</p></div>';
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Send Me the Policy';
-        emailError.textContent = result.data.error || 'Something went wrong. Please try again.';
-        emailError.style.display = 'block';
-      }
-    })
-    .catch(function() {
-      btn.disabled = false;
-      btn.textContent = 'Send Me the Policy';
-      emailError.textContent = 'Network error. Please try again.';
-      emailError.style.display = 'block';
-    });
+    btn.textContent = 'Preparing\u2026';
+    // Capture the lead (Formspree, proven) + fire the formatted pipeline as a bonus
+    var fd = new FormData();
+    fd.append('name', name); fd.append('email', email);
+    fd.append('source', 'governance-aup-download');
+    fd.append('_subject', 'AIR \u2014 AUP download lead (' + name + ')');
+    fetch('https://formspree.io/f/mojyzjkk', { method:'POST', body:fd, headers:{ 'Accept':'application/json' } }).catch(function(){});
+    try { fetch('/api/capture-lead-start', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ name:name, email:email, source:'governance-aup-download' }) }).catch(function(){}); } catch(e){}
+    // Trigger the download
+    var dl = document.createElement('a');
+    dl.href = '/assets/AIR-AI-Acceptable-Use-Policy.pdf';
+    dl.setAttribute('download', 'AIR-AI-Acceptable-Use-Policy.pdf');
+    document.body.appendChild(dl); dl.click(); dl.remove();
+    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Your download is starting.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">The AI Acceptable Use Policy is downloading now. If it doesn\'t start, <a href="/assets/AIR-AI-Acceptable-Use-Policy.pdf" download style="color:#C88A50;text-decoration:underline;text-underline-offset:2px;">click here</a>.</p></div>';
   });
   var emailInput = document.getElementById('email');
   if (emailInput) {
