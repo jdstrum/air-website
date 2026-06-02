@@ -633,10 +633,10 @@ function toggleGov(item) {
     try { fetch('/api/capture-lead-start', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ name:name, email:email, source:'governance-aup-download' }) }).catch(function(){}); } catch(e){}
     // Trigger the download
     var dl = document.createElement('a');
-    dl.href = '/assets/AIR-AI-Acceptable-Use-Policy.pdf';
+    dl.href = '/AIR-AI-Acceptable-Use-Policy.pdf';
     dl.setAttribute('download', 'AIR-AI-Acceptable-Use-Policy.pdf');
     document.body.appendChild(dl); dl.click(); dl.remove();
-    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Your download is starting.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">The AI Acceptable Use Policy is downloading now. If it doesn\'t start, <a href="/assets/AIR-AI-Acceptable-Use-Policy.pdf" download style="color:#C88A50;text-decoration:underline;text-underline-offset:2px;">click here</a>.</p></div>';
+    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h3 style="font-family:Trebuchet MS,Georgia,serif;font-size:20px;font-weight:700;color:#C88A50;margin-bottom:8px;">Your download is starting.</h3><p style="font-size:15px;color:#6A5A48;line-height:1.6;">The AI Acceptable Use Policy is downloading now. If it doesn\'t start, <a href="/AIR-AI-Acceptable-Use-Policy.pdf" download style="color:#C88A50;text-decoration:underline;text-underline-offset:2px;">click here</a>.</p></div>';
   });
   var emailInput = document.getElementById('email');
   if (emailInput) {
