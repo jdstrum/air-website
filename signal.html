@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Signal from AI Resulting: the questions buyers are asking about AI data, security, infrastructure, economics, and customer experience.">
+  <title>The Signal — AI Resulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="air.css">
+  <style>
+    :root { --notes-copper:#b6673f; --notes-blue:#557b90; --notes-newsprint:#ebe5da; --notes-sheet:#f8f5ef; }
+    body.page-notes { background:var(--paper); }
+    body.page-notes .button.resultant-cta { background:var(--notes-copper); border-color:var(--notes-copper); color:#fff; }
+    body.page-notes .button.jai-cta { background:var(--notes-blue); border-color:var(--notes-blue); color:#fff; }
+    body.page-notes .button.resultant-cta:hover, body.page-notes .button.jai-cta:hover { background:var(--ink); border-color:var(--ink); }
+    .notes-hero { background:var(--notes-newsprint) !important; color:var(--ink); }
+    .notes-hero:before { border-color:rgba(19,35,33,.11); box-shadow:0 0 0 8vw rgba(19,35,33,.025),0 0 0 17vw rgba(19,35,33,.014); }
+    .notes-hero .hero-grid { grid-template-columns:1.15fr .85fr; align-items:center; }
+    .notes-hero h1 { max-width:10.8ch; }
+    .notes-hero .hero-copy>p:not(.micro) { max-width:43ch; color:#40504a; }
+    .desk-note { position:relative; padding:34px; background:var(--notes-sheet); border:1px solid var(--line); border-radius:26px; box-shadow:16px 18px 0 rgba(19,35,33,.08); }
+    .desk-note:before { content:""; position:absolute; inset:12px; border:1px solid rgba(19,35,33,.09); border-radius:17px; pointer-events:none; }
+    .desk-note>* { position:relative; }
+    .desk-note h2 { max-width:13ch; margin:18px 0 24px; font:500 clamp(31px,3.2vw,45px)/.98 var(--serif); letter-spacing:-.045em; }
+    .desk-note ul { margin:0; padding:0; list-style:none; border-top:1px solid var(--line); }
+    .desk-note li { padding:15px 0; border-bottom:1px solid var(--line); color:#40504a; font-size:13px; line-height:1.5; }
+    .current-note { background:var(--paper); }
+    .current-card { position:relative; display:grid; grid-template-columns:.82fr 1.18fr; gap:68px; align-items:end; padding:clamp(42px,6vw,76px); background:var(--deep); color:var(--paper); border-radius:30px; overflow:hidden; }
+    .current-card:after { content:""; position:absolute; width:340px; height:340px; right:-160px; top:-195px; border:1px solid rgba(244,240,232,.18); border-radius:50%; box-shadow:0 0 0 58px rgba(244,240,232,.025),0 0 0 116px rgba(244,240,232,.012); }
+    .current-card>* { position:relative; z-index:1; }
+    .current-card .micro { color:#c99a82; }
+    .current-card h2 { max-width:10ch; margin:21px 0 0; font:500 clamp(46px,5.7vw,78px)/.93 var(--serif); letter-spacing:-.058em; }
+    .current-copy { padding-top:28px; border-top:1px solid var(--paper-line); }
+    .current-copy p { max-width:39ch; margin:0; color:var(--mist); font-size:16px; line-height:1.68; }
+    .note-link { display:inline-flex; align-items:center; gap:10px; margin-top:30px; color:var(--paper); font-size:13px; font-weight:700; text-decoration:none; }
+    .note-link span { color:#d38a67; font-size:18px; transition:transform .2s ease; }
+    .note-link:hover span { transform:translateX(5px); }
+    .from-field { background:var(--notes-sheet); }
+    .field-intro { display:grid; grid-template-columns:.82fr 1.18fr; gap:80px; align-items:end; }
+    .field-intro h2 { max-width:11ch; margin:17px 0 0; font:500 clamp(45px,5.2vw,74px)/.96 var(--serif); letter-spacing:-.055em; }
+    .field-intro>p { max-width:47ch; margin:0 0 7px; color:#4d5a54; font-size:17px; line-height:1.62; }
+    .observation-list { margin-top:68px; border-top:1px solid var(--line); }
+    .observation { display:grid; grid-template-columns:120px minmax(260px,.92fr) 1.08fr; gap:34px; align-items:start; padding:32px 0; border-bottom:1px solid var(--line); }
+    .observation .micro { padding-top:5px; color:var(--notes-copper); }
+    .observation h3 { max-width:16ch; margin:0; font:500 clamp(28px,3vw,41px)/1 var(--serif); letter-spacing:-.045em; }
+    .observation p:not(.micro) { max-width:45ch; margin:3px 0 0; color:#4b5a54; font-size:14px; line-height:1.64; }
+    .field-disclosure { margin:20px 0 0; color:#69746f; font:400 10px/1.5 var(--mono); }
+    .readback { background:var(--notes-newsprint); }
+    .readback-grid { display:grid; grid-template-columns:.86fr 1.14fr; gap:82px; align-items:center; }
+    .readback-copy h2 { max-width:10ch; margin:17px 0 25px; font:500 clamp(44px,5.2vw,73px)/.95 var(--serif); letter-spacing:-.057em; }
+    .readback-copy>p:not(.micro) { max-width:40ch; margin:0; color:#45534e; font-size:16px; line-height:1.65; }
+    .readback-copy .note-link { color:var(--ink); }
+    .readback-sheet { position:relative; padding:34px; background:var(--notes-sheet); border:1px solid var(--line); border-radius:26px; box-shadow:18px 20px 0 rgba(19,35,33,.08); }
+    .readback-sheet:before { content:""; position:absolute; top:22px; right:24px; width:34px; height:3px; background:var(--notes-copper); transform:rotate(-4deg); }
+    .readback-sheet h3 { max-width:14ch; margin:18px 0 27px; font:500 clamp(31px,3.3vw,45px)/.98 var(--serif); letter-spacing:-.045em; }
+    .readback-line { display:grid; grid-template-columns:135px 1fr; gap:20px; padding:17px 0; border-top:1px solid var(--line); }
+    .readback-line b { color:var(--notes-copper); font:500 10px/1.4 var(--mono); letter-spacing:.06em; text-transform:uppercase; }
+    .readback-line span { color:#45534e; font-size:13px; line-height:1.52; }
+    .worth-noticing { background:var(--paper); }
+    .worth-head { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:end; }
+    .worth-head h2 { margin:17px 0 0; font:500 clamp(43px,5vw,70px)/.96 var(--serif); letter-spacing:-.055em; }
+    .worth-head>p { max-width:46ch; margin:0 0 7px; color:#4d5a54; font-size:16px; line-height:1.62; }
+    .reading-list { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:62px; }
+    .reading { min-height:300px; display:flex; flex-direction:column; padding:27px; background:var(--notes-newsprint); border:1px solid var(--line); border-radius:22px; text-decoration:none; transition:transform .24s ease,background .24s ease; }
+    .reading:hover { transform:translateY(-7px); background:var(--notes-sheet); }
+    .reading .micro { color:var(--notes-copper); }
+    .reading h3 { max-width:13ch; margin:35px 0 15px; font:500 clamp(27px,2.7vw,38px)/.99 var(--serif); letter-spacing:-.045em; }
+    .reading p:not(.micro) { max-width:31ch; margin:0; color:#526058; font-size:13px; line-height:1.58; }
+    .reading .arrow { margin-top:auto; padding-top:28px; color:var(--notes-copper); font-size:20px; }
+    .notes-close { background:var(--notes-newsprint) !important; }
+    .notes-close:before { display:none; }
+    .notes-close-head { display:grid; grid-template-columns:.74fr 1.26fr; gap:70px; align-items:end; margin-bottom:48px; }
+    .notes-close-head h2 { max-width:9ch; }
+    .notes-close-head>p { max-width:44ch; margin:0 0 8px; color:#4d5a54; font-size:16px; line-height:1.62; }
+    .conversation-options { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .conversation-option { display:flex; flex-direction:column; min-height:300px; padding:34px; background:var(--notes-sheet); border:1px solid var(--line); border-radius:25px; }
+    .conversation-option.jai { border-top:5px solid var(--notes-blue); }
+    .conversation-option.resultant { border-top:5px solid var(--notes-copper); }
+    .conversation-option h3 { margin:20px 0 13px; font:500 clamp(34px,3.8vw,52px)/.98 var(--serif); letter-spacing:-.05em; }
+    .conversation-option p:not(.micro) { max-width:38ch; margin:0 0 28px; color:#4d5a54; font-size:14px; line-height:1.6; }
+    .conversation-option .button { align-self:flex-start; margin-top:auto; }
+    @media (max-width:900px) {
+      .notes-hero .hero-grid,.current-card,.field-intro,.readback-grid,.worth-head,.notes-close-head { grid-template-columns:1fr; gap:38px; }
+      .desk-note { max-width:610px; }
+      .observation { grid-template-columns:90px 1fr; }
+      .observation p:not(.micro) { grid-column:2; }
+      .reading-list { grid-template-columns:1fr 1fr; }
+      .reading:last-child { grid-column:1/-1; min-height:250px; }
+    }
+    @media (max-width:620px) {
+      .current-card { padding:34px 26px; border-radius:22px; }
+      .observation { grid-template-columns:1fr; gap:12px; }
+      .observation p:not(.micro) { grid-column:auto; }
+      .readback-sheet { padding:27px 23px; }
+      .readback-line { grid-template-columns:1fr; gap:7px; }
+      .reading-list,.conversation-options { grid-template-columns:1fr; }
+      .reading:last-child { grid-column:auto; }
+      .conversation-option { min-height:275px; padding:28px 25px; }
+    }
+  </style>
+</head>
+<body class="page-notes">
+  <header><div class="shell">
+    <a class="mark" href="index.html" aria-label="AIR, AI Resulting home"><span class="mark-air">AI<span class="r">R</span></span><span class="mark-expansion"><b>AI</b> Resulting</span></a>
+    <nav aria-label="Primary navigation"><a href="index.html">Home</a><details class="nav-explore"><summary>Explore AI Readiness</summary><div class="nav-menu"><span class="nav-menu-label">The AIR framework</span><a class="framework" href="index.html#map">See the six dimensions</a><span class="nav-menu-label">Explore by dimension</span><a href="strategic-direction.html">Strategic Direction</a><a href="data-readiness.html">Data Readiness</a><a href="technology-infrastructure.html">Technology Infrastructure</a><a href="governance-security.html">Governance &amp; Security</a><a href="customer-experience.html">Customer Experience</a><a href="workforce-adoption.html">Workforce &amp; Adoption</a></div></details><a class="active" href="signal.html">The Signal</a><a href="our-approach.html">Our Approach</a></nav>
+    <a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a>
+  </div></header>
+  <main>
+    <section class="hero notes-hero"><div class="shell hero-grid">
+      <div class="hero-copy"><h1>What the market is telling us.</h1><p>The questions clients are asking now—and the decisions behind the next wave of AI investment.</p></div>
+      <aside class="desk-note"><p class="micro">Questions showing up now</p><h2>Four questions behind real buying decisions.</h2><ul><li>How do we organize the company’s data so AI can use it?</li><li>What will GPUs, tokens, and AI infrastructure actually cost?</li><li>How do we protect what employees share with AI tools?</li><li>Which suppliers can solve the need without adding another disconnected platform?</li></ul></aside>
+    </div></section>
+    <section class="current-note"><div class="shell section"><article class="current-card">
+      <div><p class="micro">Current Signal / August 2026</p><h2>Where the AI budget goes.</h2></div>
+      <div class="current-copy"><p>Organizations rarely have one clean AI line item. The spend is spread across systems, information, security, operating capacity, and the people who will carry the work.</p><a class="note-link" href="signal-ai-budget.html">Read the Signal <span aria-hidden="true">↗</span></a></div>
+    </article></div></section>
+    <section class="from-field"><div class="shell section">
+      <div class="field-intro"><div><p class="micro">Buying questions</p><h2>Where the conversation is going.</h2></div><p>These are not broad forecasts. They are the questions creating projects, budgets, and supplier decisions now.</p></div>
+      <div class="observation-list">
+        <article class="observation"><p class="micro">Data foundation</p><h3>Who organizes all of our data for AI?</h3><p>The answer spans structured records, documents, permissions, integration, and the question of which source deserves trust. The data platform is only one part of the job.</p></article>
+        <article class="observation"><p class="micro">Security &amp; control</p><h3>How do we protect what employees are doing with AI?</h3><p>Organizations need visibility into which tools are being used, what information is leaving the company, and how access and policy follow the employee.</p></article>
+        <article class="observation"><p class="micro">Compute &amp; cost</p><h3>Should we buy GPU capacity or pay for model usage?</h3><p>The answer turns on workload, data sensitivity, performance, control, utilization, and token economics. Many businesses will use a blend.</p></article>
+        <article class="observation"><p class="micro">Customer &amp; employee experience</p><h3>Where will AI improve an actual interaction?</h3><p>Customer service, contact center, collaboration, and internal support often meet at the same underlying issue: whether context and knowledge reach the next person in time.</p></article>
+      </div>
+      <p class="field-disclosure">Client details are omitted. These notes combine recurring themes rather than describing a single engagement.</p>
+    </div></section>
+    <section class="readback"><div class="shell section readback-grid">
+      <div class="readback-copy"><p class="micro">The Resultant Read-Back</p><h2>A useful conversation can become a practical brief.</h2><p>When the subject is substantive, a Resultant may turn a focused leadership conversation into a concise written brief. It records what is already moving, what remains open, and where the next conversations should begin.</p><a class="note-link" href="our-approach.html">See how a Resultant works <span aria-hidden="true">↗</span></a></div>
+      <aside class="readback-sheet"><p class="micro">From a recent leadership conversation</p><h3>The brief organized the work in three parts.</h3><div class="readback-line"><b>Already moving</b><span>Client service ambitions, early tool exploration, and a willingness to modernize the underlying environment.</span></div><div class="readback-line"><b>Still open</b><span>Ownership, data access, the role of existing platforms, and the sequence in which changes should happen.</span></div><div class="readback-line"><b>Worth pursuing</b><span>A practical roadmap, the right internal owners, and selected specialists or suppliers where they add value.</span></div></aside>
+    </div></section>
+    <section class="worth-noticing"><div class="shell section">
+      <div class="worth-head"><div><p class="micro">Worth noticing</p><h2>Three things on our desk.</h2></div><p>A small selection of research and market developments, with AIR’s view of why they matter to the work inside a company.</p></div>
+      <div class="reading-list">
+        <a class="reading" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer"><p class="micro">Stanford HAI / 2026 AI Index</p><h3>The 2026 AI adoption picture.</h3><p>The report is useful for separating the scale of AI use from the harder question of how deeply it has entered company workflows.</p><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="reading" href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer"><p class="micro">NIST / Generative AI Profile</p><h3>Using NIST guidance inside the business.</h3><p>The framework becomes most useful when its guidance is translated into named owners, operating rules, and review practices.</p><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="reading" href="https://www.anthropic.com/research/economic-index-june-2026-report" target="_blank" rel="noopener noreferrer"><p class="micro">Anthropic / Economic Index</p><h3>What longer-running AI work changes.</h3><p>As AI moves beyond short exchanges, questions of review, authority, and how work is handed back to people become more important.</p><span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div></section>
+    <section class="close notes-close"><div class="shell">
+      <div class="notes-close-head"><div><p class="micro">Continue the conversation</p><h2>Bring us the question that keeps coming up.</h2></div><p>Start with a guided readiness conversation, or go directly to a Resultant when the issue is already taking shape.</p></div>
+      <div class="conversation-options">
+        <article class="conversation-option jai"><p class="micro">Guided readiness conversation</p><h3>Talk with Jai.</h3><p>Use your own words to describe what has your team thinking about AI and see what the AIR framework brings into focus.</p><a class="button jai-cta" href="index.html#jai-dialog">Talk with Jai</a></article>
+        <article class="conversation-option resultant"><p class="micro">Direct human conversation</p><h3>Book with a Resultant.</h3><p>Bring the initiative, constraint, renewal, or opportunity you want to work through with an experienced human advisor.</p><a class="button resultant-cta" href="index.html#resultant-dialog">Book a conversation</a></article>
+      </div>
+    </div></section>
+  </main>
+  <footer><div class="shell"><span>AIR / AI Resulting</span><span><a href="privacy.html">Privacy</a> &nbsp; / &nbsp; © 2026</span></div></footer>
+</body>
+</html>

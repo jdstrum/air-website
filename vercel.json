@@ -1,0 +1,19 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/field-notes", "destination": "/signal", "permanent": true },
+    { "source": "/the-imagination-gap", "destination": "/strategic-direction", "permanent": true },
+    { "source": "/the-data-gap", "destination": "/data-readiness", "permanent": true },
+    { "source": "/the-data-gap-revised", "destination": "/data-readiness", "permanent": true },
+    { "source": "/the-infrastructure-gap", "destination": "/technology-infrastructure", "permanent": true },
+    { "source": "/the-governance-gap", "destination": "/governance-security", "permanent": true },
+    { "source": "/the-experience-gap", "destination": "/customer-experience", "permanent": true },
+    { "source": "/the-adoption-gap", "destination": "/workforce-adoption", "permanent": true },
+    { "source": "/the-spending-gap", "destination": "/signal-ai-budget", "permanent": true },
+    { "source": "/the-stealth-spend", "destination": "/signal-ai-budget", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/a/:slug", "destination": "/api/ref-redirect" }
+  ]
+}

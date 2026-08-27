@@ -1,0 +1,9 @@
+{
+  "name": "air-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Resulting website, readiness assessment, and lead-capture functions.",
+  "dependencies": {
+    "resend": "^3.4.0"
+  }
+}

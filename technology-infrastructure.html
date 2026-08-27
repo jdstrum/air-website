@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AI infrastructure: make practical decisions about network, cloud, compute, integration, and cost.">
+<title>Technology Infrastructure — AI Resulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="air.css">
+<style>
+/* Infrastructure opening: a physical path for live business activity, not an abstract AI diagram. */
+.network-stage{position:relative;isolation:isolate;min-height:503px;padding:23px;overflow:hidden;background:#202e2d;color:var(--paper);box-shadow:18px 21px 0 rgba(32,46,45,.15)}.network-stage:before{content:"";position:absolute;z-index:-1;inset:0;background-image:linear-gradient(rgba(244,240,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,232,.045) 1px,transparent 1px),radial-gradient(circle at 58% 48%,rgba(216,209,197,.13),transparent 30%);background-size:22px 22px,22px 22px,100% 100%}.network-stage>*{position:relative}.network-stage-top,.network-stage-foot{display:flex;align-items:center;justify-content:space-between;gap:16px}.network-stage-top{padding-bottom:15px;border-bottom:1px solid rgba(244,240,232,.16)}.network-stage-top .micro{color:#bcc8c1}.network-stage-top>span{color:var(--clay);font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}.network-field{position:relative;min-height:391px;margin-top:17px}.network-node{position:absolute;z-index:3;width:30%;padding:13px 14px;border:1px solid rgba(244,240,232,.27);background:rgba(244,240,232,.93);box-shadow:0 12px 24px rgba(0,0,0,.13);color:var(--ink)}.network-node:before{content:"";display:block;width:22px;height:2px;margin-bottom:9px;background:var(--clay)}.network-node small{display:block;color:#66736e;font:500 8px var(--mono);letter-spacing:.08em;text-transform:uppercase}.network-node strong{display:block;margin-top:4px;font:500 20px/.98 var(--serif);letter-spacing:-.04em}.network-node span{display:block;margin-top:6px;color:#53615b;font-size:9px;line-height:1.38}.node-branch{left:0;top:20px}.node-cloud{right:0;top:20px;background:#d8d1c5}.node-compute{right:0;bottom:19px;background:#dbe5df}.network-chassis{position:absolute;z-index:4;left:50%;top:53%;width:178px;min-height:184px;transform:translate(-50%,-50%);padding:18px;border:1px solid rgba(244,240,232,.42);background:#182726;box-shadow:0 0 0 10px rgba(244,240,232,.06),0 18px 35px rgba(0,0,0,.23)}.network-chassis:before{content:"";position:absolute;inset:9px;border:1px solid rgba(244,240,232,.14);pointer-events:none}.network-chassis .micro{position:relative;margin:0;color:var(--clay)}.network-chassis strong{position:relative;display:block;margin-top:6px;font:500 27px/.94 var(--serif);letter-spacing:-.05em}.port-grid{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:17px;padding-top:15px;border-top:1px solid rgba(244,240,232,.16)}.port-grid i{display:block;height:6px;border-radius:1px;background:#49645d}.port-grid i:nth-child(3n){background:var(--clay);box-shadow:0 0 9px rgba(174,103,80,.72);animation:port-live 3.8s ease-in-out infinite}.port-grid i:nth-child(5n){background:#bcc8c1}.network-chassis>span{position:relative;display:block;margin-top:15px;color:var(--mist);font-size:9px;line-height:1.4}.network-path{position:absolute;z-index:2;height:1px;transform-origin:left center;background:linear-gradient(90deg,rgba(188,200,193,.2),var(--clay),rgba(188,200,193,.35))}.network-path:after{content:"";position:absolute;right:-4px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--clay);box-shadow:0 0 0 5px rgba(174,103,80,.12),0 0 17px var(--clay);animation:network-signal 5.4s linear infinite}.path-branch{left:28%;top:30%;width:24%;transform:rotate(27deg)}.path-cloud{left:50%;top:30%;width:23%;transform:rotate(-27deg)}.path-compute{left:50%;top:69%;width:23%;transform:rotate(27deg)}.network-stage-foot{padding-top:14px;border-top:1px solid rgba(244,240,232,.16);color:var(--mist);font-size:10px;line-height:1.35}.network-stage-foot b{padding:0 5px;color:var(--clay)}.network-stage-foot span:last-child{color:var(--clay);font-size:19px;line-height:1}@keyframes port-live{0%,100%{opacity:.45}48%{opacity:1}}@keyframes network-signal{0%,17%{opacity:0;transform:translateX(-4px) scale(.65)}24%,75%{opacity:1}88%,100%{opacity:0;transform:translateX(13px) scale(1.15)}}
+@media(max-width:800px){.network-stage{max-width:580px}}@media(max-width:570px){.network-stage{min-height:auto;padding:19px}.network-field{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;padding-top:204px}.network-node,.node-branch,.node-cloud,.node-compute{position:relative;inset:auto;width:auto}.network-node{min-height:78px;padding:12px}.network-node strong{font-size:18px}.network-node span{font-size:9px}.node-compute{grid-column:1/-1}.network-chassis{top:91px;width:157px;min-height:154px;padding:15px}.network-chassis strong{font-size:24px}.port-grid{gap:6px;margin-top:12px;padding-top:12px}.network-chassis>span{margin-top:11px}.network-path{display:none}.network-stage-foot{margin-top:16px}}@media(prefers-reduced-motion:reduce){.port-grid i:nth-child(3n),.network-path:after{animation:none}}
+
+/* Shared entrance language: a composed arrival followed by the live signal. */
+.network-stage-top,.network-node,.network-chassis,.network-stage-foot{opacity:0;animation:infrastructure-arrive .68s cubic-bezier(.18,.84,.28,1) forwards}.network-stage-top{animation-delay:.05s}.node-branch{animation-delay:.18s}.node-cloud{animation-delay:.31s}.node-compute{animation-delay:.43s}.network-chassis{animation-delay:.55s}.network-stage-foot{animation-delay:.72s}.network-path{opacity:0;animation:infrastructure-line .72s cubic-bezier(.2,.8,.25,1) forwards}.path-branch{animation-delay:.31s}.path-cloud{animation-delay:.45s}.path-compute{animation-delay:.58s}@keyframes infrastructure-arrive{from{opacity:0;translate:0 13px}to{opacity:1;translate:0 0}}@keyframes infrastructure-line{from{opacity:0;scale:.25 1}to{opacity:1;scale:1 1}}@media(prefers-reduced-motion:reduce){.network-stage-top,.network-node,.network-chassis,.network-stage-foot,.network-path{opacity:1;animation:none}}
+
+/* A quieter decision: the density shift first, then the consume / own / blend choice. */
+.page-infrastructure .decision .split-head{grid-template-columns:.9fr 1.1fr;gap:68px}.page-infrastructure .decision .split-head h2{max-width:10ch}.page-infrastructure .decision-grid{grid-template-columns:.72fr 1.28fr;gap:52px;margin-top:48px}.page-infrastructure .decision-lead{min-height:0;padding:4px 0 0;background:transparent;border:0;border-top:1px solid var(--paper-line)}.page-infrastructure .decision-lead h3{max-width:9ch;margin:27px 0 14px;font-size:clamp(39px,3.8vw,53px)}.page-infrastructure .decision-lead p:not(.micro){max-width:31ch;font-size:14px}.page-infrastructure .choice{grid-template-columns:100px 1fr;gap:20px;padding:20px 0}.page-infrastructure .choice h3{margin-bottom:6px;font-size:clamp(23px,2vw,29px)}.page-infrastructure .choice p{max-width:45ch;font-size:12px;line-height:1.5}@media(max-width:900px){.page-infrastructure .decision-grid{grid-template-columns:1fr;gap:35px}.page-infrastructure .decision-lead{max-width:580px}}@media(max-width:570px){.page-infrastructure .choice{grid-template-columns:1fr;gap:8px}}
+
+/* Two clear ways to continue, using the shared Jai and Resultant colors. */
+.page-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}
+.close .page-actions .button{margin-top:0}
+.button.jai-cta{background:#557b90;border-color:#557b90;color:#fff}
+.button.jai-cta:hover{background:#3f667b;border-color:#3f667b}
+.button.resultant-cta{background:#b6673f;border-color:#b6673f;color:#fff}
+.button.resultant-cta:hover{background:#945136;border-color:#945136}
+body.page-infrastructure .close{border-radius:26px}
+@media(max-width:800px){body.page-infrastructure .close{border-radius:20px}}
+</style>
+</head>
+<body class="page-infrastructure">
+<header>
+<div class="shell">
+<a class="mark" href="index.html" aria-label="AIR, AI Resulting home">
+<span class="mark-air">AI<span class="r">R</span>
+</span>
+<span class="mark-expansion">
+<b>AI</b> Resulting</span>
+</a>
+<nav aria-label="Primary navigation">
+<a href="index.html">Home</a>
+<details class="nav-explore">
+<summary>Explore AI Readiness</summary>
+<div class="nav-menu">
+<span class="nav-menu-label">The AIR framework</span>
+<a class="framework" href="index.html#map">See the six dimensions</a>
+<span class="nav-menu-label">Explore by dimension</span>
+<a href="strategic-direction.html">Strategic Direction</a>
+<a href="data-readiness.html">Data Readiness</a>
+<a href="technology-infrastructure.html">Technology Infrastructure</a>
+<a href="governance-security.html">Governance &amp; Security</a>
+<a href="customer-experience.html">Customer Experience</a>
+<a href="workforce-adoption.html">Workforce &amp; Adoption</a>
+</div>
+</details>
+<a href="signal.html">The Signal</a>
+<a href="our-approach.html">Our Approach</a>
+</nav>
+<a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="shell hero-grid">
+<div class="hero-copy">
+
+<h1>Decide where intelligence should run.</h1>
+<p>One pilot can run almost anywhere. The question is whether the environment can support what comes next: more data, more users, more immediate activity, or more customer interaction.</p>
+</div>
+<aside class="network-stage" aria-label="A network schematic showing activity at the branch connected through the network to cloud and dedicated compute capacity">
+<div class="network-stage-top"><p class="micro">The workload path</p><span>live capacity</span></div>
+<div class="network-field">
+<article class="network-node node-branch"><small>Where people connect</small><strong>Branch &amp;<br>edge</strong><span>People, devices, customers, and live interactions.</span></article>
+<article class="network-node node-cloud"><small>Elastic capacity</small><strong>Cloud</strong><span>Capacity that can grow with demand.</span></article>
+<article class="network-node node-compute"><small>Dedicated capacity</small><strong>Compute</strong><span>Private, colocated, or specialized when control matters.</span></article>
+<span class="network-path path-branch" aria-hidden="true"></span><span class="network-path path-cloud" aria-hidden="true"></span><span class="network-path path-compute" aria-hidden="true"></span>
+<div class="network-chassis"><p class="micro">The network</p><strong>Move what<br>matters.</strong><div class="port-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>Bandwidth · Latency · Resiliency</span></div>
+</div>
+<div class="network-stage-foot"><span>branch <b>•</b> network <b>•</b> cloud <b>•</b> compute</span><span aria-hidden="true">↗</span></div>
+</aside>
+</div>
+</section>
+<section class="section intro">
+<div class="shell">
+<div class="split-head">
+<div>
+
+<h2>Infrastructure should be built for what is coming.</h2>
+</div>
+<p>A business may be moving from legacy systems toward a hybrid or cloud-ready environment while AI introduces a new set of demands. The strongest answer looks ahead, then tests whether the infrastructure can carry what comes next.</p>
+</div>
+<div class="tiles infra-capabilities">
+<article class="tile">
+<p class="micro">01 / Clouds that scale</p>
+<h3>Bring capacity where it is needed.</h3>
+<p>Cloud and private environments should let the business add the right capacity as demand changes, with a clear path for each new requirement.</p>
+</article>
+<article class="tile">
+<p class="micro">02 / Network built for AI traffic</p>
+<h3>Keep decisions moving in real time.</h3>
+<p>Bandwidth, latency, resiliency, and traffic visibility shape whether AI can support a live interaction or becomes another slow handoff. A network delivered, operated, and visible as one accountable service gives the business a cleaner way to keep pace.</p>
+</article>
+<article class="tile">
+<p class="micro">03 / Edge &amp; compute</p>
+<h3>Place processing where it performs best.</h3>
+<p>Data sensitivity, response time, and compute density determine when capacity belongs in the cloud, closer to the edge, or in a more dedicated and interconnected environment.</p>
+</article>
+<article class="tile">
+<p class="micro">04 / Spend visibility</p>
+<h3>See the economics as usage grows.</h3>
+<p>Cloud, compute, token, license, and integration costs belong in one operating view so leadership can see what the environment requires and what it returns.</p>
+</article>
+</div>
+<div class="journey-head">
+
+<h3>Most organizations are moving from what they have toward what AI requires.</h3>
+</div>
+<div class="infra-path" aria-label="Infrastructure journey">
+<article class="path-step">
+<span class="path-node" aria-hidden="true">
+</span>
+<p class="micro">Legacy</p>
+<h4>Built for the applications it has carried.</h4>
+<p>Familiar systems, fixed capacity, and an environment designed around the applications already in place.</p>
+</article>
+<article class="path-step">
+<span class="path-node" aria-hidden="true">
+</span>
+<p class="micro">Hybrid</p>
+<h4>New environments begin to connect.</h4>
+<p>Cloud and on-premise coexist, while connectivity and placement choices become part of the operating conversation.</p>
+</article>
+<article class="path-step">
+<span class="path-node" aria-hidden="true">
+</span>
+<p class="micro">Cloud-ready</p>
+<h4>Capacity and control can scale.</h4>
+<p>The business can add capacity, manage connectivity, and see the environment well enough to make deliberate choices.</p>
+</article>
+<article class="path-step">
+<span class="path-node" aria-hidden="true">
+</span>
+<p class="micro">AI-ready</p>
+<h4>Each workload has a deliberate home.</h4>
+<p>Network, compute, placement, and economics support the business at the speed and scale it requires.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="decision">
+<div class="shell section">
+<div class="split-head">
+<div>
+
+<h2>AI can demand 10x the compute density.</h2>
+</div>
+<p>AI inference and training rely on GPU-accelerated environments that most on-premise data centers were never designed to support. The choice is not simply where AI runs. It is whether to consume capacity, own the environment, or deliberately combine both.</p>
+</div>
+<div class="decision-grid">
+<article class="decision-lead">
+<h3>Consume it or own it?</h3>
+<p>Start with the workload and the data behind it. Flexible work can consume capacity as a service. Sensitive, regulated, or residency-bound data may need an environment you control.</p>
+</article>
+<div class="choice-list">
+<article class="choice">
+<span>Consume</span>
+<div>
+<h3>Use GPU capacity as a service.</h3>
+<p>Best for bursty, experimental, or flexible workloads where speed and elasticity matter most.</p>
+</div>
+</article>
+<article class="choice">
+<span>Own</span>
+<div>
+<h3>Keep sensitive work in an environment you control.</h3>
+<p>Healthcare, legal, and financial services may need private capacity for protected data, performance, residency, or sustained demand.</p>
+</div>
+</article>
+<article class="choice">
+<span>Blend</span>
+<div>
+<h3>Keep some data close. Scale some compute out.</h3>
+<p>Use a hybrid design when the work needs both controlled data and elastic compute.</p>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="close">
+<div class="shell close-inner">
+<h2>Build the environment the work requires.</h2>
+<p>AIR can help align network, cloud, compute, security, and experience to the performance, control, and cost the business requires.</p>
+<div class="page-actions"><a class="button jai-cta" href="index.html#jai-dialog">Talk with Jai</a><a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a></div>
+</div>
+</section>
+</main>
+<footer>
+<div class="shell">
+<span>AIR / AI Resulting</span>
+<span>
+<a href="privacy.html">Privacy</a> &nbsp; / &nbsp; © 2026</span>
+</div>
+</footer>
+</body>
+</html>
