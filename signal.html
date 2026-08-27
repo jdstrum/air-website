@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Signal from AI Resulting: the questions buyers are asking about AI data, security, infrastructure, economics, and customer experience.">
+  <meta name="description" content="The Signal from AI Resulting: AIR-owned observations on the market questions shaping AI budgets, governance, infrastructure, and buying decisions.">
   <title>The Signal — AI Resulting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,17 +58,18 @@
     .readback-line { display:grid; grid-template-columns:135px 1fr; gap:20px; padding:17px 0; border-top:1px solid var(--line); }
     .readback-line b { color:var(--notes-copper); font:500 10px/1.4 var(--mono); letter-spacing:.06em; text-transform:uppercase; }
     .readback-line span { color:#45534e; font-size:13px; line-height:1.52; }
-    .worth-noticing { background:var(--paper); }
-    .worth-head { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:end; }
-    .worth-head h2 { margin:17px 0 0; font:500 clamp(43px,5vw,70px)/.96 var(--serif); letter-spacing:-.055em; }
-    .worth-head>p { max-width:46ch; margin:0 0 7px; color:#4d5a54; font-size:16px; line-height:1.62; }
-    .reading-list { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:62px; }
-    .reading { min-height:300px; display:flex; flex-direction:column; padding:27px; background:var(--notes-newsprint); border:1px solid var(--line); border-radius:22px; text-decoration:none; transition:transform .24s ease,background .24s ease; }
-    .reading:hover { transform:translateY(-7px); background:var(--notes-sheet); }
-    .reading .micro { color:var(--notes-copper); }
-    .reading h3 { max-width:13ch; margin:35px 0 15px; font:500 clamp(27px,2.7vw,38px)/.99 var(--serif); letter-spacing:-.045em; }
-    .reading p:not(.micro) { max-width:31ch; margin:0; color:#526058; font-size:13px; line-height:1.58; }
-    .reading .arrow { margin-top:auto; padding-top:28px; color:var(--notes-copper); font-size:20px; }
+    .market-pulse { background:var(--paper); }
+    .market-head { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:end; }
+    .market-head h2 { max-width:11ch; margin:17px 0 0; font:500 clamp(43px,5vw,70px)/.96 var(--serif); letter-spacing:-.055em; }
+    .market-head>p { max-width:49ch; margin:0 0 7px; color:#4d5a54; font-size:16px; line-height:1.62; }
+    .market-list { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:62px; }
+    .market-card { position:relative; min-height:322px; display:flex; flex-direction:column; padding:29px; overflow:hidden; background:var(--notes-newsprint); border:1px solid var(--line); border-radius:22px; }
+    .market-card:after { content:""; position:absolute; right:-66px; bottom:-82px; width:170px; height:170px; border:1px solid rgba(182,103,63,.22); border-radius:50%; }
+    .market-card .micro { color:var(--notes-copper); }
+    .market-card h3 { max-width:13ch; margin:42px 0 17px; font:500 clamp(27px,2.7vw,38px)/.99 var(--serif); letter-spacing:-.045em; }
+    .market-card p:not(.micro) { position:relative; z-index:1; max-width:31ch; margin:0; color:#526058; font-size:13px; line-height:1.62; }
+    .market-note { display:flex; align-items:flex-start; gap:18px; margin-top:25px; padding:24px 0 0; border-top:1px solid var(--line); color:#40504a; font-size:13px; line-height:1.6; }
+    .market-note:before { content:"AIR"; flex:0 0 auto; color:var(--notes-copper); font:500 10px/1.6 var(--mono); letter-spacing:.08em; }
     .notes-close { background:var(--notes-newsprint) !important; }
     .notes-close:before { display:none; }
     .notes-close-head { display:grid; grid-template-columns:.74fr 1.26fr; gap:70px; align-items:end; margin-bottom:48px; }
@@ -82,12 +83,12 @@
     .conversation-option p:not(.micro) { max-width:38ch; margin:0 0 28px; color:#4d5a54; font-size:14px; line-height:1.6; }
     .conversation-option .button { align-self:flex-start; margin-top:auto; }
     @media (max-width:900px) {
-      .notes-hero .hero-grid,.current-card,.field-intro,.readback-grid,.worth-head,.notes-close-head { grid-template-columns:1fr; gap:38px; }
+      .notes-hero .hero-grid,.current-card,.field-intro,.readback-grid,.market-head,.notes-close-head { grid-template-columns:1fr; gap:38px; }
       .desk-note { max-width:610px; }
       .observation { grid-template-columns:90px 1fr; }
       .observation p:not(.micro) { grid-column:2; }
-      .reading-list { grid-template-columns:1fr 1fr; }
-      .reading:last-child { grid-column:1/-1; min-height:250px; }
+      .market-list { grid-template-columns:1fr 1fr; }
+      .market-card:last-child { grid-column:1/-1; min-height:250px; }
     }
     @media (max-width:620px) {
       .current-card { padding:34px 26px; border-radius:22px; }
@@ -95,8 +96,8 @@
       .observation p:not(.micro) { grid-column:auto; }
       .readback-sheet { padding:27px 23px; }
       .readback-line { grid-template-columns:1fr; gap:7px; }
-      .reading-list,.conversation-options { grid-template-columns:1fr; }
-      .reading:last-child { grid-column:auto; }
+      .market-list,.conversation-options { grid-template-columns:1fr; }
+      .market-card:last-child { grid-column:auto; }
       .conversation-option { min-height:275px; padding:28px 25px; }
     }
   </style>
@@ -130,13 +131,14 @@
       <div class="readback-copy"><p class="micro">The Resultant Read-Back</p><h2>A useful conversation can become a practical brief.</h2><p>When the subject is substantive, a Resultant may turn a focused leadership conversation into a concise written brief. It records what is already moving, what remains open, and where the next conversations should begin.</p><a class="note-link" href="our-approach.html">See how a Resultant works <span aria-hidden="true">↗</span></a></div>
       <aside class="readback-sheet"><p class="micro">From a recent leadership conversation</p><h3>The brief organized the work in three parts.</h3><div class="readback-line"><b>Already moving</b><span>Client service ambitions, early tool exploration, and a willingness to modernize the underlying environment.</span></div><div class="readback-line"><b>Still open</b><span>Ownership, data access, the role of existing platforms, and the sequence in which changes should happen.</span></div><div class="readback-line"><b>Worth pursuing</b><span>A practical roadmap, the right internal owners, and selected specialists or suppliers where they add value.</span></div></aside>
     </div></section>
-    <section class="worth-noticing"><div class="shell section">
-      <div class="worth-head"><div><p class="micro">Worth noticing</p><h2>Three things on our desk.</h2></div><p>A small selection of research and market developments, with AIR’s view of why they matter to the work inside a company.</p></div>
-      <div class="reading-list">
-        <a class="reading" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer"><p class="micro">Stanford HAI / 2026 AI Index</p><h3>The 2026 AI adoption picture.</h3><p>The report is useful for separating the scale of AI use from the harder question of how deeply it has entered company workflows.</p><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="reading" href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer"><p class="micro">NIST / Generative AI Profile</p><h3>Using NIST guidance inside the business.</h3><p>The framework becomes most useful when its guidance is translated into named owners, operating rules, and review practices.</p><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="reading" href="https://www.anthropic.com/research/economic-index-june-2026-report" target="_blank" rel="noopener noreferrer"><p class="micro">Anthropic / Economic Index</p><h3>What longer-running AI work changes.</h3><p>As AI moves beyond short exchanges, questions of review, authority, and how work is handed back to people become more important.</p><span class="arrow" aria-hidden="true">↗</span></a>
+    <section class="market-pulse"><div class="shell section">
+      <div class="market-head"><div><p class="micro">The AIR market read</p><h2>Three shifts worth watching.</h2></div><p>These are AIR’s observations on the questions moving from industry conversation into real budgets, operating decisions, and technology evaluations.</p></div>
+      <div class="market-list">
+        <article class="market-card"><p class="micro">01 / Economics</p><h3>AI spend is spreading across the stack.</h3><p>Model and compute costs are visible first. The real economics also include data access, integration, security, operating capacity, and the people carrying the work.</p></article>
+        <article class="market-card"><p class="micro">02 / Control</p><h3>Governance is moving into the workflow.</h3><p>A policy alone cannot show what tools people use, what information moves through them, or who reviews an AI-assisted decision. Buyers are looking for controls that operate where the work happens.</p></article>
+        <article class="market-card"><p class="micro">03 / Buying</p><h3>The integration question is getting louder.</h3><p>As the supplier field expands, the buying question is shifting from “Which AI tool?” to “Which combination fits our environment without creating another disconnected platform?”</p></article>
       </div>
+      <p class="market-note">These notes combine recurring market and buyer themes. They are AIR’s point of view—not summaries that send the reader somewhere else.</p>
     </div></section>
     <section class="close notes-close"><div class="shell">
       <div class="notes-close-head"><div><p class="micro">Continue the conversation</p><h2>Bring us the question that keeps coming up.</h2></div><p>Start with a guided readiness conversation, or go directly to a Resultant when the issue is already taking shape.</p></div>

@@ -20,6 +20,11 @@ nav{align-items:center}.nav-explore{position:relative}.nav-explore summary{displ
 body.page-notes .hero,body.page-approach .hero,.ownership{background:var(--conversation)}
 .decision .micro,.choice span,.nav-menu-label{color:var(--sage)}
 
+/* Refined AIR identity lockup: clearer at real navigation size. */
+.mark{gap:11px}
+.mark-air{font-size:26px;line-height:.78;letter-spacing:-.09em}
+.mark-expansion{font-size:12px;letter-spacing:-.025em}
+
 /* AIR paper-canvas system — a continuous warm field with inset editorial tiles. */
 :root{--page-gutter:8px}
 body{background:var(--paper)}

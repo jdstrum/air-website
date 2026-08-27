@@ -38,8 +38,7 @@ The serverless functions require the existing Vercel environment variables, incl
 ## Open before launch
 
 1. Replace the temporary Jai form behavior with the Ubix avatar link or embed once supplied.
-2. Decide whether the three external items in The Signal's “Worth noticing” section should remain external or be replaced with AIR-owned commentary.
-3. Complete final desktop and mobile QA on the Vercel preview.
+2. Complete final desktop and mobile QA on the Vercel preview.
 
 ## Deployment audit completed 2026-08-27
 
