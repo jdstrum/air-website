@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Strategic direction for AI: define the business need, accountable owner, and technology foundation the work requires.">
+  <title>Strategic Direction — AI Resulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="air.css">
+  <style>
+    body.page-strategy .hero { background: #132321; color: var(--paper); }
+    body.page-strategy .hero:before { border-color: rgba(244,240,232,.2); box-shadow: 0 0 0 8vw rgba(244,240,232,.035), 0 0 0 17vw rgba(244,240,232,.018); }
+    body.page-strategy .hero-copy > p:not(.micro) { color: var(--mist); }
+    body.page-strategy .hero-note { background: #29423d; box-shadow: 18px 21px 0 rgba(0,0,0,.18); }
+    .opportunities { background: #f4f0e8; }
+    .opportunities-head { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: end; }
+    .opportunities-head h2 { max-width: 11ch; margin: 16px 0 0; font: 500 clamp(44px,5vw,72px)/.93 var(--serif); letter-spacing: -.06em; }
+    .opportunities-head > p { max-width: 43ch; margin: 0 0 7px; color: #3d5149; font-size: 16px; line-height: 1.63; }
+    .opportunity-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; margin-top: 67px; background: var(--line); border: 1px solid var(--line); }
+    .opportunity { min-height: 355px; padding: clamp(28px,3.4vw,48px); background: var(--paper); }
+    .opportunity:nth-child(2) { background: #e7dfd2; }
+    .opportunity:nth-child(3) { background: #c6d5cf; }
+    .opportunity:nth-child(4) { background: #b8c8c0; }
+    .opportunity span { display: block; color: var(--clay); font: 500 10px var(--mono); letter-spacing: .06em; }
+    .opportunity h3 { max-width: 12ch; margin: 18px 0 17px; font: 500 clamp(31px,3.25vw,48px)/.95 var(--serif); letter-spacing: -.052em; }
+    .opportunity > p { max-width: 39ch; margin: 0; color: #344941; font-size: 14px; line-height: 1.65; }
+    .opportunity .technology { margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(19,35,33,.16); color: #243c35; font: 500 10px/1.55 var(--mono); letter-spacing: .025em; }
+    .opportunity .technology b { display: block; margin-bottom: 5px; color: var(--ink); font: 500 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .strategy-decision { background: #203934; color: var(--paper); }
+    .strategy-decision .split-head > p { color: var(--mist); }
+    .strategy-decision .micro { color: var(--clay); }
+    .decision-line { display: grid; grid-template-columns: 1.3fr .7fr; gap: 80px; margin-top: 65px; padding-top: 34px; border-top: 1px solid var(--paper-line); }
+    .decision-line h3 { max-width: 15ch; margin: 0; font: 500 clamp(38px,4.2vw,60px)/.93 var(--serif); letter-spacing: -.055em; }
+    .decision-line p { max-width: 31ch; margin: 7px 0 0; color: var(--mist); font-size: 15px; line-height: 1.62; }
+    body.page-strategy .close { background: #c6d5cf; }
+    @media (max-width:800px){.opportunities-head,.decision-line{grid-template-columns:1fr;gap:32px}.opportunity-grid{grid-template-columns:1fr}.opportunity{min-height:0}.decision-line{margin-top:44px}}
+  .opportunity{position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease}.opportunity:after{content:"";position:absolute;right:-2.8rem;bottom:-2.8rem;width:8rem;height:8rem;border:1px solid rgba(19,35,33,.15);border-radius:50%;pointer-events:none}.opportunity:nth-child(2):after{width:12rem;height:12rem;right:-4rem;bottom:-4rem}.opportunity:nth-child(3):after{width:10rem;height:10rem}.opportunity:nth-child(4):after{width:14rem;height:14rem;right:-5rem;bottom:-5rem}.strategy-decision .decision-line{position:relative}.strategy-decision .decision-line:before{content:"";position:absolute;top:-1px;left:0;width:2.5rem;height:2px;background:var(--clay);animation:strategy-trace 8s ease-in-out infinite}@keyframes strategy-trace{0%,12%{transform:translateX(0);opacity:.2}25%,70%{transform:translateX(calc(100% - 2.5rem));opacity:1}84%,100%{transform:translateX(calc(100% - 2.5rem));opacity:.2}}@media(hover:hover){.opportunity:hover{transform:translateY(-.4rem);box-shadow:0 1rem 2.5rem rgba(19,35,33,.14)}}@media(prefers-reduced-motion:reduce){.strategy-decision .decision-line:before{animation:none}}.impact-field{background:#f4f0e8}.impact-head{display:grid;grid-template-columns:1.03fr .97fr;gap:5rem;align-items:end}.impact-head h2{max-width:11ch;margin:.8rem 0 0;font:500 clamp(2.8rem,5.5vw,5.15rem)/.9 var(--serif);letter-spacing:-.065em}.impact-head>p{max-width:34ch;margin:0;color:#3d5149;font-size:1rem;line-height:1.66}.impact-wheel{position:relative;max-width:67rem;height:49rem;margin:4.5rem auto 0}.impact-wheel:before,.impact-wheel:after{content:"";position:absolute;top:50%;left:50%;width:31rem;height:31rem;border:1px solid rgba(19,35,33,.17);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}.impact-wheel:after{width:40rem;height:40rem;border-color:rgba(19,35,33,.1);border-top-color:var(--clay);animation:impact-orbit 18s linear infinite}.impact-core{position:absolute;z-index:2;top:50%;left:50%;width:17.5rem;height:17.5rem;box-sizing:border-box;padding:2.3rem 1.9rem;border-radius:50%;transform:translate(-50%,-50%);background:#203934;color:var(--paper);display:flex;flex-direction:column;justify-content:center;text-align:center;box-shadow:0 0 0 1rem rgba(32,57,52,.06)}.impact-core .micro{margin:0 0 .7rem;color:var(--clay)}.impact-core h3{margin:0;font:500 clamp(2rem,3.3vw,3.15rem)/.91 var(--serif);letter-spacing:-.06em}.impact-core p{margin:.8rem 0 0;color:var(--mist);font-size:.76rem;line-height:1.5}.impact-core h3{max-width:14rem;margin:0 auto;font-size:clamp(2.05rem,2.55vw,2.45rem);line-height:.93;display:flex;flex-direction:column;align-items:center;gap:.38em}.impact-core h3 span{display:block}.impact-core h3 span:last-child{margin-top:.16em;line-height:1.02}.impact-card{position:absolute;z-index:3;width:11.4rem;box-sizing:border-box;margin:0;padding:1.1rem 1.05rem 1.15rem;background:var(--paper);border:1px solid rgba(19,35,33,.16);box-shadow:0 .5rem 1.7rem rgba(19,35,33,.08);transition:transform .3s ease,box-shadow .3s ease,background .3s ease}.impact-card:before{content:"";display:block;width:1.7rem;height:2px;margin-bottom:.95rem;background:var(--clay)}.impact-card p{margin:0;color:#203934;font:500 1.12rem/1.02 var(--serif);letter-spacing:-.028em}.impact-1{top:0;left:50%;transform:translateX(-50%);background:#e7dfd2}.impact-2{top:10%;right:8%;background:#c6d5cf}.impact-3{top:35%;right:0;background:#efebe2}.impact-4{bottom:15%;right:8%;background:#d7d9cc}.impact-5{bottom:0;right:28%;background:#e7dfd2}.impact-6{bottom:0;left:28%;background:#c6d5cf}.impact-7{bottom:15%;left:8%;background:#efebe2}.impact-8{top:35%;left:0;background:#d7d9cc}.impact-9{top:10%;left:8%;background:#e7dfd2}.impact-10{top:3%;left:25%;background:#c6d5cf}.impact-10{transform:rotate(-2deg)}@media(hover:hover){.impact-card:hover{z-index:5;transform:translateY(-.42rem);background:#fffdf8;box-shadow:0 1rem 2.5rem rgba(19,35,33,.17)}.impact-1:hover{transform:translateX(-50%) translateY(-.42rem)}}@keyframes impact-orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}@media(max-width:800px){.impact-head{grid-template-columns:1fr;gap:1.7rem}.impact-wheel{height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:3.2rem}.impact-wheel:before,.impact-wheel:after{display:none}.impact-core{position:relative;top:auto;left:auto;grid-column:1/-1;width:100%;height:auto;min-height:16rem;border-radius:0;transform:none}.impact-card,.impact-1,.impact-2,.impact-3,.impact-4,.impact-5,.impact-6,.impact-7,.impact-8,.impact-9,.impact-10{position:relative;top:auto;right:auto;bottom:auto;left:auto;width:auto;transform:none}.impact-card p{font-size:1.2rem}}@media(max-width:570px){.impact-wheel{grid-template-columns:1fr}.impact-core{grid-column:auto;min-height:14rem}.impact-head h2{font-size:2.7rem}}@media(prefers-reduced-motion:reduce){.impact-wheel:after{animation:none}}.impact-hero{background:#f4f0e8}.impact-head h1{max-width:11ch;margin:.8rem 0 0;font:500 clamp(2.8rem,5.5vw,5.15rem)/.9 var(--serif);letter-spacing:-.065em}.ownership{background:#7f9eb5;color:#203934}.ownership-head{display:grid;grid-template-columns:1.03fr .97fr;gap:5rem;align-items:end}.ownership-head h2{max-width:12ch;margin:.8rem 0 0;font:500 clamp(2.8rem,5vw,4.8rem)/.91 var(--serif);letter-spacing:-.06em}.ownership-head>p{max-width:36ch;margin:0;color:#203934;font-size:1rem;line-height:1.65}.ownership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:4rem;border-top:1px solid rgba(19,35,33,.22)}.ownership-grid article{min-height:15rem;padding:1.65rem 2.2rem 1.8rem 0;border-bottom:1px solid rgba(19,35,33,.22)}.ownership-grid article+article{padding-left:2.2rem;border-left:1px solid rgba(19,35,33,.22)}.ownership-grid .micro{margin:0 0 2.6rem;color:#725343}.ownership-grid h3{max-width:10ch;margin:0 0 .8rem;font:500 clamp(2rem,3.1vw,3.1rem)/.94 var(--serif);letter-spacing:-.055em}.ownership-grid p:not(.micro){max-width:28ch;margin:0;color:#203934;font-size:.9rem;line-height:1.6}.ownership-note{margin:1.35rem 0 0;color:#203934;font:500 .72rem var(--mono);letter-spacing:.05em;text-transform:uppercase}@media(min-width:801px){.impact-hero .impact-wheel{max-width:73rem;height:57rem;margin-top:5.5rem}.impact-hero .impact-wheel:before{width:35rem;height:35rem}.impact-hero .impact-wheel:after{width:47rem;height:47rem}.impact-hero .impact-core{width:18rem;height:18rem}.impact-hero .impact-card{top:auto;right:auto;bottom:auto;left:auto;width:10rem;transform:translate(-50%,-50%)}.impact-hero .impact-card:hover{transform:translate(-50%,-50%) translateY(-.35rem)}.impact-hero .impact-1{top:5%;left:50%}.impact-hero .impact-2{top:9%;left:70%}.impact-hero .impact-3{top:20%;left:83%}.impact-hero .impact-4{top:38%;left:90%}.impact-hero .impact-5{top:61%;left:89%}.impact-hero .impact-6{top:80%;left:83%}.impact-hero .impact-7{top:93%;left:70%}.impact-hero .impact-8{top:96%;left:50%}.impact-hero .impact-9{top:93%;left:30%}.impact-hero .impact-10{top:80%;left:17%}.impact-hero .impact-11{top:61%;left:11%}.impact-hero .impact-12{top:38%;left:10%}.impact-hero .impact-13{top:20%;left:17%}.impact-hero .impact-14{top:9%;left:30%}.impact-hero .impact-card p{font-size:1.02rem;line-height:1.02}}@media(max-width:800px){.ownership-head{grid-template-columns:1fr;gap:1.7rem}.ownership-grid{grid-template-columns:1fr}.ownership-grid article,.ownership-grid article+article{min-height:0;padding:1.6rem 0;border-left:0}.ownership-grid .micro{margin-bottom:1.5rem}}@media(max-width:570px){.impact-head h1,.ownership-head h2{font-size:2.65rem}.ownership-note{font-size:.65rem;line-height:1.55}}</style>
+</head>
+<body class="page-strategy">
+  <header><div class="shell"><a class="mark" href="index.html" aria-label="AIR, AI Resulting home"><span class="mark-air">AI<span class="r">R</span></span><span class="mark-expansion"><b>AI</b> Resulting</span></a><nav aria-label="Primary navigation"><a href="index.html">Home</a><details class="nav-explore"><summary>Explore AI Readiness</summary><div class="nav-menu"><span class="nav-menu-label">The AIR framework</span><a class="framework" href="index.html#map">See the six dimensions</a><span class="nav-menu-label">Explore by dimension</span><a href="strategic-direction.html">Strategic Direction</a><a href="data-readiness.html">Data Readiness</a><a href="technology-infrastructure.html">Technology Infrastructure</a><a href="governance-security.html">Governance &amp; Security</a><a href="customer-experience.html">Customer Experience</a><a href="workforce-adoption.html">Workforce &amp; Adoption</a></div></details><a href="signal.html">The Signal</a><a href="our-approach.html">Our Approach</a></nav><a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a></div></header>
+  <main>
+    <section class="impact-field impact-hero"><div class="shell section"><div class="impact-head"><div><h1>This is what becomes possible when AI reaches the work.</h1></div><p>Not another chat window. A different operating capability: more signal, less friction, and human capacity directed where judgment matters most.</p></div><div class="impact-wheel"><div class="impact-core"><h3><span>See farther.</span><span>Decide sooner.</span><span>Operate at a<br>different scale.</span></h3></div><article class="impact-card impact-1"><p>The revenue hiding in accounts you marked closed.</p></article><article class="impact-card impact-2"><p>The denial you see coming.</p></article><article class="impact-card impact-3"><p>The month-end that reconciles itself.</p></article><article class="impact-card impact-4"><p>The loan file that reads itself before the underwriter opens it.</p></article><article class="impact-card impact-5"><p>The audit trail with every decision already documented.</p></article><article class="impact-card impact-6"><p>The knowledge that stays when the expert retires.</p></article><article class="impact-card impact-7"><p>The supply shock you see before it hits the line.</p></article><article class="impact-card impact-8"><p>The quality that catches what the eye misses.</p></article><article class="impact-card impact-9"><p>The scope you know before you quote it.</p></article><article class="impact-card impact-10"><p>The judgment that becomes available to everyone.</p></article><article class="impact-card impact-11"><p>The research and drafting that never leave your control.</p></article><article class="impact-card impact-12"><p>The contract that keeps working after it is signed.</p></article><article class="impact-card impact-13"><p>The inventory that stops being a guess.</p></article><article class="impact-card impact-14"><p>The price that moves at the speed of the market.</p></article></div></div></section><section class="ownership"><div class="shell section"><div class="ownership-head"><div><p class="micro">The ownership test</p><h2>A possibility without an owner remains just an idea.</h2></div><p>The question is not whether one person does all of this. It is whether the business has made the responsibility visible. The roles can sit in different seats, but all three must be present.</p></div><div class="ownership-grid"><article><p class="micro">The sponsor</p><h3>Own the outcome.</h3><p>Name the business result, give the work authority, and keep it tied to a priority that matters.</p></article><article><p class="micro">The operating owner</p><h3>Own the change in the work.</h3><p>Carry the workflow, the people using it, and the measure of whether it made the work better.</p></article><article><p class="micro">The technology steward</p><h3>Own what has to hold.</h3><p>Make the data, systems, safeguards, and architecture capable of supporting the work in the real world.</p></article></div></div></section><section class="close"><div class="shell close-inner"><p class="micro">Bring one live situation</p><h2>Bring the work that is holding the business back.</h2><p>You do not need a finished use case or a platform decision. Bring the work that is taking too long, breaking down, or asking too much of the people doing it.</p><div class="page-actions"><a class="button jai-cta" href="index.html#jai-dialog">Talk with Jai</a><a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a></div></div></section>
+  </main>
+  <footer><div class="shell"><span>AIR / AI Resulting</span><span><a href="privacy.html">Privacy</a> &nbsp; / &nbsp; © 2026</span></div></footer>
+<style>
+  .impact-core { background: radial-gradient(circle at 50% 43%, #294b44 0, #203934 68%); border: 1px solid rgba(244,240,232,.42); box-shadow: 0 0 0 1rem rgba(32,57,52,.07), 0 1.4rem 3.8rem rgba(19,35,33,.22); }
+  .impact-core h3 { gap: .46em; }
+  .impact-core h3 span { width: 100%; padding: .08em .12em; }
+  .impact-core h3 span:nth-child(1) { color: var(--mist); font-size: .77em; letter-spacing: -.03em; }
+  .impact-core h3 span:nth-child(2) { margin: .12em 0; padding: .18em 0 .2em; border-top: 1px solid rgba(244,240,232,.34); border-bottom: 1px solid rgba(244,240,232,.34); color: var(--paper); font-size: 1.02em; letter-spacing: -.065em; text-shadow: 0 .08em .35em rgba(0,0,0,.25); white-space: nowrap; }
+  .impact-core h3 span:nth-child(3) { margin-top: .22em; color: var(--sage); font-size: .64em; letter-spacing: .035em; line-height: 1.08; text-transform: uppercase; }
+  .impact-card { border-radius: 14px; }
+  .impact-hero .impact-1,
+  .impact-hero .impact-5,
+  .impact-hero .impact-9 { background: #e7dfd2; }
+  .impact-hero .impact-2,
+  .impact-hero .impact-6,
+  .impact-hero .impact-10 { background: #c6d5cf; }
+  .impact-hero .impact-3,
+  .impact-hero .impact-7 { background: #efebe2; }
+  .impact-hero .impact-4,
+  .impact-hero .impact-8 { background: #d7d9cc; }
+  .impact-hero .impact-11,
+  .impact-hero .impact-12,
+  .impact-hero .impact-13,
+  .impact-hero .impact-14 { background: var(--paper); }
+  .ownership {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 26px;
+    background: linear-gradient(135deg, #e4e3dd 0%, #cecec5 56%, #bcc4bb 100%);
+  }
+  .ownership::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 42rem;
+    height: 42rem;
+    top: -26rem;
+    right: -13rem;
+    border: 1px solid rgba(19,35,33,.13);
+    border-radius: 50%;
+    box-shadow: 0 0 0 7rem rgba(241,241,236,.15);
+  }
+  .ownership-grid {
+    gap: 12px;
+    border-top: 0;
+  }
+  .ownership-grid article,
+  .ownership-grid article + article {
+    min-height: 15rem;
+    padding: 1.75rem;
+    border: 1px solid rgba(19,35,33,.14);
+    border-radius: 18px;
+    background: rgba(241,241,236,.72);
+    box-shadow: 0 12px 26px rgba(19,35,33,.045);
+  }
+  .page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 27px;
+  }
+  .close .page-actions .button { margin-top: 0; }
+  .button.jai-cta {
+    background: #557b90;
+    border-color: #557b90;
+    color: #fff;
+  }
+  .button.jai-cta:hover {
+    background: #3f667b;
+    border-color: #3f667b;
+  }
+  .button.resultant-cta {
+    background: #b6673f;
+    border-color: #b6673f;
+    color: #fff;
+  }
+  .button.resultant-cta:hover {
+    background: #945136;
+    border-color: #945136;
+  }
+  body.page-strategy .close {
+    border-radius: 26px;
+    background: #deddd5;
+  }
+  @media (max-width:800px) {
+    .ownership,
+    body.page-strategy .close { border-radius: 20px; }
+    .impact-core { border-radius: 20px; }
+    .ownership-grid article,
+    .ownership-grid article + article { padding: 1.6rem; }
+  }
+</style>
+<script>
+  (() => {
+    const replacements = {
+      "Not another chat window. A different operating capability: more signal, less friction, and human capacity directed where judgment matters most.": "A different operating capability: more signal, less friction, and human capacity directed where judgment matters most.",
+      "The question is not whether one person does all of this. It is whether the business has made the responsibility visible.": "The question is whether the business has made the responsibility visible."
+    };
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) node.nodeValue = replacements[node.nodeValue.trim()] || node.nodeValue;
+    const ownershipTitles = document.querySelectorAll(".ownership-grid h3");
+    if (ownershipTitles[0]) ownershipTitles[0].textContent = "Own the vision and outcome.";
+    if (ownershipTitles[2]) ownershipTitles[2].textContent = "Own the foundation.";
+    const impactLines = document.querySelectorAll(".impact-core h3 span");
+    if (impactLines[0]) impactLines[0].textContent = "See Farther.";
+    if (impactLines[1]) impactLines[1].textContent = "Decide Sooner.";
+    document.querySelector(".close .micro")?.remove();
+  })();
+</script>
+</body></html>

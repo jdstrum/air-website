@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Workforce adoption for AI: give people a trusted way to learn, practice, and carry useful work forward.">
+  <title>Workforce &amp; Adoption — AI Resulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="air.css">
+  <style>
+    body.page-workforce .hero { background: #d7d9cc; }
+    body.page-workforce .hero-note { background: #29423d; box-shadow: 18px 21px 0 rgba(19,35,33,.12); }
+    .workforce-intro { background: #f4f0e8; }
+    .workforce-intro .split-head { grid-template-columns: .92fr 1.08fr; }
+    .adoption-circuit { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 69px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .circuit-step { min-height: 333px; padding: 28px 30px 30px 0; border-right: 1px solid var(--line); }
+    .circuit-step:not(:first-child) { padding-left: 30px; }
+    .circuit-step:last-child { border-right: 0; }
+    .circuit-step .micro { color: #59665f; }
+    .circuit-step h3 { max-width: 8ch; margin: 58px 0 16px; font: 500 clamp(34px,3.7vw,53px)/.93 var(--serif); letter-spacing: -.055em; }
+    .circuit-step p:not(.micro) { max-width: 28ch; margin: 0; color: #4d5a54; font-size: 14px; line-height: 1.61; }
+    .workforce-signal { background: #203934; color: var(--paper); }
+    .signal-head { display: grid; grid-template-columns: 1fr 1fr; gap: 82px; align-items: end; }
+    .signal-head h2 { max-width: 11ch; margin: 15px 0 0; font: 500 clamp(44px,5vw,73px)/.92 var(--serif); letter-spacing: -.06em; }
+    .signal-head > p { max-width: 37ch; margin: 0 0 7px; color: var(--mist); font-size: 16px; line-height: 1.63; }
+    .signal-head .micro { color: var(--clay); }
+    .signal-list { margin-top: 68px; border-top: 1px solid var(--paper-line); }
+    .signal-row { display: grid; grid-template-columns: 108px 1fr minmax(230px,.68fr); gap: 26px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--paper-line); }
+    .signal-row span { color: var(--clay); font: 500 10px var(--mono); letter-spacing: .06em; }
+    .signal-row h3 { margin: 0; font: 500 clamp(26px,2.7vw,39px)/1 var(--serif); letter-spacing: -.047em; }
+    .signal-row p { max-width: 33ch; margin: 0; color: var(--mist); font-size: 13px; line-height: 1.58; }
+    .leadership-note { background: #c6d5cf; }
+    .leadership-note .split-head { grid-template-columns: .87fr 1.13fr; }
+    body.page-workforce .close { background: #e7dfd2; }
+    body.page-workforce .page-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+    body.page-workforce .page-actions .button { margin-top:0; }
+    body.page-workforce .button.jai-cta { background:#557b90; border-color:#557b90; color:#fff; }
+    body.page-workforce .button.jai-cta:hover { background:#3f667b; border-color:#3f667b; color:#fff; }
+    body.page-workforce .button.resultant-cta { background:#b6673f; border-color:#b6673f; color:#fff; }
+    body.page-workforce .button.resultant-cta:hover { background:#945136; border-color:#945136; color:#fff; }
+    .adoption-field { background: #f4f0e8; overflow: hidden; }
+    .adoption-field .section { padding-top: clamp(70px,9vw,134px); padding-bottom: clamp(70px,9vw,134px); }
+    .adoption-field-head { display: grid; grid-template-columns: .9fr 1.1fr; gap: 82px; align-items: end; }
+    .adoption-field-head h1,.adoption-field-head h2 { max-width: 11ch; margin: 15px 0 0; font: 500 clamp(46px,5.1vw,76px)/.91 var(--serif); letter-spacing: -.06em; }
+    .adoption-field-head > p { max-width: 39ch; margin: 0 0 8px; color: #4d5a54; font-size: 16px; line-height: 1.64; }
+    .adoption-field-head .micro { color: #59665f; }
+    .adoption-wheel { position: relative; max-width: 1168px; height: 912px; margin: clamp(56px,7vw,104px) auto 0; }
+    .adoption-wheel:before,.adoption-wheel:after { content: ""; position: absolute; top: 50%; left: 50%; width: 520px; height: 520px; border: 1px solid rgba(19,35,33,.16); border-radius: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .adoption-wheel:after { width: 670px; height: 670px; border-color: rgba(19,35,33,.1); border-top-color: var(--clay); animation: adoption-orbit 18s linear infinite; }
+    .adoption-core { position: absolute; z-index: 2; top: 50%; left: 50%; width: 300px; height: 300px; box-sizing: border-box; padding: 37px 30px 35px; border: 1px solid rgba(244,240,232,.36); border-radius: 50%; transform: translate(-50%,-50%); background: #132321; color: var(--paper); box-shadow: 0 0 0 12px #f4f0e8,0 0 0 13px rgba(19,35,33,.2); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .adoption-core .micro { margin: 0 0 13px; color: var(--mist); }
+    .adoption-core h3 { margin: 0; font: 500 clamp(28px,2.45vw,37px)/.94 var(--serif); letter-spacing: -.055em; }
+    .adoption-core .core-rule { width: 68%; height: 1px; margin: 14px 0; background: rgba(244,240,232,.3); }
+    .adoption-core .cycle-steps { margin: 14px 0 0; color: var(--sage); font: 500 9px/1.45 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .adoption-card { position: absolute; z-index: 3; width: 160px; box-sizing: border-box; margin: 0; padding: 18px 17px 19px; transform: translate(-50%,-50%); background: var(--paper); border: 1px solid rgba(19,35,33,.16); box-shadow: 0 8px 27px rgba(19,35,33,.08); transition: transform .3s ease,box-shadow .3s ease,background .3s ease; }
+    .adoption-card:before { content: ""; display: block; width: 27px; height: 2px; margin-bottom: 15px; background: var(--clay); }
+    .adoption-card p { margin: 0; color: #203934; font: 500 17px/1.03 var(--serif); letter-spacing: -.028em; }
+    .adoption-1 { top: 5%; left: 50%; background: #e7dfd2; }.adoption-2 { top: 9%; left: 70%; background: #c6d5cf; }.adoption-3 { top: 20%; left: 83%; background: #efebe2; }.adoption-4 { top: 38%; left: 90%; background: #d7d9cc; }.adoption-5 { top: 61%; left: 89%; background: #e7dfd2; }.adoption-6 { top: 80%; left: 83%; background: #c6d5cf; }.adoption-7 { top: 93%; left: 70%; background: #efebe2; }.adoption-8 { top: 96%; left: 50%; background: #d7d9cc; }.adoption-9 { top: 93%; left: 30%; background: #e7dfd2; }.adoption-10 { top: 80%; left: 17%; background: #c6d5cf; }.adoption-11 { top: 61%; left: 11%; background: #efebe2; }.adoption-12 { top: 38%; left: 10%; background: #d7d9cc; }.adoption-13 { top: 20%; left: 17%; background: #e7dfd2; }.adoption-14 { top: 9%; left: 30%; background: #c6d5cf; }
+    @media(hover:hover){.adoption-card:hover { z-index: 5; transform: translate(-50%,-50%) translateY(-7px); background: #fffdf8; box-shadow: 0 16px 40px rgba(19,35,33,.17); }}
+    @keyframes adoption-orbit { to { transform: translate(-50%,-50%) rotate(360deg); } }
+    @media(max-width:800px){.adoption-circuit,.signal-head{grid-template-columns:1fr;gap:32px}.circuit-step,.circuit-step:not(:first-child),.circuit-step:last-child{min-height:0;padding:30px 0;border-right:0;border-bottom:1px solid var(--line)}.circuit-step h3{margin-top:34px}.signal-row{grid-template-columns:70px 1fr;gap:14px}.signal-row p{grid-column:2}.leadership-note .split-head{grid-template-columns:1fr}}
+    @media(max-width:800px){.adoption-field-head{grid-template-columns:1fr;gap:28px}.adoption-wheel{height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:48px}.adoption-wheel:before,.adoption-wheel:after{display:none}.adoption-core{position:relative;top:auto;left:auto;grid-column:1/-1;width:auto;height:auto;min-height:250px;border-radius:0;transform:none;box-shadow:none}.adoption-card,.adoption-1,.adoption-2,.adoption-3,.adoption-4,.adoption-5,.adoption-6,.adoption-7,.adoption-8,.adoption-9,.adoption-10,.adoption-11,.adoption-12,.adoption-13,.adoption-14{position:relative;top:auto;left:auto;width:auto;transform:none}.adoption-card p{font-size:19px}}@media(max-width:570px){.adoption-wheel{grid-template-columns:1fr}.adoption-core{grid-column:auto;min-height:220px}}
+    @media(prefers-reduced-motion:reduce){.adoption-wheel:after{animation:none}}
+  .adoption-circuit{position:relative}.adoption-circuit:after{content:"";position:absolute;top:-1px;left:0;width:1.5rem;height:2px;background:var(--clay);box-shadow:0 0 .95rem rgba(174,103,80,.65);animation:adoption-trace 8s ease-in-out infinite}@keyframes adoption-trace{0%,12%{transform:translateX(0);opacity:0}20%,70%{transform:translateX(calc(100% - 1.5rem));opacity:1}82%,100%{transform:translateX(calc(100% - 1.5rem));opacity:0}}@media(max-width:800px){.adoption-circuit:after{display:none}}@media(prefers-reduced-motion:reduce){.adoption-circuit:after{animation:none}}</style>
+</head>
+<body class="page-workforce">
+  <header><div class="shell"><a class="mark" href="index.html" aria-label="AIR, AI Resulting home"><span class="mark-air">AI<span class="r">R</span></span><span class="mark-expansion"><b>AI</b> Resulting</span></a><nav aria-label="Primary navigation"><a href="index.html">Home</a><details class="nav-explore"><summary>Explore AI Readiness</summary><div class="nav-menu"><span class="nav-menu-label">The AIR framework</span><a class="framework" href="index.html#map">See the six dimensions</a><span class="nav-menu-label">Explore by dimension</span><a href="strategic-direction.html">Strategic Direction</a><a href="data-readiness.html">Data Readiness</a><a href="technology-infrastructure.html">Technology Infrastructure</a><a href="governance-security.html">Governance &amp; Security</a><a href="customer-experience.html">Customer Experience</a><a href="workforce-adoption.html">Workforce &amp; Adoption</a></div></details><a href="signal.html">The Signal</a><a href="our-approach.html">Our Approach</a></nav><a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a></div></header>
+  <main>
+    <section class="adoption-field adoption-hero"><div class="shell section"><div class="adoption-field-head"><div><h1>Adoption begins when people see themselves in the work.</h1></div><p>AI does not become part of the organization because licenses exist. It becomes part of day-to-day operations when people understand the point, can use it safely, and see a useful practice travel beyond one person’s screen.</p></div><div class="adoption-wheel"><div class="adoption-core"><p class="micro">The adoption cycle</p><h3>Individual use.</h3><span class="core-rule" aria-hidden="true"></span><h3>Shared capability.</h3><p class="cycle-steps">try · show · share · standardize</p></div><article class="adoption-card adoption-1"><p>Start with a live moment in the role.</p></article><article class="adoption-card adoption-2"><p>Use a safe, approved environment.</p></article><article class="adoption-card adoption-3"><p>Make time to learn alongside the job.</p></article><article class="adoption-card adoption-4"><p>Practice with a real decision.</p></article><article class="adoption-card adoption-5"><p>Let people see what good use looks like.</p></article><article class="adoption-card adoption-6"><p>Set guardrails people can trust.</p></article><article class="adoption-card adoption-7"><p>Share the prompt, workflow, or decision.</p></article><article class="adoption-card adoption-8"><p>Make the pattern easy to find.</p></article><article class="adoption-card adoption-9"><p>Build it into the team routine.</p></article><article class="adoption-card adoption-10"><p>Connect learning to a business measure.</p></article><article class="adoption-card adoption-11"><p>Give managers evidence to support the change.</p></article><article class="adoption-card adoption-12"><p>Use feedback to improve it.</p></article><article class="adoption-card adoption-13"><p>Keep knowledge when people change roles.</p></article><article class="adoption-card adoption-14"><p>Let progress reinforce the practice.</p></article></div></div></section>
+    <section class="workforce-signal"><div class="shell section"><div class="signal-head"><div><h2>The real signal is whether good practice spreads.</h2></div><p>The people side of readiness is visible when an organization knows who is using AI, what it is changing, and how the useful practices are being carried forward.</p></div><div class="signal-list"><article class="signal-row"><span>Training</span><h3>What learning has actually happened?</h3><p>Look for recent, ongoing sessions attached to real roles and live decisions, not unused seats or a one-time launch event.</p></article><article class="signal-row"><span>Practice</span><h3>Can a useful AI workflow spread?</h3><p>When someone finds a better way to operate, there should be a practical path for the team to find it, trust it, and build on it.</p></article><article class="signal-row"><span>Leadership</span><h3>Do leaders use it where people can see?</h3><p>Visible use makes the change concrete. It gives people permission to learn and helps the organization distinguish practical use from noise.</p></article></div></div></section>
+    <section class="close"><div class="shell close-inner"><h2>Turn a capability into a working habit.</h2><p>A Resultant can connect the technology decision to the training, collaboration, knowledge, and workflows that make it matter to the people using it.</p><div class="page-actions"><a class="button jai-cta" href="index.html#jai-dialog">Talk with Jai</a><a class="button resultant-cta" href="index.html#resultant-dialog">Book with a Resultant</a></div></div></section>
+  </main>
+  <footer><div class="shell"><span>AIR / AI Resulting</span><span><a href="privacy.html">Privacy</a> &nbsp; / &nbsp; © 2026</span></div></footer>
+</body></html>

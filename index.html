@@ -1,2000 +1,737 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<!-- SEO / OG / AEO -->
-<meta name="description" content="AI Resulting — preparation is the competitive advantage. Lead with clarity. We guide organizations through AI readiness: what you have, what you need, who can deliver it. Free six-dimension assessment.">
-<link rel="canonical" href="https://airesulting.vercel.app/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://airesulting.vercel.app/">
-<meta property="og:title" content="AI Resulting — Readiness is the competitive advantage.">
-<meta property="og:description" content="Readiness is the competitive advantage. Lead with clarity. What you have. What you need. Who can deliver it. AI readiness for organizations ready to build right.">
-<meta property="og:site_name" content="AI Resulting">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Resulting — Readiness is the competitive advantage.">
-<meta name="twitter:description" content="Readiness is the competitive advantage. Lead with clarity. What you have. What you need. Who can deliver it. AI readiness for organizations ready to build right.">
-<meta name="robots" content="index, follow">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://airesulting.vercel.app/#organization",
-      "name": "AI Resulting",
-      "url": "https://airesulting.vercel.app",
-      "description": "AI readiness advisory for growing organizations at every scale. Readiness is the competitive advantage. Lead with clarity — what you have, what you need, who can deliver it. Six-dimension assessment, seven architecture layers, and a dedicated Resultant.",
-      "foundingDate": "2026",
-      "founder": {
-        "@type": "Person",
-        "name": "Jen Strum",
-        "jobTitle": "Founder"
-      },
-      "knowsAbout": [
-        "AI readiness",
-        "AI governance",
-        "enterprise AI adoption",
-        "technology consulting",
-        "AI spending optimization",
-        "data readiness"
-      ],
-      "areaServed": "United States",
-      "serviceType": "AI Readiness Advisory"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://airesulting.vercel.app/#website",
-      "name": "AI Resulting",
-      "url": "https://airesulting.vercel.app",
-      "publisher": {
-        "@id": "https://airesulting.vercel.app/#organization"
-      },
-      "description": "AI readiness assessment and advisory for growing organizations"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://airesulting.vercel.app/",
-      "name": "AI Resulting — Readiness is the competitive advantage.",
-      "url": "https://airesulting.vercel.app/",
-      "isPartOf": {
-        "@id": "https://airesulting.vercel.app/#website"
-      },
-      "about": {
-        "@id": "https://airesulting.vercel.app/#organization"
-      },
-      "description": "AI Resulting — clarity first. AI readiness assessment across six dimensions with a dedicated Resultant who stays with you from assessment through deployment."
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://airesulting.vercel.app/#faq",
-      "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I know if my company is ready for AI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI readiness spans six measurable dimensions: strategic vision and leadership, data readiness, technology infrastructure, governance and security, experience layer, and workforce adoption. Most organizations have gaps in at least three of these areas. A readiness assessment scores each dimension and identifies which gaps to close first — before investing in any AI tools or platforms."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why do AI implementations fail?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI fails when companies skip the foundation. Roughly 80% of employees are already using AI tools at work, but only 8% of companies have a written AI policy. Without governance, data consolidation, and infrastructure designed for AI workloads, tools underperform and risk compounds. The companies that succeed build across seven architecture layers — platform, governance, intelligence, connectivity, security, enablement, and scale — before deploying AI at scale."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What should a company do before buying AI tools?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Assess where you actually stand. Most companies buy AI tools before understanding their data readiness, infrastructure capacity, or governance gaps. An AI readiness assessment measures six dimensions that determine whether AI investments produce returns or become expensive shelfware. The assessment should map gaps to a specific architecture — platform, governance, intelligence, connectivity, security, enablement, and scale — so you know what to build and in what order."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I create an AI policy for my company?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An AI policy should cover acceptable use, data classification, approved tools, shadow AI detection, and compliance requirements. Only 8% of companies currently have one. Start by understanding how employees are already using AI — most organizations discover widespread ungoverned use across ChatGPT, Claude, Perplexity, and other public tools. The policy needs to address what data can go into these tools, what outputs can be used in business decisions, and how organizational knowledge gets captured rather than lost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What infrastructure does AI require?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI workloads demand bandwidth, compute density, and low latency that most existing infrastructure was never built to deliver. Key infrastructure layers include a secure AI gateway for managed model access and cost visibility, network upgrades (SD-WAN, managed LAN/WAN) for AI traffic, colocation or hybrid cloud for compute-intensive workloads, and SASE with zero-trust security for AI traffic visibility. The gap between current infrastructure and AI-ready infrastructure is physical and measurable."
-      }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI Resulting helps leaders find the work, data, ownership, and decisions beneath an AI initiative—before more spend goes on top.">
+  <title>AI Resulting — Find the decision beneath the AI decision.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #132321;
+      --ink-2: #0c1716;
+      --paper: #f4f0e8;
+      --warm: #e7dfd2;
+      --mist: #c6d5cf;
+      --sage: #87a393;
+      --clay: #ae6750;
+      --black: #16211f;
+      --line: rgba(19,35,33,.16);
+      --paper-line: rgba(244,240,232,.18);
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+      --mono: "DM Mono", monospace;
     }
-  ]
+
+    * { box-sizing: border-box; }
+    html { max-width: 100%; overflow-x: clip; scroll-behavior: smooth; }
+    body { max-width: 100%; margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); overflow-x: clip; }
+    a { color: inherit; }
+    .shell { width: min(100% - 72px, 1240px); margin: 0 auto; }
+    .micro { margin: 0; color: inherit; font: 500 10px/1.35 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    .button { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; padding: 0 22px; background: var(--ink); border: 1px solid var(--ink); color: var(--paper); font-size: 13px; font-weight: 700; text-decoration: none; transition: transform .25s ease, background .25s ease, border .25s ease; }
+    .button:hover { background: var(--clay); border-color: var(--clay); transform: translateY(-3px); }
+    .quiet-link { display: inline-flex; align-items: center; gap: 11px; color: inherit; font-size: 13px; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+    button.quiet-link { padding: 0 0 5px; border-top: 0; border-right: 0; border-left: 0; background: transparent; cursor: pointer; font-family: var(--sans); }
+    .quiet-link span { font-size: 17px; line-height: .6; }
+
+    header { position: relative; z-index: 5; background: rgba(244,240,232,.86); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+    header .shell { height: 84px; display: flex; align-items: center; gap: 30px; }
+    .mark { display: inline-flex; align-items: baseline; gap: 11px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+    .mark-air { font: 800 26px/.78 var(--sans); letter-spacing: -.09em; }
+    .mark-air .r { position: relative; display: inline-block; }
+    .mark-air .r::after { content: ""; position: absolute; left: 11%; right: -4%; bottom: -7px; height: 2px; background: var(--clay); transform: skewX(-27deg); transform-origin: left; }
+    .mark-expansion { font: 600 12px/1 var(--sans); letter-spacing: -.025em; }
+    .mark-expansion b { color: var(--clay); font-weight: 700; }
+    nav { display: flex; align-items: center; gap: 26px; margin-left: auto; }
+    nav a { color: #50605a; font-size: 12px; text-decoration: none; transition: color .2s; }
+    nav a:hover { color: var(--ink); }
+    .nav-explore { position: relative; }
+    .nav-explore summary { display: flex; align-items: center; gap: 7px; color: #50605a; cursor: pointer; font-size: 12px; list-style: none; transition: color .2s; }
+    .nav-explore summary::-webkit-details-marker { display: none; }
+    .nav-explore summary::after { content: "+"; color: var(--clay); font: 400 17px/1 var(--serif); transition: transform .22s ease; }
+    .nav-explore[open] summary, .nav-explore summary:hover { color: var(--ink); }
+    .nav-explore[open] summary::after { transform: rotate(45deg); }
+    .nav-menu { position: absolute; top: calc(100% + 18px); left: -19px; width: 280px; padding: 13px; background: var(--paper); border: 1px solid var(--line); box-shadow: 15px 18px 0 rgba(19,35,33,.09); }
+    .nav-menu-label { display: block; padding: 7px 8px 11px; color: var(--clay); font: 500 9px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .nav-menu a { display: block; padding: 10px 8px; color: var(--ink); font-size: 13px; }
+    .nav-menu a:hover { background: #e7dfd2; }
+    .nav-menu a.framework { padding-bottom: 16px; border-bottom: 1px solid var(--line); font-weight: 700; }
+    header .button { min-height: 42px; padding: 0 16px; }
+
+    .hero { position: relative; min-height: 760px; padding: clamp(74px, 10vw, 132px) 0 80px; isolation: isolate; }
+    .hero::before { content: ""; position: absolute; z-index: -2; inset: -4%; background: radial-gradient(ellipse 43% 46% at 74% 35%, rgba(142,175,160,.42), transparent 67%), radial-gradient(ellipse 42% 44% at 15% 76%, rgba(214,199,180,.44), transparent 72%); animation: hero-breathe 16s ease-in-out infinite alternate; }
+    .hero::after { content: ""; position: absolute; z-index: -1; width: 62vw; height: 62vw; right: -24vw; top: -21vw; border: 1px solid rgba(19,35,33,.11); border-radius: 50%; box-shadow: 0 0 0 7vw rgba(19,35,33,.025), 0 0 0 15vw rgba(19,35,33,.018); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, .96fr) minmax(430px, 1.04fr); align-items: center; gap: clamp(55px, 8vw, 128px); }
+    .hero-copy .micro { color: var(--clay); }
+    h1 { max-width: 10.2ch; margin: 19px 0 0; font: 500 clamp(60px, 7.2vw, 104px)/.92 var(--serif); letter-spacing: -.055em; }
+    .hero-copy > p:not(.micro) { max-width: 43ch; margin: 31px 0 0; color: #47554f; font-size: 17px; line-height: 1.65; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 23px; margin-top: 34px; }
+    .hero-note { margin: 16px 0 0; color: #66726b; font-size: 12px; }
+
+    .foundation-stage { position: relative; min-height: 530px; padding: 24px; overflow: hidden; background: var(--ink); color: var(--paper); box-shadow: 20px 23px 0 rgba(19,35,33,.10); isolation: isolate; }
+    .foundation-stage::before { content: ""; position: absolute; z-index: -2; inset: 0; background: radial-gradient(circle at 77% 21%, rgba(135,163,147,.4), transparent 30%), radial-gradient(circle at 21% 78%, rgba(174,103,80,.22), transparent 36%), linear-gradient(135deg, #152824, #10201e 58%, #172d28); }
+    .foundation-stage::after { content: ""; position: absolute; z-index: -1; width: 31rem; height: 31rem; top: 50%; left: 50%; border: 1px solid rgba(244,240,232,.12); border-radius: 50%; transform: translate(-50%,-50%); box-shadow: 0 0 0 4.7rem rgba(244,240,232,.025), 0 0 0 9.4rem rgba(244,240,232,.018); animation: foundation-orbit 22s linear infinite; }
+    .foundation-top, .foundation-foot { position: relative; z-index: 3; display: flex; justify-content: space-between; align-items: center; }
+    .foundation-top { color: var(--sage); }
+    .foundation-top span:last-child { color: var(--mist); font: 10px var(--mono); }
+    .foundation-field { position: relative; z-index: 1; min-height: 413px; margin-top: 18px; }
+    .foundation-node { position: absolute; z-index: 3; width: 38%; min-height: 118px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; color: var(--ink); box-shadow: 9px 10px 0 rgba(0,0,0,.16); animation: node-settle .8s both; }
+    .foundation-node small { margin-bottom: auto; color: #6d4b40; font: 500 9px var(--mono); letter-spacing: .06em; }
+    .foundation-node b { max-width: 10ch; font: 500 clamp(22px,2.3vw,31px)/.95 var(--serif); letter-spacing: -.045em; }
+    .foundation-node span { margin-top: 7px; font-size: 10px; line-height: 1.35; }
+    .node-data { top: 3%; left: 0; background: var(--mist); animation-delay: .1s; }
+    .node-systems { top: 3%; right: 0; background: var(--warm); animation-delay: .25s; }
+    .node-security { bottom: 5%; left: 0; background: #b8c8c0; animation-delay: .4s; }
+    .node-people { bottom: 5%; right: 0; background: #d7d9cc; animation-delay: .55s; }
+    .foundation-core { position: absolute; z-index: 4; top: 50%; left: 50%; width: 10.5rem; height: 10.5rem; display: grid; place-items: center; border: 1px solid rgba(244,240,232,.42); border-radius: 50%; transform: translate(-50%,-50%); background: #203934; box-shadow: 0 0 0 1rem rgba(244,240,232,.06); text-align: center; }
+    .foundation-core::before { content: ""; position: absolute; inset: .65rem; border: 1px solid rgba(244,240,232,.16); border-radius: inherit; }
+    .foundation-core p { position: relative; margin: 0; color: var(--paper); font: 500 clamp(21px,2.15vw,28px)/.92 var(--serif); letter-spacing: -.045em; }
+    .foundation-path { position: absolute; z-index: 2; background: rgba(244,240,232,.24); overflow: hidden; }
+    .foundation-path::after { content: ""; position: absolute; width: 11px; height: 11px; border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 5px rgba(174,103,80,.15), 0 0 18px rgba(174,103,80,.78); }
+    .path-horizontal { top: 50%; left: 14%; right: 14%; height: 1px; }
+    .path-horizontal::after { top: -5px; left: -11px; animation: signal-across 6.5s 1s ease-in-out infinite; }
+    .path-vertical { top: 20%; bottom: 20%; left: 50%; width: 1px; }
+    .path-vertical::after { top: -11px; left: -5px; animation: signal-down 7.4s 2.2s ease-in-out infinite; }
+    .foundation-foot { padding-top: 15px; border-top: 1px solid var(--paper-line); color: var(--mist); font: 10px var(--mono); }
+    .foundation-foot b { color: var(--clay); font-weight: 500; }
+    @keyframes hero-breathe { from { transform: translate3d(-1.5%,-1%,0) scale(1); } to { transform: translate3d(1.5%,1%,0) scale(1.04); } }
+    @keyframes foundation-orbit { to { transform: translate(-50%,-50%) rotate(360deg); } }
+    @keyframes node-settle { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes signal-across { 0%,12% { transform: translateX(0); opacity: 0; } 20%,72% { opacity: 1; } 88%,100% { transform: translateX(31rem); opacity: 0; } }
+    @keyframes signal-down { 0%,12% { transform: translateY(0); opacity: 0; } 20%,72% { opacity: 1; } 88%,100% { transform: translateY(25rem); opacity: 0; } }
+
+    .conversation-stage { position: relative; min-height: 500px; padding: 24px; background: var(--ink); color: var(--paper); box-shadow: 20px 23px 0 rgba(19,35,33,.10); overflow: hidden; }
+    .conversation-stage::before { content: ""; position: absolute; inset: 14px; border: 1px solid var(--paper-line); pointer-events: none; }
+    .stage-top, .stage-foot { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; }
+    .stage-top { color: var(--mist); }
+    .stage-top .live { display: flex; align-items: center; gap: 8px; font: 10px var(--mono); text-transform: uppercase; }
+    .live b { width: 7px; height: 7px; display: block; border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 0 rgba(174,103,80,.45); animation: pulse 2.7s infinite; }
+    .stage-top .micro { color: var(--sage); }
+    .stage-body { position: relative; z-index: 1; min-height: 364px; padding: 45px 28px 12px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .guide-window { position: absolute; top: 46px; right: 31px; bottom: 46px; width: 39%; overflow: hidden; background: linear-gradient(158deg, #b7c8bf 0%, #758f81 48%, #233a35 100%); }
+    .guide-window::before { content: ""; position: absolute; width: 170%; height: 86%; left: -43%; bottom: -38%; border-radius: 50% 50% 0 0; background: rgba(14,30,27,.76); }
+    .guide-window::after { content: ""; position: absolute; width: 110%; height: 70%; right: -30%; top: -31%; border: 1px solid rgba(244,240,232,.42); border-radius: 50%; box-shadow: 0 0 0 38px rgba(244,240,232,.08); }
+    .guide-window span { position: absolute; z-index: 1; left: 14px; bottom: 14px; right: 12px; color: var(--paper); font: 500 10px/1.45 var(--mono); text-transform: uppercase; letter-spacing: .04em; }
+    .guide-window span::before { content: "On camera"; display: block; margin-bottom: 4px; color: var(--sage); }
+    .prompt { position: relative; z-index: 2; max-width: 13ch; margin: 0; font: 500 clamp(29px, 3.1vw, 44px)/1.02 var(--serif); letter-spacing: -.035em; }
+    .prompt::before { content: "A welcome from Jai"; display: block; margin-bottom: 11px; color: var(--sage); font: 10px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+    .answer { position: relative; z-index: 2; width: fit-content; max-width: 58%; margin: 28px 0 0; padding: 13px 16px; background: rgba(244,240,232,.1); color: var(--mist); font-size: 13px; line-height: 1.5; transform: translateX(8px); animation: answer-arrives 1s .55s both; }
+    .insight { position: relative; z-index: 2; width: max-content; max-width: 58%; margin: 30px 0 0; padding-bottom: 5px; border-bottom: 1px solid var(--clay); color: var(--paper); font-size: 13px; line-height: 1.45; animation: answer-arrives 1s 1.05s both; }
+    .insight::before { content: "A thread worth following"; display: block; margin-bottom: 7px; color: var(--clay); font: 10px var(--mono); text-transform: uppercase; }
+    .stage-foot { padding-top: 15px; border-top: 1px solid var(--paper-line); color: var(--mist); font: 10px var(--mono); }
+    .stage-orbit { position: absolute; left: 52%; bottom: -34%; width: 390px; height: 390px; border: 1px solid rgba(198,213,207,.3); border-radius: 50%; animation: drift 13s ease-in-out infinite alternate; }
+    .stage-orbit::after { content: ""; position: absolute; width: 22px; height: 22px; top: 14%; left: 4%; border-radius: 50%; background: var(--sage); }
+
+    .signal-band { width: 100%; max-width: 100vw; background: var(--ink-2); color: var(--paper); overflow: hidden; }
+    .signal-track { display: flex; min-width: max-content; padding: 17px 0; animation: marquee 36s linear infinite; }
+    .signal-track span { display: inline-flex; align-items: center; gap: 27px; padding: 0 27px; color: var(--mist); font-size: 13px; white-space: nowrap; }
+    .signal-track i { width: 5px; height: 5px; display: inline-block; border-radius: 50%; background: var(--clay); }
+
+    .readiness { position: relative; padding: clamp(96px, 11vw, 150px) 0 clamp(76px, 9vw, 118px); background: var(--warm); overflow: hidden; }
+    .readiness::before { content: ""; position: absolute; width: 53vw; height: 53vw; top: -34vw; right: -22vw; border: 1px solid rgba(19,35,33,.12); border-radius: 50%; box-shadow: 0 0 0 7vw rgba(19,35,33,.025); }
+    .readiness-intro { position: relative; display: grid; grid-template-columns: .96fr 1.04fr; gap: 60px; align-items: end; }
+    .readiness-intro .micro { color: var(--clay); }
+    .readiness-intro h2 { max-width: 10.5ch; }
+    .readiness-intro p:not(.micro) { max-width: 42ch; margin: 0 0 6px; color: #4c5953; font-size: 17px; line-height: 1.62; }
+    .dimension-grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 67px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .dimension { position: relative; min-height: 232px; padding: 24px; display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform .35s cubic-bezier(.2,.8,.2,1), z-index .35s; }
+    .dimension:hover { z-index: 2; transform: translateY(-12px); box-shadow: 0 17px 24px rgba(19,35,33,.13); }
+    .dimension::after { content: ""; position: absolute; right: -48px; bottom: -55px; width: 185px; height: 185px; border: 1px solid currentColor; border-radius: 50%; opacity: .22; transition: transform .6s ease; }
+    .dimension:hover::after { transform: scale(1.24) translate(-14px,-12px); }
+    .dimension .micro { position: relative; z-index: 1; color: currentColor; opacity: .72; }
+    .dimension h3 { position: relative; z-index: 1; max-width: 13ch; margin: auto 0 14px; font: 500 clamp(26px, 2.5vw, 37px)/1 var(--serif); letter-spacing: -.045em; }
+    .dimension.governance h3,
+    .dimension.workforce h3,
+    .dimension.experience h3 { margin-top: auto; }
+    .dimension.experience { padding-bottom: 24px; }
+    .dimension p { position: relative; z-index: 1; max-width: 29ch; margin: 0; font-size: 12px; line-height: 1.52; }
+    .dimension.vision { background: #d8c5b7; color: var(--ink); }
+    .dimension.data { background: var(--mist); }
+    .dimension.infrastructure { background: #d8d1c5; }
+    .dimension.governance { background: #b8c8c0; }
+    .dimension.experience { background: #efebe2; }
+    .dimension.workforce { background: #d7d9cc; }
+
+    .air-map { padding: clamp(95px, 11vw, 145px) 0; background: var(--ink-2); color: var(--paper); overflow: hidden; }
+    .air-map-head { display: block; }
+    .air-map-head .micro { color: var(--clay); }
+    .air-map-head h2 { max-width: 11ch; }
+    .air-map-head p:not(.micro) { max-width: 43ch; margin: 0 0 7px; color: var(--mist); font-size: 17px; line-height: 1.62; }
+    .map-board { position: relative; margin-top: 66px; padding: 29px; border: 1px solid rgba(244,240,232,.2); background: linear-gradient(135deg, rgba(198,212,204,.06), transparent 60%); }
+    .map-board::before { content: ""; position: absolute; width: 54%; height: 78%; right: -21%; top: 9%; border: 1px solid rgba(198,212,204,.14); border-radius: 50%; box-shadow: 0 0 0 52px rgba(198,212,204,.024); }
+    .map-zone { position: relative; z-index: 1; }
+    .map-zone-label { display: flex; justify-content: space-between; align-items: baseline; color: var(--mist); font: 10px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    .map-zone-label b { color: var(--clay); font-weight: 500; }
+    .map-dimensions { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 16px; border-left: 1px solid rgba(244,240,232,.18); }
+    .map-dimension { min-height: 98px; padding: 15px 13px; display: flex; align-items: flex-end; border-right: 1px solid rgba(244,240,232,.18); border-top: 1px solid rgba(244,240,232,.18); border-bottom: 1px solid rgba(244,240,232,.18); color: var(--paper); font: 500 clamp(15px,1.65vw,21px)/1.05 var(--serif); letter-spacing: -.025em; }
+    .map-seam { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; margin: 46px 0; }
+    .map-seam::before, .map-seam::after { content: ""; height: 1px; background: rgba(244,240,232,.28); }
+    .map-seam span { padding: 9px 13px; border: 1px solid var(--clay); color: var(--paper); font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .map-layers { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: 7px; margin-top: 16px; overflow: hidden; }
+    .map-layers::after { content: ""; position: absolute; z-index: 2; top: -25%; left: -18%; width: 11%; height: 150%; background: linear-gradient(90deg, transparent, rgba(198,213,207,.36), transparent); transform: skewX(-17deg) translateX(-240%); pointer-events: none; animation: foundation-sweep 13s 1.6s ease-in-out infinite; }
+    .map-layer { position: relative; z-index: 1; width: 100%; min-height: 145px; padding: 14px 12px; display: flex; flex-direction: column; justify-content: flex-end; appearance: none; background: rgba(244,240,232,.09); border: 1px solid rgba(244,240,232,.15); color: var(--paper); cursor: pointer; text-align: left; transition: transform .3s ease, background .3s ease, border-color .3s ease; }
+    .map-layer:hover, .map-layer[aria-pressed="true"] { transform: translateY(-9px); background: rgba(198,212,204,.23); border-color: var(--clay); }
+    .map-layer:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+    .map-layer small { margin-bottom: 11px; color: var(--sage); font: 10px var(--mono); }
+    .map-layer b { font: 500 clamp(16px,1.6vw,22px)/1 var(--serif); letter-spacing: -.025em; }
+    .layer-readout { --layer-color: #e7dfd2; display: grid; grid-template-columns: .72fr 1.28fr; gap: 48px; align-items: end; margin-top: 32px; padding: 31px; background: var(--layer-color); color: var(--ink); box-shadow: 12px 14px 0 rgba(0,0,0,.14); transition: background .35s ease; }
+    .layer-readout-label span, .layer-signal span { display: block; color: #5b423a; font: 500 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .layer-readout-label b { display: block; margin-top: 12px; font: 500 clamp(29px,3vw,43px)/.96 var(--serif); letter-spacing: -.045em; }
+    .layer-readout-copy > p { max-width:49ch; margin: 0; color: #29423d; font-size: 15px; line-height: 1.62; }
+    .layer-signal { margin-top: 25px; padding-top: 17px; border-top: 1px solid rgba(19,35,33,.22); }
+    .layer-signal b { display: block; margin-top: 8px; color: var(--ink); font: 500 17px/1.22 var(--serif); letter-spacing: -.02em; }
+    .layer-instruction { margin: 18px 0 0; color: rgba(198,213,207,.68); font: 500 10px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+
+    .experience-line { padding: 43px 0; background: #7f9eb5; border-bottom: 1px solid var(--line); }
+    .experience-line .shell { display: grid; grid-template-columns: .6fr 1.4fr; align-items: baseline; gap: 56px; }
+    .experience-line .micro { color: #29423d; }
+    .experience-line p:not(.micro) { max-width: 53ch; margin: 0; font: 500 clamp(19px, 2vw, 26px)/1.3 var(--serif); letter-spacing: -.025em; }
+
+    .orientation { padding: clamp(98px, 12vw, 165px) 0; }
+    .orientation-grid { display: grid; grid-template-columns: .82fr 1.18fr; align-items: start; gap: clamp(48px, 9vw, 145px); }
+    h2 { margin: 17px 0 0; font: 500 clamp(44px, 5.1vw, 74px)/.98 var(--serif); letter-spacing: -.05em; }
+    .orientation-copy p:not(.micro) { max-width: 38ch; margin: 29px 0 0; color: #4d5b55; font-size: 17px; line-height: 1.65; }
+    .orientation-copy .quiet-link { margin-top: 27px; }
+    .field { position: relative; min-height: 510px; padding: 24px; border: 1px solid var(--line); background: linear-gradient(142deg, rgba(198,213,207,.45), rgba(244,240,232,.76)); overflow: hidden; }
+    .field::before, .field::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+    .field::before { width: 410px; height: 410px; right: -124px; top: -162px; border: 1px solid rgba(19,35,33,.18); box-shadow: 0 0 0 49px rgba(19,35,33,.045), 0 0 0 108px rgba(19,35,33,.025); }
+    .field::after { width: 80px; height: 80px; left: 5%; bottom: 2%; background: rgba(174,103,80,.62); filter: blur(21px); }
+    .field-label { position: relative; z-index: 1; color: #62716a; }
+    .path { position: absolute; z-index: 1; inset: 77px 42px 46px; }
+    .path-line { position: absolute; height: 1px; transform-origin: left center; background: rgba(19,35,33,.38); }
+    .path-line.one { width: 59%; left: 9%; top: 21%; transform: rotate(28deg); }
+    .path-line.two { width: 47%; left: 51%; top: 46%; transform: rotate(105deg); }
+    .path-line.three { width: 51%; left: 22%; top: 67%; transform: rotate(-16deg); }
+    .path-line.four { width: 36%; left: 45%; top: 29%; transform: rotate(42deg); }
+    .path-line.five { width: 39%; left: 58%; top: 53%; transform: rotate(50deg); }
+    .node { position: absolute; width: 15px; height: 15px; border: 1px solid var(--ink); border-radius: 50%; background: var(--paper); transition: transform .5s ease, background .5s ease; }
+    .node.a { left: 7%; top: 17%; } .node.b { left: 49%; top: 8%; } .node.c { left: 70%; top: 40%; } .node.d { left: 53%; top: 75%; } .node.e { left: 12%; top: 66%; } .node.f { right: 1%; top: 73%; }
+    .node b { position: absolute; top: 21px; left: 1px; width: 135px; font: 10px/1.3 var(--mono); letter-spacing: .02em; white-space: nowrap; }
+    .node:hover { background: var(--clay); transform: scale(1.45); }
+    .node:hover b { color: var(--clay); }
+    .field-note { position: absolute; right: 24px; bottom: 23px; z-index: 1; width: min(53%, 230px); padding: 13px; background: var(--ink); color: var(--paper); font-size: 12px; line-height: 1.45; box-shadow: 8px 8px 0 rgba(19,35,33,.12); }
+    .field-note span { display: block; margin-bottom: 5px; color: var(--sage); font: 10px var(--mono); }
+
+    .experience-line { position: relative; padding: clamp(84px, 10vw, 126px) 0; overflow: hidden; background: #7f9eb5; color: var(--ink); }
+    .experience-line::before { content: ""; position: absolute; width: 55vw; height: 55vw; right: -24vw; top: -32vw; border: 1px solid rgba(19,35,33,.15); border-radius: 50%; box-shadow: 0 0 0 7vw rgba(19,35,33,.025); }
+    .experience-line .shell { position: relative; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(44px, 8vw, 112px); align-items: end; }
+    .experience-line .micro { color: #29423d; }
+    .experience-line h2 { max-width: 10ch; margin: 18px 0 0; }
+    .experience-line p:not(.micro) { max-width: 42ch; margin: 0; color: #203934; font-size: 17px; line-height: 1.62; }
+    .experience-line .bridge-line { margin-top: 18px; padding-top: 17px; border-top: 1px solid rgba(19,35,33,.18); color: #29423d; font: 500 13px/1.5 var(--sans); }
+    .air-conversation-top { display: grid; grid-column: 1 / -1; grid-template-columns: .82fr 1.18fr; gap: clamp(44px, 8vw, 112px); align-items: end; }
+    .air-proof { grid-column: 1 / -1; margin-top: clamp(92px, 11vw, 146px); padding-top: clamp(42px, 6vw, 73px); border-top: 1px solid rgba(19,35,33,.2); }
+    .air-proof-head { display: grid; grid-template-columns: .86fr 1.14fr; gap: 55px; align-items: end; }
+    .air-proof-head .micro { color: #29423d; }
+    .air-proof-head h3 { max-width: 12ch; margin: 18px 0 0; font: 500 clamp(45px,5.4vw,74px)/.92 var(--serif); letter-spacing: -.055em; }
+    .air-proof-head p:not(.micro) { max-width: 39ch; margin: 0 0 7px; color: #203934; font-size: 17px; line-height: 1.62; }
+    .air-proof .brief-stack { margin-top: 60px; padding-bottom: 0; }
+    .air-faq { display: grid; grid-column: 1 / -1; grid-template-columns: .86fr 1.14fr; gap: 55px; margin-top: clamp(88px, 10vw, 132px); padding-top: clamp(42px, 6vw, 68px); border-top: 1px solid rgba(19,35,33,.2); }
+    .air-faq h3 { max-width: 10ch; margin: 18px 0 0; font: 500 clamp(34px,4vw,55px)/.94 var(--serif); letter-spacing: -.05em; }
+    .air-faq-list { border-top: 1px solid rgba(19,35,33,.25); }
+    .air-faq details { border-bottom: 1px solid rgba(19,35,33,.25); }
+    .air-faq summary { position: relative; padding: 18px 28px 18px 0; cursor: pointer; color: var(--ink); font: 500 17px/1.35 var(--serif); list-style: none; }
+    .air-faq summary::-webkit-details-marker { display: none; }
+    .air-faq summary::after { content: "+"; position: absolute; right: 3px; top: 14px; color: var(--clay); font: 400 27px/1 var(--serif); transition: transform .2s ease; }
+    .air-faq details[open] summary::after { transform: rotate(45deg); }
+    .air-faq details p { max-width: 54ch; margin: -2px 0 19px; color: #29423d; font-size: 13px; line-height: 1.62; }
+    .air-next-steps { display: grid; grid-column: 1 / -1; grid-template-columns: .72fr 1.28fr; gap: 55px; margin-top: clamp(88px, 10vw, 132px); padding-top: clamp(42px, 6vw, 68px); border-top: 1px solid rgba(19,35,33,.2); }
+    .air-next-steps h3 { max-width: 10ch; margin: 18px 0 0; font: 500 clamp(34px,4vw,55px)/.94 var(--serif); letter-spacing: -.05em; }
+    .path-options { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .path-option { min-width: 0; min-height: 270px; padding: 25px; display: flex; flex-direction: column; background: rgba(244,240,232,.88); color: var(--ink); box-shadow: 10px 12px 0 rgba(19,35,33,.15); }
+    .path-option:nth-child(2) { background: #dbe5df; }
+    .path-option .micro { max-width: 18ch; color: var(--clay); line-height: 1.45; overflow-wrap: anywhere; }
+    .path-option h4 { max-width: 11ch; margin: 42px 0 17px; font: 500 clamp(27px,2.7vw,37px)/.98 var(--serif); letter-spacing: -.045em; }
+    .path-option p { margin: 0; color: #40514b; font-size: 12px; line-height: 1.55; }
+    .path-option .button { width: fit-content; min-height: 44px; margin-top: 23px; padding: 0 15px; font-size: 12px; }
+    .path-option .secondary-button { background: transparent; border-color: var(--ink); color: var(--ink); }
+    .path-option .secondary-button:hover { background: var(--ink); color: var(--paper); }
+
+    dialog { width: min(100% - 34px, 720px); max-height: min(790px, calc(100vh - 34px)); padding: 0; overflow: auto; border: 0; background: var(--paper); color: var(--ink); box-shadow: 22px 26px 0 rgba(19,35,33,.24); }
+    dialog::backdrop { background: rgba(12,23,22,.68); backdrop-filter: blur(4px); }
+    .conversation-form-wrap { position: relative; padding: clamp(30px,5vw,64px); }
+    .dialog-close { position: absolute; top: 19px; right: 19px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font: 400 25px/1 var(--serif); }
+    .dialog-close:hover { background: var(--ink); color: var(--paper); }
+    .conversation-form-wrap h2 { max-width: 12ch; margin: 16px 0 0; }
+    .form-intro { max-width: 48ch; margin: 20px 0 0; color: #4c5953; font-size: 15px; line-height: 1.6; }
+    .lead-form { margin-top: 34px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .form-field { display: grid; gap: 7px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font: 500 10px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 12px 13px; border: 1px solid rgba(19,35,33,.28); border-radius: 0; outline: none; background: rgba(255,255,255,.48); color: var(--ink); font: 14px/1.4 var(--sans); }
+    .form-field textarea { min-height: 105px; resize: vertical; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--clay); box-shadow: 0 0 0 3px rgba(174,103,80,.14); }
+    .form-privacy { max-width: 54ch; margin: 17px 0 0; color: #5c6962; font-size: 11px; line-height: 1.5; }
+    .lead-form .button { margin-top: 23px; cursor: pointer; }
+    .form-status { min-height: 1.4em; margin: 12px 0 0; color: #8b3f32; font-size: 12px; line-height: 1.4; }
+    .form-confirmation { padding: 36px 0 6px; }
+    .form-confirmation h3 { max-width: 12ch; margin: 14px 0 0; font: 500 40px/.95 var(--serif); letter-spacing: -.05em; }
+    .form-confirmation p { max-width: 42ch; color: #4c5953; font-size: 15px; line-height: 1.6; }
+
+    .briefing { position: relative; padding: clamp(95px, 11vw, 152px) 0; background: var(--warm); color: var(--ink); overflow: hidden; }
+    .briefing::before { content: ""; position: absolute; inset: auto -16vw -25vw auto; width: 66vw; height: 66vw; border: 1px solid rgba(19,35,33,.13); border-radius: 50%; }
+    .briefing-head { position: relative; display: grid; grid-template-columns: .86fr 1.14fr; gap: 55px; align-items: end; }
+    .briefing-head .micro { color: var(--clay); }
+    .briefing-head p:not(.micro) { max-width: 39ch; margin: 0 0 7px; color: #4c5953; font-size: 17px; line-height: 1.62; }
+    .brief-stack { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 68px; padding-bottom: 70px; }
+    .brief { position: relative; top: auto; width: auto; min-height: 350px; padding: 28px; background: var(--paper); color: var(--ink); box-shadow: 13px 15px 0 rgba(0,0,0,.17); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+    .brief h3 { margin: 25px 0 20px; font: 500 34px/1 var(--serif); letter-spacing: -.04em; }
+    .brief small { color: #6b7771; font: 10px var(--mono); text-transform: uppercase; }
+    .brief p { color: #4c5953; font-size: 13px; line-height: 1.55; }
+    .brief.one { transform: translateY(35px) rotate(-2deg); background: #d8d3ca; }
+    .brief.two { z-index: 2; transform: translateY(0); }
+    .brief.three { transform: translateY(52px) rotate(2deg); background: var(--mist); }
+    .brief:hover { z-index: 3; transform: translateY(-14px) rotate(0); }
+    .brief-line { height: 1px; margin: 20px 0; background: var(--line); }
+    .brief .action { color: var(--clay); font-weight: 700; }
+
+    .air-conversation-panel { position: relative; padding: clamp(25px,4vw,48px); overflow: hidden; background: var(--ink); color: var(--paper); box-shadow: 18px 19px 0 rgba(19,35,33,.16); }
+    .air-conversation-panel::before { content: ""; position: absolute; width: 24rem; height: 24rem; top: -13rem; right: -11rem; border: 1px solid rgba(244,240,232,.16); border-radius: 50%; box-shadow: 0 0 0 4rem rgba(244,240,232,.025); animation: jai-orbit 18s linear infinite; }
+    .air-conversation-panel > * { position: relative; z-index: 1; }
+    .air-conversation-panel .micro { color: var(--sage); }
+    .air-conversation-panel h3 { max-width: 12ch; margin: 16px 0 0; font: 500 clamp(35px,4vw,54px)/.93 var(--serif); letter-spacing: -.055em; }
+    .air-conversation-panel p.air-conversation-intro { max-width: 44ch; margin: 18px 0 0; color: var(--mist); font-size: 13px; line-height: 1.56; }
+    .air-conversation-steps { margin-top: 35px; border-top: 1px solid var(--paper-line); }
+    .air-conversation-step { display: grid; grid-template-columns: 34px 1fr; gap: 13px; padding: 17px 0; border-bottom: 1px solid var(--paper-line); animation: jai-step-in .7s both; }
+    .air-conversation-step:nth-child(2) { animation-delay: .16s; } .air-conversation-step:nth-child(3) { animation-delay: .32s; }
+    .air-conversation-step small { padding-top: 3px; color: var(--clay); font: 500 10px var(--mono); }
+    .air-conversation-step b { display: block; font: 500 19px/1.05 var(--serif); letter-spacing: -.02em; }
+    .air-conversation-step span { display: block; margin-top: 5px; color: var(--mist); font-size: 12px; line-height: 1.48; }
+    .air-conversation-action { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; margin-top: 31px; }
+    .air-conversation-action .button { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+    .air-conversation-action .button:hover { background: var(--clay); border-color: var(--clay); color: var(--paper); }
+    .air-conversation-action span { color: var(--mist); font-size: 11px; }
+
+    .jai-intro { position: relative; overflow: hidden; padding: clamp(95px, 12vw, 154px) 0; background: #7f9eb5; }
+    .jai-intro::before { content: ""; position: absolute; width: 50vw; height: 50vw; left: -26vw; bottom: -31vw; border: 1px solid rgba(19,35,33,.14); border-radius: 50%; box-shadow: 0 0 0 7vw rgba(19,35,33,.025), 0 0 0 14vw rgba(19,35,33,.018); }
+    .jai-grid { position: relative; display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(50px, 9vw, 145px); align-items: center; }
+    .jai-copy .micro { color: #29423d; }
+    .jai-copy h2 { max-width: 9ch; }
+    .jai-copy p:not(.micro) { max-width: 36ch; margin: 29px 0 0; color: #203934; font-size: 17px; line-height: 1.62; }
+    .jai-panel { position: relative; padding: clamp(25px,4vw,48px); overflow: hidden; background: var(--ink); color: var(--paper); box-shadow: 18px 19px 0 rgba(19,35,33,.16); }
+    .jai-panel::before { content: ""; position: absolute; width: 24rem; height: 24rem; top: -13rem; right: -11rem; border: 1px solid rgba(244,240,232,.16); border-radius: 50%; box-shadow: 0 0 0 4rem rgba(244,240,232,.025); animation: jai-orbit 18s linear infinite; }
+    .jai-panel > * { position: relative; z-index: 1; }
+    .jai-panel .micro { color: var(--sage); }
+    .jai-panel h3 { max-width: 12ch; margin: 16px 0 0; font: 500 clamp(35px,4vw,54px)/.93 var(--serif); letter-spacing: -.055em; }
+    .jai-steps { margin-top: 35px; border-top: 1px solid var(--paper-line); }
+    .jai-step { display: grid; grid-template-columns: 34px 1fr; gap: 13px; padding: 17px 0; border-bottom: 1px solid var(--paper-line); animation: jai-step-in .7s both; }
+    .jai-step:nth-child(2) { animation-delay: .16s; } .jai-step:nth-child(3) { animation-delay: .32s; }
+    .jai-step small { padding-top: 3px; color: var(--clay); font: 500 10px var(--mono); }
+    .jai-step b { display: block; font: 500 19px/1.05 var(--serif); letter-spacing: -.02em; }
+    .jai-step span { display: block; margin-top: 5px; color: var(--mist); font-size: 12px; line-height: 1.48; }
+    .jai-action { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; margin-top: 31px; }
+    .jai-button { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+    .jai-button:hover { background: var(--clay); border-color: var(--clay); color: var(--paper); }
+    .jai-action span { color: var(--mist); font-size: 11px; }
+    @keyframes jai-orbit { to { transform: rotate(360deg); } }
+    @keyframes jai-step-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+
+    .close { position: relative; min-height: 560px; padding: clamp(90px, 11vw, 145px) 0; background: var(--paper); overflow: hidden; }
+    .close::before { content: ""; position: absolute; width: 77vw; height: 77vw; right: -41vw; bottom: -51vw; border: 1px solid rgba(19,35,33,.15); border-radius: 50%; box-shadow: 0 0 0 8vw rgba(19,35,33,.025), 0 0 0 17vw rgba(19,35,33,.016); }
+    .close-inner { position: relative; max-width: 840px; }
+    .close .micro { color: var(--clay); }
+    .close h2 { max-width: 12ch; }
+    .close p:not(.micro) { max-width: 45ch; color: #4e5b55; font-size: 17px; line-height: 1.62; }
+
+    footer { padding: 26px 0; background: var(--ink-2); color: var(--mist); }
+    footer .shell { display: flex; justify-content: space-between; gap: 20px; font: 10px var(--mono); }
+    footer a { color: var(--paper); text-decoration: none; }
+
+    @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(174,103,80,.35); } 50% { box-shadow: 0 0 0 7px rgba(174,103,80,0); } }
+    @keyframes drift { to { transform: translate(14px,-16px) rotate(13deg); } }
+    @keyframes answer-arrives { from { opacity: 0; transform: translate(16px, 11px); } to { opacity: 1; transform: translate(0, 0); } }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @keyframes foundation-sweep { 0%, 18% { transform: skewX(-17deg) translateX(-240%); opacity: 0; } 22% { opacity: 1; } 46%, 100% { transform: skewX(-17deg) translateX(1220%); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    @media (max-width: 860px) {
+      .shell { width: min(100% - 40px, 1240px); }
+      header .shell { height: 72px; gap: 12px; } nav { display: none; } header .button { margin-left: auto; font-size: 11px; }
+      .hero { min-height: auto; padding-top: 63px; } .hero-grid, .readiness-intro, .orientation-grid, .briefing-head, .jai-grid, .air-map-head { grid-template-columns: 1fr; }
+      .hero-grid { gap: 47px; } h1 { font-size: clamp(58px, 15vw, 84px); } .conversation-stage { min-height: 470px; } .foundation-stage { min-height: 500px; }
+      .readiness-intro, .orientation-grid, .briefing-head, .jai-grid, .air-map-head { gap: 38px; } .experience-line .shell { grid-template-columns: 1fr; gap: 22px; } .dimension-grid { grid-template-columns: repeat(2, 1fr); } .map-dimensions { grid-template-columns: repeat(3,1fr); } .map-layers { grid-template-columns: repeat(4,1fr); } .brief-stack { grid-template-columns: 1fr; gap: 25px; padding-bottom: 0; } .brief, .brief.one, .brief.two, .brief.three { transform: none; min-height: auto; } .field { min-height: 430px; }
+      .brief-stack { height: 650px; margin-top: 43px; } .brief { width: 68%; } .brief.one { top: 280px; left: 0; } .brief.two { left: 26%; top: 20px; } .brief.three { top: 394px; right: 1%; }
+      .air-conversation-top, .air-proof-head, .air-faq, .air-next-steps { grid-template-columns: 1fr; gap: 32px; } .path-options { grid-template-columns: 1fr; } .air-proof .brief-stack { height: auto; margin-top: 48px; } .air-proof .brief { width: auto; top: auto; right: auto; bottom: auto; left: auto; }
+      .field-note { right: 17px; bottom: 16px; } .path { inset: 74px 26px 35px; }
     }
-  ]
-}
-</script>
-<title>AI Resulting — Readiness is the competitive advantage.</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    :root { --clay-label: #8f5540; --conversation: #7f9eb5; --conversation-label: #1d3732; }
+    .jai-intro, .experience-line { background: var(--conversation); }
+    .experience-line .micro, .jai-intro .micro { color: var(--conversation-label); }
+    .path-option .micro { color: var(--clay-label); }
+    @media (max-width: 860px) {
+      header .shell { height: auto; min-height: 72px; flex-wrap: wrap; gap: 0 12px; padding: 14px 0; }
+      header nav { order: 3; display: flex; flex-basis: 100%; flex-wrap: wrap; gap: 10px 18px; margin: 12px 0 0; padding-top: 11px; border-top: 1px solid var(--line); }
+      header nav a, header .nav-explore summary { font-size: 13px; }
+      header .nav-menu { z-index: 25; }
+    }
+    @media (max-width: 520px) {
+      .button { min-height: 48px; padding: 0 16px; } .hero-actions { gap: 17px; } .quiet-link { font-size: 12px; }
+      .conversation-stage { margin-right: -10px; min-height: 452px; padding: 19px; } .foundation-stage { margin-right: -10px; min-height: 462px; padding: 19px; } .foundation-field { min-height: 360px; } .foundation-node { width: 42%; min-height: 99px; padding: 12px; } .foundation-node b { font-size: 22px; } .foundation-node span { display: none; } .foundation-core { width: 8.8rem; height: 8.8rem; } .foundation-core p { font-size: 25px; } .path-horizontal { left: 10%; right: 10%; } .path-vertical { top: 18%; bottom: 18%; } .guide-window { right: 23px; top: 42px; width: 41%; }
+      .prompt { font-size: 32px; } .answer, .insight { max-width: 55%; } .orientation, .briefing, .jai-intro, .close { padding: 83px 0; } .jai-panel, .air-conversation-panel { padding: 25px; } .jai-panel h3, .air-conversation-panel h3 { font-size: 38px; }
+      h2 { font-size: 46px; } .brief-stack { height: 650px; } .brief { width: 79%; padding: 21px; } .brief h3 { font-size: 28px; } .path-options, .form-grid { grid-template-columns: 1fr; } .form-field.full { grid-column: auto; }
+      .brief.one { top: auto; } .brief.two { left: auto; } .brief.three { top: auto; } .dimension-grid { grid-template-columns: 1fr; margin-top: 43px; } .dimension { min-height: 205px; } .map-board { padding: 18px; margin-top: 42px; } .map-dimensions { grid-template-columns: repeat(2,1fr); } .map-layers { grid-template-columns: repeat(2,1fr); } .map-seam { margin: 29px 0; } .field { margin: 0 -7px; }
+      footer .shell { flex-direction: column; }
+    }
+    @media (max-width: 800px) { .layer-readout { grid-template-columns: 1fr; gap: 20px; } }
+    @media (prefers-reduced-motion: reduce) { .hero::before, .foundation-stage::after, .foundation-node, .foundation-path::after, .jai-panel::before, .jai-step { animation: none; } }
+  </style>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  @font-face {
-    font-family: 'Trebuchet MS';
-    src: local('Trebuchet MS');
-  }
-
-  body {
-    background: #16130F;
-    color: #F8F6F2;
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .site-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 8vw;
-    transition: all 0.4s ease;
-  }
-
-  .site-nav.scrolled {
-    background: rgba(22, 19, 15, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 14px 8vw;
-    box-shadow: 0 1px 0 rgba(200,185,160,0.08);
-  }
-
-  .nav-logo {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-  }
-
-  .nav-logo .mark {
-    background: #F8F6F2;
-    color: #C88A50;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 5px 7px;
-    border-radius: 5px;
-    letter-spacing: 0.08em;
-    margin-right: 5px;
-    border: 1px solid rgba(200,138,80,0.3);
-  }
-
-  .nav-logo .r {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #C88A50;
-   letter-spacing: -0.02em;}
-
-  .nav-logo .name {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #F8F6F2;
-   margin-left: -1px;}
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .nav-links a {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #CEBEA4;
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: #C88A50; }
-
-  /* DROPDOWN */
-  .nav-dropdown { position: relative; }
-  .nav-dropdown-label { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #CEBEA4; letter-spacing: 0.01em; cursor: pointer; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
-  .nav-dropdown-label:hover { color: #C88A50; }
-  .nav-dropdown-label svg { width: 10px; height: 10px; transition: transform 0.3s; }
-  .nav-dropdown:hover .nav-dropdown-label svg { transform: rotate(180deg); }
-  .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px; background: rgba(22, 19, 15, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 8px; padding: 12px 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; box-shadow: 0 12px 32px rgba(0,0,0,0.25); margin-top: 12px; }
-  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; margin-top: 8px; }
-  .nav-dropdown-menu a { display: block; padding: 10px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #CEBEA4; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
-  .nav-dropdown-menu a:hover { color: #C88A50; background: rgba(200,138,80,0.08); }
-
-  .nav-links .nav-cta {
-    background: #C88A50;
-    color: #F8F6F2;
-    padding: 10px 22px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: all 0.3s;
-  }
-
-  .nav-links .nav-cta:hover {
-    background: #A06830;
-    color: #F8F6F2;
-  }
-
-
-  .hero {
-    position: relative;
-    min-height: 92vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 8vw;
-    overflow: hidden;
-    background: #1C1914;
-  }
-
-  .hero canvas {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    opacity: 0.75;
-  }
-    to   { opacity: 0.22; }
-  }
-    to   { stroke-dashoffset: 0; }
-  }
-
-  @media (max-width: 900px) {
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-brand {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 48px;
-    animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    opacity: 0;
-  }
-
-  .hero-brand .mark {
-    background: #F8F6F2;
-    color: #C88A50;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 9px;
-    border-radius: 5px;
-    letter-spacing: 0.08em;
-    margin-right: 5px;
-  }
-
-  .hero-brand .r {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #C88A50;
-   letter-spacing: -0.02em;}
-
-  .hero-brand .name {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: #F8F6F2;
-   margin-left: -1px;}
-
-  .hero h1 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(28px, 4.8vw, 64px);
-    font-weight: 700;
-    line-height: 1.08;
-    color: #F8F6F2;
-    margin-bottom: 28px;
-    letter-spacing: -0.02em;
-    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-    opacity: 0;
-  }
-
-  .hero .subtitle {
-    font-size: clamp(15px, 1.8vw, 19px);
-    color: #CEBEA4;
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 0;
-    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-    opacity: 0;
-  }
-
-  .hero-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 48px;
-    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
-    opacity: 0;
-  }
-
-  .hero-stack-line {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(16px, 1.8vw, 22px);
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.5;
-  }
-
-  .hero-stack-line:nth-child(1) { color: #F8F6F2; }
-  .hero-stack-line:nth-child(2) { color: #F8F6F2; }
-  .hero-stack-line:nth-child(3) { color: #F8F6F2; }
-
-  .hero .cta-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
-    opacity: 0;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: #C88A50;
-    color: #F8F6F2;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 16px 36px;
-    border-radius: 6px;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover {
-    background: #A06830;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(200, 138, 80, 0.25);
-  }
-
-  .btn-ghost {
-    display: inline-block;
-    color: #9A8C74;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.3s;
-    cursor: pointer;
-    border: none;
-    background: none;
-  }
-
-  .btn-ghost:hover { color: #C88A50; }
-
-  .btn-outline {
-    display: inline-block;
-    color: #CEBEA4;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 14px 28px;
-    border: 1px solid #9A8C74;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.3s;
-    cursor: pointer;
-    background: none;
-  }
-
-  .btn-outline:hover {
-    border-color: #C88A50;
-    color: #C88A50;
-  }
-
-  .scroll-indicator {
-    position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  .scroll-indicator .scroll-cta {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #F8F6F2;
-    letter-spacing: 0.01em;
-    margin-bottom: 4px;
-  }
-
-  .scroll-indicator .scroll-text {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #C88A50;
-  }
-
-  .scroll-indicator .scroll-arrow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    animation: scrollBounce 2s ease-in-out infinite;
-  }
-
-  .scroll-indicator .scroll-arrow span {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-right: 2px solid #C88A50;
-    border-bottom: 2px solid #C88A50;
-    transform: rotate(45deg);
-  }
-
-  .scroll-indicator .scroll-arrow span:nth-child(2) {
-    opacity: 0.5;
-    margin-top: -6px;
-  }
-
-  @keyframes scrollBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-  }
-
-  .hero-bottom-fade {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(to bottom, transparent, rgba(248,246,242,0.06));
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .observation {
-    background: #F8F6F2;
-    padding: 120px 8vw;
-  }
-
-  .observation h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(32px, 4.5vw, 56px);
-    font-weight: 700;
-    color: #1C1914;
-    margin-bottom: 64px;
-    letter-spacing: -0.02em;
-  }
-
-  .observation-prose {
-    max-width: 680px;
-  }
-
-  .observation-prose p {
-    font-size: clamp(16px, 1.8vw, 19px);
-    color: #1C1914;
-    line-height: 1.8;
-    margin-bottom: 28px;
-  }
-
-  .stat-block {
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
-
-  .stat-row {
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    margin-bottom: 48px;
-  }
-
-  .stat-number {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-weight: 700;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  .stat-row:nth-child(1) .stat-number {
-    font-size: clamp(56px, 8vw, 72px);
-    color: #C88A50;
-  }
-
-  .stat-row:nth-child(2) .stat-number {
-    font-size: clamp(48px, 6.5vw, 60px);
-    color: #C88A50;
-  }
-
-  .stat-row:nth-child(3) .stat-number {
-    font-size: clamp(40px, 5.5vw, 48px);
-    color: #C88A50;
-  }
-
-  .stat-desc {
-    font-size: 17px;
-    color: #1C1914;
-    line-height: 1.6;
-  }
-
-  .sources {
-    font-size: 13px;
-    color: #9A8C74;
-    font-style: italic;
-    margin-top: 32px;
-  }
-
-  .honest-moment {
-    background: #F1EDE8;
-    padding: 120px 8vw 100px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .honest-moment-inner {
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .honest-opener {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    color: #1C1914;
-    line-height: 1.25;
-    margin-bottom: 56px;
-    letter-spacing: -0.02em;
-  }
-
-  .honest-opener .warm-accent { color: #A06830; }
-
-  .honest-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    margin-bottom: 56px;
-    padding-left: 24px;
-    border-left: 2px solid rgba(200,138,80,0.4);
-  }
-
-  .honest-line {
-    font-size: clamp(16px, 1.7vw, 18px);
-    color: #1C1914;
-    line-height: 1.75;
-  }
-
-  .honest-line .bronze { color: #A06830; font-weight: 600; }
-  .honest-line .warm-accent { color: #A06830; font-weight: 600; }
-
-  .honest-resolve {
-    font-size: clamp(16px, 1.7vw, 18px);
-    color: #1C1914;
-    line-height: 1.75;
-    max-width: 680px;
-  }
-
-  .honest-resolve .warm-accent { color: #A06830; font-weight: 600; }
-  .honest-resolve .bronze { color: #C88A50; font-weight: 600; }
-
-  .honest-callout {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(22px, 2.8vw, 32px);
-    font-weight: 700;
-    color: #1C1914;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-    margin: 48px 0;
-  }
-  .honest-callout .copper { color: #C88A50; }
-
-  .continuum {
-    background: #F1EDE8;
-    padding: 120px 8vw;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .honest-moment-circles {
-    position: absolute;
-    right: -80px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid rgba(200,138,80,0.75);
-    animation: ringPulse 5s ease-in-out infinite;
-    box-shadow:
-      0 0 0 44px transparent,
-      0 0 0 46px rgba(200,138,80,0.55),
-      0 0 0 99px transparent,
-      0 0 0 101px rgba(200,138,80,0.42),
-      0 0 0 164px transparent,
-      0 0 0 166px rgba(200,138,80,0.30),
-      0 0 0 239px transparent,
-      0 0 0 241px rgba(200,138,80,0.20),
-      0 0 0 324px transparent,
-      0 0 0 326px rgba(200,138,80,0.11);
-    pointer-events: none;
-  }
-
-  @media (max-width: 900px) {
-    .honest-moment-circles {
-      right: auto;
-      left: 50%;
-      top: auto;
-      bottom: -40px;
-      transform: translateX(-50%) scale(0.55);
-      opacity: 0.5;
-    }
-  }
-
-  .continuum-heading {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    color: #1C1914;
-    letter-spacing: -0.02em;
-    margin-bottom: 56px;
-  }
-
-  .continuum-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    max-width: 1200px;
-  }
-
-  .continuum-phase {
-    padding: 36px 32px;
-    border-left: 2px solid rgba(200, 138, 80, 0.25);
-    position: relative;
-  }
-
-  .continuum-phase:first-child {
-    border-left: 2px solid #C88A50;
-  }
-
-  .phase-number {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #C88A50;
-    letter-spacing: 0.05em;
-    margin-bottom: 12px;
-  }
-
-  .phase-title {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(20px, 2.2vw, 28px);
-    font-weight: 700;
-    color: #1C1914;
-    margin-bottom: 16px;
-    letter-spacing: -0.01em;
-  }
-
-  .phase-sage .phase-number { color: #C88A50; }
-  .phase-sage { border-left-color: rgba(200, 138, 80, 0.3); }
-
-  .phase-sage:first-child { border-left-color: #C88A50; }
-
-  .phase-desc {
-    font-size: 15px;
-    color: #3C3020;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 900px) {
-    .continuum-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .continuum-phase {
-      padding: 28px 24px;
-    }
-  }
-
-  .dimensions {
-    background: #F8F6F2;
-    padding: 120px 8vw;
-  }
-
-  .dimensions h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(32px, 4.5vw, 56px);
-    font-weight: 700;
-    color: #1C1914;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-  }
-
-  .dimensions .intro {
-    font-size: 18px;
-    color: #1C1914;
-    line-height: 1.6;
-    max-width: 600px;
-    margin-bottom: 64px;
-  }
-
-  .dim-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .dim-card {
-    background: rgba(0,0,0,0.02);
-    border-radius: 8px;
-    padding: 32px 28px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .dim-card:hover {
-    background: rgba(0,0,0,0.04);
-    transform: translateY(-3px);
-  }
-
-  .dim-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-
-  .dim-card:nth-child(1)::before { background: #C88A50; }
-  .dim-card:nth-child(2)::before { background: #C88A50; }
-  .dim-card:nth-child(3)::before { background: #C88A50; }
-  .dim-card:nth-child(4)::before { background: #C88A50; }
-  .dim-card:nth-child(5)::before { background: #C88A50; }
-  .dim-card:nth-child(6)::before { background: #C88A50; }
-
-  .dim-icon {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    display: block;
-    color: #C88A50;
-    opacity: 0.9;
-  }
-
-  .dim-card:nth-child(2) .dim-icon,
-  .dim-card:nth-child(4) .dim-icon,
-  .dim-card:nth-child(6) .dim-icon { color: #C88A50; }
-
-  .dim-card h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: #1C1914;
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-
-  .dim-card p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .dim-grid { grid-template-columns: 1fr; }
-  }
-
-  .arch-section {
-    background: #1C1914;
-    padding: 100px 8vw;
-    text-align: center;
-  }
-
-  .arch-heading {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(26px, 3.2vw, 40px);
-    font-weight: 700;
-    color: #F8F6F2;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-  }
-
-  .arch-lede {
-    font-size: clamp(15px, 1.6vw, 18px);
-    color: #CEBEA4;
-    line-height: 1.6;
-    margin-bottom: 48px;
-  }
-
-  .arch-bubbles-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-
-  .arch-link {
-    display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: #C88A50;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .arch-link:hover { color: #CEBEA4; }
-
-  .arch-bubble {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 28px;
-    border-radius: 32px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: all 0.3s ease;
-  }
-
-  .arch-bubble:hover {
-    transform: translateY(-3px);
-  }
-
-  .arch-bubble:nth-child(1) { background: #C88A50; color: #F8F6F2; }
-  .arch-bubble:nth-child(2) { background: #C88A50; color: #F8F6F2; }
-  .arch-bubble:nth-child(3) { background: #C88A50; color: #F8F6F2; }
-  .arch-bubble:nth-child(4) { background: #C88A50; color: #F8F6F2; }
-  .arch-bubble:nth-child(5) { background: #C88A50; color: #F8F6F2; }
-  .arch-bubble:nth-child(6) { background: #C88A50; color: #F8F6F2; }
-  .arch-bubble:nth-child(7) { background: #C88A50; color: #F8F6F2; }
-
-  @media (max-width: 768px) {
-    .arch-bubbles-row { gap: 12px; }
-    .arch-bubble { padding: 12px 22px; font-size: 14px; }
-  }
-
-  .assess-cta {
-    background: #1C1914;
-    padding: 100px 8vw;
-    text-align: center;
-  }
-
-  .assess-inner {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .assess-cta h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(26px, 3.5vw, 42px);
-    font-weight: 700;
-    color: #F8F6F2;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-  }
-
-  .assess-cta p {
-    font-size: 17px;
-    color: #CEBEA4;
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-
-  .assess-cta .cta-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .the-resultant {
-    background: #F1EDE8;
-    padding: 100px 8vw;
-    text-align: center;
-  }
-
-  .the-resultant h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(26px, 3.5vw, 42px);
-    font-weight: 700;
-    color: #1C1914;
-    line-height: 1.25;
-    max-width: 700px;
-    margin: 0 auto 24px;
-    letter-spacing: -0.02em;
-  }
-
-  .the-resultant p {
-    font-size: 17px;
-    color: #1C1914;
-    line-height: 1.7;
-    max-width: 620px;
-    margin: 0 auto 24px;
-  }
-
-  .the-resultant .accent-word {
-    color: #C88A50;
-    font-weight: 600;
-  }
-
-  .the-resultant .copper-text {
-    color: #C88A50;
-    font-weight: 500;
-  }
-
-  .the-resultant .cta-row {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .btn-primary-dark {
-    display: inline-block;
-    background: #1C1914;
-    color: #F8F6F2;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 16px 36px;
-    border-radius: 6px;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary-dark:hover {
-    background: #16130F;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(22, 19, 15, 0.25);
-  }
-
-  .footer-cta {
-    background: #1C1914;
-    padding: 120px 8vw;
-    text-align: center;
-  }
-
-  .footer-cta .brand-line {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: #9A8C74;
-    margin-bottom: 40px;
-  }
-
-  .footer-cta h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(28px, 4vw, 50px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.2;
-    margin-bottom: 40px;
-    letter-spacing: -0.02em;
-  }
-
-  .tagline {
-    font-size: clamp(16px, 2vw, 22px);
-    color: #CEBEA4;
-    font-style: italic;
-    margin-bottom: 48px;
-  }
-
-  .footer-cta .cta-row {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 80px;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(200,185,160,0.15);
-    padding-top: 32px;
-  }
-
-  .footer-bottom p {
-    font-size: 13px;
-    color: #9A8C74;
-  }
-
-  .footer-bottom a {
-    color: #9A8C74;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-bottom a:hover { color: #C88A50; }
-
-  /* CONTACT MODAL */
-  .contact-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 500; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.35s ease; }
-  .contact-overlay.open { opacity: 1; visibility: visible; }
-  .contact-modal { background: #1C1914; border-radius: 16px 16px 0 0; max-width: 520px; width: 100%; padding: 48px 40px 40px; text-align: center; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto; }
-  .contact-overlay.open .contact-modal { transform: translateY(0); }
-  .contact-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #9A8C74; font-size: 24px; cursor: pointer; padding: 4px 8px; transition: color 0.2s; line-height: 1; }
-  .contact-close:hover { color: #F8F6F2; }
-  .contact-modal h2 { font-family: 'Trebuchet MS', Georgia, serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: #F8F6F2; margin-bottom: 8px; letter-spacing: -0.02em; }
-  .contact-modal .contact-sub { font-size: 15px; color: #9A8C74; margin-bottom: 32px; line-height: 1.6; }
-  .contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
-  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 600px) { .contact-row { grid-template-columns: 1fr; } .contact-modal { padding: 40px 24px 32px; } }
-  .contact-field { display: flex; flex-direction: column; }
-  .contact-field label { font-size: 12px; font-weight: 600; color: #9A8C74; margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .contact-field input, .contact-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,185,160,0.15); border-radius: 6px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #F8F6F2; transition: all 0.3s; resize: none; }
-  .contact-field input::placeholder, .contact-field textarea::placeholder { color: rgba(200,185,160,0.35); }
-  .contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: #C88A50; background: rgba(255,255,255,0.1); }
-  .contact-submit { display: inline-block; background: #C88A50; color: #F8F6F2; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 16px 36px; border-radius: 6px; border: none; letter-spacing: 0.02em; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-top: 8px; width: 100%; }
-  .contact-submit:hover { background: #A06830; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200, 138, 80, 0.25); }
-  .contact-note { font-size: 13px; color: #6A5A48; margin-top: 10px; text-align: center; }
-  .contact-success { display: none; text-align: center; padding: 40px 0; }
-  .contact-success h3 { font-family: 'Trebuchet MS', Georgia, serif; font-size: 24px; font-weight: 700; color: #C88A50; margin-bottom: 12px; }
-  .contact-success p { font-size: 16px; color: #CEBEA4; line-height: 1.6; }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @keyframes ringPulse {
-    0%, 100% { transform: translateY(-50%) scale(0.95); opacity: 0.5; }
-    50% { transform: translateY(-50%) scale(1.1); opacity: 1; }
-  }
-
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  @media (max-width: 768px) {
-    .stat-row {
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .hero h1 {
-      line-height: 1.18;
-    }
-
-    .footer-cta .cta-row { flex-direction: column; align-items: center; }
-  }
-
-  /* HAMBURGER + MOBILE NAV */
-  .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101;}
-  .nav-hamburger span{display:block;width:22px;height:2px;background:#CEBEA4;margin:5px 0;transition:all 0.3s;}
-  .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-  .nav-hamburger.active span:nth-child(2){opacity:0;}
-  .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-  @media (max-width: 768px) {
-    .nav-hamburger{display:block;}
-    .nav-links{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(248,246,242,0.98);flex-direction:column;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:all 0.4s;}
-    .nav-links.open{opacity:1;visibility:visible;}
-    .nav-links a:not(.nav-cta){font-size:20px;color:#1C1914;}
-    .nav-dropdown-menu{position:static;transform:none;opacity:1;visibility:visible;background:transparent;box-shadow:none;padding:4px 0 4px 16px;min-width:auto;}
-    .nav-dropdown-label svg{display:none;}
-  }
-.footer-logo-text{font-family:"Trebuchet MS",sans-serif;font-weight:600;}
-  /* ===== REWORK 2026-05-20: NEW SECTION STYLES ===== */
-
-  .buyer-moment {
-    background: #1C1914;
-    padding: 130px 8vw;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .buyer-moment-inner {
-    max-width: 820px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .buyer-opener {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(28px, 3.6vw, 44px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.22;
-    margin-bottom: 56px;
-    letter-spacing: -0.02em;
-  }
-
-  .buyer-opener .copper { color: #C88A50; }
-
-  .buyer-pressure {
-    border-left: 2px solid rgba(200,138,80,0.45);
-    padding-left: 28px;
-    margin-bottom: 56px;
-  }
-
-  .buyer-pressure p {
-    font-size: clamp(16px, 1.7vw, 19px);
-    color: #CEBEA4;
-    line-height: 1.75;
-    margin-bottom: 18px;
-  }
-
-  .buyer-pressure p:last-child { margin-bottom: 0; }
-
-  .buyer-pressure .pressure-line {
-    display: block;
-    margin-bottom: 12px;
-  }
-
-  .buyer-pressure .pressure-label {
-    color: #C88A50;
-    font-weight: 600;
-  }
-
-  .buyer-close {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(20px, 2.4vw, 28px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    max-width: 720px;
-  }
-
-  .buyer-close .copper { color: #C88A50; }
-
-  @media (max-width: 768px) {
-    .buyer-moment { padding: 90px 8vw; }
-    .buyer-pressure { padding-left: 20px; }
-  }
-
-  /* ===== EDITORIAL DIMENSIONS ===== */
-
-  .dimensions-editorial {
-    background: #F8F6F2;
-    padding: 130px 8vw 110px;
-  }
-
-  .dim-ed-header {
-    max-width: 1200px;
-    margin-bottom: 88px;
-  }
-
-  .dim-ed-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #C88A50;
-    margin-bottom: 18px;
-  }
-
-  .dim-ed-header h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(32px, 4.5vw, 56px);
-    font-weight: 700;
-    color: #1C1914;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    max-width: 820px;
-  }
-
-  .dim-ed-header h2 .copper { color: #C88A50; }
-
-  .dim-ed-list {
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    gap: 96px;
-  }
-
-  .dim-ed-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .dim-ed-item:nth-child(even) {
-    direction: rtl;
-  }
-
-  .dim-ed-item:nth-child(even) > * {
-    direction: ltr;
-  }
-
-  .dim-ed-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 8px;
-  }
-
-  .dim-ed-num {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(64px, 8vw, 96px);
-    font-weight: 700;
-    color: #C88A50;
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-  }
-
-  .dim-ed-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #9A8C74;
-  }
-
-  .dim-ed-body h3 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(24px, 2.8vw, 34px);
-    font-weight: 700;
-    color: #1C1914;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 18px;
-  }
-
-  .dim-ed-body p {
-    font-size: clamp(15px, 1.6vw, 18px);
-    color: #3C3020;
-    line-height: 1.7;
-    max-width: 480px;
-  }
-
-  .dim-ed-body p .copper {
-    color: #A06830;
-    font-weight: 600;
-  }
-
-  .dim-ed-close {
-    max-width: 820px;
-    margin-top: 110px;
-    padding-top: 56px;
-    border-top: 1px solid rgba(28,25,20,0.12);
-  }
-
-  .dim-ed-close p {
-    font-size: clamp(16px, 1.7vw, 19px);
-    color: #1C1914;
-    line-height: 1.75;
-    margin-bottom: 36px;
-    max-width: 680px;
-  }
-
-  .dim-ed-close .copper { color: #C88A50; font-weight: 600; }
-
-  .dim-ed-close .cta-row {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-
-  .dim-ed-close .btn-ghost {
-    color: #6A5A48;
-  }
-
-  .dim-ed-close .btn-ghost:hover {
-    color: #C88A50;
-  }
-
-  @media (max-width: 900px) {
-    .dim-ed-item {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    .dim-ed-item:nth-child(even) {
-      direction: ltr;
-    }
-    .dim-ed-meta {
-      flex-direction: row;
-      align-items: baseline;
-      gap: 16px;
-    }
-    .dim-ed-num {
-      font-size: 56px;
-    }
-    .dim-ed-list { gap: 64px; }
-    .dim-ed-close { margin-top: 72px; }
-  }
-
-  /* ===== SIMPLIFIED ARCHITECTURE LINE ===== */
-
-  .arch-line-section {
-    background: #1C1914;
-    padding: 90px 8vw;
-  }
-
-  .arch-line-inner {
-    max-width: 820px;
-  }
-
-  .arch-line-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #C88A50;
-    margin-bottom: 18px;
-  }
-
-  .arch-line-text {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(22px, 2.8vw, 32px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    margin-bottom: 28px;
-  }
-
-  .arch-line-text .copper { color: #C88A50; }
-
-  .arch-line-link {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: #C88A50;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .arch-line-link:hover { color: #CEBEA4; }
-
-  /* ===== RESULTANT ASIDE ===== */
-  .resultant-aside {
-    display: block;
-    margin-top: 14px;
-    font-size: 15px;
-    color: #6A5A48;
-    font-style: italic;
-  }
-
-  .resultant-aside .copper { color: #C88A50; font-style: normal; font-weight: 600; }
-
-
-  /* ===== SEVEN LAYERS STACK (rework 2026-05-20) ===== */
-
-  .layers-stack {
-    background: #1C1914;
-    padding: 130px 8vw 120px;
-    position: relative;
-  }
-
-  .layers-header {
-    max-width: 1100px;
-    margin-bottom: 72px;
-  }
-
-  .layers-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #C88A50;
-    margin-bottom: 18px;
-  }
-
-  .layers-header h2 {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(32px, 4.5vw, 56px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-    max-width: 820px;
-  }
-
-  .layers-header h2 .copper { color: #C88A50; }
-
-  .layers-header p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(15px, 1.6vw, 18px);
-    color: #CEBEA4;
-    line-height: 1.7;
-    max-width: 640px;
-  }
-
-  .layers-list {
-    max-width: 1100px;
-    border-top: 1px solid rgba(200,138,80,0.22);
-  }
-
-  .layer-row {
-    display: grid;
-    grid-template-columns: 100px 280px 1fr;
-    gap: 40px;
-    align-items: baseline;
-    padding: 36px 0;
-    border-bottom: 1px solid rgba(200,138,80,0.22);
-    transition: background 0.3s ease;
-  }
-
-  .layer-row:hover {
-    background: rgba(200,138,80,0.04);
-  }
-
-  .layer-num {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(36px, 4.5vw, 56px);
-    font-weight: 700;
-    color: #C88A50;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    text-align: right;
-    opacity: 0.85;
-  }
-
-  .layer-name {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(22px, 2.6vw, 32px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-
-  .layer-outcome {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(15px, 1.55vw, 17px);
-    color: #CEBEA4;
-    line-height: 1.7;
-    max-width: 540px;
-  }
-
-  .layer-outcome .copper { color: #C88A50; font-weight: 600; }
-
-  .layers-close {
-    max-width: 1100px;
-    margin-top: 64px;
-  }
-
-  .layers-close p {
-    font-family: 'Trebuchet MS', Georgia, serif;
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 700;
-    color: #F8F6F2;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
-    max-width: 720px;
-  }
-
-  .layers-close p .copper { color: #C88A50; }
-
-  .layers-close a {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: #C88A50;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .layers-close a:hover { color: #CEBEA4; }
-
-  @media (max-width: 900px) {
-    .layer-row {
-      grid-template-columns: 64px 1fr;
-      gap: 20px;
-      padding: 28px 0;
-    }
-    .layer-name {
-      grid-column: 2 / 3;
-    }
-    .layer-outcome {
-      grid-column: 2 / 3;
-      margin-top: 10px;
-    }
-  }
-
-  /* ===== /SEVEN LAYERS STACK ===== */
-
-  /* ===== /REWORK 2026-05-20 ===== */
-
-</style>
-</head>
-<body>
-
-<nav class="site-nav">
-  <a href="/" class="nav-logo">
-    <span class="mark">AI</span><span class="r">R</span><span class="name">esulting</span>
-  </a>
-  <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <div class="nav-dropdown">
-      <span class="nav-dropdown-label">The Readiness Gaps <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div class="nav-dropdown-menu">
-        <a href="/the-data-gap.html">The Data Gap</a>
-        <a href="/the-infrastructure-gap.html">The Infrastructure Gap</a>
-        <a href="/the-governance-gap.html">The Governance Gap</a>
-        <a href="/the-experience-gap.html">The Experience Gap</a>
-        <a href="/the-imagination-gap.html">The Imagination Gap</a>
-      </div>
-    </div>
-    <a href="/our-approach.html">Our Approach</a>
-    <a href="/field-notes.html">Field Notes</a>
-    <a href="#" onclick="event.preventDefault();document.getElementById('contactOverlay').classList.add('open');" style="cursor:pointer;">Book a Conversation</a>
-    <a href="assessment.html" class="nav-cta">Take the Assessment</a>
-  </div>
-</nav>
-
-<!-- 1. HERO -->
-<section class="hero">
-  <canvas id="heroCanvas"></canvas>
-
-  <div class="hero-content">
-    <h1><span style="color:#C88A50;">AI</span> is a system.<br><span style="color:#C88A50;">Readiness</span> determines what it's worth.</h1>
-    <div class="hero-stack">
-      <span class="hero-stack-line"><span style="color:#C88A50;">A</span>ssessing what you have.</span>
-      <span class="hero-stack-line"><span style="color:#C88A50;">I</span>dentifying what you need.</span>
-      <span class="hero-stack-line"><span style="color:#C88A50;">R</span>esulting in a foundation that actually holds.</span>
-    </div>
-    <div class="cta-row">
-      <a href="assessment.html" class="btn-primary">Clarity is the Starting Line</a>
-    </div>
-  </div>
-  <div class="hero-bottom-fade"></div>
-  <div class="scroll-indicator" onclick="document.getElementById('honestMoment').scrollIntoView({behavior:'smooth'})">
-    <span class="scroll-cta">The story</span>
-    <span class="scroll-text">Scroll to explore</span>
-    <div class="scroll-arrow"><span></span><span></span></div>
-  </div>
-</section>
-
-<!-- 2. THE HONEST MOMENT -->
-<!-- AIR-HONEST-MOMENT-VERSION: v3 / stamped 2026-05-04 / opener="Organizations bought AI the way they buy everything." / palette=warm-accent + copper / DO NOT REVERT TO "Let's be honest" / sage / "mid-market companies" / "AC9379" / If you load this section and don't see this comment marker, the file has been reverted to an older snapshot. -->
-<section class="honest-moment" id="honestMoment" data-air-section-version="honest-moment-v3-2026-05-04">
-  <div class="honest-moment-circles"></div>
-  <div class="honest-moment-inner">
-    <p class="honest-opener reveal">Organizations bought AI the way they buy everything.</p>
-    <div class="honest-lines">
-      <p class="honest-line reveal">Features, pricing, contract, sign. Except AI doesn't work that way. It's the first technology where <strong class="warm-accent">the product is the least important layer of the stack</strong>. What makes it perform is everything underneath. And for most organizations, that was never built.</p>
-    </div>
-
-    <p class="honest-callout reveal"><span class="copper">The tools aren't the problem.</span><br>The foundation is.</p>
-    <div class="honest-lines">
-      <p class="honest-line reveal">You can't govern AI well if you haven't governed the data going in. You can't govern either one if nobody owns it. And you can't trust the output of a system when no one has decided who answers for the decisions it influences.</p>
-    </div>
-    <p class="honest-callout reveal">Readiness isn't a phase.<br>It's <span class="copper">the whole point</span>.</p>
-    <div class="honest-lines">
-      <p class="honest-line reveal">The organizations getting value from AI invested in these layers long before the tools showed up. The rest are still trying to figure out why nothing's working.</p>
-    </div>
-  </div>
-</section>
-<!-- /AIR-HONEST-MOMENT-VERSION v3 -->
-
-
-<!-- 2b. THE BUYER MOMENT (rework 2026-05-20) -->
-<section class="buyer-moment" id="buyerMoment">
-  <div class="buyer-moment-inner">
-    <p class="buyer-opener reveal">Most companies aren't deciding <span class="copper">whether</span> to use AI anymore. They're stuck deciding <span class="copper">what to do next</span>.</p>
-
-    <div class="buyer-pressure reveal">
-      <p>Fifty people on Copilot. A chatbot that mostly works. A monthly bill that keeps climbing.</p>
-      <p><span class="pressure-label">Pressure from the top</span> to scale it across the org without breaking anything.</p>
-      <p><span class="pressure-label">Pressure from finance</span> to explain where the spend is going and what's coming back.</p>
-      <p><span class="pressure-label">Pressure from the board</span> to show that the AI strategy is, in fact, a strategy.</p>
-    </div>
-
-    <p class="buyer-close reveal">That's the gap. The question is what to do with what you already have, and what to build underneath it so the next move actually works. <span class="copper">That gap is where AI Resulting starts.</span></p>
-  </div>
-</section>
-
-<!-- 3. SIX DIMENSIONS -->
-<section class="dimensions-editorial" id="dimensions">
-  <div class="dim-ed-header reveal">
-    <p class="dim-ed-eyebrow">The framework</p>
-    <h2>Readiness shows up in <span class="copper">six places.</span></h2>
-  </div>
-
-  <div class="dim-ed-list">
-
-    <article class="dim-ed-item reveal">
-      <div class="dim-ed-meta">
-        <span class="dim-ed-num">01</span>
-        <span class="dim-ed-label">Dimension</span>
-      </div>
-      <div class="dim-ed-body">
-        <h3>Strategic Vision &amp; Leadership</h3>
-        <p>AI is going to reshape how the work gets done: which workflows, which roles, what the business becomes. Is anyone holding the vision for that, or is AI still <span class="copper">just reactive</span>?</p>
-      </div>
-    </article>
-
-    <article class="dim-ed-item reveal">
-      <div class="dim-ed-meta">
-        <span class="dim-ed-num">02</span>
-        <span class="dim-ed-label">Dimension</span>
-      </div>
-      <div class="dim-ed-body">
-        <h3>Data Readiness</h3>
-        <p>Your data is spread across dozens of systems that were never built to talk to each other. <span class="copper">Everything downstream depends on fixing that</span>.</p>
-      </div>
-    </article>
-
-    <article class="dim-ed-item reveal">
-      <div class="dim-ed-meta">
-        <span class="dim-ed-num">03</span>
-        <span class="dim-ed-label">Dimension</span>
-      </div>
-      <div class="dim-ed-body">
-        <h3>Technology Infrastructure</h3>
-        <p>Can your network and compute environment actually handle continuous AI workloads? <span class="copper">The gap is physical and measurable</span>.</p>
-      </div>
-    </article>
-
-    <article class="dim-ed-item reveal">
-      <div class="dim-ed-meta">
-        <span class="dim-ed-num">04</span>
-        <span class="dim-ed-label">Dimension</span>
-      </div>
-      <div class="dim-ed-body">
-        <h3>Governance &amp; Security</h3>
-        <p>Governing who uses what and where the data goes, and securing all of it. Shadow AI is already in the building; <span class="copper">the guardrails usually aren't</span>.</p>
-      </div>
-    </article>
-
-    <article class="dim-ed-item reveal">
-      <div class="dim-ed-meta">
-        <span class="dim-ed-num">05</span>
-        <span class="dim-ed-label">Dimension</span>
-      </div>
-      <div class="dim-ed-body">
-        <h3>Experience Layer</h3>
-        <p>Every channel your customers and teams touch: phone, chat, email, video. It's where ROI shows up first, and where context is either <span class="copper">captured or lost between handoffs</span>.</p>
-      </div>
-    </article>
-
-    <article class="dim-ed-item reveal">
-      <div class="dim-ed-meta">
-        <span class="dim-ed-num">06</span>
-        <span class="dim-ed-label">Dimension</span>
-      </div>
-      <div class="dim-ed-body">
-        <h3>Workforce &amp; Adoption</h3>
-        <p>Your people aren't waiting. They're already using these tools while the org debates whether to. Catching up is the easy part; the real work is leading a <span class="copper">new way of working</span>.</p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- 4. THE SEVEN LAYERS STACK (rework 2026-05-20: full editorial treatment, replaces both pill row and single-line version) -->
-<section class="layers-stack" id="layers">
-  <div class="layers-header reveal">
-    <p class="layers-eyebrow">The architecture underneath</p>
-    <h2>Six dimensions tell you what to <span class="copper">measure</span>. Seven layers tell you what to <span class="copper">build</span>.</h2>
-    <p>The dimensions read the present state. The layers describe what gets built once the gaps are visible.</p>
-  </div>
-
-  <div class="layers-list">
-
-    <div class="layer-row reveal">
-      <div class="layer-num">01</div>
-      <div class="layer-name">Platform</div>
-      <p class="layer-outcome">The secure AI gateway. Managed model access, cost visibility, and the <span class="copper">surface AI actually runs on</span>.</p>
-    </div>
-
-    <div class="layer-row reveal">
-      <div class="layer-num">02</div>
-      <div class="layer-name">Governance</div>
-      <p class="layer-outcome">Policies, classification, shadow AI detection, and the visibility to know <span class="copper">what's already happening</span> across the environment.</p>
-    </div>
-
-    <div class="layer-row reveal">
-      <div class="layer-num">03</div>
-      <div class="layer-name">Intelligence</div>
-      <p class="layer-outcome">Data readiness and system integration. Connecting fragmented sources so AI can <span class="copper">reach the information it needs</span>.</p>
-    </div>
-
-    <div class="layer-row reveal">
-      <div class="layer-num">04</div>
-      <div class="layer-name">Connectivity</div>
-      <p class="layer-outcome">Network, cloud, and compute designed for AI workloads. A gap here <span class="copper">constrains everything above it</span>.</p>
-    </div>
-
-    <div class="layer-row reveal">
-      <div class="layer-num">05</div>
-      <div class="layer-name">Security</div>
-      <p class="layer-outcome">Zero-trust access, AI traffic visibility, real-time threat detection. Network security and AI security as <span class="copper">one architecture</span>.</p>
-    </div>
-
-    <div class="layer-row reveal">
-      <div class="layer-num">06</div>
-      <div class="layer-name">Enablement</div>
-      <p class="layer-outcome">Training, adoption, collaboration tools. Turning the AI already built into the platforms you own into <span class="copper">actual value</span>.</p>
-    </div>
-
-    <div class="layer-row reveal">
-      <div class="layer-num">07</div>
-      <div class="layer-name">Scale</div>
-      <p class="layer-outcome">Where readiness becomes results. Production deployment that <span class="copper">compounds with every interaction</span>. The intelligence your people generate becomes yours to keep and build on.</p>
-    </div>
-
-  </div>
-
-  <div class="layers-close reveal">
-    <p>Seven layers. One sequence. Your <span class="copper">Resultant</span> brings the partners who build them.</p>
-  </div>
-</section>
-
-<!-- 6. THE RESULTANT (rework 2026-05-20) -->
-<section class="the-resultant">
-  <h2 class="reveal">The assessment reveals where you stand.<br>Your <span style="color:#C88A50;">Resultant</span> shows you what to do about it.</h2>
-  <p class="reveal">There is a human on the other side of this. Someone who has read your readiness data before your first conversation, who knows which solutions fit the problem in front of you, and who moves at the speed the work demands. <span class="resultant-aside">No proposal stack. No six-figure PowerPoint. The conversation goes straight to your next move.</span></p>
-  <p class="reveal" style="margin-top:20px;color:#6A5A48;font-weight:500;font-style:italic;">Assessment to action. Diagnosis to solution. Readiness to results.</p>
-  <div class="cta-row reveal">
-    <a href="#" class="btn-primary-dark" onclick="document.getElementById('contactOverlay').classList.add('open');return false;">Book a Conversation</a>
-  </div>
-</section>
-
-<!-- 7. THE CLOSE -->
-<section class="footer-cta">
-  <div class="reveal" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 32px;">
-    <span style="background: #F8F6F2; color: #C88A50; font-size: 12px; font-weight: 700; padding: 6px 9px; border-radius: 5px; letter-spacing: 0.08em; margin-right: 5px;">AI</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: #C88A50; letter-spacing: -0.02em;">R</span><span style="font-family: 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 600; color: #F8F6F2; margin-left: -1px;">esulting</span>
-  </div>
-  <p class="tagline reveal"><span style="color:#C88A50;">A</span>ssess · <span style="color:#C88A50;">I</span>dentify · <span style="color:#C88A50;">R</span>esult</p>
-  <h2 class="reveal">The readiness gap closes here.</h2>
-
-  <div class="cta-row reveal">
-    <a href="assessment.html" class="btn-primary">Let's Find Yours</a>
-  </div>
-  <p class="reveal" style="font-size: 13px; color: #9A8C74; margin-top: 20px;">Rather talk first? <a href="#" onclick="document.getElementById('contactOverlay').classList.add('open');return false;" style="color: #C88A50; text-decoration: underline; text-underline-offset: 3px;">Book a conversation</a></p>
-  <div class="footer-bottom reveal">
-    <p>&copy; 2026 <span class="footer-logo-text"><strong>AI Resulting</strong></span> LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></p>
-  </div>
-</section>
-
-<!-- CONTACT MODAL -->
-<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="contact-modal">
-    <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
-    <h2>Let's start with clarity.</h2>
-    <p class="contact-sub">A conversation about where you are and what's possible.</p>
-    <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
-      <div class="contact-row">
-        <div class="contact-field">
-          <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
-        </div>
-        <div class="contact-field">
-          <label for="cf-company">Company</label>
-          <input type="text" id="cf-company" name="company" placeholder="Company name">
-        </div>
-      </div>
-      <div class="contact-field">
-        <label for="cf-email">Work Email</label>
-        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
-      </div>
-      <div class="contact-field">
-        <label for="cf-interest">What's on your mind?</label>
-        <textarea id="cf-interest" name="interest" rows="3" placeholder="Anything you'd like us to know before we talk..."></textarea>
-      </div>
-      <button type="submit" class="contact-submit">Let's Connect</button>
-      <p class="contact-note">We'll reach out within one business day.</p>
-    </form>
-    <div class="contact-success" id="contactSuccess">
-      <h3>We'll be in touch.</h3>
-      <p>Thanks for reaching out. Someone from our team will connect with you within one business day.</p>
-    </div>
-  </div>
-</div>
-
-<script>
-function handleContactSubmit(e) {
-  e.preventDefault();
-  var form = document.getElementById('contactForm');
-  var success = document.getElementById('contactSuccess');
-  var submitBtn = form.querySelector('.contact-submit');
-  var originalBtnText = submitBtn.textContent;
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending\u2026';
-
-  var formData = new FormData(form);
-  formData.append('source', window.location.pathname);
-
-  fetch('https://formspree.io/f/mojyzjkk', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(function(response) {
-    if (response.ok) {
-      form.style.display = 'none';
-      success.style.display = 'block';
-      setTimeout(function() { document.getElementById('contactOverlay').classList.remove('open'); }, 3000);
-    } else {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
-      alert('There was a problem submitting your form. Please try again or email us directly at results@airesulting.com.');
-    }
-  })
-  .catch(function() {
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalBtnText;
-    alert('There was a problem connecting. Please try again or email us directly at results@airesulting.com.');
-  });
+/* Mineral palette study: a neutral paper field, restrained dimension tints, and copper only where the page needs a signal. */
+:root {
+  --paper: #f1f1ec;
+  --warm: #e4e3dc;
+  --mist: #c6d5d5;
+  --sage: #91a79b;
+  --clay: #b6673f;
+  --dimension-concept: #c5c5bc;
+  --dimension-data: #b9cdd1;
+  --dimension-infrastructure: #b8c2ca;
+  --dimension-governance: #b7c4b5;
+  --dimension-experience: #d8cfb4;
+  --jai-blue: #adc3cf;
+  --jai-blue-deep: #557b90;
+  --home-frame: var(--paper);
+  --page-frame: 8px;
+  --jai-ink: #203f4c;
+  --jai-line: rgba(50,86,104,.24);
 }
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.getElementById('contactOverlay').classList.remove('open'); });
-</script>
 
-<script>
-(function() {
-  const canvas = document.getElementById('heroCanvas');
-  const ctx = canvas.getContext('2d');
-  let w, h, particles, time = 0;
+body { background: var(--home-frame); padding: 0; }
+header { width: auto; margin: 0 var(--page-frame) var(--page-frame); border: 0; }
+main { width: auto; margin: 0; padding: 0 var(--page-frame); box-shadow: none; }
+main > * + * { margin-top: var(--page-frame); }
+footer { width: auto; margin: var(--page-frame) var(--page-frame) 0; }
 
-  const colors = [
-    { r: 200, g: 138, b: 80 },
-    { r: 180, g: 120, b: 60 },
-    { r: 160, g: 104, b: 48 },
-    { r: 154, g: 140, b: 116 },
-    { r: 206, g: 190, b: 164 },
-  ];
+/* Strategic Direction and Workforce & Adoption are the two conceptual lenses.
+   The other four fields are functional and get their own material tint. */
+.dimension.vision,
+.dimension.workforce { background: var(--dimension-concept); }
+.dimension.data { background: var(--dimension-data); }
+.dimension.infrastructure { background: var(--dimension-infrastructure); }
+.dimension.governance { background: var(--dimension-governance); }
+.dimension.experience { background: var(--dimension-experience); }
 
-  function resize() {
-    w = canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-    h = canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    initParticles();
-  }
+/* Keep the six dimensions visibly related while giving each one enough paper
+   around it to read as a deliberate field. */
+.dimension-grid {
+  gap: 10px;
+  overflow: visible;
+  isolation: isolate;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.dimension {
+  border: 1px solid rgba(19,35,33,.16);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(19,35,33,.045);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .35s ease;
+}
+.dimension .micro { margin-bottom: 18px; }
+.dimension:hover {
+  z-index: 2;
+  transform: translateY(-5px) scale(1.012);
+  box-shadow: none;
+  filter: saturate(1.06) brightness(1.015);
+}
 
-  function initParticles() {
-    particles = [];
-    const count = Math.min(Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 5000), 180);
-    for (let i = 0; i < count; i++) {
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      particles.push({
-        x: Math.random() * canvas.offsetWidth,
-        y: Math.random() * canvas.offsetHeight,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        radius: Math.random() * 3.5 + 1.2,
-        color,
-        alpha: Math.random() * 0.5 + 0.15,
-        phase: Math.random() * Math.PI * 2,
-        drift: Math.random() * 0.004 + 0.002,
+/* The AIR conversation stays on the canvas; technical blue is a fine structural note, not a field of color. */
+.experience-line { background: #e8e8e2; }
+.experience-line::before {
+  border-color: rgba(49,88,106,.19);
+  box-shadow: 0 0 0 7vw rgba(49,88,106,.022);
+}
+.air-conversation-panel {
+  background: var(--jai-blue);
+  color: var(--ink);
+  border: 1px solid rgba(49,88,106,.18);
+  border-radius: 22px;
+  box-shadow: 0 18px 34px rgba(19,35,33,.08);
+}
+.air-conversation-panel::before {
+  border-color: var(--jai-line);
+  box-shadow: 0 0 0 4rem rgba(49,88,106,.022);
+}
+.air-conversation-panel .micro,
+.air-conversation-step small { color: var(--clay); }
+.air-conversation-panel p.air-conversation-intro,
+.air-conversation-step span,
+.air-conversation-action span { color: var(--jai-ink); }
+.air-conversation-steps,
+.air-conversation-step { border-color: var(--jai-line); }
+.air-conversation-action .button {
+  background: var(--jai-blue-deep);
+  border-color: var(--jai-blue-deep);
+  color: #fff;
+}
+.air-conversation-action .button:hover {
+  background: #3f667b;
+  border-color: #3f667b;
+  color: #fff;
+}
+.button[data-open-dialog="jai-dialog"] {
+  background: var(--jai-blue-deep);
+  border-color: var(--jai-blue-deep);
+  color: #fff;
+}
+.button[data-open-dialog="jai-dialog"]:hover {
+  background: #3f667b;
+  border-color: #3f667b;
+}
+.button[data-open-dialog="resultant-dialog"] {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: #fff;
+}
+.button[data-open-dialog="resultant-dialog"]:hover {
+  background: #945136;
+  border-color: #945136;
+}
+.quiet-link[data-open-dialog="resultant-dialog"] {
+  background: transparent;
+  color: var(--clay);
+}
+.path-option:first-child {
+  background: #dbe5e9;
+  border-top: 4px solid var(--jai-blue-deep);
+}
+.path-option:nth-child(2) {
+  background: var(--paper);
+  border-top: 4px solid var(--clay);
+}
+.path-options {
+  gap: 14px;
+  align-self: start;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.path-option {
+  min-height: 238px;
+  border: 1px solid rgba(19,35,33,.16);
+  border-radius: 20px;
+  box-shadow: 0 12px 26px rgba(19,35,33,.05);
+}
+.path-option .button { margin-top: auto; }
+.layer-readout { --layer-color: var(--dimension-concept); }
+.air-next-steps > div:first-child > .micro,
+.path-option > .micro { display: none; }
+.air-next-steps h3,
+.path-option h4 { margin-top: 0; }
+.path-option h4 { margin-bottom: 36px; }
+@media (max-width: 570px) {
+  :root { --page-frame: 5px; }
+  .shell { width: min(100% - 34px, 1240px); }
+  .dimension-grid { gap: 8px; }
+}
+</style></head>
+<body>
+  <header>
+    <div class="shell">
+      <a class="mark" href="/" aria-label="AIR, AI Resulting home"><span class="mark-air">AI<span class="r">R</span></span><span class="mark-expansion"><b>AI</b> Resulting</span></a>
+      <nav aria-label="Primary navigation"><details class="nav-explore"><summary>Explore AI Readiness</summary><div class="nav-menu"><span class="nav-menu-label">The AIR framework</span><a class="framework" href="#map">See the six dimensions</a><span class="nav-menu-label">Explore by dimension</span><a href="strategic-direction.html">Strategic Direction</a><a href="data-readiness.html">Data Readiness</a><a href="technology-infrastructure.html">Technology Infrastructure</a><a href="governance-security.html">Governance &amp; Security</a><a href="customer-experience.html">Customer Experience</a><a href="workforce-adoption.html">Workforce &amp; Adoption</a></div></details><a href="signal.html">The Signal</a><a href="our-approach.html">Our Approach</a></nav>
+      <button class="button" type="button" data-open-dialog="resultant-dialog">Book a conversation</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">AI is already in your business. See what it needs to succeed.</h1>
+          <p>AI Resulting (AIR) helps architect the foundation your AI initiatives need: connected data, capable systems, appropriate security, and people ready to perform differently.</p>
+          <div class="hero-actions"><button class="button" type="button" data-open-dialog="jai-dialog">Talk with Jai</button><button class="quiet-link" type="button" data-open-dialog="resultant-dialog">Book with a Resultant <span>↗</span></button></div>
+        </div>
+
+        <aside class="foundation-stage" aria-label="A moving view of the foundation AI initiatives require">
+          <div class="foundation-top"><span class="micro">When the foundation holds</span></div>
+          <div class="foundation-field">
+            <span class="foundation-path path-horizontal" aria-hidden="true"></span><span class="foundation-path path-vertical" aria-hidden="true"></span>
+            <div class="foundation-node node-data"><small>01</small><b>Knowledge</b><span>what AI can reach</span></div>
+            <div class="foundation-node node-systems"><small>02</small><b>Systems</b><span>where the work runs</span></div>
+            <div class="foundation-node node-security"><small>03</small><b>Safeguards</b><span>what keeps it protected</span></div>
+            <div class="foundation-node node-people"><small>04</small><b>Experience</b><span>where the work lands</span></div>
+            <div class="foundation-core"><p>Intelligence<br>can scale.</p></div>
+          </div>
+          <div class="foundation-foot"><span>Connected <b>•</b> Capable <b>•</b> Protected <b>•</b> Adopted</span><span>↗</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="signal-band" aria-label="Examples of situations AI Resulting helps clarify">
+      <div class="signal-track"><span>AI spend is rising; the outcome is still fuzzy <i></i></span><span>A promising idea keeps stalling between business and IT <i></i></span><span>The renewal date arrives before the value does <i></i></span><span>Leadership needs a credible path, not a bigger program <i></i></span><span>AI spend is rising; the outcome is still fuzzy <i></i></span><span>A promising idea keeps stalling between business and IT <i></i></span><span>The renewal date arrives before the value does <i></i></span><span>Leadership needs a credible path, not a bigger program <i></i></span></div>
+    </div>
+
+    <section class="readiness" id="map" aria-labelledby="readiness-title">
+      <div class="shell">
+        <div class="readiness-intro">
+          <div><p class="micro">The AIR readiness framework</p><h2 id="readiness-title">Readiness shows up in six places.</h2></div>
+          <p>The tool is only one part of the decision. AI puts pressure on the data, systems, security, and people around it. The six dimensions show where the work needs attention.</p>
+        </div>
+        <div class="dimension-grid" aria-label="The six AI readiness dimensions">
+          <a class="dimension vision" href="strategic-direction.html"><p class="micro">Strategic Direction</p><h3>How will the business change?</h3><p>The workflows, decisions, and experiences that will evolve—and the outcome leadership intends to create.</p></a>
+          <a class="dimension data" href="data-readiness.html"><p class="micro">Data Readiness</p><h3>Can the right knowledge be reached?</h3><p>Whether the information AI needs is trusted, connected, and available to power the output.</p></a>
+          <a class="dimension infrastructure" href="technology-infrastructure.html"><p class="micro">Technology Infrastructure</p><h3>Can the environment carry it?</h3><p>What the network, cloud, devices, systems, and integrations can support as workflows evolve and change.</p></a>
+          <a class="dimension governance" href="governance-security.html"><p class="micro">Governance &amp; Security</p><h3>What is protected—and what is retained?</h3><p>The perimeter, access, and guardrails protect the business. A secure gateway and knowledge layer retain the intelligence created.</p></a>
+          <a class="dimension experience" href="customer-experience.html"><p class="micro">Experience Layer</p><h3>Does context survive the handoff?</h3><p>Where employee, customer, contact-center, and collaboration experiences need to remain connected.</p></a>
+          <a class="dimension workforce" href="workforce-adoption.html"><p class="micro">Workforce &amp; Adoption</p><h3>How will people work differently?</h3><p>AI changes the work around people, removing some tasks and raising the value of judgment where it matters most.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="air-map" aria-labelledby="air-map-title">
+      <div class="shell">
+        <div class="air-map-head"><div><p class="micro">The AIR Map</p><h2 id="air-map-title">What the foundation is built on.</h2></div></div>
+        <div class="map-board map-layers-only" aria-label="AIR Map showing seven architecture layers">
+          <div class="map-zone"><div class="map-zone-label"><span>Build what follows</span><b>Seven layers</b></div><div class="map-layers" aria-label="The seven AIR architecture layers"><button class="map-layer" type="button" data-layer="platform" aria-pressed="true" aria-controls="layer-readout"><small>Layer</small><b>Platform</b></button><button class="map-layer" type="button" data-layer="governance" aria-pressed="false" aria-controls="layer-readout"><small>Layer</small><b>Governance</b></button><button class="map-layer" type="button" data-layer="intelligence" aria-pressed="false" aria-controls="layer-readout"><small>Layer</small><b>Intelligence</b></button><button class="map-layer" type="button" data-layer="connectivity" aria-pressed="false" aria-controls="layer-readout"><small>Layer</small><b>Connectivity</b></button><button class="map-layer" type="button" data-layer="security" aria-pressed="false" aria-controls="layer-readout"><small>Layer</small><b>Security</b></button><button class="map-layer" type="button" data-layer="enablement" aria-pressed="false" aria-controls="layer-readout"><small>Layer</small><b>Enablement</b></button><button class="map-layer" type="button" data-layer="scale" aria-pressed="false" aria-controls="layer-readout"><small>Layer</small><b>Scale</b></button></div><div class="layer-readout" id="layer-readout" aria-live="polite"><div class="layer-readout-label"><span id="layer-index">Layer 01</span><b id="layer-title">Platform</b></div><div class="layer-readout-copy"><p id="layer-copy">The front door for models, agents, and AI tools. It gives people managed access, visibility into usage and cost, and a clear connection to the systems around the work.</p><div class="layer-signal"><span>What it can put in play</span><b id="layer-signal">secure AI gateways · model access · usage and cost controls</b></div></div></div><p class="layer-instruction">Choose a layer to see what it holds.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-line" aria-labelledby="experience-line-title">
+      <div class="shell"><div class="air-conversation-top"><div><p class="micro">Why AI Resulting</p><h2 id="experience-line-title">A better first conversation about AI.</h2><p>Jai is trained on the AIR readiness framework, then starts with the business—not a checklist. She guides a natural conversation that surfaces where the foundation is holding and where it is not.</p><p class="bridge-line">When a decision needs to move forward, a Resultant brings nearly 25 years of technology experience to evaluate, implement, and manage what comes next.</p></div><div class="air-conversation-panel"><p class="micro">The AIR conversation</p><h3>Start with Jai. Continue with a Resultant.</h3><div class="air-conversation-steps"><div class="air-conversation-step"><small>01</small><div><b>Speak in your own words.</b><span>Start with the business, the situation, and what has you thinking about AI now.</span></div></div><div class="air-conversation-step"><small>02</small><div><b>See the readiness picture.</b><span>Jai follows the conversation across the six dimensions without turning it into a multiple-choice exercise.</span></div></div><div class="air-conversation-step"><small>03</small><div><b>Bring in the right human.</b><span>A Resultant turns the conversation into clear priorities and a technology path that fits the business.</span></div></div></div><div class="air-conversation-action"><button class="button" type="button" data-open-dialog="jai-dialog">Talk with Jai</button><span>Purpose-built for the AIR readiness framework.</span></div></div></div><div class="air-proof" aria-labelledby="proof-title"><div class="air-proof-head"><div><p class="micro">What the conversation should give you</p><h3 id="proof-title">A direction people can act on.</h3></div><p>Jai begins the read. A Resultant helps carry it forward into a shared picture of what was heard, what sits beneath it, and the technology framework worth building.</p></div><div class="brief-stack" aria-label="Illustrative AIR conversation readouts"><article class="brief one"><small>What we heard</small><h3>“We have tools. We do not have a place for the work to land.”</h3><div class="brief-line"></div><p>The first issue is a workflow without a clear owner—not a lack of tools.</p></article><article class="brief two"><small>What sits beneath</small><h3>Context disappears at the handoff.</h3><div class="brief-line"></div><p>The right knowledge has to follow the question, rather than leave each team to rebuild the answer.</p></article><article class="brief three"><small>What the framework calls for</small><h3>Build the decision path around the situation.</h3><div class="brief-line"></div><p class="action">It shows whether the next step is a knowledge layer, integration, secure access, or a different platform decision.</p></article></div></div><div class="air-faq" aria-labelledby="faq-title"><div><p class="micro">Before you begin</p><h3 id="faq-title">A few useful answers.</h3></div><div class="air-faq-list"><details><summary>What makes Jai different from a generic AI chat?</summary><p>Jai is trained on the AIR readiness framework. She is designed to listen for the conditions that make AI useful inside a business, not to offer generic AI advice.</p></details><details><summary>Do I need to have an AI project already picked out?</summary><p>No. Start with the decision, constraint, or opportunity that has your team thinking about AI. The conversation helps make the right next question clearer.</p></details><details><summary>Why does AIR ask for a few details about my company?</summary><p>When you choose to get a tailored readiness read or continue with a Resultant, those details help us understand your context and bring the right human into the conversation.</p></details><details><summary>When does a person join the conversation?</summary><p>Jai is the starting point. When the picture calls for judgment on priorities, architecture, or technology options, a Resultant continues the conversation with you.</p></details></div></div><div class="air-next-steps" aria-labelledby="next-steps-title"><div><p class="micro">Choose your path</p><h3 id="next-steps-title">Start where you prefer.</h3></div><div class="path-options"><article class="path-option"><p class="micro">Guided readiness conversation</p><h4>Talk with Jai.</h4><p>Begin with a natural conversation about the situation in front of you, then see what the readiness picture brings into focus.</p><button class="button" type="button" data-open-dialog="jai-dialog">Talk with Jai</button></article><article class="path-option"><p class="micro">Direct human conversation</p><h4>Book with a Resultant.</h4><p>Go straight to a person when you already know the decision, initiative, or constraint you want to discuss.</p><button class="button secondary-button" type="button" data-open-dialog="resultant-dialog">Book a conversation</button></article></div></div></div>
+    </section>
+
+  </main>
+
+  <dialog id="jai-dialog" aria-labelledby="jai-dialog-title">
+    <div class="conversation-form-wrap"><button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button><p class="micro">Talk with Jai</p><h2 id="jai-dialog-title">Begin with the situation on your desk.</h2><p class="form-intro">A few details help Jai begin with the right context. You can describe the question in your own words.</p><form class="lead-form" data-capture-form data-conversation-type="jai"><input type="text" name="website" tabindex="-1" autocomplete="off" hidden><div class="form-grid"><div class="form-field"><label for="jai-name">Name</label><input id="jai-name" name="name" autocomplete="name" required></div><div class="form-field"><label for="jai-email">Work email</label><input id="jai-email" name="email" type="email" autocomplete="email" required></div><div class="form-field"><label for="jai-company">Company</label><input id="jai-company" name="company" autocomplete="organization" required></div><div class="form-field"><label for="jai-role">Role</label><input id="jai-role" name="role" autocomplete="organization-title"></div><div class="form-field full"><label for="jai-size">Company size</label><select id="jai-size" name="company_size"><option value="">Select if useful</option><option>Under 100 employees</option><option>100–249 employees</option><option>250–499 employees</option><option>500–999 employees</option><option>1,000–1,500 employees</option><option>More than 1,500 employees</option></select></div><div class="form-field full"><label for="jai-situation">What has you thinking about AI right now?</label><textarea id="jai-situation" name="situation" placeholder="Optional, but helpful."></textarea></div></div><p class="form-privacy">We ask only for information that helps us understand your business context and continue the conversation in the right way.</p><button class="button" type="submit">Continue to Jai</button><p class="form-status" data-form-status role="status" aria-live="polite"></p></form><div class="form-confirmation" hidden><p class="micro">Thank you</p><h3>Your conversation is ready to begin.</h3><p>Jai will use this context to start with the situation that matters to your business.</p><button class="button" type="button" data-close-dialog>Close</button></div></div>
+  </dialog>
+
+  <dialog id="resultant-dialog" aria-labelledby="resultant-dialog-title">
+    <div class="conversation-form-wrap"><button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button><p class="micro">Book with a Resultant</p><h2 id="resultant-dialog-title">Tell us what you’re working through.</h2><p class="form-intro">Share the initiative, constraint, renewal, or opportunity in front of you. We will use it to connect you with the Resultant whose experience is most useful.</p><form class="lead-form" data-capture-form data-conversation-type="resultant"><input type="text" name="website" tabindex="-1" autocomplete="off" hidden><div class="form-grid"><div class="form-field"><label for="resultant-name">Name</label><input id="resultant-name" name="name" autocomplete="name" required></div><div class="form-field"><label for="resultant-email">Work email</label><input id="resultant-email" name="email" type="email" autocomplete="email" required></div><div class="form-field"><label for="resultant-company">Company</label><input id="resultant-company" name="company" autocomplete="organization" required></div><div class="form-field"><label for="resultant-role">Role</label><input id="resultant-role" name="role" autocomplete="organization-title"></div><div class="form-field full"><label for="resultant-topic">What would you like to discuss?</label><textarea id="resultant-topic" name="topic" placeholder="A decision, initiative, renewal, constraint, or opportunity."></textarea></div></div><p class="form-privacy">We ask only for information that helps us understand your business context and arrange the right conversation.</p><button class="button" type="submit">Request a conversation</button><p class="form-status" data-form-status role="status" aria-live="polite"></p></form><div class="form-confirmation" hidden><p class="micro">Thank you</p><h3>We have what we need to make the right introduction.</h3><p>A Resultant whose experience fits what you described will follow up to continue the conversation.</p><button class="button" type="button" data-close-dialog>Close</button></div></div>
+  </dialog>
+
+  <footer><div class="shell"><span>AIR / AI Resulting</span><span><a href="privacy.html">Privacy</a> &nbsp; / &nbsp; © 2026</span></div></footer>
+  <script>
+    (() => {
+      const layers = {
+        platform: { index: "Layer 01", title: "Platform", color: "#c5c5bc", copy: "The front door for models, agents, and AI tools. It gives people managed access, visibility into usage and cost, and a clear connection to the systems around the work.", signal: "secure AI gateways · model access · usage and cost controls" },
+        governance: { index: "Layer 02", title: "Governance", color: "#b7c4b5", copy: "The policy, decision rights, and accountability around AI use. Governance gives people clear boundaries for what can be used, by whom, and for what purpose.", signal: "governance frameworks · data classification · accountability models" },
+        intelligence: { index: "Layer 03", title: "Intelligence", color: "#b9cdd1", copy: "The trusted data, documents, and organizational knowledge AI can draw from. This layer brings context and ownership into the moment a decision or workflow needs it.", signal: "data platforms · knowledge layers · integration" },
+        connectivity: { index: "Layer 04", title: "Connectivity", color: "#b8c2ca", copy: "The network, cloud, edge, compute, and integration that move information and decisions where they need to go. It determines whether the environment can support the work as demand grows.", signal: "network as a service · cloud and colocation · edge compute" },
+        security: { index: "Layer 05", title: "Security", color: "#b7c4b5", copy: "The controls that protect identities, data, endpoints, and interactions. Security puts the guardrails into practice without leaving the work exposed.", signal: "secure AI gateways · identity and data protection · monitoring" },
+        enablement: { index: "Layer 06", title: "Enablement", color: "#c5c5bc", copy: "The training, workflow change, and practical support that help people use AI well. It is where a new capability becomes part of the work, rather than another unused tool.", signal: "AI learning · collaboration tools · workflow design" },
+        scale: { index: "Layer 07", title: "Scale", color: "#d8cfb4", copy: "The operating model for taking proven work into production across teams, customer experiences, and the wider business. It is how a useful first move becomes durable capability.", signal: "contact center AI · customer experience platforms · production automation" }
+      };
+      const buttons = document.querySelectorAll(".map-layer");
+      const index = document.getElementById("layer-index");
+      const title = document.getElementById("layer-title");
+      const copy = document.getElementById("layer-copy");
+      const signal = document.getElementById("layer-signal");
+      const readout = document.getElementById("layer-readout");
+      buttons.forEach((button) => button.addEventListener("click", () => {
+        const layer = layers[button.dataset.layer];
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        index.textContent = layer.index;
+        title.textContent = layer.title;
+        copy.textContent = layer.copy;
+        signal.textContent = layer.signal;
+        readout.style.setProperty("--layer-color", layer.color);
+      }));
+
+      const matchmakerCopy = [
+        ["#hero-title", "AI is already in your business. See what it needs to succeed."],
+        ["#experience-line-title", "Find the right starting point for AI."],
+        [".air-conversation-panel h3", "Begin with Jai. Continue with your personal Resultant."],
+        [".air-conversation-top > div:first-child > p:not(.micro):not(.bridge-line)", "Jai is trained on the AIR readiness framework and grounds the conversation in your business."],
+        [".air-conversation-step:nth-child(1) b", "Bring what has your team thinking about AI."],
+        [".air-conversation-step:nth-child(2) b", "See what the AIR readiness picture reveals."],
+        [".air-conversation-step:nth-child(3) b", "Meet the right Resultant."],
+        [".air-conversation-action span", ""],
+        [".brief.one p:not(.action)", "The first issue is a workflow without a clear owner."],
+        [".bridge-line", "When a decision needs more than a first read, a Resultant brings Bridgepointe Technologies' nearly 25 years of sourcing, implementation, and management experience to the work."],
+        [".air-proof-head > p", "Jai begins the read. A Resultant turns it into shared priorities and a technology framework worth building."],
+        ["#next-steps-title", "Choose the conversation that fits."],
+        [".path-option:nth-child(1) .micro", "Guided readiness conversation"],
+        [".path-option:nth-child(1) h4", "Begin with Jai."],
+        [".path-option:nth-child(1) p:not(.micro)", "Share what is in front of you. Jai helps clarify what the readiness picture brings into focus."],
+        [".path-option:nth-child(1) .button", "Begin with Jai"],
+        [".path-option:nth-child(2) .micro", "The right Resultant conversation"],
+        [".path-option:nth-child(2) h4", "Connect with a Resultant."],
+        [".path-option:nth-child(2) p:not(.micro)", "Already know the decision, initiative, or constraint? Tell us what you are working through, and we will make a considered introduction."],
+        [".path-option:nth-child(2) .button", "Connect with a Resultant"],
+        ["#jai-dialog .form-intro", "A few details help Jai begin with the right context. When a human conversation will be useful, we use that context to make a considered introduction to the right Resultant."],
+        ["#jai-dialog .form-confirmation h3", "We will make the right introduction."],
+        ["#jai-dialog .form-confirmation p:not(.micro)", "Jai will use this context to start with the situation that matters to your business and help us bring in the Resultant best suited to continue it."],
+        ["#resultant-dialog .form-intro", "Share the initiative, constraint, renewal, or opportunity in front of you. We will use it to connect you with the Resultant whose experience is most useful."],
+        ["#resultant-dialog .form-confirmation h3", "We have what we need to make the right introduction."],
+        ["#resultant-dialog .form-confirmation p:not(.micro)", "A Resultant whose experience fits what you described will follow up to continue the conversation."]
+      ];
+      matchmakerCopy.forEach(([selector, text]) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = text;
       });
-    }
-  }
+      document.querySelectorAll(".air-conversation-step span").forEach((element) => element.remove());
+      document.querySelector(".air-conversation-action span")?.remove();
+      const conversationHeading = document.querySelector(".air-conversation-panel h3");
+      if (conversationHeading && !document.querySelector(".air-conversation-intro")) {
+        const intro = document.createElement("p");
+        intro.className = "air-conversation-intro";
+        intro.textContent = "Bring the decision, constraint, or opportunity that has your team thinking about AI. Jai follows the discussion across the six AIR dimensions. Based on what emerges, AI Resulting makes a considered introduction.";
+        conversationHeading.insertAdjacentElement("afterend", intro);
+      }
+      const matchingFaq = document.querySelector(".air-faq details:nth-child(4)");
+      if (matchingFaq) {
+        matchingFaq.querySelector("summary").textContent = "How do you decide which Resultant I speak with?";
+        matchingFaq.querySelector("p").textContent = "Jai follows the conversation across the six AIR dimensions. Based on what emerges, we make a considered introduction to the Resultant whose experience is likely to be most useful.";
+      }
+      const firstFaqAnswer = document.querySelector(".air-faq details:first-child p");
+      if (firstFaqAnswer) firstFaqAnswer.textContent = "Jai is trained on the AIR readiness framework and guides the conversation around the conditions that make AI useful in your business: the work, data, ownership, safeguards, and experience around the decision. She helps reveal what needs attention.";
+      const projectFaqAnswer = document.querySelector(".air-faq details:nth-child(2) p");
+      if (projectFaqAnswer) projectFaqAnswer.textContent = "No. Start with the decision, constraint, or opportunity that has your team thinking about AI. The conversation helps reveal what needs attention.";
+      const companyFaqAnswer = document.querySelector(".air-faq details:nth-child(3) p");
+      if (companyFaqAnswer) companyFaqAnswer.textContent = "What you share enriches the conversation. It helps Jai guide the discussion in the context of your business, so the questions, readiness picture, and next step are more useful to you.";
 
-  function draw() {
-    const cw = canvas.offsetWidth;
-    const ch = canvas.offsetHeight;
-    ctx.clearRect(0, 0, cw, ch);
-    time += 0.012;
+      const dialogs = document.querySelectorAll("dialog");
+      document.querySelectorAll("[data-open-dialog]").forEach((button) => button.addEventListener("click", () => {
+        const dialog = document.getElementById(button.dataset.openDialog);
+        if (dialog) dialog.showModal();
+      }));
+      document.querySelectorAll("[data-close-dialog]").forEach((button) => button.addEventListener("click", () => button.closest("dialog")?.close()));
+      dialogs.forEach((dialog) => dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      }));
+      const openDialogFromHash = () => {
+        const dialog = document.getElementById(window.location.hash.slice(1));
+        if (dialog?.matches("dialog") && !dialog.open) dialog.showModal();
+      };
+      openDialogFromHash();
+      window.addEventListener("hashchange", openDialogFromHash);
+      document.querySelectorAll("[data-capture-form]").forEach((form) => form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const submitButton = form.querySelector('[type="submit"]');
+        const status = form.querySelector("[data-form-status]");
+        const originalLabel = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+        status.textContent = "";
 
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 180) {
-          const alpha = (1 - dist / 180) * 0.12;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(200, 138, 80, ${alpha})`;
-          ctx.lineWidth = 0.7;
-          ctx.stroke();
+        try {
+          const payload = Object.fromEntries(new FormData(form).entries());
+          payload.conversationType = form.dataset.conversationType;
+          const response = await fetch("/api/capture-conversation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok) throw new Error(result.error || "Unable to send your request right now.");
+          form.hidden = true;
+          form.parentElement.querySelector(".form-confirmation").hidden = false;
+        } catch (error) {
+          status.textContent = `${error.message} Please try again or email results@airesulting.com.`;
+          submitButton.disabled = false;
+          submitButton.textContent = originalLabel;
         }
-      }
-    }
-
-    for (const p of particles) {
-      p.x += p.vx + Math.sin(time + p.phase) * 0.35;
-      p.y += p.vy + Math.cos(time * 0.7 + p.phase) * 0.28;
-
-      const breathe = Math.sin(time * 0.6 + p.phase) * 0.15;
-      const currentAlpha = Math.max(0.08, p.alpha + breathe);
-
-      if (p.x < -20) p.x = cw + 20;
-      if (p.x > cw + 20) p.x = -20;
-      if (p.y < -20) p.y = ch + 20;
-      if (p.y > ch + 20) p.y = -20;
-
-      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 6);
-      gradient.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${currentAlpha * 1.2})`);
-      gradient.addColorStop(0.4, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${currentAlpha * 0.4})`);
-      gradient.addColorStop(1, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, 0)`);
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius * 6, 0, Math.PI * 2);
-      ctx.fillStyle = gradient;
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${Math.min(1, currentAlpha * 2)})`;
-      ctx.fill();
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
-})();
-
-(function() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-})();
-
-(function() {
-  const nav = document.querySelector('.site-nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-})();
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-</script>
-
-<style>.sticky-cta{position:fixed;bottom:28px;right:28px;z-index:40;opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;}.sticky-cta.visible{opacity:1;transform:translateY(0);pointer-events:auto;}.sticky-cta a{display:flex;align-items:center;gap:8px;background:#C88A50;color:#F8F6F2;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 4px 20px rgba(22,19,15,0.2);transition:all 0.3s;}.sticky-cta a:hover{background:#A06830;box-shadow:0 6px 28px rgba(22,19,15,0.3);transform:translateY(-2px);}.sticky-cta svg{width:16px;height:16px;}@media(max-width:768px){.sticky-cta{bottom:16px;right:16px;}.sticky-cta a{padding:12px 20px;font-size:13px;}}</style>
-<div class="sticky-cta" id="stickyCta"><a href="assessment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Take the Assessment</a></div>
-<script>(function(){var sticky=document.getElementById("stickyCta");var trigger=document.querySelector(".hero");if(!trigger)return;window.addEventListener("scroll",function(){if(window.scrollY>trigger.offsetHeight){sticky.classList.add("visible")}else{sticky.classList.remove("visible")}})})();</script>
-
+      }));
+    })();
+  </script>
 </body>
 </html>
