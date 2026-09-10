@@ -1,0 +1,65 @@
+/* Topic-specific depth: useful diagrams, responsive surfaces, finite motion. */
+.working-map{margin:44px 0 56px;padding:clamp(22px,4vw,48px);border:1px solid color-mix(in srgb,var(--dimension-light,var(--blue)) 50%,transparent);background:linear-gradient(135deg,color-mix(in srgb,var(--dimension-light,var(--blue)) 12%,#171613),#171613 75%);box-shadow:0 24px 60px #0003;position:relative}
+main>.working-map{margin:20px auto 60px;width:calc(100% - 112px);max-width:1280px;box-sizing:border-box}
+.working-map figcaption h3{font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--ink);margin:10px 0}
+.working-map figcaption p{font-size:14px;color:var(--muted);margin:0 0 30px}
+.map-track{display:flex;position:relative;gap:16px;isolation:isolate}
+.map-track:before{content:'';position:absolute;height:1px;background:color-mix(in srgb,var(--dimension-light,var(--blue)) 65%,transparent);left:10%;right:10%;top:30px;z-index:-1}
+.map-track button{font:inherit;flex:1;min-width:0;text-align:center;background:none;border:1px solid transparent;padding:0 10px 16px;color:var(--muted);cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.map-node{display:grid;place-items:center;margin:0 auto 18px;width:60px;height:60px;border:1px solid var(--dimension-light,var(--blue));border-radius:50%;background:#171613;font-size:27px;color:var(--dimension-light,var(--blue));transition:box-shadow .3s,background .3s,transform .3s}
+.map-track strong{display:block;color:var(--ink);font-size:18px;margin-bottom:7px;font-weight:550}
+.map-track button>span:last-child{display:block;font-size:14px;line-height:1.5}
+.map-track button[aria-pressed=true] .map-node{background:color-mix(in srgb,var(--dimension-light,var(--blue)) 22%,#171613);box-shadow:0 0 0 7px color-mix(in srgb,var(--dimension-light,var(--blue)) 8%,transparent),0 0 30px color-mix(in srgb,var(--dimension-light,var(--blue)) 20%,transparent)}
+.map-explanation{border-top:1px solid var(--line);margin-top:18px;padding-top:22px;min-height:126px}
+.map-explanation h3{font-size:19px;margin:0 0 10px;color:var(--ink)}
+.map-explanation p{font-size:16px;line-height:1.7;margin:0;max-width:850px;color:var(--muted)}
+.map-track button:focus-visible{outline:2px solid var(--dimension-light,var(--blue));outline-offset:4px}
+body:is([data-dimension="technology-infrastructure"],[data-dimension="governance-security"],[data-dimension="experience-layer"]) :is(.decision-disclosures details,.network-points article,.everyday-network-decisions article,.response-steps article,.experience-standards article){position:relative;transition:translate .25s,box-shadow .25s,background .25s,border-color .25s}
+body:is([data-dimension="technology-infrastructure"],[data-dimension="governance-security"],[data-dimension="experience-layer"]) .decision-disclosures details[open]{background:color-mix(in srgb,var(--dimension-light,var(--blue)) 8%,#171613);border-color:color-mix(in srgb,var(--dimension-light,var(--blue)) 55%,transparent);box-shadow:inset 3px 0 var(--dimension-light,var(--blue)),0 12px 30px #0002}
+.decision-disclosures details:focus-within{box-shadow:inset 3px 0 var(--dimension-light,var(--blue)),0 0 22px color-mix(in srgb,var(--dimension-light,var(--blue)) 12%,transparent)}
+.decision-disclosures summary>span{transition:rotate .25s}
+.decision-disclosures details[open] summary>span{rotate:45deg}
+@media(hover:hover) and (pointer:fine){
+.map-track button:hover .map-node{transform:translateY(-4px);box-shadow:0 0 30px color-mix(in srgb,var(--dimension-light,var(--blue)) 25%,transparent)}
+body:is([data-dimension="technology-infrastructure"],[data-dimension="governance-security"],[data-dimension="experience-layer"]) :is(.decision-disclosures details,.network-points article,.everyday-network-decisions article,.response-steps article,.experience-standards article):hover{translate:0 -4px;background:color-mix(in srgb,var(--dimension-light,var(--blue)) 10%,#171613);border-color:var(--dimension-light,var(--blue));box-shadow:inset 3px 0 var(--dimension-light,var(--blue)),0 18px 35px #0004}
+}
+@media(max-width:760px){main>.working-map{width:calc(100% - 40px)}.map-track{display:grid;grid-template-columns:1fr 1fr;gap:24px 8px}.map-track:before{display:none}.map-track button{padding:0 4px 10px}.map-track strong{font-size:16px}.map-node{width:50px;height:50px}.map-explanation{min-height:0}}
+@media(prefers-reduced-motion:reduce){.working-map *,.decision-disclosures *,.network-points article,.everyday-network-decisions article,.response-steps article,.experience-standards article{transition:none!important;animation:none!important;translate:none!important;transform:none!important}}
+
+/* Padded surfaces: preserve one reading edge in both disclosure states. */
+.decision-disclosures{display:grid;gap:14px}
+.decision-disclosures details{border:1px solid var(--line);overflow:visible}
+.decision-disclosures summary{padding:24px 28px;align-items:center;margin:0}
+.decision-disclosures .decision-body{max-width:840px;padding:0 28px 28px;box-sizing:border-box}
+.decision-body p{margin:0 0 18px}
+.decision-body p:last-child{margin-bottom:0}
+.decision-body .decision-question{padding:18px 0 0;border-left:0;border-top:1px solid var(--line);margin:22px 0 0}
+.decision-disclosures summary>span{font-size:0;flex:0 0 20px;text-align:center;transform:none!important;rotate:none!important}
+.decision-disclosures summary>span:before{content:'+';font-size:26px;line-height:1}
+.decision-disclosures details[open] summary>span:before{content:'−'}
+:is(.network-points,.everyday-network-decisions,.response-steps,.experience-standards)>article{padding:24px;box-sizing:border-box}
+@media(max-width:760px){.decision-disclosures summary{padding:20px;gap:16px}.decision-disclosures .decision-body{padding:0 20px 24px}.decision-disclosures{gap:12px}:is(.network-points,.everyday-network-decisions,.response-steps,.experience-standards)>article{padding:20px}}
+/* Illuminate both ends of the workload path without implying navigation. */
+.network-fabric .fabric-endpoints span{position:relative;background:color-mix(in srgb,var(--dimension-light) 5%,#171613);transition:translate .25s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease;cursor:default}
+@media(hover:hover) and (pointer:fine){.network-fabric .fabric-endpoints span:hover{translate:0 -5px;border-color:var(--dimension-light);background:color-mix(in srgb,var(--dimension-light) 15%,#171613);box-shadow:0 10px 24px #0004,0 0 22px color-mix(in srgb,var(--dimension-light) 18%,transparent)}}
+@media(prefers-reduced-motion:reduce){.network-fabric .fabric-endpoints span{transition:none;translate:none!important}}
+/* A conversation, rather than another process map. */
+.conversation-story{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,80px);margin:30px auto 70px;padding:clamp(24px,5vw,60px);width:calc(100% - 112px);max-width:1280px;box-sizing:border-box;border-block:1px solid color-mix(in srgb,var(--dimension-light) 35%,transparent);background:linear-gradient(145deg,#171613,color-mix(in srgb,var(--dimension-light) 7%,#171613))}
+.conversation-story figcaption h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(36px,4vw,56px);font-weight:400;line-height:1.1;margin:20px 0;color:var(--ink)}
+.conversation-story figcaption>p{font-size:16px;line-height:1.75;color:var(--muted);max-width:360px}
+.conversation-thread{min-width:0;display:flex;flex-direction:column;gap:22px}
+.conversation-message{padding:24px 28px;border:1px solid color-mix(in srgb,var(--dimension-light) 35%,transparent);max-width:90%;box-sizing:border-box;box-shadow:0 12px 30px #0003}
+.customer-message{align-self:flex-start;border-radius:0 20px 20px 20px;background:#22201d}
+.advisor-message{align-self:flex-end;border-radius:20px 0 20px 20px;background:color-mix(in srgb,var(--dimension-light) 12%,#171613)}
+.speaker{display:block;font-size:12px;letter-spacing:.1em;color:var(--dimension-light)}
+.conversation-message p{font-size:18px;line-height:1.65;margin:12px 0 0;color:var(--ink)}
+.context-envelope{margin-left:26px;padding:12px 0 12px 24px;border-left:1px solid var(--dimension-light)}
+.context-tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.context-tags span{padding:8px 12px;border:1px solid var(--line);font-size:14px;background:color-mix(in srgb,var(--dimension-light) 6%,#171613)}
+.context-envelope>p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.conversation-resolution{display:flex;align-items:flex-start;gap:16px;padding-left:26px;color:var(--dimension-light)}
+.conversation-resolution>span{font-size:30px}.conversation-resolution p{font-size:16px;line-height:1.65;color:var(--muted);margin:0}.conversation-resolution strong{color:var(--ink);font-weight:550}
+.continuity-channels span,.conversation-message,.context-tags span{transition:translate .25s,box-shadow .25s,border-color .25s,background .25s}
+@media(hover:hover) and (pointer:fine){.continuity-channels span:hover,.context-tags span:hover,.conversation-message:hover{translate:0 -4px;border-color:var(--dimension-light);background:color-mix(in srgb,var(--dimension-light) 15%,#171613);box-shadow:0 12px 28px #0003,0 0 22px color-mix(in srgb,var(--dimension-light) 18%,transparent)}}
+@media(max-width:760px){.conversation-story{grid-template-columns:1fr;width:calc(100% - 40px);gap:28px;padding:26px 20px}.conversation-message{max-width:96%;padding:20px}.conversation-message p{font-size:16px}.context-envelope{margin-left:10px;padding-left:16px}.conversation-resolution{padding-left:10px}}
+@media(prefers-reduced-motion:reduce){.continuity-channels span,.conversation-message,.context-tags span{transition:none;translate:none!important}}

@@ -1,10 +1,10 @@
-# AI Resulting — GitHub staging source
+# AI Resulting — cinematic launch candidate
 
-Updated: 2026-08-27
+Updated: 2026-09-10
 
-This folder is the clean, production-named version of the current website work. The dated `PROPOSED` files one level up remain the visual review copies. Continue reviewing those previews; approved changes should be carried into this folder before deployment.
+This branch contains the approved cinematic site currently reviewed at the private AI Resulting launch-review URL. It is organized as individual static HTML pages with shared CSS, JavaScript, and assets for Vercel.
 
-Nothing in this folder has been pushed to GitHub or Vercel.
+The existing Vercel production deployment should remain in place until the HighLevel contact, assessment, resource-delivery, and booking flows have been connected and verified. Until then, the forms intentionally identify themselves as previews and do not transmit visitor information.
 
 ## Primary website files
 
@@ -13,13 +13,13 @@ Nothing in this folder has been pushed to GitHub or Vercel.
 - `data-readiness.html`
 - `technology-infrastructure.html`
 - `governance-security.html`
-- `customer-experience.html`
+- `experience-layer.html`
 - `workforce-adoption.html`
 - `our-approach.html`
-- `signal.html` — The Signal index
-- `signal-ai-budget.html` — first Signal article
-- `air.css` — shared dimension-page styles
-- `privacy.html`
+- `the-signal.html` — The Signal index
+- `ai-workflow-starter-kit.html`
+- `show-me-the-finished-work.html`
+- `style.css` and the supporting shared stylesheets
 
 ## Preserved production functions
 
@@ -37,29 +37,25 @@ The serverless functions require the existing Vercel environment variables, incl
 
 ## Open before launch
 
-1. Replace the temporary Jai form behavior with the Ubix avatar link or embed once supplied.
-2. Complete final desktop and mobile QA on the Vercel preview.
+1. Connect and verify HighLevel contact, assessment, kit-delivery, assignment, and booking flows.
+2. Approve and publish accurate privacy information, then link it from every footer and form.
+3. Verify referral attribution, legacy routes, mobile/keyboard use, email delivery, and calendar behavior on the Vercel preview.
+4. Promote only the verified preview deployment to production.
 
-## Deployment audit completed 2026-08-27
+## Candidate validation completed 2026-09-10
 
 - Confirmed GitHub repository: `jdstrum/air-website`, default branch `main`.
-- Confirmed Vercel project: `jstrum68-8749s-projects/airesulting`.
-- Confirmed production domain: `airesulting.vercel.app`.
-- Confirmed the Vercel project has the required `RESEND_API_KEY` and `NOTIFY_EMAIL` environment-variable names. Values were not read or changed.
-- Added `api/capture-conversation.js` and connected both homepage forms to it. The Resultant form now sends a lead notification instead of displaying a false success state.
-- Preserved the assessment, governance download, referral redirect, and their serverless functions under `api/`.
-- Added permanent redirects for every legacy page currently present in the production repository.
-- Corrected `robots.txt`, `sitemap.xml`, and governance-email links to use the attached production domain.
-- Passed local link, asset, metadata, JavaScript syntax, JSON syntax, and mobile-width overflow checks across all 13 HTML pages.
-
-The only functional handoff still required is the approved Ubix destination link or embed. Until that is supplied, the Jai form captures the visitor's context but does not send them into the prototype.
+- Confirmed the Vercel production domain remains `airesulting.vercel.app`.
+- Copied the approved cinematic release files byte-for-byte from the validated source build.
+- Preserved the existing Vercel functions, dependencies, legacy assets, and referral rewrite.
+- Updated legacy redirects to the new page names.
+- Passed the assessment, six-dimension interaction, page-structure, link, metadata, sitemap, robots, JavaScript, and configuration checks.
 
 ## Safe release path
 
-1. Connect or identify the existing GitHub repository.
-2. Create a replacement branch from the current default branch.
-3. Merge this staging source with any live-only files and environment configuration.
-4. Open a draft pull request and use its Vercel preview for final review.
-5. Merge only after navigation, forms, redirects, assessment capture, and the Ubix handoff have been verified.
+1. Push the replacement branch and let Vercel create its preview deployment.
+2. Connect HighLevel and add the final privacy disclosure on this branch.
+3. Verify navigation, forms, redirects, assessment capture, delivery, booking, and referral attribution on the Vercel preview.
+4. Merge only after the preview is approved for production.
 
 Do not replace the live default branch directly. The preview-and-merge path keeps the current Vercel site recoverable until the new version is approved.

@@ -1,0 +1,32 @@
+/* The working day as one visual handoff, with only the copy needed to read it. */
+.workday-section{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(36px,7vw,96px);align-items:start}
+.workday-heading{position:sticky;top:110px}
+.workday-heading h2,.human-standard-heading h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(42px,5vw,68px);font-weight:400;line-height:1.04;color:var(--ink);margin:18px 0 24px}
+.workday-heading>p:last-child,.human-standard-heading>p:last-child{font-size:17px;line-height:1.75;color:var(--muted);max-width:430px}
+.workday-schematic{margin:0;padding:clamp(24px,4vw,44px);border:1px solid color-mix(in srgb,var(--dimension-light) 42%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--dimension-light) 8%,#171613),#171613 72%);box-shadow:0 24px 60px #0003}
+.workday-schematic figcaption{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+.workday-inputs,.workday-outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.workday-inputs span{display:grid;place-items:center;min-height:54px;padding:8px;border:1px solid var(--line);font-size:12px;letter-spacing:.1em;color:var(--muted);text-align:center}
+.workday-flow{display:grid;grid-template-columns:1fr;place-items:center;height:46px;color:var(--dimension-light)}
+.workday-flow i{display:block;width:75%;height:1px;background:linear-gradient(90deg,transparent,var(--dimension-light),transparent)}
+.workday-flow b{font-size:18px;line-height:1;font-weight:400;margin-top:-1px}
+.workday-core{padding:26px;text-align:center;border:1px solid var(--dimension-light);background:color-mix(in srgb,var(--dimension-light) 13%,#171613);box-shadow:0 0 34px color-mix(in srgb,var(--dimension-light) 11%,transparent)}
+.workday-core span,.human-standard-strip article>span,.workday-test>span{display:block;font-size:12px;letter-spacing:.14em;color:var(--dimension-light)}
+.workday-core strong{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(28px,3vw,40px);font-weight:400;color:var(--ink);margin:8px 0}
+.workday-core p{font-size:14px;color:var(--muted);margin:0}
+.workday-flow-out{height:40px}.workday-flow-out b{margin:0 0 -1px}
+.workday-outcomes article{min-width:0;padding:18px 14px;border-top:1px solid color-mix(in srgb,var(--dimension-light) 55%,transparent);background:#1d1b18}
+.workday-outcomes article>span{font-size:12px;color:var(--dimension-light)}
+.workday-outcomes h3{font-size:15px;line-height:1.3;color:var(--ink);margin:22px 0 8px}
+.workday-outcomes p{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
+.workday-test{margin:20px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:14px;line-height:1.6;color:var(--muted)}
+.workday-test>span{display:inline;margin-right:12px}
+.human-standard{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,7vw,90px);align-items:end;border-top:1px solid var(--line)}
+.human-standard-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.human-standard-strip article{padding:26px 22px;min-width:0}
+.human-standard-strip article+article{border-left:1px solid var(--line)}
+.human-standard-strip h3{font-size:17px;line-height:1.4;color:var(--ink);margin:28px 0 10px}
+.human-standard-strip p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.experience-advisor .advisor-scope li{line-height:1.55}
+@media(max-width:900px){.workday-section,.human-standard{grid-template-columns:1fr}.workday-heading{position:static}.workday-heading>p:last-child,.human-standard-heading>p:last-child{max-width:600px}}
+@media(max-width:620px){.workday-schematic{padding:22px 16px}.workday-inputs,.workday-outcomes{grid-template-columns:1fr 1fr}.workday-outcomes{gap:10px}.human-standard-strip{grid-template-columns:1fr}.human-standard-strip article+article{border-left:0;border-top:1px solid var(--line)}.workday-core{padding:22px 14px}.workday-core p{line-height:1.6}}

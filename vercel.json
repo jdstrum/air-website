@@ -1,17 +1,26 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/field-notes", "destination": "/signal", "permanent": true },
+    { "source": "/field-notes", "destination": "/the-signal", "permanent": true },
+    { "source": "/signal", "destination": "/the-signal", "permanent": true },
+    { "source": "/signal-ai-budget", "destination": "/the-signal#cost-test", "permanent": true },
+    { "source": "/the-spending-gap", "destination": "/the-signal#cost-test", "permanent": true },
+    { "source": "/the-stealth-spend", "destination": "/the-signal#cost-test", "permanent": true },
     { "source": "/the-imagination-gap", "destination": "/strategic-direction", "permanent": true },
     { "source": "/the-data-gap", "destination": "/data-readiness", "permanent": true },
     { "source": "/the-data-gap-revised", "destination": "/data-readiness", "permanent": true },
     { "source": "/the-infrastructure-gap", "destination": "/technology-infrastructure", "permanent": true },
     { "source": "/the-governance-gap", "destination": "/governance-security", "permanent": true },
-    { "source": "/the-experience-gap", "destination": "/customer-experience", "permanent": true },
+    { "source": "/the-experience-gap", "destination": "/experience-layer", "permanent": true },
+    { "source": "/customer-experience", "destination": "/experience-layer", "permanent": true },
     { "source": "/the-adoption-gap", "destination": "/workforce-adoption", "permanent": true },
-    { "source": "/the-spending-gap", "destination": "/signal-ai-budget", "permanent": true },
-    { "source": "/the-stealth-spend", "destination": "/signal-ai-budget", "permanent": true }
+    { "source": "/assessment", "destination": "/#readiness", "permanent": true }
   ],
   "rewrites": [
     { "source": "/a/:slug", "destination": "/api/ref-redirect" }

@@ -1,0 +1,9 @@
+/* A quiet thread through the working relationship. */
+.approach-progression .editorial-rows{position:relative;padding-left:34px}
+.approach-progression .editorial-rows:before{content:'';position:absolute;left:6px;top:32px;bottom:32px;width:1px;background:color-mix(in srgb,var(--blue) 35%,transparent)}
+.approach-progression .editorial-rows article{position:relative}
+.approach-progression .editorial-rows article:before{content:'';position:absolute;left:-33px;top:30px;width:11px;height:11px;border:1px solid var(--blue);border-radius:50%;background:var(--paper,#171613);box-sizing:border-box}
+.approach-progression .editorial-rows article.step-seen:before{background:var(--blue)}
+@keyframes approach-marker{0%{box-shadow:0 0 0 0 transparent}45%{box-shadow:0 0 0 7px color-mix(in srgb,var(--blue) 12%,transparent),0 0 20px color-mix(in srgb,var(--blue) 35%,transparent)}100%{box-shadow:0 0 0 0 transparent}}
+@media(prefers-reduced-motion:no-preference){.approach-progression .editorial-rows article.step-seen:before{animation:approach-marker 1000ms ease-out 1}}
+@media(max-width:760px){.approach-progression .editorial-rows{padding-left:28px}.approach-progression .editorial-rows article:before{left:-27px}}

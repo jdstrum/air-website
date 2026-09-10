@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://airesulting.vercel.app/sitemap.xml
+Sitemap: https://www.airesulting.com/sitemap.xml
