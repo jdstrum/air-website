@@ -1,0 +1,42 @@
+/* Homepage only: distinct editorial roles for readiness, architecture, advisors, and publication. */
+.home-revised .hero-support{max-width:450px}
+.home-hero-contact{display:inline-flex;align-items:center;gap:12px;text-align:left;background:none;border:0;padding:12px 0;margin-top:12px;font-size:14px;line-height:1.6;color:var(--ink)}
+.home-hero-contact span{color:var(--blue)}
+.home-foundation-note{max-width:850px;font-size:17px;line-height:1.8;color:var(--muted);margin:4px 0 38px}
+.home-architecture{border-top:1px solid var(--line)}
+.home-layer-list{margin-top:22px;border-top:1px solid var(--line)}
+.home-layer{margin:0;padding:0;border-bottom:1px solid var(--line)}
+.home-layer summary{display:grid;grid-template-columns:44px 190px 1fr 24px;gap:24px;align-items:center;border:0;padding:22px 0;min-height:78px}
+.home-layer-number{font-size:12px;color:var(--blue);font-weight:400}
+.home-layer-name{font-family:'Instrument Serif',Georgia,serif;font-size:30px;font-weight:400;letter-spacing:-.02em}
+.home-layer-purpose{font-size:16px;line-height:1.5;font-weight:400;color:var(--muted)}
+.home-layer-toggle{font-size:24px;font-weight:400;color:var(--blue);transition:transform .2s;text-align:center}
+.home-layer[open] .home-layer-toggle{transform:rotate(45deg)}
+.home-layer-body{padding:0 48px 26px 282px;max-width:1040px}
+.home-layer-body p{font-size:16px;line-height:1.8;padding:0;color:var(--muted);margin:0 0 18px}
+.home-layer-body a{font-size:14px;color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.home-layer-note{font-size:15px;line-height:1.8;max-width:770px;color:var(--muted);margin:26px 0 0}
+.home-revised .approach h2{font-size:clamp(48px,4.6vw,70px)}
+.home-revised .approach-points{padding-top:0}
+.home-revised .signal-heading{margin-bottom:38px}
+.home-revised .signal-heading>p{max-width:490px}
+.home-signal-feature{display:grid;grid-template-columns:1fr 1.1fr;gap:7vw;padding:32px 0;border-block:1px solid var(--line);margin-bottom:40px}
+.home-signal-feature .eyebrow{font-size:12px;color:var(--blue)}
+.home-signal-feature h3{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,3.2vw,48px);font-weight:400;line-height:1.1;letter-spacing:-.025em;margin:18px 0 0}
+.home-signal-feature p:not(.eyebrow){font-size:17px;line-height:1.75;color:var(--muted);max-width:600px}
+.home-signal-feature .text-link{display:inline-flex;align-items:center;font-size:15px}
+.home-briefs-label{font-size:14px;color:var(--muted);margin:0 0 24px}
+.home-revised .homepage-kit-copy .home-kit-principle{font-size:15px;border-top:1px solid #3e4944;margin-top:32px;padding-top:22px;max-width:460px}
+.home-revised .closing>p:not(.eyebrow){max-width:720px;margin-left:auto;margin-right:auto;line-height:1.75}
+@media(max-width:760px){
+ .home-foundation-note{font-size:16px;margin-bottom:28px}
+ .home-layer summary{grid-template-columns:25px 1fr 24px;gap:8px 14px;padding:20px 0}
+ .home-layer-name{font-size:28px}
+ .home-layer-purpose{grid-column:2;grid-row:2;font-size:15px}
+ .home-layer-toggle{grid-column:3;grid-row:1/3}
+ .home-layer-body{padding:0 0 24px 39px}
+ .home-signal-feature{grid-template-columns:1fr;gap:22px}
+ .home-revised .approach h2{font-size:49px}
+ .home-hero-contact{max-width:310px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.home-layer-toggle{transition:none}}
