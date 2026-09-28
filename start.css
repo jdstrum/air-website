@@ -1,0 +1,59 @@
+/* Where AI Starts — six-question tool. Ledger tokens from ledger.css. */
+.tool-hero{padding-block:72px 24px}
+.tool-hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,6vw,64px);line-height:1.04;margin:10px 0 16px;text-wrap:balance}
+.tool-hero p.lead{font-size:19px;color:var(--muted);max-width:60ch;margin:0}
+.tool-wrap{max-width:760px;margin:0 auto;padding-inline:20px;padding-block:24px 96px}
+.tool-loc{display:flex;flex-direction:column-reverse;gap:3px;width:34px;margin-bottom:32px}
+.tool-loc i{display:block;height:4px;background:var(--line);border-radius:1px;transition:background .3s}
+.tool-loc i.on{background:#23443A}
+#tool{scroll-margin-top:24px}
+#tool h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,4.6vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+#tool h2.t-h1{font-size:clamp(36px,6vw,54px);line-height:1.04}
+#tool h3{font-size:16px;font-weight:600;margin:0}
+#tool p{margin:0;max-width:62ch}
+.t-stack{display:flex;flex-direction:column;gap:20px}
+.t-tight{gap:10px}
+.t-why{font-size:15px;color:var(--muted)}
+.t-lede{font-size:19px;color:var(--ink)}
+.t-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.t-opts{display:grid;gap:10px}
+.t-opt{font:inherit;text-align:left;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:15px 18px;cursor:pointer;transition:border-color .15s,background .15s}
+.t-opt:hover{border-color:var(--muted)}
+.t-opt[aria-pressed="true"]{border-color:#23443A;background:#E4ECE7}
+.t-opt .t-why{font-size:14px}
+.t-reveal{border-left:2px solid #23443A;padding:4px 0 4px 16px;font-family:'Instrument Serif',Georgia,serif;font-size:22px;line-height:1.3}
+.t-field{display:flex;flex-direction:column;gap:6px}
+.t-field label{font-size:14px;color:var(--muted)}
+#tool input:not([type=checkbox]),#tool textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);width:100%;min-width:0}
+#tool textarea{min-height:64px;resize:vertical}
+.t-link{font:inherit;background:none;border:0;padding:0;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+#tool .button[disabled]{opacity:.35;cursor:default}
+.t-screen{border:1px solid var(--line);border-radius:6px;background:var(--soft);overflow:hidden}
+.t-screen-bar{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.t-msgs{display:flex;flex-direction:column;gap:12px;padding:18px 16px}
+.t-msg{max-width:88%;padding:11px 14px;border-radius:4px;font-size:15px;line-height:1.5}
+.t-msg.you{align-self:flex-end;background:#fff;border:1px solid var(--line)}
+.t-msg.ai{align-self:flex-start;background:#E4ECE7}
+.t-msg .who{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.t-compare{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.t-compare>div{min-width:0}
+.t-needs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.t-need{display:grid;grid-template-columns:190px 1fr;gap:6px 20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.t-need>*{min-width:0}
+.t-need.top{background:#E4ECE7;border-bottom-color:#23443A;padding-inline:14px}
+.t-chip{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:2px;border:1px solid currentColor;margin-top:6px}
+.t-chip.start{color:#8A3B2E}.t-chip.work{color:#7A5E17}.t-chip.ok{color:#23443A}
+.t-panel{background:var(--soft);border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.t-fields{display:flex;gap:10px;flex-wrap:wrap}
+.t-fields input{flex:1 1 200px}
+.t-check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}
+.t-check input{margin-top:3px}
+.t-form{display:flex;flex-direction:column;gap:12px}
+.t-status{font-size:14px;color:var(--ink)}
+.t-email{border-top:1px solid var(--line);padding-top:28px}
+.t-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.t-fade{animation:t-in .35s ease both}
+@keyframes t-in{from{opacity:.001;transform:translateY(6px)}to{opacity:1;transform:none}}
+#tool :is(.t-opt,.t-link,input,textarea):focus-visible{outline:2px solid #2E5A4C;outline-offset:2px}
+@media (max-width:600px){.t-compare{grid-template-columns:1fr}.t-need{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.t-fade{animation:none}.tool-loc i{transition:none}}

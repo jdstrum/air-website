@@ -10,7 +10,7 @@ const {
 } = require('./_air-ghl');
 
 const REQUEST_TYPES = new Set(['assessment', 'kit', 'contact']);
-const ASSESSMENT_VERSION = '2026-09-08-v6';
+const ASSESSMENT_VERSION = '2026-09-28-where-ai-starts-v1';
 const RESOURCE_ID = 'first-useful-ai-workflow';
 const RESOURCE_EDITION = '2026-09-08-v1';
 
@@ -62,10 +62,10 @@ async function sendDelivery({ type, email, name, assessmentText }) {
   const siteUrl = (process.env.PUBLIC_SITE_URL || 'https://www.airesulting.com').replace(/\/$/, '');
   const firstName = clean(name, 100).split(/\s+/)[0] || 'there';
   const isKit = type === 'kit';
-  const subject = isKit ? 'Your first useful AI workflow kit' : 'Your AI Resulting readiness picture';
+  const subject = isKit ? 'Your first useful AI workflow kit' : 'Where AI starts at your company';
   const text = isKit
     ? `Hi ${firstName},\n\nYour AI Resulting working kit is ready:\n${siteUrl}/assets/your-first-useful-ai-workflow.pdf\n\nThis delivery does not subscribe you to marketing.\n\nAI Resulting`
-    : `Hi ${firstName},\n\nHere is your initial readiness picture.\n\n${clean(assessmentText, 12000)}\n\nThis is a self-reported, directional interpretation, not an audit or certification.\n\nAI Resulting`;
+    : `Hi ${firstName},\n\nHere are your results.\n\n${clean(assessmentText, 12000)}\n\nThese come from your own answers. They are a starting point, not an audit.\n\nAI Resulting`;
 
   await resend.emails.send({
     from: process.env.AIR_FROM_EMAIL || 'AI Resulting <noreply@send.airesulting.com>',

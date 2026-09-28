@@ -3,7 +3,7 @@ module.exports = function handler(req, res) {
   const slug = (req.url || '').replace(/^\/a\//, '').split('?')[0].split('/')[0] || '';
 
   if (!slug) {
-    return res.writeHead(302, { Location: '/assessment' }).end();
+    return res.writeHead(302, { Location: '/start' }).end();
   }
 
   // Set a cookie with the ref — HttpOnly so it's invisible to page JS except our own reader,
@@ -12,6 +12,6 @@ module.exports = function handler(req, res) {
 
   res.writeHead(302, {
     'Set-Cookie': cookie,
-    Location: '/assessment'
+    Location: '/start'
   }).end();
 };
