@@ -337,8 +337,8 @@ function result(){
   catch(e){st.textContent=e.message}};
  const ef=document.getElementById("emailForm");
  ef.onsubmit=async ev=>{ev.preventDefault();const st=ef.querySelector(".t-status");st.textContent="Sending…";
-  try{await post("/api/air-submit",{...base(),type:"assessment",name:ef.querySelector("#e-name").value,email:ef.querySelector("#e-email").value,company:co,deliveryConsent:ef.querySelector("#e-consent").checked,assessmentSummary:summary(),assessmentPriorities:priorities(),assessmentResponses:summary()+"\n\nYour answers\n"+answersText()});
-   st.textContent="Sent. Check your inbox.";ef.querySelector("button").disabled=true}
+  try{const j2=await post("/api/air-submit",{...base(),type:"assessment",name:ef.querySelector("#e-name").value,email:ef.querySelector("#e-email").value,company:co,deliveryConsent:ef.querySelector("#e-consent").checked,assessmentSummary:summary(),assessmentPriorities:priorities(),assessmentResponses:summary()+"\n\nYour answers\n"+answersText()});
+   st.textContent=j2&&j2.deliveryStatus==="delivered"?"Sent. Check your inbox.":"Got it. Your results are on their way to your inbox.";ef.querySelector("button").disabled=true}
   catch(e){st.textContent=e.message}};
  document.getElementById("again").onclick=()=>{A={};step=-1;render();app.scrollIntoView({block:"start"})};
 
