@@ -38,14 +38,14 @@
   function form() {
     d.innerHTML = '<div class="in">' +
       '<div class="top"><p class="eb">Talk to a Resultant</p><button class="x" type="button" aria-label="Close">×</button></div>' +
-      '<h2 id="intake-title">Tell us what’s getting in the way.</h2>' +
+      '<h2 id="intake-title">Tell us what you’re working on.</h2>' +
       '<p>A business goal, a stalled project or a decision coming up. You don’t need a finished brief. A Resultant will reply to set up a conversation.</p>' +
       '<form novalidate>' +
       '<div class="row2"><div><label for="in-name">Name</label><input id="in-name" autocomplete="name" maxlength="100" required></div>' +
       '<div><label for="in-email">Work email</label><input id="in-email" type="email" autocomplete="email" maxlength="254" required></div></div>' +
       '<div class="row2"><div><label for="in-company">Company</label><input id="in-company" autocomplete="organization" maxlength="160"></div>' +
       '<div><label for="in-size">Company size</label><select id="in-size"><option value="">Choose one</option><option>Under 250 people</option><option>250–999 people</option><option>1,000–2,500 people</option><option>More than 2,500 people</option></select></div></div>' +
-      '<label for="in-context">What’s getting in the way? <span>(optional)</span></label><textarea id="in-context" maxlength="1400"></textarea>' +
+      '<label for="in-context">What are you working on? <span>(optional)</span></label><textarea id="in-context" maxlength="1400"></textarea>' +
       '<label class="ok"><input type="checkbox" id="in-consent" required><span>Contact me about this request. I’ve read the <a href="privacy.html">privacy notice</a>.</span></label>' +
       '<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
       '<button class="send" type="submit">Send <span aria-hidden="true">↗</span></button>' +
