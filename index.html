@@ -336,8 +336,24 @@ footer a:hover{text-decoration:underline}
   .hero .hero-actions{animation:soft-in .8s 1.15s cubic-bezier(.2,.8,.2,1) both}
   .blocks.live .layer,.blocks.live .ai{transition:translate .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s ease}
   .blocks.live .layer{translate:calc(var(--px,0)*var(--d,0)*1px) calc(var(--py,0)*var(--d,0)*1px)}
-  .blocks.live .ai{translate:calc(var(--px,0)*16px) calc(var(--py,0)*10px);box-shadow:inset 0 -4px 0 #00000059,0 calc(12px + var(--py,0)*6px) 28px -14px #12141766}
-  .blocks .l6{--d:0}.blocks .l5{--d:2}.blocks .l4{--d:4}.blocks .l3{--d:6}.blocks .l2{--d:8}.blocks .l1{--d:10}
+  .blocks.live .ai{translate:calc(var(--px,0)*26px) calc(var(--py,0)*16px);box-shadow:inset 0 -4px 0 #00000059,0 calc(12px + var(--py,0)*6px) 28px -14px #12141766}
+  .blocks .l6{--d:0}.blocks .l5{--d:3}.blocks .l4{--d:6}.blocks .l3{--d:9}.blocks .l2{--d:12}.blocks .l1{--d:15}
+}
+
+/* scroll reveals: headings rise out of a mask, the architecture list draws itself in, journey cards follow */
+@media (prefers-reduced-motion:no-preference){
+  .rv-h .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+  .rv-h .w>span{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.15,1)}
+  .rv-h.in .w>span{transform:none}
+  .arch-list.rv .arch-row{position:relative;border-bottom-color:transparent}
+  .arch-list.rv .arch-row::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--line);transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) var(--dl,0s)}
+  .arch-list.rv .arch-row summary{opacity:0;transform:translateY(22px);transition:opacity .7s ease var(--dl,0s),transform .9s cubic-bezier(.2,.8,.15,1) var(--dl,0s)}
+  .arch-list.rv.in .arch-row::after{transform:none}
+  .arch-list.rv.in .arch-row summary{opacity:1;transform:none}
+  .arch-row summary .arch-name{transition:transform .45s cubic-bezier(.2,.8,.2,1),color .3s}
+  .arch-row summary:hover .arch-name{transform:translateX(8px);color:#23443A}
+  .paths.rv article{opacity:0;transform:translateY(34px);transition:opacity .8s ease var(--dl,0s),transform 1s cubic-bezier(.2,.8,.15,1) var(--dl,0s)}
+  .paths.rv.in article{opacity:1;transform:none}
 }
 @keyframes word-up{from{transform:translateY(105%)}to{transform:none}}
 @keyframes soft-in{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -588,7 +604,8 @@ footer a:hover{text-decoration:underline}
 })();
 </script>
 
-<script src="intake.js?v=1"></script><script defer src="/_vercel/insights/script.js">
+<script src="intake.js?v=1"></script><script defer src="/_vercel/insights/script.js"></script>
+<script>
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var h=document.getElementById('hero-title');
@@ -608,5 +625,22 @@ footer a:hover{text-decoration:underline}
     });
   });
   hero.addEventListener('pointerleave',function(){b.style.setProperty('--px',0);b.style.setProperty('--py',0);});
+})();
+
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  var below=function(el){return el.getBoundingClientRect().top>window.innerHeight*.9};
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('section:not(.hero) h2').forEach(function(h){
+    if(!below(h)||h.querySelector('.w'))return;
+    var t=h.textContent.trim();h.setAttribute('aria-label',t);
+    h.innerHTML=t.split(/\s+/).map(function(w,i){return '<span class="w" aria-hidden="true"><span style="transition-delay:'+(i*60)+'ms">'+w+'</span></span>'}).join(' ');
+    h.classList.add('rv-h');io.observe(h);
+  });
+  [['.arch-list','.arch-row',.09],['.paths','article',.12]].forEach(function(c){
+    var box=document.querySelector(c[0]);if(!box||!below(box))return;
+    box.querySelectorAll(c[1]).forEach(function(el,i){el.style.setProperty('--dl',(i*c[2]).toFixed(2)+'s')});
+    box.classList.add('rv');io.observe(box);
+  });
 })();
 </script></body></html>
