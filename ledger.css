@@ -114,3 +114,13 @@
 /* Business brain box on Data readiness: light type on the dark panel */
 [data-palette="cinematic"][data-tone="ledger"] .brain-context :is(h2,h2 em,p){color:#F8F7F3}
 [data-palette="cinematic"][data-tone="ledger"] .brain-context .eyebrow{color:#CFE0D8}
+
+/* closing band: secondary route to the six questions */
+[data-tone="ledger"] .closing .closing-alt{margin:22px 0 0;font-size:15px}
+[data-tone="ledger"] .closing .closing-alt a{color:#23443A;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+[data-tone="ledger"] .closing .closing-alt a:hover{color:#1B3530}
+/* sentence-case diagram labels: drop the tracking that suited capitals */
+[data-tone="ledger"] :is(.wheel-center>span,.source-kind,.workload-origin>span,.network-band>span,.continuity-core>span,.speaker,.workday-inputs>span,.workday-core>span,.workday-test>span,.human-standard-strip article>span,.brain-arrow+p){letter-spacing:0}
+/* privacy & terms: visible links, clear break before the terms */
+[data-tone="ledger"] .privacy-page :is(.signal-source,.signal-reading) a{text-decoration:underline;text-underline-offset:3px}
+[data-tone="ledger"] .privacy-page #terms{margin-top:64px;padding-top:44px;border-top:1px solid var(--line)}

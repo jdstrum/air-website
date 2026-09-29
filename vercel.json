@@ -81,6 +81,11 @@
       "source": "/second-opinion",
       "destination": "/start",
       "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/privacy#terms",
+      "permanent": true
     }
   ],
   "rewrites": [

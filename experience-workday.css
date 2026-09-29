@@ -4,7 +4,7 @@
 .workday-heading h2,.human-standard-heading h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(42px,5vw,68px);font-weight:400;line-height:1.04;color:var(--ink);margin:18px 0 24px}
 .workday-heading>p:last-child,.human-standard-heading>p:last-child{font-size:17px;line-height:1.75;color:var(--muted);max-width:430px}
 .workday-schematic{margin:0;padding:clamp(24px,4vw,44px);border:1px solid color-mix(in srgb,var(--dimension-light) 42%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--dimension-light) 8%,#ffffff),#ffffff 72%);box-shadow:0 24px 60px #0003}
-.workday-schematic figcaption{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+.workday-schematic figcaption{font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted);margin-bottom:26px}
 .workday-inputs,.workday-outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .workday-inputs span{display:grid;place-items:center;min-height:54px;padding:8px;border:1px solid var(--line);font-size:12px;letter-spacing:.1em;color:var(--muted);text-align:center}
 .workday-flow{display:grid;grid-template-columns:1fr;place-items:center;height:46px;color:var(--dimension-light)}

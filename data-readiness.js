@@ -1,5 +1,5 @@
 const SCENARIOS={
- finance:{question:'What explains the difference between planned and actual spend?',sources:[['BUDGET','The spending plan.'],['ACTUALS','The recorded transactions.'],['OPERATING CONTEXT','The activity behind the spend.']],states:[
+ finance:{question:'What explains the difference between planned and actual spend?',sources:[['Budget','The spending plan.'],['Actuals','The recorded transactions.'],['Operating context','The activity behind the spend.']],states:[
  ['Start with a source.','Choose the information available to the business. Each source adds context to the question.'],
  ['A plan to compare against.','The budget sets the expectation. Recorded transactions and operating context are needed to investigate what actually happened.'],
  ['Spending, without the comparison.','The transactions show recorded spending. Check completeness and classification, then connect the plan and operating activity to understand the difference.'],
@@ -9,7 +9,7 @@ const SCENARIOS={
  ['Spending with operating context.','Transactions and business activity can help investigate what drove spending. The budget adds the intended baseline for comparison.'],
  ['A difference you can investigate with context.','Compare aligned budget and actual figures alongside the activity behind them. Trace the source, check timing and classification, and have the responsible team validate the explanation.']
  ]},
- operations:{question:'What could put the next delivery at risk?',sources:[['DEMAND','What has been promised.'],['CAPACITY','What the team can deliver.'],['SUPPLY','What is arriving—and when.']],states:[
+ operations:{question:'What could put the next delivery at risk?',sources:[['Demand','What has been promised.'],['Capacity','What the team can deliver.'],['Supply','What is arriving, and when.']],states:[
  ['Start with a source.','Choose the information available to the business. Each source adds context to the question.'],
  ['A commitment to prepare for.','Orders and due dates tell you what is expected. Capacity and supply information are needed to understand whether the promise can be met.'],
  ['Capacity, without the full demand.','You can see available people, equipment, or production time. Committed work and supply dependencies are needed to assess the pressure on them.'],
@@ -19,7 +19,7 @@ const SCENARIOS={
  ['Resources, without the priorities.','Capacity and supply show what may be available. Committed demand adds the timing and priorities needed to plan the work.'],
  ['A delivery risk with a clearer next move.','Compare commitments with available capacity and expected inputs. Confirm current dates, identify the constraint, and have the operating owner review a workable response.']
  ]},
- customers:{question:'Who needs attention before renewal?',sources:[['CUSTOMER RECORD','The renewal is next month.'],['SERVICE HISTORY','An issue is still unresolved.'],['CONTRACT','A service commitment matters.']],states:[
+ customers:{question:'Who needs attention before renewal?',sources:[['Customer record','The renewal is next month.'],['Service history','An issue is still unresolved.'],['Contract','A service commitment matters.']],states:[
  ['Start with a source.','Choose the information available to the business. Each source adds context to the question.'],
  ['A renewal to prepare for.','The customer record tells you when to reach out. It does not tell you what that conversation needs to address.'],
  ['An unresolved service issue.','You can see the problem. Customer and contract context would help determine how to prioritize and address it.'],

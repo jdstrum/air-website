@@ -13,7 +13,7 @@ const AGENT=REF&&AGENTS[decodeURIComponent(REF)]||null;
 const Q=[
  {id:"walk", q:()=>`If the most relied-on person in ${scope()} left Friday, how much would go with them?`, why:"Think about how the work actually gets done, not the org chart.",
   opts:[
-   ["doc","Very little. It's written down.","That's rare. Written-down knowledge is exactly what AI can put to work."],
+   ["doc","Very little. It's written down.","That puts you ahead. Written-down knowledge is exactly what AI can put to work."],
    ["some","Some shortcuts and history","The shortcuts and history are what make someone fast. They can be captured before they leave."],
    ["most","Most of how the work actually gets done","Then the real process lives in a person. AI can't use it until it's written down, and recorded conversations are enough to start."],
    ["trouble","We'd be in real trouble","That's a risk today, with or without AI. It's also the clearest place to start."]]},
@@ -38,7 +38,7 @@ const Q=[
    ["fix","Getting problems fixed","Slow fixes are usually a routing and information problem before they're a staffing problem."],
    ["rarely","They rarely wait","Then AI can make a good experience cheaper to deliver, not just faster."],
    ["na","Not close enough to say","Fair. The people who hear the complaints will know, and it's worth asking them."]]},
- {id:"basis", q:()=>"When leadership makes a call, what's it usually based on?", why:"Most companies use all three. Pick the one that usually wins.",
+ {id:"basis", q:()=>"When leadership makes a call, what's it usually based on?", why:"You probably use all three. Pick the one that usually wins.",
   opts:[
    ["live","Live numbers from our systems","Leadership already works from data. AI can tell you what needs attention, not just what happened."],
    ["reports","Reports someone puts together each week or month","A report someone assembles is already out of date when it's read."],
@@ -82,7 +82,7 @@ const MOVES={
   old:"Check the CRM, the ERP, the project tracker and someone's inbox, then piece it together.",
   now:"Every account's status in one answer, with the blocker already flagged.",
   gain:"Delivery speeds up when everyone sees the same picture. The next pinch is usually support, as more customers go live faster.",
-  seat:{biz:"Faster delivery means revenue recognised sooner and fewer customers wondering where things stand.",
+  seat:{biz:"Faster delivery means revenue recognized sooner and fewer customers wondering where things stand.",
    tech:"You'd connect the CRM, ERP and project tools, which is an integration and network job before it's an AI job.",
    fn:"Your team stops chasing status across four systems and spends that time moving the work forward."},
   layers:["Network & connectivity","Customer experience","Artificial intelligence"]},
@@ -224,19 +224,19 @@ function lives(){
   blocked:"On personal phones and home laptops, where blocking doesn't reach.",
   unknown:"Almost certainly in personal accounts. Nobody has checked yet."}[A.ai];
 }
-const SOURCE={"Data readiness":["Data center & cloud","Managed IT"],"Infrastructure":["Network & connectivity","Data center & cloud"],"Governance & security":["Cybersecurity"],"Customer experience":["Customer experience","Communication & collaboration"]};
+const SOURCE={"Data readiness":["Data center & cloud","Managed IT"],"Technology infrastructure":["Network & connectivity","Data center & cloud"],"Governance & security":["Cybersecurity"],"Experience layer":["Customer experience","Communication & collaboration"]};
 function sourced(rows){const out=[];rows.forEach(r=>{if(r[1]!=="ok")(SOURCE[r[0]]||[]).forEach(c=>{if(!out.includes(c))out.push(c)})});return out}
 function firstStep(rows){
  const st=Object.fromEntries(rows.map(r=>[r[0],r[1]]));
  if(st["Governance & security"]!=="ok") return ["Governance & security","Security is no longer optional, and every AI tool you add will depend on it."];
- if(st["Infrastructure"]==="start") return ["Infrastructure","AI can only work across what's connected. The network and systems come first."];
+ if(st["Technology infrastructure"]==="start") return ["Technology infrastructure","AI can only work across what's connected. The network and systems come first."];
  if(st["Data readiness"]==="start") return ["Data readiness","Get what people know into systems before anything tries to use it."];
- if(st["Customer experience"]==="start") return ["Customer experience","Your phones, contact center and the systems behind them are where customers feel the difference."];
- if(st["Infrastructure"]==="work") return ["Infrastructure","Close the gaps between your systems, on a network that can carry more."];
+ if(st["Experience layer"]==="start") return ["Experience layer","Your phones, contact center and the systems behind them are where customers feel the difference."];
+ if(st["Technology infrastructure"]==="work") return ["Technology infrastructure","Close the gaps between your systems, on a network that can carry more."];
  return [null,"The foundation is in good shape. The first move itself is the right place to start."];
 }
 function inTheWay(){
- return [["Data readiness",...STATUS.walk[A.walk]],["Infrastructure",...STATUS.move[A.move]],["Governance & security",...STATUS.ai[A.ai]],["Customer experience",...STATUS.wait[A.wait]],["Strategic vision",...STATUS.basis[A.basis]],["Workforce readiness",...STATUS.work[A.ai]]];
+ return [["Data readiness",...STATUS.walk[A.walk]],["Technology infrastructure",...STATUS.move[A.move]],["Governance & security",...STATUS.ai[A.ai]],["Experience layer",...STATUS.wait[A.wait]],["Strategic direction",...STATUS.basis[A.basis]],["Workforce & adoption",...STATUS.work[A.ai]]];
 }
 function supplierFit(){
  const s=[];
