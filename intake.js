@@ -79,7 +79,8 @@
     };
   }
 
-  function open(e) { if (e) e.preventDefault(); form(); d.showModal(); var n = d.querySelector('#in-name'); if (n) n.focus(); }
+  // Every "Talk to a Resultant" link now goes to the dedicated intake page.
+  function open(e) { if (e) e.preventDefault(); location.href = '/talk'; }
   d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
 
   function bind() {
