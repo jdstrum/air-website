@@ -106,3 +106,11 @@
 .fmenu-panel a small{display:block;font-size:13px;color:var(--muted)}
 [data-tone="ledger"] header nav .fmenu-panel .fmenu-all{font-weight:600;font-size:14px;color:#23443A;border-bottom:1px solid var(--line);margin-bottom:4px;padding-bottom:13px}
 @media (max-width:900px){.fmenu-panel{left:0;width:min(360px,calc(100vw - 32px))}}
+
+/* 2026-09-28: wheels read as interactive. Resting nodes carry the light tint, hover and selected go dark. */
+[data-palette="cinematic"][data-tone="ledger"] .wheel-node{background:#E4ECE7;border-color:#2E5A4C;color:#121417}
+[data-palette="cinematic"][data-tone="ledger"] .wheel-node:hover,[data-palette="cinematic"][data-tone="ledger"] .wheel-node[aria-pressed="true"],[data-palette="cinematic"][data-tone="ledger"] .wheel-node[aria-pressed="true"]:hover{background:#23443A;border-color:#23443A;color:#F8F7F3}
+[data-palette="cinematic"][data-tone="ledger"] .wheel-node:hover :is(strong,span),[data-palette="cinematic"][data-tone="ledger"] .wheel-node[aria-pressed="true"] :is(strong,span){color:#F8F7F3}
+/* Business brain box on Data readiness: light type on the dark panel */
+[data-palette="cinematic"][data-tone="ledger"] .brain-context :is(h2,h2 em,p){color:#F8F7F3}
+[data-palette="cinematic"][data-tone="ledger"] .brain-context .eyebrow{color:#CFE0D8}
