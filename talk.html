@@ -85,6 +85,7 @@ main.talk .tf label.ok,main.talk .tf label.ok span{font:15px/1.5 "DM Sans",syste
 <script src="app.js?v=25"></script><script>
 (function(){
   var f=document.getElementById('talkform'),st=f.querySelector('.st'),b=f.querySelector('.send');
+  var mm={start:'Just getting started',stalled:'A pilot that stalled',contract:'A contract coming up',proposal:'A proposal on the table'}[new URLSearchParams(location.search).get('m')];if(mm)document.getElementById('t-moment').value=mm;
   function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   f.onsubmit=function(e){
     e.preventDefault();

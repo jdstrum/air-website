@@ -329,7 +329,7 @@ footer a:hover{text-decoration:underline}
 
 /* 2026-09-28 motion pass: orchestrated hero, then a stack that stays alive under the cursor */
 @media (prefers-reduced-motion:no-preference){
-  .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em;margin-bottom:-.06em}
+  .hero h1 .w{display:inline-block;overflow:visible;clip-path:inset(-.4em -.3em 0 -.3em);vertical-align:bottom;padding-bottom:.06em;margin-bottom:-.06em}
   .hero h1 .w>span{display:inline-block;animation:word-up .9s cubic-bezier(.2,.8,.15,1) both}
   .hero .hero-sub{animation:soft-in .8s .75s cubic-bezier(.2,.8,.2,1) both}
   .hero .lead{animation:soft-in .8s .95s cubic-bezier(.2,.8,.2,1) both}
@@ -342,7 +342,7 @@ footer a:hover{text-decoration:underline}
 
 /* scroll reveals: headings rise out of a mask, the architecture list draws itself in, journey cards follow */
 @media (prefers-reduced-motion:no-preference){
-  .rv-h .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+  .rv-h .w{display:inline-block;overflow:visible;clip-path:inset(-.4em -.3em 0 -.3em);vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
   .rv-h .w>span{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.15,1)}
   .rv-h.in .w>span{transform:none}
   .arch-list.rv .arch-row{position:relative;border-bottom-color:transparent}
@@ -355,6 +355,64 @@ footer a:hover{text-decoration:underline}
   .paths.rv article{opacity:0;transform:translateY(34px);transition:opacity .8s ease var(--dl,0s),transform 1s cubic-bezier(.2,.8,.15,1) var(--dl,0s)}
   .paths.rv.in article{opacity:1;transform:none}
 }
+
+/* hero option B (?hero=rise): blocks rise quietly into place, bottom first; AI settles last */
+@media (prefers-reduced-motion:no-preference){
+  .hero-rise .stack.play .layer,.hero-rise .stack.play .l6,.hero-rise .stack.play .l4,.hero-rise .stack.play .l2{animation:rise-in .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero-rise .stack.play .l6{animation-delay:.15s}.hero-rise .stack.play .l5{animation-delay:.27s}.hero-rise .stack.play .l4{animation-delay:.39s}
+  .hero-rise .stack.play .l3{animation-delay:.51s}.hero-rise .stack.play .l2{animation-delay:.63s}.hero-rise .stack.play .l1{animation-delay:.75s}
+  .hero-rise .stack.play .ai{animation:settle 1s 1.15s cubic-bezier(.2,.8,.2,1) both}
+}
+@keyframes rise-in{from{opacity:.001;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes settle{from{opacity:.001;transform:translateY(-22px)}to{opacity:1;transform:none}}
+
+/* moments: tappable starting points */
+.moments a{display:inline-flex;gap:10px;align-items:center;border:1px solid #FFFFFF33;padding:11px 16px;font-size:15px;color:#E3E9E5;text-decoration:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s,box-shadow .35s}
+.moments a i{font-style:normal;opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1);width:0;overflow:hidden}
+.moments a:hover,.moments a:focus-visible{transform:translateY(-3px);border-color:#F8F7F3;background:#FFFFFF12;box-shadow:0 14px 28px -18px #000}
+.moments a:hover i,.moments a:focus-visible i{opacity:1;transform:none;width:auto}
+.moments li{border:0;padding:0}
+.moments-label{font-size:13px;color:#9FA59D;margin-top:36px}
+.moments-label+.moments{margin-top:12px}
+.resultant .actions{display:flex;flex-wrap:wrap;gap:14px}
+.btn.ghost-light{background:transparent;color:#F8F7F3;box-shadow:inset 0 0 0 1px #F8F7F3}
+.btn.ghost-light:hover{background:#FFFFFF14}
+
+/* what we source, compact */
+.source .head2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.source .head2 p{color:var(--muted);font-size:18px;max-width:40ch}
+.srclist{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.srclist li{position:relative}
+.srclist li::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
+.srclist a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 28px;gap:24px;align-items:baseline;padding:20px 4px;text-decoration:none}
+.srclist b{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.4vw,34px);line-height:1.1;transition:transform .45s cubic-bezier(.2,.8,.2,1),color .3s}
+.srclist span{color:var(--muted);font-size:16px}
+.srclist em{font-style:normal;justify-self:end;opacity:.35;transition:opacity .3s,transform .45s cubic-bezier(.2,.8,.2,1)}
+.srclist a:hover b{transform:translateX(10px);color:var(--spruce)}
+.srclist a:hover em{opacity:1;transform:translateX(4px)}
+.source .actions{margin-top:36px}
+@media (prefers-reduced-motion:no-preference){
+  .srclist.rv li::after{transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) var(--dl,0s)}
+  .srclist.rv a{opacity:0;transform:translateY(20px);transition:opacity .7s ease var(--dl,0s),transform .9s cubic-bezier(.2,.8,.15,1) var(--dl,0s)}
+  .srclist.rv.in li::after{transform:none}.srclist.rv.in a{opacity:1;transform:none}
+}
+@media (max-width:760px){.source .head2{grid-template-columns:minmax(0,1fr)}.srclist a{grid-template-columns:minmax(0,1fr) 20px}.srclist span{grid-column:1;grid-row:2;font-size:14.5px}.srclist em{grid-row:1/3;grid-column:2}}
+
+/* kit band */
+.kitband{background:var(--soft);padding-block:clamp(72px,9vw,128px);overflow:hidden}
+.kit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,7vw,110px);align-items:center}
+.kitband h2{font-size:clamp(40px,5vw,72px);line-height:1}
+.kitband .say{font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--muted);max-width:38ch;margin-top:24px}
+.kitband .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:32px}
+.kitband .meta{font-size:14px;color:var(--faint)}
+.pages{position:relative;height:clamp(340px,36vw,480px)}
+.pages a{position:absolute;display:block;width:min(72%,340px);box-shadow:0 30px 60px -30px #12141773,0 2px 6px #1214171a;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.pages img{display:block;width:100%;height:auto}
+.pages .p2{right:4%;top:6%;transform:rotate(5deg)}
+.pages .p1{left:6%;top:0;transform:rotate(-3deg)}
+.pages:hover .p1{transform:rotate(-6deg) translate(-18px,-10px)}
+.pages:hover .p2{transform:rotate(8deg) translate(18px,6px)}
+@media (max-width:860px){.kit-grid{grid-template-columns:minmax(0,1fr)}.pages{height:360px;max-width:460px}}
 @keyframes word-up{from{transform:translateY(105%)}to{transform:none}}
 @keyframes soft-in{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
 
@@ -409,7 +467,6 @@ footer a:hover{text-decoration:underline}
 
 /* resultant */
 .moments{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;padding:0;list-style:none}
-.moments li{border:1px solid #FFFFFF33;padding:10px 16px;font-size:15px;color:#E3E9E5}
 .resultant .actions{margin-top:40px}
 
 /* signal strip */
@@ -443,6 +500,7 @@ footer a:hover{text-decoration:underline}
 </style>
 <meta property="og:image" content="https://airesulting.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://airesulting.com/assets/og-image.png"></head>
 <body>
+<script>if(/[?&]hero=rise/.test(location.search))document.documentElement.classList.add("hero-rise")</script>
 <a class="skip" href="#top">Skip to content</a>
 
 <div class="wrap">
@@ -584,13 +642,26 @@ footer a:hover{text-decoration:underline}
   <div class="wrap">
     <p class="kicker">Who you work with</p>
     <h2 id="r-title" class="big">One advisor across the whole environment.</h2>
-    <p class="say">A Resultant compares providers across network, cloud, communications, customer experience, data and security, then stays with you after you sign.</p>
-    <ul class="moments" aria-label="Where people usually start">
-      <li>Just getting started</li><li>A pilot that stalled</li><li>A contract coming up</li><li>A proposal on the table</li>
+    <p class="say">Your Resultant is an experienced technology advisor, backed by solutions architects and technical specialists across network, cloud, communications, CX, data and security. We compare providers side by side, then stay with you after you sign.</p>
+    <p class="moments-label">Where people usually start</p>
+    <ul class="moments">
+      <li><a href="talk.html?m=start">Just getting started <i aria-hidden="true">↗</i></a></li><li><a href="talk.html?m=stalled">A pilot that stalled <i aria-hidden="true">↗</i></a></li><li><a href="talk.html?m=contract">A contract coming up <i aria-hidden="true">↗</i></a></li><li><a href="talk.html?m=proposal">A proposal on the table <i aria-hidden="true">↗</i></a></li>
     </ul>
-    <div class="actions"><a class="btn light" href="#talk" data-contact>Talk to a Resultant <span aria-hidden="true">↗</span></a></div>
+    <div class="actions"><a class="btn light" href="talk.html" data-contact>Talk to a Resultant <span aria-hidden="true">↗</span></a><a class="btn ghost-light" href="our-approach.html">How we work <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
+
+<section id="source" class="source" aria-labelledby="s-title">
+  <div class="wrap">
+    <div class="head2">
+      <div><p class="kicker">What we source</p><h2 id="s-title" class="big" style="font-size:clamp(44px,5.6vw,84px)">The architecture underneath.</h2></div>
+      <p>The technology behind the six dimensions: what gets designed, bought and run. Open any layer for examples and what to look for.</p>
+    </div>
+    <ul class="srclist"><li><a href="what-we-source.html#network"><b>Network &amp; connectivity</b><span>A reliable path through the business.</span><em aria-hidden="true">→</em></a></li><li><a href="what-we-source.html#cloud"><b>Data center &amp; cloud</b><span>The right home for every workload.</span><em aria-hidden="true">→</em></a></li><li><a href="what-we-source.html#security"><b>Cybersecurity</b><span>Protection across the environment.</span><em aria-hidden="true">→</em></a></li><li><a href="what-we-source.html#collaboration"><b>Communication &amp; collaboration</b><span>How your people talk and work together.</span><em aria-hidden="true">→</em></a></li><li><a href="what-we-source.html#cx"><b>Customer experience</b><span>Where customers feel the difference.</span><em aria-hidden="true">→</em></a></li><li><a href="what-we-source.html#ai"><b>Artificial intelligence</b><span>Managed access to AI, with rules people can use.</span><em aria-hidden="true">→</em></a></li><li><a href="what-we-source.html#managed-it"><b>Managed IT</b><span>The back office, handled.</span><em aria-hidden="true">→</em></a></li></ul>
+    <div class="actions"><a class="btn ghost" href="what-we-source.html">See what we source <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
 
 <section id="signal" class="strip" aria-labelledby="signal-title">
   <div class="wrap strip-grid">
@@ -601,7 +672,22 @@ footer a:hover{text-decoration:underline}
         <li><a href="the-signal.html#need-test">Do you need another tool? <span>The need test</span></a></li>
         <li><a href="show-me-the-finished-work.html">Show me the finished work <span>Field perspective</span></a></li>
       </ul>
-      <p class="kit">Your first useful AI workflow: a free six-page working kit. <a class="tlink" href="ai-workflow-starter-kit.html">Get the kit</a></p>
+    </div>
+  </div>
+</section>
+
+
+<section class="kitband" aria-labelledby="k-title">
+  <div class="wrap kit-grid">
+    <div>
+      <p class="kicker">Free working kit</p>
+      <h2 id="k-title">Your first useful AI workflow.</h2>
+      <p class="say">Six pages to pick one task, set its boundaries and compare the full cost over 30 days. It’s fillable, and nothing you type is sent to us.</p>
+      <div class="actions"><a class="btn" href="ai-workflow-starter-kit.html">Get the kit <span aria-hidden="true">↗</span></a><span class="meta">PDF · 6 pages</span></div>
+    </div>
+    <div class="pages" aria-hidden="true">
+      <a class="p2" href="ai-workflow-starter-kit.html" tabindex="-1"><img src="assets/kit-page-2.webp" alt="" width="560" height="725" loading="lazy"></a>
+      <a class="p1" href="ai-workflow-starter-kit.html" tabindex="-1"><img src="assets/kit-page-1.webp" alt="" width="560" height="725" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -667,14 +753,15 @@ footer a:hover{text-decoration:underline}
 })();
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
-  var st=document.createElement('style');st.textContent='.rv-h .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}.rv-h .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.15,1)}.rv-h.in .w>span{transform:none}.rv-p{opacity:0;transform:translateY(18px);transition:opacity .9s ease .35s,transform 1s cubic-bezier(.2,.8,.15,1) .35s}.rv-p.in{opacity:1;transform:none}';document.head.appendChild(st);
+  var st=document.createElement('style');st.textContent='.rv-h .w{display:inline-block;overflow:visible;clip-path:inset(-.4em -.3em 0 -.3em);vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}.rv-h .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.15,1)}.rv-h.in .w>span{transform:none}.rv-p{opacity:0;transform:translateY(18px);transition:opacity .9s ease .35s,transform 1s cubic-bezier(.2,.8,.15,1) .35s}.rv-p.in{opacity:1;transform:none}';document.head.appendChild(st);
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
-  document.querySelectorAll('.scene h2.big,.strip h2').forEach(function(h){
+  document.querySelectorAll('.scene h2.big,.strip h2,.source h2,.kitband h2').forEach(function(h){
     if(h.getBoundingClientRect().top<innerHeight*.9)return;
     var i=0,tw=document.createTreeWalker(h,NodeFilter.SHOW_TEXT),ns=[];while(tw.nextNode())ns.push(tw.currentNode);
     ns.forEach(function(n){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(' '));return}var o=document.createElement('span'),s=document.createElement('span');o.className='w';s.textContent=p;s.style.transitionDelay=(i++*70)+'ms';o.appendChild(s);f.appendChild(o)});n.parentNode.replaceChild(f,n)});
     h.classList.add('rv-h');io.observe(h);
   });
-  document.querySelectorAll('.scene .say,.scene .actions,.moments,.qcard').forEach(function(p){if(p.getBoundingClientRect().top<innerHeight*.9)return;p.classList.add('rv-p');io.observe(p)});
+  var sl=document.querySelector('.srclist');if(sl&&sl.getBoundingClientRect().top>innerHeight*.9){sl.querySelectorAll('li,a').forEach(function(el,i){el.style.setProperty('--dl',(Math.floor(i/2)*.08).toFixed(2)+'s')});sl.classList.add('rv');io.observe(sl)}
+  document.querySelectorAll('.scene .say,.scene .actions,.moments,.qcard,.kitband .say,.kitband .actions,.pages').forEach(function(p){if(p.getBoundingClientRect().top<innerHeight*.9)return;p.classList.add('rv-p');io.observe(p)});
 })();
 </script></body></html>
