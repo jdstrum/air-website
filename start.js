@@ -154,7 +154,7 @@ const STATUS={
 let step=-1, A={}, sel=null;
 const app=document.getElementById("tool");
 const locBars=[...document.querySelectorAll("#toolLoc i")];
-function setLoc(n){locBars.forEach((b,i)=>b.classList.toggle("on",i<n))}
+function setLoc(n){locBars.forEach((b,i)=>b.classList.toggle("on",i<n));const L=document.getElementById("toolLoc");if(L)L.classList.toggle("done",n>=6)}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function company(){return (A.url||"").trim().replace(/^https?:\/\//,"").replace(/^www\./,"").split("/")[0]}
 const label=(id,k)=>(Q.find(q=>q.id===id).opts.find(o=>o[0]===k)||[,""])[1];

@@ -326,6 +326,21 @@ footer a:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:12px;background:#fff;padding:8px 12px;z-index:10}
 .hero-sub{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(26px,3.2vw,36px);line-height:1.15;color:#23443A;margin:14px 0 18px}
+
+/* 2026-09-28 motion pass: orchestrated hero, then a stack that stays alive under the cursor */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em;margin-bottom:-.06em}
+  .hero h1 .w>span{display:inline-block;animation:word-up .9s cubic-bezier(.2,.8,.15,1) both}
+  .hero .hero-sub{animation:soft-in .8s .75s cubic-bezier(.2,.8,.2,1) both}
+  .hero .lead{animation:soft-in .8s .95s cubic-bezier(.2,.8,.2,1) both}
+  .hero .hero-actions{animation:soft-in .8s 1.15s cubic-bezier(.2,.8,.2,1) both}
+  .blocks.live .layer,.blocks.live .ai{transition:translate .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s ease}
+  .blocks.live .layer{translate:calc(var(--px,0)*var(--d,0)*1px) calc(var(--py,0)*var(--d,0)*1px)}
+  .blocks.live .ai{translate:calc(var(--px,0)*16px) calc(var(--py,0)*10px);box-shadow:inset 0 -4px 0 #00000059,0 calc(12px + var(--py,0)*6px) 28px -14px #12141766}
+  .blocks .l6{--d:0}.blocks .l5{--d:2}.blocks .l4{--d:4}.blocks .l3{--d:6}.blocks .l2{--d:8}.blocks .l1{--d:10}
+}
+@keyframes word-up{from{transform:translateY(105%)}to{transform:none}}
+@keyframes soft-in{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
 </style>
 <meta property="og:image" content="https://airesulting.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://airesulting.com/assets/og-image.png"></head>
 <body>
@@ -573,4 +588,25 @@ footer a:hover{text-decoration:underline}
 })();
 </script>
 
-<script src="intake.js?v=1"></script><script defer src="/_vercel/insights/script.js"></script></body></html>
+<script src="intake.js?v=1"></script><script defer src="/_vercel/insights/script.js">
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var h=document.getElementById('hero-title');
+  if(h&&!h.querySelector('.w')){
+    var words=h.textContent.trim().split(/\s+/);h.setAttribute('aria-label',h.textContent.trim());
+    h.innerHTML=words.map(function(w,i){return '<span class="w" aria-hidden="true"><span style="animation-delay:'+(i*70)+'ms">'+w+'</span></span>'}).join(' ');
+  }
+  var b=document.querySelector('.blocks'),hero=document.querySelector('.hero');
+  if(!b||!hero||!window.matchMedia('(pointer:fine)').matches)return;
+  setTimeout(function(){b.classList.add('live')},3400);
+  var raf=0;
+  hero.addEventListener('pointermove',function(e){
+    if(raf)return;raf=requestAnimationFrame(function(){raf=0;
+      var r=hero.getBoundingClientRect();
+      b.style.setProperty('--px',((e.clientX-r.left)/r.width-.5).toFixed(3));
+      b.style.setProperty('--py',((e.clientY-r.top)/r.height-.5).toFixed(3));
+    });
+  });
+  hero.addEventListener('pointerleave',function(){b.style.setProperty('--px',0);b.style.setProperty('--py',0);});
+})();
+</script></body></html>

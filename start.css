@@ -57,3 +57,27 @@
 #tool :is(.t-opt,.t-link,input,textarea):focus-visible{outline:2px solid #2E5A4C;outline-offset:2px}
 @media (max-width:600px){.t-compare{grid-template-columns:1fr}.t-need{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.t-fade{animation:none}.tool-loc i{transition:none}}
+
+/* 2026-09-28 motion pass: progress builds like the foundation; AI lands when results arrive */
+.tool-loc{width:132px;gap:4px;margin-bottom:36px}
+.tool-loc i{height:9px;position:relative;overflow:hidden;background:var(--line);border-radius:1px}
+.tool-loc i::after{content:"";position:absolute;inset:0;background:#23443A;transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.tool-loc i.on{background:var(--line)}
+.tool-loc i.on::after{transform:scaleX(1)}
+.tool-loc b{order:99;display:flex;align-items:center;justify-content:center;height:22px;background:#121417;color:#F8F7F3;font:400 15px/1 "Instrument Serif",Georgia,serif;letter-spacing:.04em;border-radius:1px;opacity:0;transform:translateY(-18px)}
+.tool-loc.done b{animation:cap-drop .8s .35s cubic-bezier(.3,1.3,.4,1) both}
+@keyframes cap-drop{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  .t-opts .t-opt{animation:t-in .5s cubic-bezier(.2,.8,.2,1) both}
+  .t-opts .t-opt:nth-child(2){animation-delay:.05s}.t-opts .t-opt:nth-child(3){animation-delay:.1s}
+  .t-opts .t-opt:nth-child(4){animation-delay:.15s}.t-opts .t-opt:nth-child(5){animation-delay:.2s}.t-opts .t-opt:nth-child(6){animation-delay:.25s}
+  .t-opt{transition:border-color .15s,background .15s,transform .2s cubic-bezier(.2,.8,.2,1)}
+  .t-opt:hover{transform:translateX(4px)}
+  #tool>.t-stack>*{animation:t-in .6s cubic-bezier(.2,.8,.2,1) both}
+  #tool>.t-stack>*:nth-child(2){animation-delay:.06s}#tool>.t-stack>*:nth-child(3){animation-delay:.12s}
+  #tool>.t-stack>*:nth-child(4){animation-delay:.18s}#tool>.t-stack>*:nth-child(5){animation-delay:.24s}
+  #tool>.t-stack>*:nth-child(n+6){animation-delay:.3s}
+  .t-need{animation:t-in .5s cubic-bezier(.2,.8,.2,1) both}
+  .t-need:nth-child(2){animation-delay:.08s}.t-need:nth-child(3){animation-delay:.16s}.t-need:nth-child(4){animation-delay:.24s}.t-need:nth-child(5){animation-delay:.32s}.t-need:nth-child(6){animation-delay:.4s}
+}
+@media (prefers-reduced-motion:reduce){.tool-loc i::after{transition:none}.tool-loc.done b{animation:none;opacity:1;transform:none}}
