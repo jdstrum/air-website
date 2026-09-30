@@ -20,7 +20,7 @@ const VENDORS = [
 ];
 
 const BRIEF = `You write one paragraph for AI Resulting, a vendor-neutral technology advisory for mid-market companies.
-The reader just answered six questions about their company. Everything else on their results page is already written.
+The reader just answered ten questions about their company. Everything else on their results page is already written.
 Your paragraph sits under the headline and says, in plain words, what their answers add up to.
 
 Position: AI results from what's underneath it. Build from the bottom up. The foundation (data, network and systems, security, customer experience) decides whether AI works.

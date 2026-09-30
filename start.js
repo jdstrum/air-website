@@ -11,45 +11,26 @@ const REF=(document.cookie.match(/(?:^|;\s*)_air_ref=([^;]+)/)||[])[1];
 const AGENT=REF&&AGENTS[decodeURIComponent(REF)]||null;
 
 const Q=[
+ {id:"limit", q:()=>"What limits how much more business you could take on?", why:"Speeding up anything else just moves the pile.",
+  opts:[["win","Finding and winning enough customers"],["deliver","Delivering what we've sold fast enough"],["support","Supporting customers as we grow"],["hire","Hiring and training people fast enough"],["decide","Decisions and approvals take too long"]]},
+ {id:"numbers", q:()=>"When you need a number, like margin by customer or cash next month, how do you get it?", why:"Think about the last time someone asked.",
+  opts:[["live","We pull it up ourselves, current to the day"],["ask","We ask finance and wait a day or two"],["close","We wait for month-end close"],["sheet","Someone builds a spreadsheet each time"]]},
  {id:"walk", q:()=>`If the most relied-on person in ${scope()} left Friday, how much would go with them?`, why:"Think about how the work actually gets done, not the org chart.",
-  opts:[
-   ["doc","Very little. It's written down.","That puts you ahead. Written-down knowledge is exactly what AI can put to work."],
-   ["some","Some shortcuts and history","The shortcuts and history are what make someone fast. They can be captured before they leave."],
-   ["most","Most of how the work actually gets done","Then the real process lives in a person. AI can't use it until it's written down, and recorded conversations are enough to start."],
-   ["trouble","We'd be in real trouble","That's a risk today, with or without AI. It's also the clearest place to start."]]},
- {id:"move", q:()=>"How much of your team's week goes to moving information from one system to another?", why:"Copying, re-keying, exporting, pasting.",
-  opts:[
-   ["none","Almost none. Our systems connect.","Connected systems are what AI works across. That's a real head start."],
-   ["some","An hour or two a week","Every copy between tools is a place AI stops, because it can only use what's connected."],
-   ["lot","Hours every day","That time is the clearest map of which systems to connect first."],
-   ["email","It's someone's whole job","Then the first move isn't AI. It's connecting the systems that person is holding together."]]},
+  opts:[["doc","Very little. It's written down."],["some","Some shortcuts and history"],["most","Most of how the work actually gets done"],["trouble","We'd be in real trouble"]]},
+ {id:"systems", q:()=>"How would you describe your systems?", why:"CRM, ERP, finance, operations, the tools people use every day.",
+  opts:[["few","A few core systems that talk to each other"],["some","Many systems, some connected"],["rollup","Many systems from acquisitions or roll-ups, mostly separate"],["sheets","Spreadsheets and people hold it together"]]},
+ {id:"network", q:()=>"What is your network set up for today?", why:"Offices, remote work, cloud apps and the internet connections behind them.",
+  opts:[["basic","Email, files and video calls"],["cloud","Cloud apps across several locations"],["grow","Built with room to grow"],["unsure","Not sure. It works until it doesn't."]]},
  {id:"ai", q:()=>"What AI are people using at work?", why:"There's always some. The question is whether anyone chose it.",
-  opts:[
-   ["approved","Only tools the company approved","Then the next question is what those tools can reach, and who decided."],
-   ["both","Approved tools, plus their own accounts on the side","The approved tool isn't meeting the need, so people go around it. Company data goes with them."],
-   ["own","Their own accounts. Nothing is approved.","Company information is already going into personal accounts. That's where governance starts."],
-   ["blocked","We've blocked it","Blocking usually moves it to phones and home laptops. The demand doesn't go away."],
-   ["unknown","I don't know","That's an honest answer, and it's the right place to start."]]},
+  opts:[["approved","Only tools the company approved"],["both","Approved tools, plus their own accounts on the side"],["own","Their own accounts. Nothing is approved."],["blocked","We've blocked it"],["unknown","I don't know"]]},
  {id:"wait", q:()=>"What do customers wait on you for most?", why:"Pick the wait they'd complain about first.",
-  opts:[
-   ["quotes","Quotes and proposals","Speed to quote often decides who wins, and it's one of the easiest waits to shorten."],
-   ["answers","Answers to questions","Most of those answers already exist somewhere in your company."],
-   ["setup","Getting set up after they buy","Setup is a checklist plus judgment. AI can run the checklist."],
-   ["fix","Getting problems fixed","Slow fixes are usually a routing and information problem before they're a staffing problem."],
-   ["rarely","They rarely wait","Then AI can make a good experience cheaper to deliver, not just faster."],
-   ["na","Not close enough to say","Fair. The people who hear the complaints will know, and it's worth asking them."]]},
- {id:"basis", q:()=>"When leadership makes a call, what's it usually based on?", why:"You probably use all three. Pick the one that usually wins.",
-  opts:[
-   ["live","Live numbers from our systems","Leadership already works from data. AI can tell you what needs attention, not just what happened."],
-   ["reports","Reports someone puts together each week or month","A report someone assembles is already out of date when it's read."],
-   ["talk","Conversations and experience","Experience built the company. A daily read across your systems tells you when it's wrong."]]},
- {id:"limit", q:()=>"What limits how much more business you could take on?", why:"Speeding up anything else just moves the pile. This is where AI turns into revenue.",
-  opts:[
-   ["win","Finding and winning enough customers","Then the first move belongs in front of the customer: faster, sharper proposals."],
-   ["deliver","Delivering what we've sold fast enough","Then speeding up sales would only make it worse. The first move belongs in delivery."],
-   ["support","Supporting customers as we grow","Support is where growth quietly turns into cost. It's also where AI takes the most load."],
-   ["hire","Hiring and training people fast enough","Then the first move shortens how long it takes someone new to be useful."],
-   ["decide","Decisions and approvals take too long","Then the first move gets leadership a current picture, every morning."]]}
+  opts:[["quotes","Quotes and proposals"],["answers","Answers to questions"],["setup","Getting set up after they buy"],["fix","Getting problems fixed"],["rarely","They rarely wait"],["na","Not close enough to say"]]},
+ {id:"collab", q:()=>"How does your team work together day to day?", why:"Meetings, messages, calls and shared files.",
+  opts:[["one","One platform everyone uses"],["mix","A mix of tools, depending on the team"],["email","Mostly email and phone"],["scattered","Scattered across chat, email and texts"]]},
+ {id:"leaders", q:()=>"How is leadership approaching AI?", why:"What people see leaders do, not what they say.",
+  opts:[["model","Using it themselves and showing others"],["support","Supportive, but not using it much"],["wait","Waiting to see"],["skeptic","Cautious or skeptical"]]},
+ {id:"feel", q:()=>"What's the general feeling about AI in your company?", why:"The mood in the hallway, not the official line.",
+  opts:[["excited","Excited. People are trying things."],["curious","Curious, but not sure where to begin"],["worried","Worried about jobs or mistakes"],["indifferent","Mostly indifferent"]]}
 ];
 
 const MOVES={
@@ -126,10 +107,14 @@ const STATUS={
   some:["work","Partly there","The shortcuts and history live with people. Capture them before anything else."],
   most:["start","Not in place","How the work gets done lives in people's heads. It has to be captured first."],
   trouble:["start","Not in place","Critical knowledge sits with one person. That's the first thing to fix."]},
- move:{none:["ok","In place","Your systems already connect. AI can work across them."],
-  some:["work","Partly there","A few gaps between tools. A contained integration job, on a network that can carry it."],
-  lot:["start","Not in place","People are doing the work integrations should. That's a network and integration plan."],
-  email:["start","Not in place","A person is the integration. Connect the systems before adding anything on top."]},
+ systems:{few:["ok","In place","A few core systems that connect. AI can work across them."],
+  some:["work","Partly there","Some systems connect and some don't. A contained integration job closes the gaps."],
+  rollup:["start","Not in place","Systems from acquisitions still run separately. Connecting them comes before AI."],
+  sheets:["start","Not in place","Spreadsheets and people are the integration. Connect the systems before adding anything on top."]},
+ network:{basic:["work","Partly there","Built for email, files and calls. AI and more cloud apps will ask more of it."],
+  cloud:["work","Partly there","Carrying cloud apps across locations. Check capacity and resilience before AI adds load."],
+  grow:["ok","In place","Built with room to grow. AI has something to lean on."],
+  unsure:["start","Not in place","Nobody is sure what it can carry. Find out before adding anything that depends on it."]},
  ai:{approved:["ok","In place","Approved tools. Next is controlling what they can reach and who can ask what."],
   both:["start","Not in place","People are working around the approved tool, and company data goes with them."],
   own:["start","Not in place","Company data is leaving through personal accounts. A policy and an AI gateway close that gap."],
@@ -141,15 +126,25 @@ const STATUS={
   fix:["start","Not in place","Fix time is what customers feel most. It's where contact center and AI meet."],
   rarely:["ok","In place","Customers rarely wait. AI can keep it that way as you grow."],
   na:["work","Partly there","Not visible from your seat. Ask the people who handle customer complaints."]},
- basis:{live:["ok","In place","Leadership works from live data. AI decisions have something to anchor to."],
-  reports:["work","Partly there","A weekly or monthly read is too slow to steer AI decisions."],
-  talk:["start","Not in place","There's no shared, current view of the business for AI decisions to anchor to."]},
- work:{approved:["work","Partly there","Tools without training on a real task tend to go unused."],
-  both:["work","Partly there","People want better tools than they've been given. Train them on the approved way."],
-  own:["work","Partly there","The appetite is there. People need a sanctioned way to use it."],
-  blocked:["work","Partly there","People want it. They need a safe version."],
-  unknown:["work","Partly there","Start by asking people what they already use."]}
+ collab:{one:["ok","In place","One platform everyone uses. Context has a place to live."],
+  mix:["work","Partly there","A mix of tools by team. Context gets lost between them."],
+  email:["work","Partly there","Mostly email and phone. Conversations don't carry into the next step."],
+  scattered:["start","Not in place","Work is scattered across chat, email and texts. Nothing carries the context forward."]},
+ numbers:{live:["ok","In place","Leaders see current numbers when they need them. AI has something to anchor to."],
+  ask:["work","Partly there","Answers wait on finance. AI can put the number in front of the person asking."],
+  close:["start","Not in place","The business steers by last month. There's no current view for AI decisions to anchor to."],
+  sheet:["start","Not in place","Every number is a one-off spreadsheet. The data behind it needs a home first."]},
+ leaders:{model:["ok","In place","Leaders use AI and show others. That's what makes adoption stick."],
+  support:["work","Partly there","Leaders support it but don't use it much. People notice."],
+  wait:["start","Not in place","Leadership is waiting to see. Adoption stalls without a visible lead."],
+  skeptic:["start","Not in place","Leadership is cautious. A small, visible result is the way in."]},
+ feel:{excited:["ok","In place","People are already trying things. Channel it into approved tools and shared practice."],
+  curious:["work","Partly there","People are curious but unsure where to begin. A real task and some training unlock it."],
+  worried:["work","Partly there","People are worried about jobs or mistakes. Say what AI is for, and what stays with them."],
+  indifferent:["start","Not in place","AI hasn't touched their work yet. One useful result changes that."]}
 };
+const RANK={start:0,work:1,ok:2};
+const worst=(a,b)=>RANK[b[0]]<RANK[a[0]]?b:a;
 
 let step=-1, A={}, sel=null;
 const app=document.getElementById("tool");
@@ -163,10 +158,10 @@ const low=s=>s.replace(/\.$/,"").replace(/^./,c=>c.toLowerCase());
 function intro(){
  setLoc(0);
  app.innerHTML=`<section class="t-stack t-fade">
-  <span class="eyebrow">${AGENT?"Shared with you by "+AGENT.name:"Six questions. Three minutes. No score."}</span>
-  <h2 class="t-h1">See where AI already lives in your company.</h2>
-  <p class="t-lede">Six questions about how your organisation actually runs. You'll see where AI is already at work, what's in the way, and the first move worth making. No score. Results on screen, no email required.</p>
-  <div class="t-row"><button class="button primary" id="go">Start</button><span class="t-why">About three minutes.</span></div>
+  <span class="eyebrow">${AGENT?"Shared with you by "+AGENT.name:"Ten questions. About four minutes. No score."}</span>
+  <h2 class="t-h1">See where AI fits in your company.</h2>
+  <p class="t-lede">Ten questions about how your company actually runs. You'll see where AI would pay off first, what it needs underneath, and the first move worth making. No score. Results on screen, no email required.</p>
+  <div class="t-row"><button class="button primary" id="go">Start</button><span class="t-why">About four minutes.</span></div>
  </section>`;
  document.getElementById("go").onclick=()=>{step=-1;render()};
 }
@@ -189,7 +184,7 @@ function render(){
  if(step===-2) return intro();
  if(step===-1) return seatScreen();
  if(step>=Q.length) return result();
- const q=Q[step]; setLoc(step);
+ const q=Q[step]; setLoc(Math.round(step*6/Q.length));
  sel=A[q.id]||null;
  app.innerHTML=`<section class="t-stack t-fade">
   <h2>${esc(q.q())}</h2>
@@ -214,7 +209,8 @@ function situation(){
  const notes=Object.values(A.notes||{}).filter(x=>x&&x.trim());
  let s=`What limits growth at ${co} is ${LIMIT_NP[A.limit]}. `;
  s+={doc:"Your knowledge is written down, which puts you ahead. ",some:"Some of what makes your people fast still lives only with them. ",most:"Most of how the work gets done lives in people's heads. ",trouble:"Critical knowledge sits with one person. "}[A.walk];
- s+={none:"Your systems connect, so a first move can start quickly.",some:"A few gaps between systems will need closing along the way.",lot:"Your team spends hours a day moving information between systems, and those gaps come first.",email:"Someone's whole job is moving information between systems, and that comes first."}[A.move];
+ s+={few:"Your core systems talk to each other, so a first move can start quickly. ",some:"Some of your systems connect and some don't, so a few gaps will need closing. ",rollup:"Systems inherited from acquisitions still run separately, and connecting them comes first. ",sheets:"Spreadsheets and people hold your systems together, and that comes first. "}[A.systems];
+ s+={model:"Leadership is using AI and showing others the way.",support:"Leadership supports AI but isn't using it much yet.",wait:"Leadership is waiting to see.",skeptic:"Leadership is cautious about AI."}[A.leaders];
  return {text:s, noted:notes.length};
 }
 function lives(){
@@ -224,7 +220,7 @@ function lives(){
   blocked:"On personal phones and home laptops, where blocking doesn't reach.",
   unknown:"Almost certainly in personal accounts. Nobody has checked yet."}[A.ai];
 }
-const SOURCE={"Data readiness":["Data & integration"],"Technology infrastructure":["Network & connectivity","Data center & cloud"],"Governance & security":["Cybersecurity"],"Experience layer":["Customer experience","Communication & collaboration"]};
+const SOURCE={"Workforce & adoption":["Managed IT"],"Data readiness":["Data & integration"],"Technology infrastructure":["Network & connectivity","Data center & cloud"],"Governance & security":["Cybersecurity"],"Experience layer":["Customer experience","Communication & collaboration"]};
 function sourced(rows){const out=[];rows.forEach(r=>{if(r[1]!=="ok")(SOURCE[r[0]]||[]).forEach(c=>{if(!out.includes(c))out.push(c)})});return out}
 function firstStep(rows){
  const st=Object.fromEntries(rows.map(r=>[r[0],r[1]]));
@@ -232,17 +228,21 @@ function firstStep(rows){
  if(st["Technology infrastructure"]==="start") return ["Technology infrastructure","AI can only work across what's connected. The network and systems come first."];
  if(st["Data readiness"]==="start") return ["Data readiness","Get what people know into systems before anything tries to use it."];
  if(st["Experience layer"]==="start") return ["Experience layer","Your phones, contact center and the systems behind them are where customers feel the difference."];
+ if(st["Workforce & adoption"]==="start") return ["Workforce & adoption","Tools don't change anything until people use them. Leadership goes first."];
  if(st["Technology infrastructure"]==="work") return ["Technology infrastructure","Close the gaps between your systems, on a network that can carry more."];
  return [null,"The foundation is in good shape. The first move itself is the right place to start."];
 }
 function inTheWay(){
- return [["Data readiness",...STATUS.walk[A.walk]],["Technology infrastructure",...STATUS.move[A.move]],["Governance & security",...STATUS.ai[A.ai]],["Experience layer",...STATUS.wait[A.wait]],["Strategic direction",...STATUS.basis[A.basis]],["Workforce & adoption",...STATUS.work[A.ai]]];
+ return [["Data readiness",...worst(STATUS.walk[A.walk],STATUS.systems[A.systems])],["Technology infrastructure",...STATUS.network[A.network]],["Governance & security",...STATUS.ai[A.ai]],["Experience layer",...worst(STATUS.wait[A.wait],STATUS.collab[A.collab])],["Strategic direction",...STATUS.numbers[A.numbers]],["Workforce & adoption",...worst(STATUS.leaders[A.leaders],STATUS.feel[A.feel])]];
 }
 function supplierFit(){
  const s=[];
  if(!["rarely","na"].includes(A.wait)) s.push(["Customer experience",`Customers wait on ${low(label("wait",A.wait))}. Opens CX and contact center.`]);
  if(A.limit==="support") s.push(["Contact center",`Support is what limits growth. Strongest CX and contact center signal.`]);
- if(A.move!=="none") s.push(["Integration & network",`${label("move",A.move).replace(/\.$/,"")}. Opens integration, SD-WAN and connectivity.`]);
+ if(A.systems!=="few") s.push(["Data & integration",`Systems: ${low(label("systems",A.systems))}. Opens integration and data platforms.`]);
+ if(A.network!=="grow") s.push(["Network & connectivity",`Network: ${low(label("network",A.network))}. Opens SD-WAN, internet and managed network.`]);
+ if(!["one"].includes(A.collab)) s.push(["Communication & collaboration",`Team works: ${low(label("collab",A.collab))}. Opens UCaaS and collaboration.`]);
+ if(["wait","skeptic"].includes(A.leaders)||["worried","indifferent"].includes(A.feel)) s.push(["Training & enablement",`Leadership: ${low(label("leaders",A.leaders))}. Mood: ${low(label("feel",A.feel))}. Opens AI training and adoption.`]);
  s.push(["Governance & AI gateway",`AI in use: ${low(label("ai",A.ai))}. Opens governance, security and AI gateway (e.g. Expedient).`]);
  return s;
 }
@@ -259,7 +259,7 @@ function answersText(){
  return lines.join("\n");
 }
 function resultsText(m,rows,fs,sit){
- return [`Where AI fits at ${company()||"your company"}`, sit, "", `Where AI already lives: ${lives()}`, "", `First move: ${m.name}`, m.seat[A.seat], `Where the gain lands: ${m.gain}`, "", "What it needs underneath:", ...rows.map(r=>`- ${r[0]}: ${r[2]}. ${r[3]}`), fs[0]?`Start here: ${fs[0]}. ${fs[1]}`:fs[1]].join("\n");
+ return [`Where AI fits at ${company()||"your company"}`, sit, "", `Where AI is already in use: ${lives()}`, "", `First move: ${m.name}`, m.seat[A.seat], `Where the gain lands: ${m.gain}`, "", "What it needs underneath:", ...rows.map(r=>`- ${r[0]}: ${r[2]}. ${r[3]}`), fs[0]?`Start here: ${fs[0]}. ${fs[1]}`:fs[1]].join("\n");
 }
 async function post(url,body){
  const r=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
@@ -282,7 +282,7 @@ function result(){
    <p class="t-why">${SEAT_LINE[A.seat]}</p>
    <p class="t-lede" id="sit">${esc(sit)}</p>
   </div>
-  <div class="t-stack t-tight"><h3>Where AI already lives</h3><p>${lives()}</p></div>
+  <div class="t-stack t-tight"><h3>Where AI is already in use</h3><p>${lives()}</p></div>
   <div class="t-stack">
    <p class="eyebrow">The first move worth making</p>
    <h2>${m.name}</h2>

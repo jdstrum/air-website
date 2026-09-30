@@ -10,7 +10,7 @@ const {
 } = require('./_air-ghl');
 
 const REQUEST_TYPES = new Set(['assessment', 'kit', 'contact']);
-const ASSESSMENT_VERSION = '2026-09-28-where-ai-starts-v1';
+const ASSESSMENT_VERSION = '2026-09-30-where-ai-fits-v2';
 const RESOURCE_ID = 'first-useful-ai-workflow';
 const RESOURCE_EDITION = '2026-09-29-v2';
 
