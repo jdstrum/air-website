@@ -259,7 +259,7 @@ function answersText(){
  return lines.join("\n");
 }
 function resultsText(m,rows,fs,sit){
- return [`Where AI stands at ${company()||"your company"}`, sit, "", `Where AI already lives: ${lives()}`, "", `First move: ${m.name}`, m.seat[A.seat], `Where the gain lands: ${m.gain}`, "", "What it needs underneath:", ...rows.map(r=>`- ${r[0]}: ${r[2]}. ${r[3]}`), fs[0]?`Start here: ${fs[0]}. ${fs[1]}`:fs[1]].join("\n");
+ return [`Where AI fits at ${company()||"your company"}`, sit, "", `Where AI already lives: ${lives()}`, "", `First move: ${m.name}`, m.seat[A.seat], `Where the gain lands: ${m.gain}`, "", "What it needs underneath:", ...rows.map(r=>`- ${r[0]}: ${r[2]}. ${r[3]}`), fs[0]?`Start here: ${fs[0]}. ${fs[1]}`:fs[1]].join("\n");
 }
 async function post(url,body){
  const r=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
@@ -278,7 +278,7 @@ function result(){
  app.innerHTML=`<section class="t-stack t-fade" style="gap:44px">
   <div class="t-stack">
    <p class="eyebrow">Results${co?" for "+esc(co):""}</p>
-   <h2 class="t-h1">Where AI stands at ${esc(co||"your company")}</h2>
+   <h2 class="t-h1">Where AI fits at ${esc(co||"your company")}</h2>
    <p class="t-why">${SEAT_LINE[A.seat]}</p>
    <p class="t-lede" id="sit">${esc(sit)}</p>
   </div>
