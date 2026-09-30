@@ -371,7 +371,7 @@ footer a:hover{text-decoration:underline}
 .moments a i{font-style:normal;opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1);width:0;overflow:hidden}
 .moments a:hover,.moments a:focus-visible{transform:translateY(-3px);border-color:#F8F7F3;background:#FFFFFF12;box-shadow:0 14px 28px -18px #000}
 .moments a:hover i,.moments a:focus-visible i{opacity:1;transform:none;width:auto}
-.moments li{border:0;padding:0}
+.moments li{border:0;padding:0}.moments li>span{font-size:17px;color:#E3E9E5}.moments li+li::before{content:"·";color:#9FA59D;margin:0 14px 0 4px}@media(max-width:760px){.moments{flex-direction:column;gap:8px}.moments li+li::before{content:none}}
 .moments-label{font-size:13px;color:#9FA59D;margin-top:36px}
 .moments-label+.moments{margin-top:12px}
 .resultant .actions{display:flex;flex-wrap:wrap;gap:14px}
@@ -645,7 +645,7 @@ footer a:hover{text-decoration:underline}
     <p class="say">Your Resultant is an experienced technology advisor, backed by solutions architects and technical specialists across network, cloud, communications, CX, data and security. We compare providers side by side, then stay with you after you sign.</p>
     <p class="moments-label">The moments that bring people to us</p>
     <ul class="moments">
-      <li><a href="talk.html?m=start">Just getting started <i aria-hidden="true">↗</i></a></li><li><a href="talk.html?m=stalled">A pilot that stalled <i aria-hidden="true">↗</i></a></li><li><a href="talk.html?m=contract">A contract coming up <i aria-hidden="true">↗</i></a></li><li><a href="talk.html?m=proposal">A proposal on the table <i aria-hidden="true">↗</i></a></li>
+      <li><span>Just getting started</span></li><li><span>A pilot that stalled</span></li><li><span>A contract coming up</span></li><li><span>A proposal on the table</span></li>
     </ul>
     <div class="actions"><a class="btn light" href="talk.html" data-contact>Talk to a Resultant <span aria-hidden="true">↗</span></a><a class="btn ghost-light" href="our-approach.html">How we work <span aria-hidden="true">↗</span></a></div>
   </div>
