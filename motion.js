@@ -3,7 +3,7 @@
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
   var st = document.createElement('style');
-  st.textContent = '.rv-h .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}' +
+  st.textContent = '.rv-h .w{display:inline-block;overflow:visible;clip-path:inset(-.4em -.3em 0 -.3em);vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}' +
     '.rv-h .w>span{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.15,1)}' +
     '.rv-h.in .w>span{transform:none}';
   document.head.appendChild(st);

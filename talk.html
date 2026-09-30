@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-palette="cinematic" data-tone="ledger"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Talk to a Resultant | AI Resulting</title><meta name="description" content="Tell us what you’re working on. A Resultant will reply to set up a conversation."><script>const initialPalette=new URLSearchParams(location.search).get("palette");if(["blue","evergreen","vermilion","nocturne","cinematic"].includes(initialPalette))document.documentElement.dataset.palette=initialPalette;</script><link rel="stylesheet" href="style.css?v=11"><link rel="stylesheet" href="dimension-colors.css?v=23"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="launch-polish.css?v=27"><link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png"><link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"><meta name="theme-color" content="#F8F7F3"><link rel="canonical" href="https://airesulting.com/talk"><meta property="og:type" content="website"><meta property="og:site_name" content="AI Resulting"><meta property="og:title" content="Talk to a Resultant | AI Resulting"><meta property="og:description" content="Tell us what you’re working on. A Resultant will reply to set up a conversation."><meta property="og:url" content="https://airesulting.com/talk"><link rel="stylesheet" href="ledger.css?v=1"><meta property="og:image" content="https://airesulting.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://airesulting.com/assets/og-image.png"><style>
+body{background:#1B3530}
+.talk{background:#1B3530;color:#EEF2EF;min-height:calc(100svh - 88px);padding:clamp(48px,7vw,104px) clamp(16px,4.5vw,56px) clamp(64px,8vw,120px)}
+.talk-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(40px,7vw,120px);align-items:start}
+.talk .t-eb{font:600 12px/1 "DM Sans",system-ui,sans-serif;letter-spacing:0;text-transform:none;color:#AFC6BA;margin:0 0 22px}
+.talk h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(52px,6.6vw,96px);line-height:.96;letter-spacing:-.02em;margin:0;color:#F8F7F3;max-width:11ch}
+.talk .copy p{font-size:18px;line-height:1.6;color:#D6DFDA;max-width:38ch;margin:24px 0 0}
+.talk .copy p+p{margin-top:16px}
+.talk .aside{margin-top:40px;padding-top:22px;border-top:1px solid #FFFFFF26;font-size:15px;color:#AFC6BA;max-width:40ch}
+.talk .aside a{color:#F8F7F3}
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px}
+.tf .full{grid-column:1/-1}
+.tf .req{grid-column:1/-1;font:600 11px/1 "DM Sans",sans-serif;letter-spacing:0;text-transform:none;color:#AFC6BA;margin:0 0 -6px}
+.tf label{display:block;font:600 11px/1 "DM Sans",sans-serif;letter-spacing:0;text-transform:none;color:#D6DFDA;margin-bottom:10px}
+.tf label span{letter-spacing:.06em;text-transform:none;font-weight:400;color:#AFC6BA}
+.tf input:not([type=checkbox]),.tf select,.tf textarea{width:100%;box-sizing:border-box;font:16px/1.4 "DM Sans",system-ui,sans-serif;color:#F8F7F3;background:#FFFFFF0F;border:1px solid #FFFFFF2E;border-radius:0;padding:14px 14px;transition:border-color .25s,background .25s}
+.tf select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#D6DFDA 50%),linear-gradient(135deg,#D6DFDA 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+.tf select option{color:#121417}
+.tf textarea{min-height:150px;resize:vertical}
+.tf ::placeholder{color:#9FB3A8}
+.tf input:hover,.tf select:hover,.tf textarea:hover{border-color:#FFFFFF55}
+.tf input:focus,.tf select:focus,.tf textarea:focus{outline:none;border-color:#F8F7F3;background:#FFFFFF17}
+.tf .ok{display:flex;gap:12px;align-items:flex-start;font:15px/1.5 "DM Sans",sans-serif;letter-spacing:0;text-transform:none;color:#D6DFDA;margin:0}
+.tf .ok input{margin-top:4px;width:16px;height:16px;accent-color:#AFC6BA;flex:none}
+.tf .ok a{color:#F8F7F3}
+.tf .send{justify-self:start;font:600 15px/1 "DM Sans",sans-serif;letter-spacing:0;text-transform:none;color:#F8F7F3;background:transparent;border:1px solid #F8F7F3;padding:17px 26px;cursor:pointer;transition:background .25s,color .25s}
+.tf .send:hover{background:#F8F7F3;color:#1B3530}
+.tf .send[disabled]{opacity:.5;cursor:default}
+.tf .st{grid-column:1/-1;min-height:1.2em;font-size:15px;color:#F8F7F3;margin:0}
+.tf .fine{grid-column:1/-1;font-size:13px;line-height:1.55;color:#9FB3A8;margin:0;max-width:60ch}
+.tf .fine a{color:#D6DFDA}
+.tf .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.tf :focus-visible{outline:2px solid #AFC6BA;outline-offset:3px}
+.done h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(40px,4.4vw,64px);line-height:1;color:#F8F7F3;margin:0 0 18px}
+.done p{font-size:18px;color:#D6DFDA;margin:0 0 12px;max-width:42ch}
+.done a{color:#F8F7F3}
+@media (prefers-reduced-motion:no-preference){
+  .talk .copy>*{animation:t-in .9s cubic-bezier(.2,.8,.15,1) both}
+  .talk .copy>*:nth-child(2){animation-delay:.08s}.talk .copy>*:nth-child(3){animation-delay:.16s}.talk .copy>*:nth-child(4){animation-delay:.24s}.talk .copy>*:nth-child(5){animation-delay:.32s}
+  .tf>*{animation:t-in .8s cubic-bezier(.2,.8,.15,1) both}
+  .tf>*:nth-child(n+2){animation-delay:.2s}.tf>*:nth-child(n+4){animation-delay:.28s}.tf>*:nth-child(n+6){animation-delay:.36s}.tf>*:nth-child(n+8){animation-delay:.44s}
+}
+@keyframes t-in{from{opacity:.001;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (max-width:860px){.talk-in{grid-template-columns:minmax(0,1fr)}.talk .aside{display:none}}
+@media (max-width:520px){.tf{grid-template-columns:minmax(0,1fr)}}
+
+main.talk h1,main.talk .done h2{color:#F8F7F3 !important}
+main.talk .t-eb{margin-bottom:26px !important;font-size:14px !important;letter-spacing:0 !important;color:#AFC6BA !important}
+main.talk .done p,main.talk .copy p{color:#D6DFDA !important}
+main.talk a{color:#F8F7F3 !important}
+main.talk .tf label.ok,main.talk .tf label.ok span{font:15px/1.5 "DM Sans",system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:#D6DFDA !important}
+</style></head>
+<body><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="index.html" aria-label="AI Resulting home"><span class="brand-monogram" aria-hidden="true">AI<sup class="brand-r">R</sup></span><span class="brand-name">AI Resulting</span></a><nav aria-label="Main navigation"><details class="fmenu"><summary>The six dimensions <span class="chev" aria-hidden="true">⌄</span></summary><div class="fmenu-panel"><a class="fmenu-all" href="index.html#foundations">See all six dimensions <span aria-hidden="true">↗</span></a><a href="strategic-direction.html"><span class="loc" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span><span><b>Strategic direction</b><small>Goals, owners, measures</small></span></a><a href="data-readiness.html"><span class="loc" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span><span><b>Data readiness</b><small>Connected, trusted information</small></span></a><a href="technology-infrastructure.html"><span class="loc" aria-hidden="true"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></span><span><b>Technology infrastructure</b><small>Infrastructure that can carry it</small></span></a><a href="governance-security.html"><span class="loc" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span><span><b>Governance &amp; security</b><small>Access, protection, clear rules</small></span></a><a href="experience-layer.html"><span class="loc" aria-hidden="true"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>Experience layer</b><small>Where customers and staff feel it</small></span></a><a href="workforce-adoption.html"><span class="loc" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span><span><b>Workforce &amp; adoption</b><small>People who actually use it</small></span></a></div></details><a href="what-we-source.html">What we source</a><a href="our-approach.html">Our approach</a><a href="the-signal.html">The Signal</a></nav><a class="header-cta" href="start.html">See where AI starts <span>↗</span></a></header>
+<main id="main" class="talk">
+  <div class="talk-in">
+    <div class="copy">
+      <p class="t-eb">Talk to a Resultant</p>
+      <h1>Tell us what you’re working on.</h1>
+      <p>A business goal, a stalled pilot, a contract coming up or a proposal on the table. You don’t need a finished brief.</p>
+      <p>A Resultant reads every request and replies to set up a conversation.</p>
+      <p class="aside">Rather see where you stand first? <a href="start.html">Answer the six questions</a>. It takes three minutes and there’s no score.</p>
+    </div>
+    <div id="talkwrap">
+      <form class="tf" id="talkform" novalidate>
+        <p class="req">All fields required unless marked optional</p>
+        <div><label for="t-first">First name</label><input id="t-first" autocomplete="given-name" maxlength="60" required></div>
+        <div><label for="t-last">Last name</label><input id="t-last" autocomplete="family-name" maxlength="60" required></div>
+        <div class="full"><label for="t-company">Company</label><input id="t-company" autocomplete="organization" maxlength="160" required></div>
+        <div><label for="t-email">Work email</label><input id="t-email" type="email" autocomplete="email" maxlength="254" required></div>
+        <div><label for="t-phone">Phone <span>(optional)</span></label><input id="t-phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div><label for="t-size">Company size</label><select id="t-size" required><option value="">Select one</option><option>Under 250 people</option><option>250–999 people</option><option>1,000–2,500 people</option><option>More than 2,500 people</option></select></div>
+        <div><label for="t-moment">Where you’re starting</label><select id="t-moment" required><option value="">Select one</option><option>Just getting started</option><option>A pilot that stalled</option><option>A contract coming up</option><option>A proposal on the table</option><option>Something else</option></select></div>
+        <div class="full"><label for="t-context">What’s going on?</label><textarea id="t-context" maxlength="1200" required placeholder="What are you working on? What’s in the way? Why now?"></textarea></div>
+        <label class="ok full"><input type="checkbox" id="t-consent" required><span>Contact me about this request. I’ve read the <a href="privacy.html">privacy notice</a>.</span></label>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="send" type="submit">Send request</button>
+        <p class="st" role="status" aria-live="polite"></p>
+        <p class="fine">We use what you send only to respond to this request. Sending it doesn’t create an engagement or an advisory relationship.</p>
+      </form>
+    </div>
+  </div>
+</main>
+<footer class="air-footer"><div class="air-footer-in"><a class="brand" href="index.html" aria-label="AI Resulting home"><span class="brand-monogram" aria-hidden="true">AI<sup class="brand-r">R</sup></span></a><span>AI and technology advisory for mid-market companies.</span><nav aria-label="Footer"><a href="index.html#foundations">The six dimensions</a><a href="our-approach.html">Our approach</a><a href="privacy.html">Privacy &amp; terms</a><a href="mailto:hello@airesulting.com">hello@airesulting.com</a></nav><span>© 2026 AI Resulting</span></div></footer>
+<script src="app.js?v=25"></script><script>
+(function(){
+  var f=document.getElementById('talkform'),st=f.querySelector('.st'),b=f.querySelector('.send');
+  var mm={start:'Just getting started',stalled:'A pilot that stalled',contract:'A contract coming up',proposal:'A proposal on the table'}[new URLSearchParams(location.search).get('m')];if(mm)document.getElementById('t-moment').value=mm;
+  function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  f.onsubmit=function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var first=v('t-first'),last=v('t-last'),email=v('t-email');
+    var miss=['t-first','t-last','t-company','t-email','t-size','t-moment','t-context'].filter(function(id){return !v(id)});
+    if(miss.length){st.textContent='Please fill in the highlighted fields.';miss.forEach(function(id){document.getElementById(id).style.borderColor='#E8B4A6'});document.getElementById(miss[0]).focus();return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){st.textContent='Please use a valid work email.';document.getElementById('t-email').focus();return}
+    if(!document.getElementById('t-consent').checked){st.textContent='Please tick the box so we can contact you.';return}
+    b.disabled=true;st.textContent='Sending…';
+    var ctx=['Where they’re starting: '+v('t-moment'),'Company size: '+v('t-size'),v('t-phone')?'Phone: '+v('t-phone'):'','',v('t-context')].filter(function(x,i){return x||i===3}).join('\n');
+    fetch('/api/air-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'contact',source:'talk-page',page:location.pathname,referrer:document.referrer,name:first+' '+last,email:email,company:v('t-company'),contactConsent:true,website:f.querySelector('.hp').value,context:ctx})})
+    .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong. Please try again, or email hello@airesulting.com.');return j})})
+    .then(function(j){
+      document.getElementById('talkwrap').innerHTML='<div class="done" tabindex="-1"><h2>Thanks, '+esc(first)+'.</h2>'+(j.bookingUrl?'<p>If you’d like, <a href="'+esc(j.bookingUrl)+'">pick a time now</a>. Otherwise a Resultant will be in touch.</p>':'<p>A Resultant will be in touch to set up a conversation.</p>')+'<p>In the meantime, <a href="start.html">see where AI starts in your company</a>.</p></div>';
+      document.querySelector('.done').focus();
+    })
+    .catch(function(err){b.disabled=false;st.textContent=err.message});
+  };
+  f.addEventListener('input',function(e){if(e.target.style)e.target.style.borderColor=''});
+})();
+</script><script>(function(){var fm=document.querySelector('.fmenu');if(!fm)return;document.addEventListener('click',function(e){if(fm.open&&!fm.contains(e.target))fm.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&fm.open){fm.open=false;fm.querySelector('summary').focus();}});})();</script><script defer src="/_vercel/insights/script.js"></script></body></html>
