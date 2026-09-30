@@ -25,8 +25,8 @@ const Q=[
   opts:[["approved","Only tools the company approved"],["both","Approved tools, plus their own accounts on the side"],["own","Their own accounts. Nothing is approved."],["blocked","We've blocked it"],["unknown","I don't know"]]},
  {id:"wait", q:()=>"What do customers wait on you for most?", why:"Pick the wait they'd complain about first.",
   opts:[["quotes","Quotes and proposals"],["answers","Answers to questions"],["setup","Getting set up after they buy"],["fix","Getting problems fixed"],["rarely","They rarely wait"],["na","Not close enough to say"]]},
- {id:"collab", q:()=>"How does your team work together day to day?", why:"Meetings, messages, calls and shared files.",
-  opts:[["one","One platform everyone uses"],["mix","Different platforms, depending on the team"],["email","Mostly email and phone"],["scattered","Whatever each person prefers, including personal texts"]]},
+ {id:"collab", q:()=>"When decisions get made in meetings, calls and chats, where do they end up?", why:"Think about last week's meetings. Could someone who missed them find what was decided?",
+  opts:[["capture","Captured in one place people can search"],["tools","Somewhere in the meeting and chat tools, hard to find later"],["notes","In someone's notes or inbox"],["nowhere","Nowhere. It depends on who was there."]]},
  {id:"leaders", q:()=>"How is leadership approaching AI?", why:"What people see leaders do, not what they say.",
   opts:[["model","Using it themselves and showing others"],["support","Supportive, but not using it much"],["noplan","Interested, but nobody owns it yet"],["skeptic","Skeptical, or not a priority"]]},
  {id:"feel", q:()=>"What's the general feeling about AI in your company?", why:"The mood in the hallway, not the official line.",
@@ -138,10 +138,10 @@ const STATUS={
   fix:["start","Not in place","Fix time is what customers feel most. It's where contact center and AI meet."],
   rarely:["ok","In place","Customers rarely wait. AI can keep it that way as you grow."],
   na:["work","Partly there","Not visible from your seat. Ask the people who handle customer complaints."]},
- collab:{one:["ok","In place","One platform everyone uses. Context has a place to live."],
-  mix:["work","Partly there","Different platforms by team. Context gets lost between them."],
-  email:["work","Partly there","Mostly email and phone. Conversations don't carry into the next step."],
-  scattered:["start","Not in place","Work runs on whatever each person prefers, including personal texts. Context and company information leave with it."]},
+ collab:{capture:["ok","In place","Decisions are captured where people can find them. AI has a record to work from."],
+  tools:["work","Partly there","Conversations stay inside meeting and chat tools. AI can't use what nobody can find."],
+  notes:["start","Not in place","Decisions live in personal notes and inboxes. They leave when the person does."],
+  nowhere:["start","Not in place","Nothing captures what gets decided. The first step is a system that records it."]},
  numbers:{live:["ok","In place","Leaders see current numbers when they need them. AI has something to anchor to."],
   ask:["work","Partly there","Answers wait on finance. AI can put the number in front of the person asking."],
   close:["start","Not in place","The business steers by last month. There's no current view for AI decisions to anchor to."],
@@ -253,7 +253,7 @@ function supplierFit(){
  if(A.limit==="support") s.push(["Contact center",`Support is what limits growth. Strongest CX and contact center signal.`]);
  if(A.systems!=="few") s.push(["Data & integration",`Systems: ${low(label("systems",A.systems))}. Opens integration and data platforms.`]);
  if(A.network!=="grow") s.push(["Network & connectivity",`Network: ${low(label("network",A.network))}. Opens SD-WAN, internet and managed network.`]);
- if(!["one"].includes(A.collab)) s.push(["Communication & collaboration",`Team works: ${low(label("collab",A.collab))}. Opens UCaaS and collaboration.`]);
+ if(A.collab!=="capture") s.push(["Communication & collaboration",`Decisions end up: ${low(label("collab",A.collab))}. Opens collaboration platform, meeting capture and knowledge management.`]);
  if(["noplan","skeptic"].includes(A.leaders)||["worried","indifferent"].includes(A.feel)) s.push(["Training & enablement",`Leadership: ${low(label("leaders",A.leaders))}. Mood: ${low(label("feel",A.feel))}. Opens AI training and adoption.`]);
  s.push(["Governance & AI gateway",`AI in use: ${low(label("ai",A.ai))}. Opens governance, security and AI gateway (e.g. Expedient).`]);
  return s;
