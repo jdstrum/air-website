@@ -201,7 +201,7 @@ function render(){
   <button class="t-link" id="back">Back</button></div>
  </section>`;
  const rev=document.getElementById("rev"), next=document.getElementById("next");
- const showRev=()=>{if(sel)rev.innerHTML=`<p class="t-reveal t-fade">${q.opts.find(o=>o[0]===sel)[2]}</p>`};
+ const showRev=()=>{};
  showRev();
  app.querySelectorAll(".t-opt").forEach(b=>b.onclick=()=>{sel=b.dataset.k;app.querySelectorAll(".t-opt").forEach(x=>x.setAttribute("aria-pressed",x.dataset.k===sel));next.disabled=false;showRev()});
  const save=()=>{A.notes=A.notes||{};A.notes[q.id]=document.getElementById("note-"+q.id).value};
