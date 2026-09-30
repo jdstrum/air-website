@@ -5,7 +5,6 @@ const {
   TAGS,
   addTags,
   ghlConfig,
-  updateContactFields,
   upsertContact
 } = require('./_air-ghl');
 
@@ -56,31 +55,62 @@ function requestTags(type, body, referralCode) {
   return tags;
 }
 
+const FREE_DOMAINS = new Set([
+  'gmail.com', 'googlemail.com', 'yahoo.com', 'ymail.com', 'rocketmail.com', 'outlook.com', 'hotmail.com',
+  'live.com', 'msn.com', 'icloud.com', 'me.com', 'mac.com', 'aol.com', 'proton.me', 'protonmail.com', 'pm.me',
+  'gmx.com', 'gmx.net', 'mail.com', 'zoho.com', 'yandex.com', 'hey.com', 'fastmail.com', 'tutanota.com',
+  'comcast.net', 'verizon.net', 'att.net', 'sbcglobal.net', 'cox.net', 'bellsouth.net', 'charter.net', 'earthlink.net'
+]);
+const isFreeEmail = email => {
+  const domain = email.split('@')[1] || '';
+  return FREE_DOMAINS.has(domain) || /^(yahoo|hotmail|outlook|live)\.[a-z.]+$/.test(domain);
+};
+
+const siteUrl = () => (process.env.PUBLIC_SITE_URL || 'https://airesulting.com').replace(/\/$/, '');
+const fromAddress = () => process.env.AIR_FROM_EMAIL || 'AI Resulting <hello@airesulting.com>';
+
 async function sendDelivery({ type, email, name, assessmentText }) {
   if (!['assessment', 'kit'].includes(type) || !process.env.RESEND_API_KEY) return 'queued';
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const siteUrl = (process.env.PUBLIC_SITE_URL || 'https://www.airesulting.com').replace(/\/$/, '');
+  const site = siteUrl();
   const firstName = clean(name, 100).split(/\s+/)[0] || 'there';
   const isKit = type === 'kit';
-  const subject = isKit ? 'Your first useful AI workflow kit' : 'Where AI starts at your company';
+  const subject = isKit ? 'Your first useful AI workflow kit' : 'Where AI fits at your company';
   const text = isKit
-    ? `Hi ${firstName},\n\nYour AI Resulting working kit is ready:\n${siteUrl}/assets/your-first-useful-ai-workflow.pdf\n\nThis delivery does not subscribe you to marketing.\n\nAI Resulting`
+    ? `Hi ${firstName},\n\nHere is your working kit.\n\nFillable PDF:\n${site}/assets/your-first-useful-ai-workflow.pdf\n\nOnline worksheet:\n${site}/ai-workflow-worksheet\n\nBring it to the table with the people who do the work.\n\nThis delivery does not subscribe you to marketing.\n\nAI Resulting`
     : `Hi ${firstName},\n\nHere are your results.\n\n${clean(assessmentText, 12000)}\n\nThese come from your own answers. They are a starting point, not an audit.\n\nAI Resulting`;
-
-  await resend.emails.send({
-    from: process.env.AIR_FROM_EMAIL || 'AI Resulting <noreply@send.airesulting.com>',
-    to: email,
-    subject,
-    text
-  });
+  const { error } = await resend.emails.send({ from: fromAddress(), to: email, subject, text });
+  if (error) throw new Error(error.message || 'Resend rejected the email');
   return 'delivered';
+}
+
+// Sends Jen a copy of every lead when HighLevel is unavailable, so nothing is lost.
+async function notifyLead({ reason, type, name, email, company, context, summary, responses, attr, requestId, deliveryStatus }) {
+  if (!process.env.RESEND_API_KEY) return;
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const to = process.env.NOTIFY_EMAIL || 'hello@airesulting.com';
+  const text = [
+    `New website ${type} request (${reason}).`,
+    '',
+    `Name: ${name}`,
+    `Email: ${email}`,
+    company && `Company: ${company}`,
+    `Delivery: ${deliveryStatus}`,
+    `Request ID: ${requestId}`,
+    '',
+    context && `Context:\n${context}\n`,
+    summary && `Summary:\n${summary}\n`,
+    responses && `Responses:\n${responses}\n`,
+    attr.text
+  ].filter(Boolean).join('\n');
+  await resend.emails.send({ from: fromAddress(), to, replyTo: email, subject: `Website lead: ${name} (${type})`, text })
+    .catch(err => console.error('AIR lead notification failed', { requestId, message: err.message }));
 }
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
-  if (!ghlConfig()) return res.status(503).json({ error: 'Lead capture is not configured yet.' });
 
   const body = req.body || {};
   if (body.website) return res.status(200).json({ success: true });
@@ -91,6 +121,9 @@ module.exports = async function handler(req, res) {
   const company = clean(body.company, 160);
   if (!REQUEST_TYPES.has(type) || !name || !validEmail(email)) {
     return res.status(400).json({ error: 'Please provide a valid name, email, and request type.' });
+  }
+  if (isFreeEmail(email)) {
+    return res.status(400).json({ error: 'Please use your work email.' });
   }
   if (type === 'contact' && !body.contactConsent) {
     return res.status(400).json({ error: 'Consent to contact is required.' });
@@ -106,54 +139,68 @@ module.exports = async function handler(req, res) {
   const assessmentSummary = clean(body.assessmentSummary, 4000);
   const assessmentPriorities = clean(body.assessmentPriorities, 1500);
   const assessmentResponses = clean(body.assessmentResponses, 12000);
+  const wantsDelivery = ['assessment', 'kit'].includes(type);
 
-  try {
-    const contact = await upsertContact({
-      name,
-      email,
-      company,
-      customFields: {
-        [FIELD_KEYS.requestType]: type,
-        [FIELD_KEYS.requestId]: requestId,
-        [FIELD_KEYS.originalSource]: attr.source,
-        [FIELD_KEYS.referralCode]: attr.referralCode,
-        [FIELD_KEYS.assessmentVersion]: type === 'assessment' ? ASSESSMENT_VERSION : '',
-        [FIELD_KEYS.resourceId]: type === 'kit' ? RESOURCE_ID : '',
-        [FIELD_KEYS.resourceEdition]: type === 'kit' ? RESOURCE_EDITION : '',
-        [FIELD_KEYS.deliveryStatus]: ['assessment', 'kit'].includes(type) ? 'accepted' : 'not applicable',
-        [FIELD_KEYS.consentRecord]: consentText(type, body, submittedAt),
-        [FIELD_KEYS.assessmentSummary]: assessmentSummary,
-        [FIELD_KEYS.assessmentPriorities]: assessmentPriorities,
-        [FIELD_KEYS.assessmentResponses]: assessmentResponses,
-        [FIELD_KEYS.contactContext]: context,
-        [FIELD_KEYS.attribution]: attr.text
-      }
-    });
-
-    await addTags(contact.id, requestTags(type, body, attr.referralCode));
-
-    let deliveryStatus = 'not applicable';
-    if (['assessment', 'kit'].includes(type)) {
-      try {
-        deliveryStatus = await sendDelivery({ type, email, name, assessmentText: assessmentResponses || assessmentSummary });
-        await updateContactFields(contact.id, { [FIELD_KEYS.deliveryStatus]: deliveryStatus });
-        if (type === 'kit') await addTags(contact.id, [deliveryStatus === 'delivered' ? TAGS.delivered : TAGS.deliveryPending]);
-      } catch (deliveryError) {
-        deliveryStatus = 'failed';
-        await updateContactFields(contact.id, { [FIELD_KEYS.deliveryStatus]: deliveryStatus }).catch(() => {});
-        if (type === 'kit') await addTags(contact.id, [TAGS.deliveryFailed]).catch(() => {});
-        console.error('AIR delivery failed', { requestId, type, message: deliveryError.message });
-      }
+  // 1. Deliver what they asked for. This never depends on HighLevel.
+  let deliveryStatus = 'not applicable';
+  if (wantsDelivery) {
+    try {
+      deliveryStatus = await sendDelivery({ type, email, name, assessmentText: assessmentResponses || assessmentSummary });
+    } catch (deliveryError) {
+      deliveryStatus = 'failed';
+      console.error('AIR delivery failed', { requestId, type, message: deliveryError.message });
     }
-
-    return res.status(deliveryStatus === 'failed' ? 202 : 200).json({
-      success: true,
-      requestId,
-      deliveryStatus,
-      bookingUrl: process.env.AIR_BOOKING_URL || null
-    });
-  } catch (error) {
-    console.error('AIR GHL capture failed', { requestId, type, status: error.status, message: error.message });
-    return res.status(502).json({ error: 'We could not complete the handoff. Please try again.', requestId });
   }
+
+  // 2. Record the lead in HighLevel. If that isn't possible, email the lead instead.
+  let captured = false;
+  let reason = 'HighLevel not configured';
+  if (ghlConfig()) {
+    try {
+      const contact = await upsertContact({
+        name,
+        email,
+        company,
+        customFields: {
+          [FIELD_KEYS.requestType]: type,
+          [FIELD_KEYS.requestId]: requestId,
+          [FIELD_KEYS.originalSource]: attr.source,
+          [FIELD_KEYS.referralCode]: attr.referralCode,
+          [FIELD_KEYS.assessmentVersion]: type === 'assessment' ? ASSESSMENT_VERSION : '',
+          [FIELD_KEYS.resourceId]: type === 'kit' ? RESOURCE_ID : '',
+          [FIELD_KEYS.resourceEdition]: type === 'kit' ? RESOURCE_EDITION : '',
+          [FIELD_KEYS.deliveryStatus]: deliveryStatus,
+          [FIELD_KEYS.consentRecord]: consentText(type, body, submittedAt),
+          [FIELD_KEYS.assessmentSummary]: assessmentSummary,
+          [FIELD_KEYS.assessmentPriorities]: assessmentPriorities,
+          [FIELD_KEYS.assessmentResponses]: assessmentResponses,
+          [FIELD_KEYS.contactContext]: context,
+          [FIELD_KEYS.attribution]: attr.text
+        }
+      });
+      const tags = requestTags(type, body, attr.referralCode);
+      if (type === 'kit') {
+        tags.push(deliveryStatus === 'delivered' ? TAGS.delivered : deliveryStatus === 'failed' ? TAGS.deliveryFailed : TAGS.deliveryPending);
+      }
+      await addTags(contact.id, tags);
+      captured = true;
+    } catch (error) {
+      reason = 'HighLevel handoff failed';
+      console.error('AIR GHL capture failed', { requestId, type, status: error.status, message: error.message });
+    }
+  }
+  if (!captured) {
+    await notifyLead({ reason, type, name, email, company, context, summary: assessmentPriorities || assessmentSummary,
+      responses: assessmentResponses, attr, requestId, deliveryStatus });
+  }
+
+  if (!captured && !process.env.RESEND_API_KEY) {
+    return res.status(503).json({ error: 'We could not complete the handoff. Please try again.', requestId });
+  }
+  return res.status(deliveryStatus === 'failed' ? 202 : 200).json({
+    success: true,
+    requestId,
+    deliveryStatus,
+    bookingUrl: process.env.AIR_BOOKING_URL || null
+  });
 };
