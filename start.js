@@ -63,7 +63,7 @@ const MOVES={
   seat:{biz:"Win rate and speed to quote are the numbers this moves. Every day a proposal sits is a day a competitor can get there first.",
    tech:"You'd connect the CRM and the proposal archive, decide who can see margin data, and log every answer so pricing decisions can be audited.",
    fn:"Your team stops rebuilding proposals from old files. The person who knows the pricing rules reviews exceptions instead of answering the same questions."},
-  layers:["Artificial intelligence","Data center & cloud","Cybersecurity"]},
+  layers:["Data & integration","Artificial intelligence","Cybersecurity"]},
  know:{name:"A knowledge desk built on how your company actually works",
   bar:"Example · connected to shared drives, SOPs, HR, finance",
   chat:[["you","First week here. How do we handle a rush order for an existing customer?"],
@@ -74,7 +74,7 @@ const MOVES={
   seat:{biz:"This protects you from key-person risk and shortens how long a new hire takes to pay for themselves.",
    tech:"You'd gather documents into one governed place, keep existing permissions so people only see what they're allowed to, and point the AI at that.",
    fn:"Your team stops being the help desk for everyone else. New people ramp without pulling your best people off their work."},
-  layers:["Artificial intelligence","Cybersecurity","Managed IT"]},
+  layers:["Data & integration","Artificial intelligence","Cybersecurity"]},
  account:{name:"A delivery desk that reads every system at once",
   bar:"Example · connected to CRM, ERP, project tracker",
   chat:[["you","Where are we with Meridian Supply's rollout?"],
@@ -224,7 +224,7 @@ function lives(){
   blocked:"On personal phones and home laptops, where blocking doesn't reach.",
   unknown:"Almost certainly in personal accounts. Nobody has checked yet."}[A.ai];
 }
-const SOURCE={"Data readiness":["Data center & cloud","Managed IT"],"Technology infrastructure":["Network & connectivity","Data center & cloud"],"Governance & security":["Cybersecurity"],"Experience layer":["Customer experience","Communication & collaboration"]};
+const SOURCE={"Data readiness":["Data & integration"],"Technology infrastructure":["Network & connectivity","Data center & cloud"],"Governance & security":["Cybersecurity"],"Experience layer":["Customer experience","Communication & collaboration"]};
 function sourced(rows){const out=[];rows.forEach(r=>{if(r[1]!=="ok")(SOURCE[r[0]]||[]).forEach(c=>{if(!out.includes(c))out.push(c)})});return out}
 function firstStep(rows){
  const st=Object.fromEntries(rows.map(r=>[r[0],r[1]]));
