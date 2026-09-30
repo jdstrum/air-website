@@ -60,7 +60,15 @@
  function unlocked(){ try{ return localStorage.getItem(UNLOCK)==='1'; }catch(e){ return false; } }
  function unlock(){ try{ localStorage.setItem(UNLOCK,'1'); }catch(e){} document.documentElement.classList.add('ws-unlocked'); }
  function doPrint(){ fields.forEach(grow); window.print(); }
- if(unlocked()) document.documentElement.classList.add('ws-unlocked');
+ var lockedStart=!unlocked();
+ if(!lockedStart) document.documentElement.classList.add('ws-unlocked');
+ if(lockedStart && gate){
+  var hero=main.querySelector('.ws-hero'); if(hero) hero.after(gate);
+  gate.querySelector('h2').textContent='Open the worksheet.';
+  gate.querySelector('p').textContent='Add your name and work email to start. We’ll also email you the fillable PDF. Your answers come to AI Resulting only if you save or send them.';
+  gf.querySelector('button[type=submit]').textContent='Open the worksheet';
+  gate.hidden=false; document.documentElement.classList.add('ws-locked');
+ }
  document.getElementById('ws-print').addEventListener('click',function(){
   if(unlocked()){ doPrint(); return; }
   gate.hidden=false; gate.scrollIntoView({behavior:'smooth',block:'center'});
@@ -71,13 +79,17 @@
   var btn=gf.querySelector('button[type=submit]'), talk=!!gf.conversationConsent.checked;
   var answered=Object.keys(collect()).filter(function(k){ return k.indexOf('owner_')!==0; }).length;
   btn.disabled=true; gs.hidden=false; gs.textContent='Saving…';
-  var finish=function(msg){ unlock(); gs.textContent=msg; btn.disabled=false; gate.hidden=true; if(saved) saved.textContent=msg; doPrint(); };
+  var finish=function(msg){
+   unlock(); btn.disabled=false; gate.hidden=true;
+   if(lockedStart){ lockedStart=false; document.documentElement.classList.remove('ws-locked'); gs.textContent='';
+    var ff=document.getElementById('find'); if(ff) ff.scrollIntoView({behavior:'smooth'}); return; }
+   gs.textContent=msg; if(saved) saved.textContent=msg; doPrint(); };
   fetch('/api/air-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-   type:'kit', source:'worksheet-save', page:location.pathname, referrer:document.referrer,
+   type:'kit', source:lockedStart?'worksheet-open':'worksheet-save', page:location.pathname, referrer:document.referrer,
    name:gf.name.value.trim(), email:gf.email.value.trim(), deliveryConsent:true,
    conversationConsent:talk, contactConsent:talk,
-   context:'Saved the working kit worksheet as a PDF. '+answered+' of 23 questions answered.',
-   assessmentResponses:summary(),
+   context:lockedStart?'Opened the working kit worksheet.':'Saved the working kit worksheet as a PDF. '+answered+' of 23 questions answered.',
+   assessmentResponses:lockedStart?'':summary(),
    website:(gf.querySelector('.hp')||{}).value||''
   })}).then(function(r){
    if(r.status===400) return r.json().catch(function(){ return {}; }).then(function(j){ throw new Error(j.error||'Please check your name and email.'); });

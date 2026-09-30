@@ -67,6 +67,8 @@
 .ws-research{font-size:13px;color:var(--m);max-width:760px;margin-top:40px}
 .ws-print-head{display:none}
 .ws-print-locked{display:none}
+html.ws-locked .ws-steps,html.ws-locked #ws-form,html.ws-locked .ws-tools,html.ws-locked .ws-handoff,html.ws-locked .ws-note,html.ws-locked .ws-grid3{display:none!important}
+html.ws-locked .ws-gate{margin-top:8px}
 .ws-gate{max-width:760px;margin-top:32px;padding:28px 32px;background:#fff;border:1px solid var(--l);border-top:4px solid var(--sp)}
 .ws-gate h2{font-size:clamp(28px,3vw,38px)}
 .ws-gate>p{color:var(--m);margin:12px 0 0;max-width:60ch;font-size:15.5px}

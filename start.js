@@ -294,9 +294,16 @@ function result(){
    <p class="t-why">${SEAT_LINE[A.seat]}</p>
    <p class="t-lede" id="sit">${esc(sit)}</p>
   </div>
+  <div class="t-stack t-tight">
+   <h2>What it needs underneath</h2>
+   <p class="t-why">Whatever AI you choose, it runs on this. Here's where each part of your foundation stands, mapped to the six dimensions of AI readiness.</p>
+   ${fs[0]?"":`<p class="t-reveal">${fs[1]}</p>`}
+   <div class="t-needs">${ordered.map(r=>{const top=r[0]===fs[0];return `<div class="t-need${top?" top":""}"><div>${top?`<p class="eyebrow">Start here</p>`:""}<h3>${r[0]}</h3><span class="t-chip ${r[1]}">${r[2]}</span></div><div class="t-stack" style="gap:6px"><p>${r[3]}</p>${top?`<p><strong>${fs[1]}</strong></p>`:""}</div></div>`}).join("")}</div>
+  </div>
+
   <div class="t-stack t-tight"><h3>Where AI is already in use</h3><p>${lives()}</p></div>
   <div class="t-stack">
-   <p class="eyebrow">The first move worth making</p>
+   <p class="eyebrow">Once the foundation holds, the first move worth making</p>
    <h2>${m.name}</h2>
    <p>${m.seat[A.seat]}</p>
    <div class="t-screen"><div class="t-screen-bar"><span>${esc(m.bar)}</span><span>Illustration</span></div>
@@ -304,13 +311,6 @@ function result(){
    <div class="t-compare"><div class="t-stack t-tight"><p class="eyebrow">Today</p><p>${m.old}</p></div><div class="t-stack t-tight"><p class="eyebrow">After the first move</p><p>${m.now}</p></div></div>
    <div class="t-stack t-tight"><h3>Where the gain lands</h3><p>${m.gain}</p></div>
   </div>
-  <div class="t-stack t-tight">
-   <h2>What it needs underneath</h2>
-   <p class="t-why">You'll use AI either way. Whether it works depends on what's underneath it. Mapped to the six dimensions of AI readiness.</p>
-   ${fs[0]?"":`<p class="t-reveal">${fs[1]}</p>`}
-   <div class="t-needs">${ordered.map(r=>{const top=r[0]===fs[0];return `<div class="t-need${top?" top":""}"><div>${top?`<p class="eyebrow">Start here</p>`:""}<h3>${r[0]}</h3><span class="t-chip ${r[1]}">${r[2]}</span></div><div class="t-stack" style="gap:6px"><p>${r[3]}</p>${top?`<p><strong>${fs[1]}</strong></p>`:""}</div></div>`}).join("")}</div>
-  </div>
-
   <div class="t-panel" id="talkPanel">
    <h2>Before you buy AI, make sure the foundation underneath it is built right.</h2>
    <p>30 minutes with ${AGENT?esc(AGENT.name):"a Resultant"} on what ${esc(co||"your company")} has, what the first move needs, and what it would cost. No vendors in the room.</p>
