@@ -141,3 +141,4 @@
 .consol-panel p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:auto 0 0}
 .good .condition-rows{max-width:none;margin-left:0}
 @media(max-width:760px){.consol-grid{grid-template-columns:1fr;gap:32px}.consol-fig{grid-template-columns:1fr}}
+@media(min-width:761px){.why.section,.good.section,.workday-section.section,.consol.section,.security-foundation.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2))}}
