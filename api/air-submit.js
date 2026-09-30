@@ -85,12 +85,14 @@ async function sendDelivery({ type, email, name, assessmentText }) {
 }
 
 // Sends Jen a copy of every lead when HighLevel is unavailable, so nothing is lost.
-async function notifyLead({ reason, type, name, email, company, context, summary, responses, attr, requestId, deliveryStatus }) {
+async function notifyLead({ reason, contactRequested, type, name, email, company, context, summary, responses, attr, requestId, deliveryStatus }) {
   if (!process.env.RESEND_API_KEY) return;
   const resend = new Resend(process.env.RESEND_API_KEY);
   const to = process.env.NOTIFY_EMAIL || 'hello@airesulting.com';
   const text = [
     `New website ${type} request (${reason}).`,
+    '',
+    contactRequested ? 'WANTS TO BE CONTACTED: yes. Follow up.' : 'Wants to be contacted: no',
     '',
     `Name: ${name}`,
     `Email: ${email}`,
@@ -103,7 +105,7 @@ async function notifyLead({ reason, type, name, email, company, context, summary
     responses && `Responses:\n${responses}\n`,
     attr.text
   ].filter(Boolean).join('\n');
-  await resend.emails.send({ from: fromAddress(), to, replyTo: email, subject: `Website lead: ${name} (${type})`, text })
+  await resend.emails.send({ from: fromAddress(), to, replyTo: email, subject: `${contactRequested ? 'Contact me: ' : 'Website lead: '}${name} (${type})`, text })
     .catch(err => console.error('AIR lead notification failed', { requestId, message: err.message }));
 }
 
@@ -190,7 +192,8 @@ module.exports = async function handler(req, res) {
     }
   }
   if (!captured) {
-    await notifyLead({ reason, type, name, email, company, context, summary: assessmentPriorities || assessmentSummary,
+    const contactRequested = Boolean(body.contactConsent || body.conversationConsent || type === 'contact');
+    await notifyLead({ reason, contactRequested, type, name, email, company, context, summary: assessmentPriorities || assessmentSummary,
       responses: assessmentResponses, attr, requestId, deliveryStatus });
   }
 
