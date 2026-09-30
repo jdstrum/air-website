@@ -180,3 +180,18 @@
 .is-skip .build-cap{color:#121417;font-weight:500}
 @media(max-width:760px){.build-grid{grid-template-columns:1fr;gap:28px}.bl-sys{grid-template-columns:repeat(3,1fr)}.build-fig{min-height:360px}}
 @media(prefers-reduced-motion:reduce){.bl,.bl-sys span{transition:none}}
+
+/* Governance: agents as identities */
+@media(min-width:761px){.agents.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2))}}
+.agents-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:6vw;align-items:center}
+.id-fig{margin:0;background:#FFFFFF;border:1px solid var(--line);padding:clamp(20px,3vw,32px);display:grid;gap:12px}
+.id-fig figcaption{font-size:13px;color:var(--muted);margin-bottom:4px}
+.id-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 16px;border:1px solid var(--line);background:#F8F7F3}
+.id-row strong{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:22px;flex:0 0 100%;margin-bottom:2px}
+.id-row span{font-size:12.5px;border:1px solid var(--line);background:#FFFFFF;padding:5px 9px;color:#121417}
+.id-row.is-agent{background:#23443A;border-color:#23443A}
+.id-row.is-agent strong{color:#F8F7F3}
+.id-row.is-agent span{background:transparent;border-color:#CFDDD599;color:#F8F7F3}
+.id-row.is-agent .id-gate{background:#F8F7F3;color:#23443A;border-color:#F8F7F3;font-weight:600}
+.id-row.is-agent .id-off{border-style:dashed}
+@media(max-width:760px){.agents-grid{grid-template-columns:1fr;gap:28px}}
