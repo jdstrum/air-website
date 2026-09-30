@@ -1,0 +1,80 @@
+/* Butter: yellow means AI. Spruce is the foundation, butter is what sits on top. */
+:root{--butter:#F2DC8A;--butter-deep:#E6CA62;--butter-pale:#FBF1CC;--butter-edge:#C9A93E}
+
+/* 1. The AI piece in every diagram */
+.stack .ai,.blocks .ai{background:var(--butter)!important;color:#121417!important}
+.stack .ai b,.blocks .ai b{color:#121417!important}
+.blocks .ai{box-shadow:inset 0 -4px 0 var(--butter-edge)!important}
+.blocks.live .ai{box-shadow:inset 0 -4px 0 var(--butter-edge),0 calc(12px + var(--py,0)*6px) 28px -14px #12141766!important}
+.bl-ai{background:var(--butter)!important;color:#121417!important}
+.bl-ai span{color:#4a4a3a!important}
+.bp-beam{background:var(--butter)!important;color:#121417!important}
+.bp-beam small{color:#4a4a3a!important}
+
+/* 2. One highlighter swipe per page */
+.hl,.detail-hero h1 em,main h1 em{font-style:inherit;background:linear-gradient(180deg,transparent 58%,var(--butter) 58%,var(--butter) 90%,transparent 90%);padding-inline:.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* 3. The main action: see where AI fits */
+.btn[href="start.html"],.button[href="start.html"],a.button.primary[href="start.html"]{background:var(--butter)!important;color:#121417!important}
+.btn[href="start.html"]:hover,.button[href="start.html"]:hover{background:var(--butter-deep)!important}
+.top .cta,.site-header .nav-cta,header a[href="start.html"]:last-child{border-bottom:3px solid var(--butter)!important}
+
+/* 4. One warm stop in the scroll */
+.scene.invite{background:var(--butter-pale)}
+
+
+/* 5. Small active moments */
+.t-opt[aria-pressed="true"]{border-color:var(--butter-edge)!important;background:var(--butter-pale)!important}
+.src-ask{border-left:3px solid var(--butter)!important;background:linear-gradient(90deg,var(--butter-pale),transparent 85%);padding-block:8px}
+.src-ask b{color:#121417!important}
+.dimension-links a[aria-current="page"]{color:#121417!important;background:var(--butter-pale)}
+.dimension-links a[aria-current="page"] span{color:var(--butter-edge)}
+
+/* On a butter field, the button goes dark so it still stands out */
+.scene.invite .btn[href="start.html"]{background:#121417!important;color:#F8F7F3!important}
+.scene.invite .btn[href="start.html"]:hover{background:#23443A!important}
+
+/* The working kit: AI's first move */
+.kitband{background:var(--butter-pale)}
+.kitband .btn{background:#121417;color:#F8F7F3}
+.kitband .btn:hover{background:#23443A}
+a.button[href="#get-the-kit"]{background:var(--butter)!important;color:#121417!important;border-color:var(--butter)!important}
+a.button[href="#get-the-kit"]:hover{background:var(--butter-deep)!important}
+#get-the-kit{background:var(--butter-pale);box-shadow:0 0 0 100vmax var(--butter-pale);clip-path:inset(0 -100vmax)}
+#resource-form button[type="submit"]{background:#121417!important;color:#F8F7F3!important;border-color:#121417!important}
+#resource-form button[type="submit"]:hover{background:#23443A!important}
+
+/* The secondary way into the tool: a butter highlighter, not a plain underline */
+.closing-alt a,[data-tone="ledger"] .closing .closing-alt a{color:#121417!important;text-decoration:none!important;background:linear-gradient(180deg,transparent 38%,var(--butter) 38%,var(--butter) 96%,transparent 96%);padding:2px 5px}
+.closing-alt a:hover,[data-tone="ledger"] .closing .closing-alt a:hover{background:var(--butter)}
+
+/* ---- Round 2: yellow in the body of every page ---- */
+
+/* Wheels: the outcome in the middle glows, the choice you make lights up */
+.wheel-center{background:var(--butter-pale)!important;border-color:var(--butter-edge)!important}
+.wheel-center strong{color:#121417!important}
+.wheel-node[aria-pressed="true"],[data-palette] .wheel-node[aria-pressed="true"],[data-tone="ledger"] .wheel-node[aria-pressed="true"]{background:var(--butter)!important;border-color:var(--butter-edge)!important;color:#121417!important;box-shadow:0 10px 22px -12px #8a6d1a88}
+.wheel-node[aria-pressed="true"] *{color:#121417!important}
+.wheel-node:hover{border-color:var(--butter-edge)!important}
+
+/* Governance: AI agents are the new kind of user */
+.id-row.is-agent{background:var(--butter)!important;border-color:var(--butter-edge)!important}
+.id-row.is-agent strong{color:#121417}
+.id-row.is-agent span{border-color:#12141733!important;color:#121417!important;background:#FFFFFF66!important}
+.id-row.is-agent .id-gate{background:#121417!important;color:#F8F7F3!important;border-color:#121417!important}
+
+/* Technology: AI applications at the end of the connection */
+/* Experience: context that arrives where work happens */
+.workday-core{background:var(--butter-pale)!important;border-color:var(--butter-edge)!important}
+
+/* What to evaluate: cards and chips that are AI categories */
+.src-grid article.is-ai{border-top-color:var(--butter)!important}
+.src-chips span.is-ai,.id-row span.is-ai{background:var(--butter-pale)!important;border-color:var(--butter-edge)!important;color:#121417!important}
+
+/* Hero link into each page */
+.data-example-link{border-bottom-color:var(--butter)!important;border-bottom-width:3px!important}
+
+/* Our approach: each step lights up as you read */
+.approach-progression .editorial-rows article:before{border-color:var(--butter-edge)!important}
+.approach-progression .editorial-rows article.step-seen:before{background:var(--butter)!important;border-color:var(--butter-edge)!important;width:13px;height:13px}
+.fabric-endpoints span.is-ai{background:var(--butter)!important;border-color:var(--butter-edge)!important;color:#121417!important;font-weight:600}

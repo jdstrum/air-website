@@ -498,7 +498,7 @@ footer a:hover{text-decoration:underline}
   .scene{min-height:auto}
 }
 </style>
-<meta property="og:image" content="https://airesulting.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://airesulting.com/assets/og-image.png"></head>
+<meta property="og:image" content="https://airesulting.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://airesulting.com/assets/og-image.png"><link rel="stylesheet" href="butter.css?v=6"></head>
 <body>
 <script>if(/[?&]hero=rise/.test(location.search))document.documentElement.classList.add("hero-rise")</script>
 <a class="skip" href="#top">Skip to content</a>
@@ -523,7 +523,7 @@ footer a:hover{text-decoration:underline}
   <main id="top">
   <section class="hero" aria-labelledby="hero-title">
     <div>
-      <h1 id="hero-title">AI results from what’s underneath it.</h1>
+      <h1 id="hero-title">AI results from what’s <span class="hl">underneath it.</span></h1>
       <p class="hero-sub">Build from the bottom up.</p>
       <p class="lead">Your network, cloud, data, communications, customer systems and security decide whether AI becomes a cost you keep explaining or a return you keep counting.</p>
       <div class="hero-actions">
@@ -707,8 +707,10 @@ footer a:hover{text-decoration:underline}
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var h=document.getElementById('hero-title');
   if(h&&!h.querySelector('.w')){
-    var words=h.textContent.trim().split(/\s+/);h.setAttribute('aria-label',h.textContent.trim());
-    h.innerHTML=words.map(function(w,i){return '<span class="w" aria-hidden="true"><span style="animation-delay:'+(i*70)+'ms">'+w+'</span></span>'}).join(' ');
+    var hl=h.querySelector('.hl'),hlText=hl?hl.textContent.trim():'';
+    var full=h.textContent.trim(),lead=hlText?full.slice(0,full.lastIndexOf(hlText)).trim():full;
+    var words=lead.split(/\s+/);if(hlText)words.push(hlText);h.setAttribute('aria-label',full);
+    h.innerHTML=words.map(function(w,i){var m=hlText&&i===words.length-1;return '<span class="w" aria-hidden="true"><span'+(m?' class="hl"':'')+' style="animation-delay:'+(i*70)+'ms">'+w+'</span></span>'}).join(' ');
   }
   var b=document.querySelector('.blocks'),hero=document.querySelector('.hero');
   if(!b||!hero||!window.matchMedia('(pointer:fine)').matches)return;
