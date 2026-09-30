@@ -56,7 +56,37 @@
  /* print / save as PDF */
  var pd=document.getElementById('ws-print-date');
  if(pd) pd.textContent=new Date().toLocaleDateString([], {year:'numeric',month:'long',day:'numeric'});
- document.getElementById('ws-print').addEventListener('click',function(){ fields.forEach(grow); window.print(); });
+ var UNLOCK='air-worksheet-unlocked', gate=document.getElementById('ws-gate'), gf=document.getElementById('ws-gate-form'), gs=document.getElementById('ws-gate-status');
+ function unlocked(){ try{ return localStorage.getItem(UNLOCK)==='1'; }catch(e){ return false; } }
+ function unlock(){ try{ localStorage.setItem(UNLOCK,'1'); }catch(e){} document.documentElement.classList.add('ws-unlocked'); }
+ function doPrint(){ fields.forEach(grow); window.print(); }
+ if(unlocked()) document.documentElement.classList.add('ws-unlocked');
+ document.getElementById('ws-print').addEventListener('click',function(){
+  if(unlocked()){ doPrint(); return; }
+  gate.hidden=false; gate.scrollIntoView({behavior:'smooth',block:'center'});
+  var first=gf.querySelector('input[name=name]'); if(first) setTimeout(function(){ first.focus(); },300);
+ });
+ if(gf) gf.addEventListener('submit',function(e){
+  e.preventDefault(); if(!gf.reportValidity()) return;
+  var btn=gf.querySelector('button[type=submit]'), talk=!!gf.conversationConsent.checked;
+  var answered=Object.keys(collect()).filter(function(k){ return k.indexOf('owner_')!==0; }).length;
+  btn.disabled=true; gs.hidden=false; gs.textContent='Saving…';
+  var finish=function(msg){ unlock(); gs.textContent=msg; btn.disabled=false; gate.hidden=true; if(saved) saved.textContent=msg; doPrint(); };
+  fetch('/api/air-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+   type:'kit', source:'worksheet-save', page:location.pathname, referrer:document.referrer,
+   name:gf.name.value.trim(), email:gf.email.value.trim(), deliveryConsent:true,
+   conversationConsent:talk, contactConsent:talk,
+   context:'Saved the working kit worksheet as a PDF. '+answered+' of 23 questions answered.',
+   assessmentResponses:summary(),
+   website:(gf.querySelector('.hp')||{}).value||''
+  })}).then(function(r){
+   if(r.status===400) return r.json().catch(function(){ return {}; }).then(function(j){ throw new Error(j.error||'Please check your name and email.'); });
+   finish('Thanks. Choose “Save as PDF” in the print window.'+(talk?' A Resultant will be in touch.':''));
+  }).catch(function(err){
+   if(err instanceof TypeError){ finish('Choose “Save as PDF” in the print window.'); return; }
+   gs.textContent=err.message; btn.disabled=false;
+  });
+ });
  window.addEventListener('beforeprint',function(){ fields.forEach(grow); });
 
  /* clear */

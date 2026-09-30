@@ -66,9 +66,22 @@
 .ws .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .ws-research{font-size:13px;color:var(--m);max-width:760px;margin-top:40px}
 .ws-print-head{display:none}
+.ws-print-locked{display:none}
+.ws-gate{max-width:760px;margin-top:32px;padding:28px 32px;background:#fff;border:1px solid var(--l);border-top:4px solid var(--sp)}
+.ws-gate h2{font-size:clamp(28px,3vw,38px)}
+.ws-gate>p{color:var(--m);margin:12px 0 0;max-width:60ch;font-size:15.5px}
+.ws-gate form{margin-top:8px}
+.ws-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ws-grid2 label{margin-top:20px}
+.ws-consent-dark{color:var(--k)!important}
+.ws-consent-dark input{accent-color:var(--sp)!important}
+.ws-gate .ws-btn{margin-top:20px}
+#ws-gate-status{font-size:15px;color:var(--m)}
 
 @media (max-width:760px){
   .ws-grid3{grid-template-columns:1fr}
+  .ws-grid2{grid-template-columns:1fr}
+  .ws-gate{padding:22px 18px}
   .ws-handoff{grid-template-columns:1fr}
   .ws-steps{gap:4px}
   .ws-steps span{font-size:12px}
@@ -101,4 +114,7 @@
   .ws-handoff p::after{content:" airesulting.com/talk"}
   .ws-example,.ws-prompt{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .ws-research{font-size:8pt}
+  .ws-gate{display:none!important}
+  html:not(.ws-unlocked) .ws>*:not(.ws-print-locked){display:none!important}
+  html:not(.ws-unlocked) .ws-print-locked{display:block!important;font-size:14pt;padding:40pt 0}
 }
