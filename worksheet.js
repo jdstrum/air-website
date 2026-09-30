@@ -70,7 +70,7 @@
  /* plain-text summary for the handoff */
  function summary(){
   var out=[], owner=['owner_name','owner_team','owner_date'].map(function(n){ var f=main.querySelector('[name='+n+']'); return f&&f.value.trim(); });
-  out.push('Business owner: '+(owner[0]||'-')+' | Team: '+(owner[1]||'-')+' | Review date: '+(owner[2]||'-'));
+  out.push('Owns the result: '+(owner[0]||'-')+' | Department: '+(owner[1]||'-')+' | Decision date: '+(owner[2]||'-'));
   [].forEach.call(form.querySelectorAll('[data-part]'),function(sec){
    out.push('', '## '+sec.querySelector('.ws-kicker').textContent);
    [].forEach.call(sec.querySelectorAll('label'),function(l){
