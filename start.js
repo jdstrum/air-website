@@ -26,9 +26,9 @@ const Q=[
  {id:"wait", q:()=>"What do customers wait on you for most?", why:"Pick the wait they'd complain about first.",
   opts:[["quotes","Quotes and proposals"],["answers","Answers to questions"],["setup","Getting set up after they buy"],["fix","Getting problems fixed"],["rarely","They rarely wait"],["na","Not close enough to say"]]},
  {id:"collab", q:()=>"How does your team work together day to day?", why:"Meetings, messages, calls and shared files.",
-  opts:[["one","One platform everyone uses"],["mix","A mix of tools, depending on the team"],["email","Mostly email and phone"],["scattered","Scattered across chat, email and texts"]]},
+  opts:[["one","One platform everyone uses"],["mix","Different platforms, depending on the team"],["email","Mostly email and phone"],["scattered","Whatever each person prefers, including personal texts"]]},
  {id:"leaders", q:()=>"How is leadership approaching AI?", why:"What people see leaders do, not what they say.",
-  opts:[["model","Using it themselves and showing others"],["support","Supportive, but not using it much"],["wait","Waiting to see"],["skeptic","Cautious or skeptical"]]},
+  opts:[["model","Using it themselves and showing others"],["support","Supportive, but not using it much"],["noplan","Interested, but nobody owns it yet"],["skeptic","Skeptical, or not a priority"]]},
  {id:"feel", q:()=>"What's the general feeling about AI in your company?", why:"The mood in the hallway, not the official line.",
   opts:[["excited","Excited. People are trying things."],["curious","Curious, but not sure where to begin"],["worried","Worried about jobs or mistakes"],["indifferent","Mostly indifferent"]]}
 ];
@@ -78,6 +78,17 @@ const MOVES={
    tech:"You'd connect the contact center, billing and CRM, and set clear limits on what the AI can do on its own versus hand off.",
    fn:"Your team handles the conversations that need a person. The repeat questions stop reaching them."},
   layers:["Customer experience","Communication & collaboration","Artificial intelligence"]},
+ numbers:{name:"A finance desk that answers the numbers question on demand",
+  bar:"Example · connected to ERP, CRM, billing",
+  chat:[["you","What was our margin on Hartwell last quarter, and what does cash look like for November?"],
+        ["ai","Hartwell ran at 31%, down from 36%, mostly from two rush shipments. November cash is projected at $1.2M after payroll and the Meridian invoice due on the 12th. Sources: ERP, receivables aging. Want it by site?"]],
+  old:"Someone asks finance, finance builds a spreadsheet, and the answer arrives after the decision.",
+  now:"Leaders ask in plain words and get the number, with its source, while the decision is still open.",
+  gain:"Faster answers mean faster decisions. Make sure the data behind them is clean, or you'll get wrong answers faster.",
+  seat:{biz:"You stop steering by last month. The numbers you'd wait days for are there when the decision is.",
+   tech:"You'd connect the ERP, CRM and billing into one governed data layer, with finance-grade rules on who sees what.",
+   fn:"Your team stops building a one-off spreadsheet for every question. Finance checks the logic once instead of answering the same request again."},
+  layers:["Data & integration","Artificial intelligence","Cybersecurity"]},
  brief:{name:"A morning brief across every system you run",
   bar:"Example · morning brief · 7:02 am",
   chat:[["ai","Three things need you today. Approve the Q4 budget move before noon. Dana is waiting on your call about Hartwell. The board deck draft is ready. There were 41 messages overnight, and 2 matter."],
@@ -93,7 +104,8 @@ const MOVES={
 };
 const LIMIT_NP={win:"finding and winning enough customers",deliver:"delivering what you've sold fast enough",support:"supporting customers as you grow",hire:"hiring and training people fast enough",decide:"how long decisions and approvals take"};
 function pickMove(){
- return {win:"quote", deliver:"account", support:"support", hire:"know", decide:"brief"}[A.limit]||"brief";
+ if(A.limit==="decide") return ["ask","close","sheet"].includes(A.numbers)?"numbers":"brief";
+ return {win:"quote", deliver:"account", support:"support", hire:"know"}[A.limit]||"brief";
 }
 
 const SEAT_LINE={
@@ -127,17 +139,17 @@ const STATUS={
   rarely:["ok","In place","Customers rarely wait. AI can keep it that way as you grow."],
   na:["work","Partly there","Not visible from your seat. Ask the people who handle customer complaints."]},
  collab:{one:["ok","In place","One platform everyone uses. Context has a place to live."],
-  mix:["work","Partly there","A mix of tools by team. Context gets lost between them."],
+  mix:["work","Partly there","Different platforms by team. Context gets lost between them."],
   email:["work","Partly there","Mostly email and phone. Conversations don't carry into the next step."],
-  scattered:["start","Not in place","Work is scattered across chat, email and texts. Nothing carries the context forward."]},
+  scattered:["start","Not in place","Work runs on whatever each person prefers, including personal texts. Context and company information leave with it."]},
  numbers:{live:["ok","In place","Leaders see current numbers when they need them. AI has something to anchor to."],
   ask:["work","Partly there","Answers wait on finance. AI can put the number in front of the person asking."],
   close:["start","Not in place","The business steers by last month. There's no current view for AI decisions to anchor to."],
   sheet:["start","Not in place","Every number is a one-off spreadsheet. The data behind it needs a home first."]},
  leaders:{model:["ok","In place","Leaders use AI and show others. That's what makes adoption stick."],
   support:["work","Partly there","Leaders support it but don't use it much. People notice."],
-  wait:["start","Not in place","Leadership is waiting to see. Adoption stalls without a visible lead."],
-  skeptic:["start","Not in place","Leadership is cautious. A small, visible result is the way in."]},
+  noplan:["start","Not in place","Interest without an owner. Name one person and one result to deliver."],
+  skeptic:["start","Not in place","Leadership isn't convinced yet. A small, visible result is the way in."]},
  feel:{excited:["ok","In place","People are already trying things. Channel it into approved tools and shared practice."],
   curious:["work","Partly there","People are curious but unsure where to begin. A real task and some training unlock it."],
   worried:["work","Partly there","People are worried about jobs or mistakes. Say what AI is for, and what stays with them."],
@@ -210,7 +222,7 @@ function situation(){
  let s=`What limits growth at ${co} is ${LIMIT_NP[A.limit]}. `;
  s+={doc:"Your knowledge is written down, which puts you ahead. ",some:"Some of what makes your people fast still lives only with them. ",most:"Most of how the work gets done lives in people's heads. ",trouble:"Critical knowledge sits with one person. "}[A.walk];
  s+={few:"Your core systems talk to each other, so a first move can start quickly. ",some:"Some of your systems connect and some don't, so a few gaps will need closing. ",rollup:"Systems inherited from acquisitions still run separately, and connecting them comes first. ",sheets:"Spreadsheets and people hold your systems together, and that comes first. "}[A.systems];
- s+={model:"Leadership is using AI and showing others the way.",support:"Leadership supports AI but isn't using it much yet.",wait:"Leadership is waiting to see.",skeptic:"Leadership is cautious about AI."}[A.leaders];
+ s+={model:"Leadership is using AI and showing others the way.",support:"Leadership supports AI but isn't using it much yet.",noplan:"Leadership is interested, but nobody owns AI yet.",skeptic:"Leadership isn't convinced AI is a priority."}[A.leaders];
  return {text:s, noted:notes.length};
 }
 function lives(){
@@ -242,7 +254,7 @@ function supplierFit(){
  if(A.systems!=="few") s.push(["Data & integration",`Systems: ${low(label("systems",A.systems))}. Opens integration and data platforms.`]);
  if(A.network!=="grow") s.push(["Network & connectivity",`Network: ${low(label("network",A.network))}. Opens SD-WAN, internet and managed network.`]);
  if(!["one"].includes(A.collab)) s.push(["Communication & collaboration",`Team works: ${low(label("collab",A.collab))}. Opens UCaaS and collaboration.`]);
- if(["wait","skeptic"].includes(A.leaders)||["worried","indifferent"].includes(A.feel)) s.push(["Training & enablement",`Leadership: ${low(label("leaders",A.leaders))}. Mood: ${low(label("feel",A.feel))}. Opens AI training and adoption.`]);
+ if(["noplan","skeptic"].includes(A.leaders)||["worried","indifferent"].includes(A.feel)) s.push(["Training & enablement",`Leadership: ${low(label("leaders",A.leaders))}. Mood: ${low(label("feel",A.feel))}. Opens AI training and adoption.`]);
  s.push(["Governance & AI gateway",`AI in use: ${low(label("ai",A.ai))}. Opens governance, security and AI gateway (e.g. Expedient).`]);
  return s;
 }
