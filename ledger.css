@@ -127,3 +127,17 @@
 
 /* heading reveal wraps words in spans; keep closing headlines upright */
 [data-tone="ledger"] .closing h2 span{font-style:normal;color:inherit}
+
+/* Governance: connected data + what good looks like */
+.consol-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6vw;align-items:center}
+.consol-fig{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.consol-panel{background:#FFFFFF;border:1px solid var(--line);padding:22px 18px;display:flex;flex-direction:column;gap:12px}
+.consol-panel figcaption{font-size:13px;color:var(--muted);letter-spacing:0}
+.consol-sys{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.consol-sys span{border:1px solid var(--line);font-size:13px;padding:10px 8px;text-align:center;color:var(--ink);background:#F8F7F3}
+.consol-panel:not(.is-after) .consol-sys span{border-color:#23443A;box-shadow:inset 0 0 0 1px #23443A}
+.consol-ai{align-self:center;background:#121417;color:#F8F7F3;font-family:'Instrument Serif',Georgia,serif;font-size:22px;padding:4px 16px}
+.consol-platform{background:#23443A;color:#F8F7F3;font-size:13px;text-align:center;padding:10px 8px}
+.consol-panel p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:auto 0 0}
+.good .condition-rows{max-width:none;margin-left:0}
+@media(max-width:760px){.consol-grid{grid-template-columns:1fr;gap:32px}.consol-fig{grid-template-columns:1fr}}
