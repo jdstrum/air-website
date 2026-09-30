@@ -84,3 +84,7 @@ a.button[href="#get-the-kit"]:hover{background:var(--butter-deep)!important}
 .moments{gap:12px!important}
 .moments li>span{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--butter);color:#F8F7F3!important;font-size:16px!important}
 .moments li>span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--butter);flex:none}
+
+/* One logo everywhere: Steve's keycap */
+.brand .brand-logo{display:block;height:36px;width:auto}
+footer .brand .brand-logo,.air-footer .brand .brand-logo{height:34px}
