@@ -142,3 +142,5 @@
 .good .condition-rows{max-width:none;margin-left:0}
 @media(max-width:760px){.consol-grid{grid-template-columns:1fr;gap:32px}.consol-fig{grid-template-columns:1fr}}
 @media(min-width:761px){.why.section,.good.section,.workday-section.section,.consol.section,.security-foundation.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2))}}
+
+.src-grid p.src-ask{color:var(--ink);font-size:15px;line-height:1.55;border-left:2px solid #23443A;padding-left:12px}.src-grid p.src-ask b{font-weight:600;color:#23443A}
