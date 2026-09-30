@@ -12,7 +12,7 @@ const {
 const REQUEST_TYPES = new Set(['assessment', 'kit', 'contact']);
 const ASSESSMENT_VERSION = '2026-09-28-where-ai-starts-v1';
 const RESOURCE_ID = 'first-useful-ai-workflow';
-const RESOURCE_EDITION = '2026-09-08-v1';
+const RESOURCE_EDITION = '2026-09-29-v2';
 
 const clean = (value, max = 1500) => String(value || '').trim().slice(0, max);
 const validEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);

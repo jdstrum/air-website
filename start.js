@@ -322,7 +322,7 @@ function result(){
 
   <div class="t-stack t-tight">
    <h3>Planning the first move?</h3>
-   <p class="t-why">The AI Workflow Starter Kit is a six-page fillable PDF for scoping one AI workflow: a workflow brief and baseline, review boundaries, and a full-cost worksheet with a continue, change or stop review.</p>
+   <p class="t-why">The AI Workflow Starter Kit is a worksheet, online or as a fillable PDF, for scoping one AI workflow: a workflow brief and baseline, review boundaries, a check of what it depends on underneath, and a full-cost worksheet with a continue, change or stop review.</p>
    <p><a class="tlink" href="ai-workflow-starter-kit.html">Get the working kit</a></p>
   </div>
   <p><button class="t-link" type="button" id="again">Start over</button></p>
