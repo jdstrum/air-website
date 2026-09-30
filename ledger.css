@@ -124,3 +124,6 @@
 /* privacy & terms: visible links, clear break before the terms */
 [data-tone="ledger"] .privacy-page :is(.signal-source,.signal-reading) a{text-decoration:underline;text-underline-offset:3px}
 [data-tone="ledger"] .privacy-page #terms{margin-top:64px;padding-top:44px;border-top:1px solid var(--line)}
+
+/* heading reveal wraps words in spans; keep closing headlines upright */
+[data-tone="ledger"] .closing h2 span{font-style:normal;color:inherit}
