@@ -17,9 +17,9 @@
  btns.forEach(function(b){ b.addEventListener('click',function(){ stop(); set(b.dataset.go); }); });
  skip.addEventListener('click',function(){ stop(); set(st.dataset.step==='skip'?'3':'skip'); });
  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- function play(){ if(reduce){ set('3'); return; } set('1'); timers.push(setTimeout(function(){set('2')},1300)); timers.push(setTimeout(function(){set('3')},2600)); }
+ function play(){ if(reduce){ set('3'); return; } timers.push(setTimeout(function(){set('1')},500)); timers.push(setTimeout(function(){set('2')},2600)); timers.push(setTimeout(function(){set('3')},4200)); }
  if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.disconnect(); play(); } }); },{threshold:.45});
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.disconnect(); play(); } }); },{threshold:.8});
   io.observe(st);
  } else set('3');
 })();

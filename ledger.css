@@ -163,7 +163,9 @@
 .bl-floor strong{display:block;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:22px}
 .bl-floor span{font-size:12.5px;color:#CFDDD5}
 .bl-sys{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.bl-sys span{border:1px solid #23443A;background:#F8F7F3;font-size:13px;text-align:center;padding:12px 4px;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.bl-sys span{border:1px solid #23443A;background:#F8F7F3;font-size:13px;text-align:center;padding:12px 4px;opacity:0;transform:translateY(22px);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.bl-sys span:nth-child(2){transition-delay:.18s}.bl-sys span:nth-child(3){transition-delay:.36s}.bl-sys span:nth-child(4){transition-delay:.54s}.bl-sys span:nth-child(5){transition-delay:.72s}
+[data-step="2"] .bl-sys span,[data-step="3"] .bl-sys span{transition-delay:0s}
 .build-cap{min-height:3em;margin:6px 0 0;font-size:15px;color:var(--muted);text-align:center}
 [data-step="1"] .bl-sys span,[data-step="2"] .bl-sys span,[data-step="3"] .bl-sys span,.is-skip .bl-sys span{opacity:1;transform:none}
 [data-step="1"] .bl-sys span:nth-child(2){transform:translateY(-10px)}
