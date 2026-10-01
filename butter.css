@@ -88,3 +88,6 @@ a.button[href="#get-the-kit"]:hover{background:var(--butter-deep)!important}
 /* One logo everywhere: Steve's keycap */
 .brand .brand-logo{display:block;height:36px;width:auto}
 footer .brand .brand-logo,.air-footer .brand .brand-logo{height:66px;margin:-16px -12px}
+
+/* Header "Talk to a Resultant" text link: desktop only; phones keep the compact header */
+@media(max-width:760px){header nav a.nav-talk{display:none!important}}
