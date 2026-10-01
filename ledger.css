@@ -141,13 +141,13 @@
 .consol-panel p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:auto 0 0}
 .good .condition-rows{max-width:none;margin-left:0}
 @media(max-width:760px){.consol-grid{grid-template-columns:1fr;gap:32px}.consol-fig{grid-template-columns:1fr}}
-@media(min-width:761px){.why.section,.good.section,.workday-section.section,.consol.section,.security-foundation.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2))}}
+@media(min-width:761px){.why.section,.good.section,.workday-section.section,.consol.section,.security-foundation.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2));max-width:none}}
 
 .src-grid p.src-ask{color:var(--ink);font-size:15px;line-height:1.55;border-left:2px solid #23443A;padding-left:12px}.src-grid p.src-ask b{font-weight:600;color:#23443A}
 
 /* Data readiness: build order */
 .build.section{padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(56px,7vw,96px)}
-@media(min-width:761px){.build.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2))}}
+@media(min-width:761px){.build.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2));max-width:none}}
 .build-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:6vw;align-items:center}
 .build-controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .build-controls button,.build-skip{font:500 14px 'DM Sans',sans-serif;background:none;border:1px solid var(--line);color:var(--muted);padding:9px 14px;cursor:pointer;transition:all .3s}
@@ -182,7 +182,7 @@
 @media(prefers-reduced-motion:reduce){.bl,.bl-sys span{transition:none}}
 
 /* Governance: agents as identities */
-@media(min-width:761px){.agents.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2))}}
+@media(min-width:761px){.agents.section{padding-left:max(7.5vw,calc((100vw - 1220px)/2));padding-right:max(7.5vw,calc((100vw - 1220px)/2));max-width:none}}
 .agents-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:6vw;align-items:center}
 .id-fig{margin:0;background:#FFFFFF;border:1px solid var(--line);padding:clamp(20px,3vw,32px);display:grid;gap:12px}
 .id-fig figcaption{font-size:13px;color:var(--muted);margin-bottom:4px}
