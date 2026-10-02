@@ -39,7 +39,7 @@
     d.innerHTML = '<div class="in">' +
       '<div class="top"><p class="eb">Talk to a Resultant</p><button class="x" type="button" aria-label="Close">×</button></div>' +
       '<h2 id="intake-title">Tell us what you’re working on.</h2>' +
-      '<p>A business goal, a stalled project or a decision coming up. You don’t need a finished brief. A Resultant will reply to set up a conversation.</p>' +
+      '<p>A business goal, a stalled project or a decision coming up. A Resultant will reply to set up a conversation.</p>' +
       '<form novalidate>' +
       '<div class="row2"><div><label for="in-name">Name</label><input id="in-name" autocomplete="name" maxlength="100" required></div>' +
       '<div><label for="in-email">Work email</label><input id="in-email" type="email" autocomplete="email" maxlength="254" required></div></div>' +
