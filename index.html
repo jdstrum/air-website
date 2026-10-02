@@ -515,6 +515,27 @@ footer a:hover{text-decoration:underline}
 .srclist.rv.in summary{opacity:1;transform:none}
 @media (max-width:760px){.srclist details>summary{grid-template-columns:minmax(0,1fr) 20px}.srclist details>summary span{grid-column:1;grid-row:2;font-size:14.5px}.srclist details>summary em{grid-row:1/3;grid-column:2}.src-body{grid-template-columns:minmax(0,1fr)}.src-body p,.src-chips{grid-column:1}}
 @media (prefers-reduced-motion:reduce){.srclist.rv summary{opacity:1;transform:none}}
+
+/* Phones: name the hero layers, and let the six-dimension beats carry the layer colours */
+.blocks .m-label{display:none}
+@media (max-width:900px){
+  .blocks .layer{min-height:44px;display:flex;align-items:center;padding:0 16px}
+  .blocks .m-label{display:block;font-size:18px}
+}
+@media (max-width:900px){
+  .stands-pin{position:static;height:auto;border-bottom:0;padding:0;background:none}
+  .stands-pin .kicker{display:block}
+  .stands-pin h2{display:block;margin-bottom:8px}
+  .stands-pin .stack{display:none}
+  .stands .beat{border-left:6px solid var(--s1);padding-left:18px}
+  .stands .beat[data-layer="l2"]{border-left-color:var(--s2)}
+  .stands .beat[data-layer="l3"]{border-left-color:var(--s3)}
+  .stands .beat[data-layer="l4"]{border-left-color:var(--s4)}
+  .stands .beat[data-layer="l5"]{border-left-color:var(--s5)}
+  .stands .beat[data-layer="l6"]{border-left-color:var(--s6)}
+  .stands .beat[data-layer="ai"]{border-left-color:var(--butter-deep,#E6CA62)}
+  .stands .beat{min-height:0;justify-content:flex-start;padding-block:6px;margin-block:44px}
+}
 </style>
 <meta property="og:image" content="https://airesulting.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://airesulting.com/assets/og-image.png"><link rel="stylesheet" href="butter.css?v=11"></head>
 <body>
@@ -553,12 +574,12 @@ footer a:hover{text-decoration:underline}
     <div>
       <figure class="stack play blocks" aria-label="Six blocks stacking up, with AI placed on top" role="img">
         <div class="ai" aria-hidden="true"><b>AI</b></div>
-        <div class="layer l1" aria-hidden="true"></div>
-        <div class="layer l2" aria-hidden="true"></div>
-        <div class="layer l3" aria-hidden="true"></div>
-        <div class="layer l4" aria-hidden="true"></div>
-        <div class="layer l5" aria-hidden="true"></div>
-        <div class="layer l6" aria-hidden="true"></div>
+        <div class="layer l1" aria-hidden="true"><b class="m-label">Workforce &amp; adoption</b></div>
+        <div class="layer l2" aria-hidden="true"><b class="m-label">Experience layer</b></div>
+        <div class="layer l3" aria-hidden="true"><b class="m-label">Governance &amp; security</b></div>
+        <div class="layer l4" aria-hidden="true"><b class="m-label">Technology infrastructure</b></div>
+        <div class="layer l5" aria-hidden="true"><b class="m-label">Data readiness</b></div>
+        <div class="layer l6" aria-hidden="true"><b class="m-label">Strategic direction</b></div>
       </figure>
     </div>
   </section>
