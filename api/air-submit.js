@@ -68,20 +68,33 @@ const isFreeEmail = email => {
 
 const siteUrl = () => (process.env.PUBLIC_SITE_URL || 'https://airesulting.com').replace(/\/$/, '');
 const fromAddress = () => process.env.AIR_FROM_EMAIL || 'AI Resulting <hello@airesulting.com>';
+const REPLY_PROMISE = 'A Resultant will reply within one business day to set up a conversation.';
+const SIGN_OFF = 'The AI Resulting team';
 
-async function sendDelivery({ type, email, name, assessmentText }) {
+async function sendDelivery({ type, email, name, assessmentText, contactRequested }) {
   if (!['assessment', 'kit'].includes(type) || !process.env.RESEND_API_KEY) return 'queued';
   const resend = new Resend(process.env.RESEND_API_KEY);
   const site = siteUrl();
   const firstName = clean(name, 100).split(/\s+/)[0] || 'there';
   const isKit = type === 'kit';
+  const followUp = contactRequested ? `\n\n${REPLY_PROMISE}` : '';
   const subject = isKit ? 'Your first useful AI workflow kit' : 'Where AI fits at your company';
   const text = isKit
-    ? `Hi ${firstName},\n\nHere is your working kit.\n\nFillable PDF:\n${site}/assets/your-first-useful-ai-workflow.pdf\n\nOnline worksheet:\n${site}/ai-workflow-worksheet\n\nBring it to the table with the people who do the work.\n\nThis delivery does not subscribe you to marketing.\n\nAI Resulting`
-    : `Hi ${firstName},\n\nHere are your results.\n\n${clean(assessmentText, 12000)}\n\nThese come from your own answers. They are a starting point, not an audit.\n\nAI Resulting`;
+    ? `Hi ${firstName},\n\nHere is your working kit.\n\nFillable PDF:\n${site}/assets/your-first-useful-ai-workflow.pdf\n\nOnline worksheet:\n${site}/ai-workflow-worksheet\n\nBring it to the table with the people who do the work.${followUp}\n\n${SIGN_OFF}`
+    : `Hi ${firstName},\n\nHere are your results.\n\n${clean(assessmentText, 12000)}\n\nThese come from your own answers. They are a starting point, not an audit.${followUp}\n\n${SIGN_OFF}`;
   const { error } = await resend.emails.send({ from: fromAddress(), to: email, subject, text });
   if (error) throw new Error(error.message || 'Resend rejected the email');
   return 'delivered';
+}
+
+// Confirms a conversation request to the person who made it.
+async function sendContactConfirmation({ email, name }) {
+  if (!process.env.RESEND_API_KEY) return;
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const firstName = clean(name, 100).split(/\s+/)[0] || 'there';
+  const text = `Hi ${firstName},\n\nThanks for reaching out. ${REPLY_PROMISE} If anything changes before then, just reply to this email.\n\n${SIGN_OFF}`;
+  const { error } = await resend.emails.send({ from: fromAddress(), to: email, subject: 'We got your note', text });
+  if (error) throw new Error(error.message || 'Resend rejected the email');
 }
 
 // Sends Jen a copy of every lead when HighLevel is unavailable, so nothing is lost.
@@ -147,10 +160,20 @@ module.exports = async function handler(req, res) {
   let deliveryStatus = 'not applicable';
   if (wantsDelivery) {
     try {
-      deliveryStatus = await sendDelivery({ type, email, name, assessmentText: assessmentResponses || assessmentSummary });
+      deliveryStatus = await sendDelivery({ type, email, name, assessmentText: assessmentResponses || assessmentSummary,
+        contactRequested: Boolean(body.contactConsent || body.conversationConsent) });
     } catch (deliveryError) {
       deliveryStatus = 'failed';
       console.error('AIR delivery failed', { requestId, type, message: deliveryError.message });
+    }
+  }
+
+  // Confirm a conversation request to the person, so it doesn't feel like it went nowhere.
+  if (type === 'contact') {
+    try {
+      await sendContactConfirmation({ email, name });
+    } catch (confirmError) {
+      console.error('AIR contact confirmation failed', { requestId, message: confirmError.message });
     }
   }
 
