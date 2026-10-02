@@ -516,8 +516,9 @@ footer a:hover{text-decoration:underline}
 @media (max-width:760px){.srclist details>summary{grid-template-columns:minmax(0,1fr) 20px}.srclist details>summary span{grid-column:1;grid-row:2;font-size:14.5px}.srclist details>summary em{grid-row:1/3;grid-column:2}.src-body{grid-template-columns:minmax(0,1fr)}.src-body p,.src-chips{grid-column:1}}
 @media (prefers-reduced-motion:reduce){.srclist.rv summary{opacity:1;transform:none}}
 
-/* Phones: name the hero layers, and let the six-dimension beats carry the layer colours */
-.blocks .m-label{display:none}
+/* Hero layers carry their dimension names, matching the AI's foundation diagram; the six-dimension beats carry the layer colours on phones */
+.blocks .layer{display:flex;align-items:center;padding:0 18px}
+.blocks .m-label{display:block}
 @media (max-width:900px){
   .blocks .layer{min-height:44px;display:flex;align-items:center;padding:0 16px}
   .blocks .m-label{display:block;font-size:18px}
