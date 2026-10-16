@@ -8,6 +8,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.airesulting.com"
+        }
+      ],
+      "destination": "https://airesulting.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
